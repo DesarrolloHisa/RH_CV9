@@ -1,0 +1,849 @@
+﻿@model RH_CV.Models.DatosPersonales;
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@*
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Datos Personales</title>
+    <link href="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/smart_wizard.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/smart_wizard_theme_arrows.min.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div class="card ">
+        <div class="card-header">
+            <ul class="nav nav-tabs card-header-tabs pull-right" id="myTab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#datosPersonales" role="tab" aria-controls="home" aria-selected="true">Hoja de vida laboral</a>
+                </li>
+                <!--<li class="nav-item">
+                   <a class="nav-link" id="acerca-tab" data-toggle="tab" href="#acerca" role="tab"
+                      aria-controls="acerca"
+                      aria-selected="false">Público</a>
+                   </li>
+
+                   <li class="nav-item">
+                   <a class="nav-link" id="conectividad-tab" data-toggle="tab" href="#conectividad" role="tab"
+                      aria-controls="conectividad"
+                      aria-selected="false">Ambiente Universitario </a>
+
+                   </li>
+                   <li class="nav-item">
+                   <a class="nav-link" id="virtual-tab" data-toggle="tab" href="#virtual" role="tab"
+                      aria-controls="virtual"
+                      aria-selected="false">Costo de Vida</a>
+
+                   </li>
+                   <li class="nav-item">
+                   <a class="nav-link" id="academica-tab" data-toggle="tab" href="#academica" role="tab"
+                      aria-controls="academica"
+                      aria-selected="false">Calidad de Educación Superior</a>
+
+                   </li>-->
+            </ul>
+        </div>
+        <div class="card-body">
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="Personal" role="tabpanel" aria-labelledby="home-tab">
+                    <form class="was-validated" id="form1">
+                        <div id="divNombreDimension_1" class="col-md-12 alert alert-warning" role="alert" style="text-align:center;background-color:#DE3163;color: #FFFFFF;border-color:#d3255c">
+                            <b>Hoja de Vida</b>
+                        </div>
+                        <div class="row align-items-baseline">
+                            <div class="col-md-4" id="diva1">
+                                <label>Tipo de Vinculo</label>
+                            @*foreach (var tipoVinculo in tiposVinculo)
+                            {
+                                <div>
+                                    <input type="radio" name="TipoVinculoId" value="@tipoVinculo.Id" id="@tipoVinculo.Id" required=""/>
+                                    <label for="@tipoVinculo.Id">@tipoVinculo.Tipo</label>
+                                </div>
+                             }*@
+                            </div>
+                            <div class="col-md-4" id="div1">
+                                <label>Tipo de documento</label>
+                                @*<select asp-for="TipoDocumentoId" asp-items="@ViewBag.Documentos" class="form-control"></select>*
+                            </div>
+                            <div class="col-md-4" id="div2">
+                                <label>Número de documento</label>
+                                <input type="number" minlength="6" class="form-control" id="p2" value="" required="">
+                            </div>
+                            <div class="col-md-4" id="div3">
+                                <label>Nombres y apellidos</label>
+                                <input type="text" class="form-control" id="p3" value="" required="">
+                                <br>
+                            </div>
+                        </div>
+                        <div class="row align-items-baseline">
+                            <div class="col-md-4" id="div4">
+                                <label>Fecha de nacimiento</label>
+                                <input max="2008-01-01" type="date" onblur="calcularFecha(this.value)" class="form-control" id="p4" value="" required="">
+                                <br>
+                            </div>
+                            <div class="col-md-4" id="div65">
+                                <label>Edad</label>
+                                <input type="number" min="1" class="form-control" id="p65" value="" disabled="">
+                            </div>
+                        </div>
+                        <br>
+                        <div id="divRepresentanteLegal" class="form-row align-items-baseline" style="display: none">
+                        </div>
+                        <div class="row align-items-baseline">
+                            <div class="col-md-4" id="div61">
+                                <label>País de nacimiento</label>
+                                <select asp-for="TipoDocumento" asp-items="@ViewBag.Departamentos" class="form-control"></select>
+                            </div>
+                            <div class="col-md-4" id="div6">
+                                <label>Municipio de nacimiento</label>
+                                <select asp-for="TipoDocumento" asp-items="@ViewBag.Documentos" class="form-control"></select>
+                                <br>
+                            </div>
+                        </div>
+                        <br>
+
+
+                        <div id="divNombreDimension_2" class="col-md-12 alert alert-warning" role="alert" style="text-align:center;background-color:#DE3163;color: #FFFFFF;border-color:#d3255c">
+                            <b>Datos Personales</b>
+                        </div>
+                        <div class="row align-items-baseline">
+                            <div class="col-md-3" id="div2">
+                                <label>Primer Nombre</label>
+                                <input type="text" class="form-control" id="p2" value="" required="">
+                            </div>
+                            <div class="col-md-3" id="div2">
+                                <label>Segundo Nombre</label>
+                                <input type="text" class="form-control" id="p2" value="" required="">
+                            </div>
+                            <div class="col-md-3" id="div2">
+                                <label>Primer Apellido</label>
+                                <input type="text" class="form-control" id="p2" value="" required="">
+                            </div>
+                            <div class="col-md-3" id="div3">
+                                <label>Segundo apellido</label>
+                                <input type="text" class="form-control" id="p3" value="" required="">
+                                <br>
+                            </div>
+                            <div class="col-md-4" id="div5">
+                                <label>Sexo</label>
+                                <select class="form-control" id="p5" required="">
+                                    <option value="">Seleccionar</option>
+                                    <option value="6">Mujer</option>
+                                    <option value="7">Hombre</option>
+                                    <option value="8">Intersexual</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4" id="div62">
+                                <label>Municipio residencia</label>
+                                <select class="form-control" id="p62" required="">
+                                    <option value="">Seleccionar</option>
+                                    <option value="1">Medellín</option>
+                                    <option value="2">Abejorral</option>
+                                    <option value="3">Abriaqui</option>
+                                    <option value="1121">Otro</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4" id="div7">
+                                <label>Comuna o Corregimiento  de residencia</label>
+                                <select class="form-control" id="p7" required="">
+                                    <option value="">Seleccionar</option>
+                                    <option value="1">1 - POPULAR</option>
+                                    <option value="2">2 - SANTA CRUZ</option>
+                                    <option value="3">3 - MANRIQUE</option>
+                                    <option value="4">4 - ARANJUEZ</option>
+                                    <option value="21">90 - SANTA ELENA</option>
+                                    <option class="hide" value="22">00 - No aplica</option>
+                                </select>
+                                <br>
+                            </div>
+                        </div>
+                        <div class="row align-items-baseline">
+                            <div class="col-md-4" id="div55">
+                                <label>¿Barrio residencia?</label>
+                                <select class="form-control" id="p55" required="">
+                                    <option value="1">Seleccionar</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4" id="div9">
+                                <label>Celular 2</label>
+                                <input type="text" maxlength="10" onkeypress="return soloNumeros(event)" class="form-control" id="p9" value="">
+                                <br>
+                            </div>
+                        </div>
+                        <div class="row align-items-baseline">
+                            <div class="col-md-2" id="d7">
+                                <label>Tipo</label>
+                                <select class="form-control" onblur="actualizarDireccion()" id="dir1" required="">
+                                    <option value="">Seleccionar</option>
+                                    <option value="Calle">Calle</option>
+                                    <option value="Carrera">Carrera</option>
+                                    <option value="Avenida">Avenida</option>
+                                    <option value="Transversal">Transversal</option>
+                                    <option value="Diagonal">Diagonal</option>
+                                 </select>
+                            </div>
+                            <div class="col-md-2" id="d8">
+                                <label>Número</label>
+                                <input type="text" maxlength="10" onblur="actualizarDireccion()" onkeypress="return soloNumeros(event)" class="form-control" id="dir2" value="" required="">
+                            </div>
+                            <div class="col-md-2" id="d7">
+                                <label>Letra</label>
+                                <select class="form-control" onblur="actualizarDireccion()" id="dir3">
+                                    <option value=""></option>
+                                    <option value="A">A</option>
+                                    <option value="B">B</option>
+                                    <option value="C">C</option>
+                                    <option value="D">D</option>
+                                    <option value="E">E</option>
+                                    <option value="F">F</option>
+                                    <option value="G">G</option>
+
+                                </select>
+                            </div>
+                            <div class="col-md-2" id="d7">
+                                <label>Letra</label>
+                                <select class="form-control" onblur="actualizarDireccion()" id="dir4">
+                                    <option value=""></option>
+                                    <option value="Sur">Sur</option>
+                                </select>
+                            </div>
+                            <div class="col-md-2" id="d9">
+                                <label>Número</label>
+                                <input type="text" maxlength="10" onblur="actualizarDireccion()" onkeypress="return soloNumeros(event)" class="form-control" id="dir5" value="" required="">
+                            </div>
+                            <div class="col-md-2" id="d7">
+                                <label>Letra</label>
+                                <select class="form-control" onblur="actualizarDireccion()" id="dir6">
+                                    <option value=""></option>
+                                    <option value="A">A</option>
+                                    <option value="B">B</option>
+                                    <option value="C">C</option>
+                                    <option value="D">D</option>
+                                    <option value="E">E</option>
+                                    <option value="F">F</option>
+                                    <option value="G">G</option>
+                                </select>
+                            </div>
+                            <div class="col-md-2" id="d9">
+                                <label>Número</label>
+                                <input type="text" maxlength="10" onblur="actualizarDireccion()" onkeypress="return soloNumeros(event)" class="form-control" id="dir7" value="" required="">
+                            </div>
+                            <div class="col-md-4" id="d9">
+                                <label>Complemento</label>
+                                <input type="text" class="form-control" onblur="actualizarDireccion()" id="dir8" value="">
+                            </div>
+                            <div class="col-md-5" id="d10">
+                                <label>Dirección Completa</label>
+                                <input type="text" class="form-control" id="dir9" value="" required="" disabled="">
+                                <br>
+                            </div>
+                         </div>
+                        <div class="row align-items-baseline">
+                            <div class="col-md-4" id="div8">
+                                <label>Celular</label>
+                                <input type="text" maxlength="10" onkeypress="return soloNumeros(event)" class="form-control" id="p8" value="" required="">
+                            </div>
+                            <div class="col-md-4" id="d410">
+                                <label>Correo</label>
+                                <input type="email" class="form-control" id="p10" value="" required="">
+                            </div>
+                            <div class="col-md-4" id="div11">
+                                <label>Estrato socioeconómico de residencia</label>
+                                <select class="form-control" id="estrato" required="">
+                                    <option value="">Seleccionar</option>
+                                    <option value="1">Uno</option>
+                                    <option value="2">Dos</option>
+                                    <option value="3">Tres</option>
+                                    <option value="4">Cuatro</option>
+                                    <option value="5">Cinco</option>
+                                    <option value="6">Seis</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4" id="div18">
+                                <label>¿Tiene hijos e hijas?</label>
+                                <select class="form-control" id="p18" required="">
+                                    <option value="">Seleccionar</option>
+                                    <option value="43">Si</option>
+                                    <option value="44">No</option>
+                                </select>
+                                <br>
+                            </div>
+                        </div>
+                        <div class="row align-items-baseline">
+                            
+                            <div class="col-md-4" id="diva1">
+                                <label>Vive Con</label>
+                                <input type="radio" id="soltero" asp-for="EstadoCivil" name="estadoCivil" value="Soltero" required="">
+                                <label for="soltero">Soltero/a</label><br>
+                                <input type="radio" id="casado" asp-for="EstadoCivil" name="estadoCivil" value="Casado" required="">
+                                <label for="casado">Casado/a</label><br>
+                                <input type="radio" id="divorciado" asp-for="EstadoCivil" name="estadoCivil" value="Divorciado" required="">
+                                <label for="divorciado">Divorciado/a</label><br>
+                                <input type="radio" id="viudo" asp-for="EstadoCivil" name="estadoCivil" value="Viudo" required="">
+                                <label for="viudo">Viudo/a</label><br>
+                            </div>
+                        </div>
+                        <div class="row align-items-baseline">
+                            <div class="col-md-4" id="div19">
+                                <label>¿Cuántos hijos e hijas tiene?</label>
+                                <input type="number" min="0" class="form-control" id="p19" value="" disabled="">
+                            </div>
+                            <div class="col-md-4" id="div20">
+                                <label>Actualmente, ¿es madre gestante? </label>
+                                <select class="form-control" id="p20" disabled="">
+                                    <option value="">Seleccionar</option>
+                                    <option value="45">Si</option>
+                                    <option value="46">No</option>
+                                    <option value="47">No Aplica</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4" id="div21">
+                                <label>Actualmente, ¿es madre lactante?</label>
+                                <select class="form-control" id="p21" disabled="">
+                                    <option value="">Seleccionar</option>
+                                    <option value="100">Si</option>
+                                    <option value="101">No</option>
+                                    <option value="102">No Aplica</option>
+                                </select>
+                                <br>
+                            </div>
+                        </div>
+                        <div class="row align-items-baseline">
+                            <div class="col-md-4" id="div22">
+                                <label>¿Cuál fue la edad de su primer embarazo o del embarazo de su pareja?</label>
+                                <input type="number" min="0" class="form-control" id="p22" value="" disabled="">
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row align-items-baseline">
+                            <div class="col-md-4" id="div47">
+                                <label>Grupo étnico</label>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" required="" name="p47" value="1" id="r103" onclick="valida_multiple(47,103,1);guardar_respuesta_actual('afrodescendiente', 'r103',1)">
+                                    <label class="custom-control-label" for="r103" style="position: static">Afrodescendiente</label>
+                                    <input class="custom-control-input" value="Afrodescendiente" id="nr103" style="display:none">
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" required="" name="p47" value="1" id="r104" onclick="valida_multiple(47,104,2);guardar_respuesta_actual('indigena', 'r104',1)">
+                                    <label class="custom-control-label" for="r104" style="position: static">Indígena</label>
+                                    <input class="custom-control-input" value="Indígena" id="nr104" style="display:none">
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" required="" name="p47" value="1" id="r105" onclick="valida_multiple(47,105,3);guardar_respuesta_actual('rom_gitano', 'r105',1)">
+                                    <label class="custom-control-label" for="r105" style="position: static">Rom o gitano</label>
+                                    <input class="custom-control-input" value="Rom o gitano" id="nr105" style="display:none">
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" required="" name="p47" value="1" id="r106" onclick="valida_multiple(47,106,4);guardar_respuesta_actual('ninguno_etnica', 'r106',1)">
+                                    <label class="custom-control-label" for="r106" style="position: static">Ninguno</label>
+                                    <input class="custom-control-input" value="Ninguno" id="nr106" style="display:none">
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row align-items-baseline">
+                            <div class="col-md-4" id="div48">
+                                <label>¿Cuál es su etnia?</label>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" required="" name="p48" value="1" id="r107" onclick="valida_multiple(48,107,1);guardar_respuesta_actual('afrocolombiano', 'r107',1)">
+                                    <label class="custom-control-label" for="r107" style="position: static">Afrocolombiano</label>
+                                    <input class="custom-control-input" value="Afrocolombiano" id="nr107" style="display:none">
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" required="" name="p48" value="1" id="r108" onclick="valida_multiple(48,108,2);guardar_respuesta_actual('raizal', 'r108',1)">
+                                    <label class="custom-control-label" for="r108" style="position: static">Raizal</label>
+                                    <input class="custom-control-input" value="Raizal" id="nr108" style="display:none">
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" required="" name="p48" value="1" id="r109" onclick="valida_multiple(48,109,3);guardar_respuesta_actual('palenquero', 'r109',1)">
+                                    <label class="custom-control-label" for="r109" style="position: static">Palenquero</label>
+                                    <input class="custom-control-input" value="Palenquero" id="nr109" style="display:none">
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" required="" name="p48" value="1" id="r110" onclick="valida_multiple(48,110,4);guardar_respuesta_actual('tule', 'r110',1)">
+                                    <label class="custom-control-label" for="r110" style="position: static">Tule (Kuna)</label>
+                                    <input class="custom-control-input" value="Tule (Kuna)" id="nr110" style="display:none">
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" required="" name="p48" value="1" id="r111" onclick="valida_multiple(48,111,5);guardar_respuesta_actual('embera', 'r111',1)">
+                                    <label class="custom-control-label" for="r111" style="position: static">Embera (Dobidá, Eyabidá, Katío y Chamí)</label>
+                                    <input class="custom-control-input" value="Embera (Dobidá, Eyabidá, Katío y Chamí)" id="nr111" style="display:none">
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" required="" name="p48" value="1" id="r112" onclick="valida_multiple(48,112,6);guardar_respuesta_actual('sinu', 'r112',1)">
+                                    <label class="custom-control-label" for="r112" style="position: static">Sinú</label>
+                                    <input class="custom-control-input" value="Sinú" id="nr112" style="display:none">
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" required="" name="p48" value="1" id="r113" onclick="valida_multiple(48,113,7);guardar_respuesta_actual('', 'r113',1)">
+                                    <label class="custom-control-label" for="r113" style="position: static">Ingas</label>
+                                    <input class="custom-control-input" value="Ingas" id="nr113" style="display:none">
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" required="" name="p48" value="1" id="r114" onclick="valida_multiple(48,114,8);guardar_respuesta_actual('kamsa', 'r114',1)">
+                                    <label class="custom-control-label" for="r114" style="position: static">Kamsá</label>
+                                    <input class="custom-control-input" value="Kamsá" id="nr114" style="display:none">
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" required="" name="p48" value="1" id="r115" onclick="valida_multiple(48,115,9);guardar_respuesta_actual('nasa', 'r115',1)">
+                                    <label class="custom-control-label" for="r115" style="position: static">Nasa (Paez)</label>
+                                    <input class="custom-control-input" value="Nasa (Paez)" id="nr115" style="display:none">
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" required="" name="p48" value="1" id="r116" onclick="valida_multiple(48,116,10);guardar_respuesta_actual('pijaos', 'r116',1)">
+                                    <label class="custom-control-label" for="r116" style="position: static">Pijaos</label>
+                                    <input class="custom-control-input" value="Pijaos" id="nr116" style="display:none">
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" required="" name="p48" value="1" id="r117" onclick="valida_multiple(48,117,11);guardar_respuesta_actual('chibcariwak', 'r117',1)">
+                                    <label class="custom-control-label" for="r117" style="position: static">Chibcariwak</label>
+                                    <input class="custom-control-input" value="Chibcariwak" id="nr117" style="display:none">
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" required="" name="p48" value="1" id="r118" onclick="valida_multiple(48,118,12);guardar_respuesta_actual('', 'r118',1)">
+                                    <label class="custom-control-label" for="r118" style="position: static"> Quillacingas Pastos</label>
+                                    <input class="custom-control-input" value=" Quillacingas Pastos" id="nr118" style="display:none">
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" required="" name="p48" value="1" id="r119" onclick="valida_multiple(48,119,13);guardar_respuesta_actual('ingas', 'r119',1)">
+                                    <label class="custom-control-label" for="r119" style="position: static">Inga</label>
+                                    <input class="custom-control-input" value="Inga" id="nr119" style="display:none">
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" required="" name="p48" value="1" id="r120" onclick="valida_multiple(48,120,14);guardar_respuesta_actual('nutabe', 'r120',1)">
+                                    <label class="custom-control-label" for="r120" style="position: static">Nutabe</label>
+                                    <input class="custom-control-input" value="Nutabe" id="nr120" style="display:none">
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" required="" name="p48" value="1" id="r121" onclick="valida_multiple(48,121,15);guardar_respuesta_actual('wayuu', 'r121',1)">
+                                    <label class="custom-control-label" for="r121" style="position: static">Wayuu</label>
+                                    <input class="custom-control-input" value="Wayuu" id="nr121" style="display:none">
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" required="" name="p48" value="1" id="r122" onclick="valida_multiple(48,122,16);guardar_respuesta_actual('kichwa', 'r122',1)">
+                                    <label class="custom-control-label" for="r122" style="position: static">Kichwa</label>
+                                    <input class="custom-control-input" value="Kichwa" id="nr122" style="display:none">
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" required="" name="p48" value="1" id="r123" onclick="valida_multiple(48,123,17);guardar_respuesta_actual('otro_etnia', 'r123',1)">
+                                    <label class="custom-control-label" for="r123" style="position: static">Otro (Cuál)</label>
+                                    <input class="custom-control-input" value="Otro (Cuál)" id="nr123" style="display:none">
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" required="" name="p48" value="1" id="r150" onclick="valida_multiple(48,150,18);guardar_respuesta_actual('ninguna_etnia', 'r150',1)">
+                                    <label class="custom-control-label" for="r150" style="position: static">Ninguno</label>
+                                    <input class="custom-control-input" value="Ninguno" id="nr150" style="display:none">
+                                </div>
+                                <br>
+                            </div>
+                        </div>
+                        <div class="row align-items-baseline">
+                            <div class="col-md-4" id="div49">
+                                <label>¿Cuál otro grupo étnico?</label>
+                                <input type="text" class="form-control" id="p49" value="" disabled="">
+                            </div>
+                            <div class="col-md-4" id="div50">
+                                <label>¿Se identifica como población LGTBIQ+?</label>
+                                <select class="form-control" id="p50" required="">
+                                    <option value="">Seleccionar</option>
+                                    <option value="124">Si</option>
+                                    <option value="125">No</option>
+                                    <option value="151">Prefiero No responder</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4" id="div51">
+                                <label>¿Ha sido declarado(a) víctima de la violencia en Colombia?</label>
+                                <select class="form-control" id="p51" required="">
+                                    <option value="">Seleccionar</option>
+                                    <option value="126">Si</option>
+                                    <option value="127">No</option>
+                                    <option value="152">Prefiero No responder</option>
+                                </select>
+                                <br>
+                            </div>
+                        </div>
+                        <div class="row align-items-baseline">
+                            <div class="col-md-4" id="div52">
+                                <label>¿Cuál es el hecho victimizante por el cual ha sido declarado víctima?</label>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" required="" name="p52" value="1" id="r128" onclick="valida_multiple(52,128,1);guardar_respuesta_actual('homicidio', 'r128',1)">
+                                    <label class="custom-control-label" for="r128" style="position: static">Homicidio</label>
+                                    <input class="custom-control-input" value="Homicidio" id="nr128" style="display:none">
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" required="" name="p52" value="1" id="r129" onclick="valida_multiple(52,129,2);guardar_respuesta_actual('desplazamiento', 'r129',1)">
+                                    <label class="custom-control-label" for="r129" style="position: static">Desplazamiento forzado</label>
+                                    <input class="custom-control-input" value="Desplazamiento forzado" id="nr129" style="display:none">
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" required="" name="p52" value="1" id="r130" onclick="valida_multiple(52,130,3);guardar_respuesta_actual('tortura', 'r130',1)">
+                                    <label class="custom-control-label" for="r130" style="position: static">Tortura</label>
+                                    <input class="custom-control-input" value="Tortura" id="nr130" style="display:none">
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" required="" name="p52" value="1" id="r131" onclick="valida_multiple(52,131,4);guardar_respuesta_actual('secuestro', 'r131',1)">
+                                    <label class="custom-control-label" for="r131" style="position: static">Secuestro</label>
+                                    <input class="custom-control-input" value="Secuestro" id="nr131" style="display:none">
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" required="" name="p52" value="1" id="r132" onclick="valida_multiple(52,132,5);guardar_respuesta_actual('lesiones_personales', 'r132',1)">
+                                    <label class="custom-control-label" for="r132" style="position: static">Lesiones personales</label>
+                                    <input class="custom-control-input" value="Lesiones personales" id="nr132" style="display:none">
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" required="" name="p52" value="1" id="r133" onclick="valida_multiple(52,133,6);guardar_respuesta_actual('desaparicion_forzada', 'r133',1)">
+                                    <label class="custom-control-label" for="r133" style="position: static">Desaparición forzada</label>
+                                    <input class="custom-control-input" value="Desaparición forzada" id="nr133" style="display:none">
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" required="" name="p52" value="1" id="r134" onclick="valida_multiple(52,134,7);guardar_respuesta_actual('reclutamiento_menores', 'r134',1)">
+                                    <label class="custom-control-label" for="r134" style="position: static">Reclutamiento ilegal de menores</label>
+                                    <input class="custom-control-input" value="Reclutamiento ilegal de menores" id="nr134" style="display:none">
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" required="" name="p52" value="1" id="r135" onclick="valida_multiple(52,135,8);guardar_respuesta_actual('mina', 'r135',1)">
+                                    <label class="custom-control-label" for="r135" style="position: static">Mina antipersonal</label>
+                                    <input class="custom-control-input" value="Mina antipersonal" id="nr135" style="display:none">
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" required="" name="p52" value="1" id="r136" onclick="valida_multiple(52,136,9);guardar_respuesta_actual('amenazas', 'r136',1)">
+                                    <label class="custom-control-label" for="r136" style="position: static">Amenazas</label>
+                                    <input class="custom-control-input" value="Amenazas" id="nr136" style="display:none">
+                                </div>
+                                <br>
+                            </div>
+                        </div>
+                        <div class="row align-items-baseline">
+                            <div class="col-md-4" id="div53">
+                                <label>¿Tiene alguna de las siguientes discapacidades?</label>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" required="" name="p53" value="1" id="r137" onclick="valida_multiple(53,137,1);guardar_respuesta_actual('motriz', 'r137',1)">
+                                    <label class="custom-control-label" for="r137" style="position: static">Motriz</label>
+                                    <input class="custom-control-input" value="Motriz" id="nr137" style="display:none">
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" required="" name="p53" value="1" id="r138" onclick="valida_multiple(53,138,2);guardar_respuesta_actual('visual', 'r138',1)">
+                                    <label class="custom-control-label" for="r138" style="position: static">Visual</label>
+                                    <input class="custom-control-input" value="Visual" id="nr138" style="display:none">
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" required="" name="p53" value="1" id="r139" onclick="valida_multiple(53,139,3);guardar_respuesta_actual('mental', 'r139',1)">
+                                    <label class="custom-control-label" for="r139" style="position: static">Mental</label>
+                                    <input class="custom-control-input" value="Mental" id="nr139" style="display:none">
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" required="" name="p53" value="1" id="r140" onclick="valida_multiple(53,140,4);guardar_respuesta_actual('auditiva', 'r140',1)">
+                                    <label class="custom-control-label" for="r140" style="position: static">Auditiva</label>
+                                    <input class="custom-control-input" value="Auditiva" id="nr140" style="display:none">
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" required="" name="p53" value="1" id="r141" onclick="valida_multiple(53,141,5);guardar_respuesta_actual('lenguaje', 'r141',1)">
+                                    <label class="custom-control-label" for="r141" style="position: static">Del lenguaje</label>
+                                    <input class="custom-control-input" value="Del lenguaje" id="nr141" style="display:none">
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" required="" name="p53" value="1" id="r142" onclick="valida_multiple(53,142,6);guardar_respuesta_actual('ninguna_discapacidad', 'r142',1)">
+                                    <label class="custom-control-label" for="r142" style="position: static">Ninguna</label>
+                                    <input class="custom-control-input" value="Ninguna" id="nr142" style="display:none">
+                                </div>
+                                <br>
+                            </div>
+                        </div>
+                        <div class="row align-items-baseline">
+                            <div class="col-md-4" id="div54">
+                                <label>¿Hace parte de alguna de las siguientes poblaciones?</label>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" required="" name="p54" value="1" id="r143" onclick="valida_multiple(54,143,1);guardar_respuesta_actual('conflicto_armado', 'r143',1)">
+                                    <label class="custom-control-label" for="r143" style="position: static">Desvinculados del conflicto armado</label>
+                                    <input class="custom-control-input" value="Desvinculados del conflicto armado" id="nr143" style="display:none">
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" required="" name="p54" value="1" id="r144" onclick="valida_multiple(54,144,2);guardar_respuesta_actual('pospenado', 'r144',1)">
+                                    <label class="custom-control-label" for="r144" style="position: static">Pospenados</label>
+                                    <input class="custom-control-input" value="Pospenados" id="nr144" style="display:none">
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" required="" name="p54" value="1" id="r145" onclick="valida_multiple(54,145,3);guardar_respuesta_actual('responsabilidad_adolescente', 'r145',1)">
+                                    <label class="custom-control-label" for="r145" style="position: static">Joven perteneciente al Sistema de Responsabilidad Penal para Adolescentes</label>
+                                    <input class="custom-control-input" value="Joven perteneciente al Sistema de Responsabilidad Penal para Adolescentes" id="nr145" style="display:none">
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" required="" name="p54" value="1" id="r146" onclick="valida_multiple(54,146,4);guardar_respuesta_actual('restablecimiento_derechos', 'r146',1)">
+                                    <label class="custom-control-label" for="r146" style="position: static">Joven pertenenciente al Sistema de Restablecimiento de Derechos</label>
+                                    <input class="custom-control-input" value="Joven pertenenciente al Sistema de Restablecimiento de Derechos" id="nr146" style="display:none">
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" required="" name="p54" value="1" id="r147" onclick="valida_multiple(54,147,5);guardar_respuesta_actual('parceros', 'r147',1)">
+                                    <label class="custom-control-label" for="r147" style="position: static">Estrategia Parceros</label>
+                                    <input class="custom-control-input" value="Estrategia Parceros" id="nr147" style="display:none">
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" required="" name="p54" value="1" id="r148" onclick="valida_multiple(54,148,6);guardar_respuesta_actual('mujer_victima', 'r148',1)">
+                                    <label class="custom-control-label" for="r148" style="position: static">Mujeres víctima de violencia basada en género</label>
+                                    <input class="custom-control-input" value="Mujeres víctima de violencia basada en género" id="nr148" style="display:none">
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" required="" name="p54" value="1" id="r149" onclick="valida_multiple(54,149,7);guardar_respuesta_actual('ninguna_poblacion', 'r149',1)">
+                                    <label class="custom-control-label" for="r149" style="position: static">No pertenezco a ninguna</label>
+                                    <input class="custom-control-input" value="No pertenezco a ninguna" id="nr149" style="display:none">
+                                </div>
+                                <br>
+                            </div>
+                        </div>
+                        <br>
+
+
+                        <div id="divNombreDimension_3" class="col-md-12 alert alert-warning" role="alert" style="text-align:center;background-color:#DE3163;color: #FFFFFF;border-color:#d3255c">
+                            <b>Datos Familiares</b>
+                        </div>
+                        <div class="row align-items-baseline">
+                            <div id="div13">
+                                <label>Parientes </label>
+                                
+                            </div>
+    
+                            <div class="col-md-4" id="div14">
+
+                                <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Nombre</th>
+                                        <th>Fecha de Nacimiento</th>
+                                        <th>Parentesco</th>
+                                    </tr>
+                                 </thead>
+                                 <tbody>
+                                     <tr>
+                                        <td><input type="text" class="form-control" id="nombre1"></td>
+                                        <td><input type="date" class="form-control" id="fechaNacimiento1"></td>
+                                        <td>
+                                        <select class="form-control" id="parentesco1">
+                                            <option value="">Seleccionar</option>
+                                            <option value="Padre">Padre</option>
+                                            <option value="Madre">Madre</option>
+                                            <option value="Hermano">Hermano</option>
+                                            <option value="Hermana">Hermana</option>
+                                            <option value="Abuelo">Abuelo</option>
+                                            <option value="Abuela">Abuela</option>
+                                            <option value="Tío">Tío</option>
+                                            <option value="Tía">Tía</option>
+                                            <option value="Primo">Primo</option>
+                                            <option value="Prima">Prima</option>
+                                        </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="text" class="form-control" id="nombre2"></td>
+                                        <td><input type="date" class="form-control" id="fechaNacimiento2"></td>
+                                        <td>
+                                        <select class="form-control" id="parentesco2">
+                                            <option value="">Seleccionar</option>
+                                            <option value="Padre">Padre</option>
+                                            <option value="Madre">Madre</option>
+                                            <option value="Hermano">Hermano</option>
+                                            <option value="Hermana">Hermana</option>
+                                            <option value="Abuelo">Abuelo</option>
+                                            <option value="Abuela">Abuela</option>
+                                            <option value="Tío">Tío</option>
+                                            <option value="Tía">Tía</option>
+                                            <option value="Primo">Primo</option>
+                                            <option value="Prima">Prima</option>
+                                        </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="text" class="form-control" id="nombre3"></td>
+                                        <td><input type="date" class="form-control" id="fechaNacimiento3"></td>
+                                        <td>
+                                        <select class="form-control" id="parentesco3">
+                                            <option value="">Seleccionar</option>
+                                            <option value="Padre">Padre</option>
+                                            <option value="Madre">Madre</option>
+                                            <option value="Hermano">Hermano</option>
+                                            <option value="Hermana">Hermana</option>
+                                            <option value="Abuelo">Abuelo</option>
+                                            <option value="Abuela">Abuela</option>
+                                            <option value="Tío">Tío</option>
+                                            <option value="Tía">Tía</option>
+                                            <option value="Primo">Primo</option>
+                                            <option value="Prima">Prima</option>
+                                        </select>
+                                        </td>
+                                    </tr>
+                                </tbody>
+
+                                <label>¿En su vivienda posee conexión a internet? </label>
+                                <select class="form-control" id="p13" required="">
+                                    <option value="">Seleccionar</option>
+                                    <option value="21">Si</option>
+                                    <option value="22">No</option>
+                                </select>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row align-items-baseline">
+                            <div class="col-md-4" id="div15">
+                                <label>De los siguientes dispositivos ¿cuáles posee en su vivienda?</label>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" required="" name="p15" value="1" id="r29" onclick="valida_multiple(15,29,1);guardar_respuesta_actual('computador_mesa', 'r29',1)">
+                                    <label class="custom-control-label" for="r29" style="position: static">Computador de mesa</label>
+                                    <input class="custom-control-input" value="Computador de mesa" id="nr29" style="display:none">
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" required="" name="p15" value="1" id="r30" onclick="valida_multiple(15,30,2);guardar_respuesta_actual('portatil', 'r30',1)">
+                                    <label class="custom-control-label" for="r30" style="position: static">Computador portátil</label>
+                                    <input class="custom-control-input" value="Computador portátil" id="nr30" style="display:none">
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" required="" name="p15" value="1" id="r31" onclick="valida_multiple(15,31,3);guardar_respuesta_actual('tablet', 'r31',1)">
+                                    <label class="custom-control-label" for="r31" style="position: static">Tablet</label>
+                                    <input class="custom-control-input" value="Tablet" id="nr31" style="display:none">
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" required="" name="p15" value="1" id="r32" onclick="valida_multiple(15,32,4);guardar_respuesta_actual('celular_inteligente', 'r32',1)">
+                                    <label class="custom-control-label" for="r32" style="position: static">Celular inteligente</label>
+                                    <input class="custom-control-input" value="Celular inteligente" id="nr32" style="display:none">
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" required="" name="p15" value="1" id="r33" onclick="valida_multiple(15,33,5);guardar_respuesta_actual('ningun_dispositivo', 'r33',1)">
+                                    <label class="custom-control-label" for="r33" style="position: static">Ninguna</label>
+                                    <input class="custom-control-input" value="Ninguna" id="nr33" style="display:none">
+                                </div>
+                            </div>
+                        </div>
+                        <br><br>
+
+
+                        <div id="divNombreDimension_7" class="col-md-12 alert alert-warning" role="alert" style="text-align:center;background-color: #603CE6;color: #FFFFFF;border-color:#F5EC43">
+                            <b>Información académica</b>
+                        </div>
+                        <div class="row align-items-baseline">
+                            <div class="col-md-4" id="div56">
+                                <label>¿En qué País se graduó de educación media (grado 11)?</label>
+                                <select class="form-control " id="p56" required="">
+                                    <option value="">Seleccionar</option>
+                                    <option class="hide_pais" value="1">Colombia</option>
+                                    <option value="2">Afganistán</option>
+                                    <option value="3">Albania</option>
+                                    <option value="4">Alemania</option>
+                                    <option value="194">Zimbabue</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4" id="div57">
+                                <label>¿En qué Municipio se graduó de educación media (grado 11)?</label>
+                                <select class="form-control " id="p57" required="">
+                                    <option value="">Seleccionar</option>
+                                    <option value="1">Medellín</option>
+                                    <option value="2">Abejorral</option>
+                                    <option value="3">Abriaqui</option>
+                                    <option value="4">Alejandría</option>
+                                    <option value="1121">Otro</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4" id="div63">
+                                <label>Otro municipio graduación</label>
+                                <input type="text" class="form-control" id="p63" value="" disabled="">
+                                <br>
+                            </div>
+                        </div>
+                        <div class="row align-items-baseline">
+                            <div class="col-md-4" id="div58">
+                                <label>¿Cuál fue el año de graduación de la educación media (grado 11)?</label>
+                                <select class="form-control fg" id="p58" required="">
+                                    <option value="">Seleccionar</option>
+                                    <option value="1970">1970</option>
+                                    <option value="1971">1971</option>
+                                    <option value="1972">1972</option>
+                                    <option value="1973">1973</option>
+                                    <option value="2022">2022</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4" id="div59">
+                                <label>¿Cuál es su máximo nivel académico alcanzado?</label>
+                                <select class="form-control " id="p59" required="">
+                                    <option value="">Seleccionar</option>
+                                    <option value="1">Bachiller académico</option>
+                                    <option value="2">Técnica laboral</option>
+                                    <option value="3">Técnica profesional</option>
+                                    <option value="4">Tecnología</option>
+                                    <option value="5">Profesional</option>
+                                    <option value="6">Posgrado</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4" id="div60">
+                                @<label>¿Tiene usted algún beneficio de matrícula con Sapiencia?</label>
+                                <select class="form-control " id="p60" required="">
+                                    <option value="">Seleccionar</option>
+                                    <option value="2">Fondos Sapiencia EPM y Universidades</option>
+                                    <option value="3">Recursos de presupuesto participativo</option>
+                                    <option value="4">Becas Mejores deportistas</option>
+                                    <option value="5">Becas Tecnologías</option>
+                                    <option value="6">Becas Mejores bachilleres</option>
+                                    <option value="7">Ninguno</option>
+                                </select>
+                                <br>
+                            </div>
+                        </div>
+                        <div class="row align-items-baseline">
+                            <div class="col-md-4" id="div64">
+                                <label>¿En que IES municipal está estudiando?</label>
+                                <select class="form-control " id="p64" required="">
+                                    <option value="">Seleccionar</option>
+                                    <option value="5">COLEGIO MAYOR DE ANTIOQUIA</option>
+                                    <option value="186">INSTITUCION UNIVERSITARIA PASCUAL BRAVO</option>
+                                    <option value="199">INSTITUTO TECNOLOGICO METROPOLITANO</option>
+                                </select>
+                            </div>
+                        </div>
+                        <hr>
+                        <br>
+                        <div class="form-row">
+                            <button id="btn1" class="btn btn-primary" type="submit">Finalizar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Obtenemos los elementos HTML correspondientes a cada input
+        var tipo = document.getElementById("dir1");
+        var num1 = document.getElementById("dir2");
+        var letra1 = document.getElementById("dir3");
+        var letra2 = document.getElementById("dir4");
+        var num2 = document.getElementById("dir5");
+        var letra3 = document.getElementById("dir6");
+        var num3 = document.getElementById("dir7");
+        var complemento = document.getElementById("dir8");
+        var direccion = document.getElementById("dir9");
+
+    // Agregamos un evento onblur a cada input
+        //tipo.onblur = actualizarDireccion;
+        //num1.onblur = actualizarDireccion;
+        //letra1.onblur = actualizarDireccion;
+        //letra2.onblur = actualizarDireccion;
+        //num2.onblur = actualizarDireccion;
+        //letra3.onblur = actualizarDireccion;
+        //num3.onblur = actualizarDireccion;
+        //complemento.onblur = actualizarDireccion;
+
+    // Función que actualiza el input de "Dirección Completa"
+        function actualizarDireccion() {
+            direccion.value = tipo.value + " " + num1.value + " " + letra1.value + " " + letra2.value +  " # " + num2.value + " " + letra3.value + " " + num3.value + " " + complemento.value;
+        }
+
+    //caucular edad
+        function calcularFecha(fechaNacimiento) {
+            var fechaNac = new Date(fechaNacimiento);
+            var fechaHoy = new Date();
+            var edad = Math.floor((fechaHoy - fechaNac) / (365.25 * 24 * 60 * 60 * 1000));
+            document.getElementById("p65").value = edad;
+        }
+    </script>
+</body>
+</html>
+*@

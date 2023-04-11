@@ -1,0 +1,91 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width"/>
+    <title>Iniciar Sesion</title>
+    <link rel="shortcut icon" type="image/x-icon" href="~/LogoHisa.ico">
+    <link rel="stylesheet" href="~/RH_CV.styles.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+</head>
+<body>
+    <section class="h-100 gradient-form" style="background-color: #eee;">
+        <div class="container py-5 h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-xl-10">
+                    <div class="card rounded-3 text-black">
+                        <div class="row g-0">
+                            <div class="col-lg-6">
+                                <div class="card-body p-md-5 mx-md-4">
+
+                                    <div class="text-center form-outline mb-5">
+                                        <img src="https://www.hospitalinfantilsantaana.org/wp-content/uploads/2021/06/logo-300x230.png"
+                                             style="width: 185px;" alt="logo">
+                                        <!--<h4 class="mt-1 mb-5 pb-1">A</h4>-->
+                                    </div>
+
+                                    <form asp-controller="InicioSesion" asp-action="IniciarSesion" method="post">
+                                        <p>Please login to your account</p>
+
+                                        <div class="form-outline mb-4">
+                                            <input type="text"  class="form-control"
+                                                   placeholder="Username" required name="user"/>
+                                            <!--<label class="form-label" for="form2Example11">Username</label>-->
+                                        </div>
+
+                                        <div class="form-outline mb-5">
+                                            <input type="password"  class="form-control"
+                                                   placeholder="Password" required name="password"/>
+                                            <!--<label class="form-label" for="form2Example22">Password</label>-->
+                                        </div>
+
+                                        <div class="text-center pt-1 mb-5 pb-1">
+                                            <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit">
+                                                Log
+                                                in
+                                            </button>
+                                        </div>
+
+                                        @if (ViewData["Mensaje"] != null)
+                                        {
+                                            <div class="form-group">
+                                                <div class="alert alert-danger" role="alert">
+                                                    @ViewData["Mensaje"]
+                                                </div>
+
+                                            </div>
+                                        }
+                                    </form>
+
+                                </div>
+                            </div>
+                            <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
+                                <div class="text-white px-3 py-4 p-md-5 mx-md-4">
+                                    <h3 class="mb-4">Un Hospital Con Historia</h3>
+                                    <p class="small mb-0">
+                                        Somos una entidad privada, sin ánimo de lucro, fundada en 1943 por legado testamentario de Ana Josefa Misas de Echavarría, con el fin
+                                        inicial de proporcionar atención médica y odontológica a los niños de escasos recursos del sector de El Poblado y atención prenatal a sus madres.<br>
+
+                                        Posteriormente extendimos los servicios a la población de escasos recursos del Departamento y otras regiones del país. En 1982 se inició
+                                        la consulta de asma y enfermedades respiratorias.<br>
+
+                                        Con el establecimiento de la ley 100, se comenzó a brindar los servicios a pacientes particulares y afiliados del régimen Subsidiado y Contributivo.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

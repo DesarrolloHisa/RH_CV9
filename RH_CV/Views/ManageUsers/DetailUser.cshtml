@@ -1,0 +1,167 @@
+﻿@model RH_CV.Models.Usuario;
+
+@{
+    ViewData["Title"] = "User Detail";
+}
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+<!--<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+</head>
+<body>-->
+    <section class="h-100 gradient-form" style="background-color: #eee;">
+        <div class="container py-3 h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-xl-12">
+                    <div class="card rounded-3 text-black">
+                        <div class="row g-0">
+                            <div class="col-lg-7">
+                                <div class="card-body p-md-5 mx-md-4">
+
+                                    <div class="text-center form-outline mb-5">
+                                        <img src="https://www.hospitalinfantilsantaana.org/wp-content/uploads/2021/06/logo-300x230.png"
+                                             style="width: 185px;" alt="logo">
+                                        <!--<h4 class="mt-1 mb-5 pb-1">A</h4>-->
+                                    </div>
+
+                                    <p><b>Create an Account</b></p>
+
+                                    <div class="row align-items-baseline">
+
+                                        <div class="form-outline mb-2 col-md-4">
+                                            <label>Usuario</label>
+                                            <label class="form-control" readonly>@Html.DisplayFor(m => m.User)</label>
+                                            <!--<label class="form-label" for="form2Example11">Username</label>-->
+                                        </div>
+
+                                        <div class="form-outline mb-2 col-md-4">
+                                            <label>Contraseña</label>
+                                            <label class="form-control" readonly>********</label>
+                                            <!--<label class="form-label" for="form2Example22">Password</label>-->
+                                        </div>
+
+                                        <div class="form-outline mb-2 col-md-4">
+                                            <label>Rol</label>
+                                            <label class="form-control" readonly>@Model.Rol.Tipo</label>
+                                            @*Html.DropDownList("Id", ViewBag.Categorias as SelectList, "Select a Rol", new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.RolId, "", new { @class = "text-danger" })
+                                            <!--<label class="form-label" for="form2Example22">Password</label>-->*@
+                                        </div>
+                                    </div>
+                                    <br />
+                                    <div class="row align-items-baseline">
+                                    <div class="form-outline mb-2 col-md-4">
+                                            <label>Tipo de documento</label>
+                                            <label class="form-control">@Model.InfoDocumento.TipoDocumento.Tipo</label>
+                                        </div>
+
+                                        <div class="form-outline mb-2 col-md-4">
+                                            <label>Tipo de Vinculo</label>
+                                            <label class="form-control">@Model.TipoVinculo.Tipo</label>
+                                        </div>
+
+                                        <div class="form-outline mb-2 col-md-4">
+                                            <label>Tipo de Contrato</label>
+                                            @if (@Model.TipoContrato == null)
+                                            {
+                                                <label class="form-control">&nbsp;</label>
+                                            }else{
+                                                <label class="form-control">@Model.TipoContrato.Tipo</label>
+                                            }
+                                        </div>
+                                    </div>
+                                    <br />
+                                    @*<div class="form-outline mb-5">
+                                        <label>Número de documento</label>
+                                        <input asp-for="Documento" type="text" minlength="6" onkeypress="return soloNumeros(event)" class="form-control" id="f4" value="" required="">
+                                    </div>*@
+
+                                    <div class="row align-items-baseline">
+                                        <div class="form-outline mb-2 col-md-6">
+                                            <label>País de expedición del documento</label>
+                                            @*<select asp-for="TipoDocumento" asp-items="@ViewBag.Departamentos" class="form-control"></select>*@
+                                            <label class="form-control">@Model.InfoDocumento.PaisExpedicion</label>
+                                        </div>
+
+                                        <div class="form-outline mb-2 col-md-6" id="municipioExpedicion">
+                                            <label>Lugar de expedición del documento</label>
+                                            @*<select asp-for="TipoDocumento" asp-items="@ViewBag.Departamentos" class="form-control"></select>*@
+                                            @if (@Model.InfoDocumento.MunicipioExpedicion == null)
+                                            {
+                                                <label class="form-control">&nbsp;</label>
+                                            }else{
+                                                <label class="form-control">@Model.InfoDocumento.MunicipioExpedicion</label>
+                                            }
+                                        </div>
+                                    </div>
+                                    <br />
+
+                                    <div class="row align-items-baseline">
+                                        <div class="form-outline mb-2 col-md-6">
+                                            <label>Primer Nombre</label>
+                                            <label class="form-control">@Model.PrimerNombre</label>
+                                        </div>
+
+                                        <div class="form-outline mb-2 col-md-6">
+                                            <label>Segundo Nombre</label>
+                                        @if (@Model.SegundoNombre == null)
+                                            {
+                                                <label class="form-control">&nbsp;</label>
+                                            }else{
+                                                <label class="form-control">@Model.SegundoNombre</label>
+                                            }
+                                        </div>
+                                    </div>
+                                    <br />
+
+                                    <div class="row align-items-baseline">
+                                        <div class="form-outline mb-4 col-md-6">
+                                            <label>Primer Apellido</label>
+                                            <label class="form-control">@Model.PrimerApellido</label>
+                                        </div>
+
+                                        <div class="form-outline mb-4 col-md-6">
+                                            <label>Segundo apellido</label>
+                                            @if (@Model.SegundoApellido == null)
+                                            {
+                                                <label class="form-control">&nbsp;</label>
+                                            }else{
+                                                <label class="form-control">@Model.SegundoApellido</label>
+                                            }
+                                            <br>
+                                        </div>
+                                    </div>
+
+                                    <div class="text-center mb-2">
+                                        <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit" onclick="window.location.href='@Url.Action("AllUsers", "ManageUsers")'">
+                                            Back
+                                        </button>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-lg-5 d-flex align-items-center gradient-custom-2">
+                                <div class="text-white px-3 py-4 p-md-5 mx-md-4">
+                                <h3 class="mb-4">Un Hospital Con Historia</h3>
+                                    <p class="small mb-0">
+                                        Somos una entidad privada, sin ánimo de lucro, fundada en 1943 por legado testamentario de Ana Josefa Misas de Echavarría, con el fin
+                                        inicial de proporcionar atención médica y odontológica a los niños de escasos recursos del sector de El Poblado y atención prenatal a sus madres.<br>
+
+                                        Posteriormente extendimos los servicios a la población de escasos recursos del Departamento y otras regiones del país. En 1982 se inició
+                                        la consulta de asma y enfermedades respiratorias.<br>
+
+                                        Con el establecimiento de la ley 100, se comenzó a brindar los servicios a pacientes particulares y afiliados del régimen Subsidiado y Contributivo.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>

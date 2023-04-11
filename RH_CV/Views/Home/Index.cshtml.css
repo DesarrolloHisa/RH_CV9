@@ -1,0 +1,119 @@
+﻿.contenedor {
+    /*display: flex;*/
+    /*height: 80vh;*/
+    gap: 20px;
+    /*flex-wrap: wrap;*/
+    /*justify-content: space-around;*/
+    /*align-items: center;*/
+
+    /*display: flex;    
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;*/
+    /**/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: translateY(-50%);
+}
+
+/*img.attachment-full {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+}*/
+/*    .contenedor img {
+        width: 100%;
+    }*/
+.contenedor-img {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+/*.elementor-section {
+    width: 100%;
+    height: 100vh;*/  /*Establecer altura en viewport height */
+/*}*/
+
+/*.btn {
+    font-size: 1.2em;*/ /* Establecer tamaño de fuente en em */
+    /*padding: 0.5em 1em;
+}*/
+
+    /* Establecer el tamaño de fuente de los botones en porcentaje */
+    /*.btn .elementor-button-text {
+        font-size: 80%;
+    }*/
+
+.btn {
+    position: relative;
+    padding: 10px 10px;
+    text-decoration: none;
+    color: #fff;
+    letter-spacing: 1px;
+    text-indent: 10px;
+    z-index: 2;
+}
+
+.btn-1::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-image: linear-gradient(90deg, rgb(255,168,31), rgb(255, 15, 15), rgb(255, 30, 143), rgb(176,10,43));
+    background-size: 300%;
+    border-radius: 5px;
+    z-index: -1;
+    transition: all 0.4s ease;
+}
+
+.btn-1:hover::after {
+    background-position: 100%;
+    filter: blur(5px);
+}
+
+.btn-1::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-image: linear-gradient(90deg, rgb(255,168,31), rgb(255, 15, 15), rgb(255, 30, 143), rgb(176,10,43));
+    background-size: 300%;
+    border-radius: 5px;
+    z-index: -1;
+}
+
+.btn-1:hover::before {
+    background-position: 100%;
+}
+
+element.style {
+}
+
+.elementor-484 .elementor-element.elementor-element-4fa7c97 .elementor-button {
+    font-family: "Roboto", Sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 21px;
+    fill: #FFFFFF;
+    color: #FFFFFF;
+    background-color: var(--e-global-color-cedca49 );
+    border-style: solid;
+    border-width: 0px 0px 0px 0px;
+    border-radius: 20px 20px 20px 20px;
+    padding: 14px 39px 14px 39px;
+}
+
+.elementor a {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    text-decoration: none;
+}

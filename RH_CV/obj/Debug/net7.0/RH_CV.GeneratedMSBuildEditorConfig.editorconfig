@@ -1,0 +1,109 @@
+is_global = true
+build_property.TargetFramework = net7.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = RH_CV
+build_property.RootNamespace = RH_CV
+build_property.ProjectDir = C:\Users\psistemas\Downloads\RH_CV9\RH_CV5\RH_CV\RH_CV\
+build_property.RazorLangVersion = 7.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\psistemas\Downloads\RH_CV9\RH_CV5\RH_CV\RH_CV
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/psistemas/Downloads/RH_CV9/RH_CV5/RH_CV/RH_CV/Views/Copia.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29waWEuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/psistemas/Downloads/RH_CV9/RH_CV5/RH_CV/RH_CV/Views/Home/AccessDenied.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBY2Nlc3NEZW5pZWQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/psistemas/Downloads/RH_CV9/RH_CV5/RH_CV/RH_CV/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/psistemas/Downloads/RH_CV9/RH_CV5/RH_CV/RH_CV/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/psistemas/Downloads/RH_CV9/RH_CV5/RH_CV/RH_CV/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/psistemas/Downloads/RH_CV9/RH_CV5/RH_CV/RH_CV/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/psistemas/Downloads/RH_CV9/RH_CV5/RH_CV/RH_CV/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/psistemas/Downloads/RH_CV9/RH_CV5/RH_CV/RH_CV/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = b-70oz2cudkm
+
+[C:/Users/psistemas/Downloads/RH_CV9/RH_CV5/RH_CV/RH_CV/Views/InicioSesion/IniciarSesion.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5pY2lvU2VzaW9uXEluaWNpYXJTZXNpb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-zh3kiqn0ff
+
+[C:/Users/psistemas/Downloads/RH_CV9/RH_CV5/RH_CV/RH_CV/Views/ManageHV/AllHV.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlSFZcQWxsSFYuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-lnt42mtwlx
+
+[C:/Users/psistemas/Downloads/RH_CV9/RH_CV5/RH_CV/RH_CV/Views/ManageHV/CreateHV.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlSFZcQ3JlYXRlSFYuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-m8n3rtwnmn
+
+[C:/Users/psistemas/Downloads/RH_CV9/RH_CV5/RH_CV/RH_CV/Views/ManageHV/DeleteHV.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlSFZcRGVsZXRlSFYuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-iaecp3besc
+
+[C:/Users/psistemas/Downloads/RH_CV9/RH_CV5/RH_CV/RH_CV/Views/ManageHV/DetailHV.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlSFZcRGV0YWlsSFYuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-s6vwm4cps6
+
+[C:/Users/psistemas/Downloads/RH_CV9/RH_CV5/RH_CV/RH_CV/Views/ManageHV/EditHV.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlSFZcRWRpdEhWLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = b-hmduiwlq4q
+
+[C:/Users/psistemas/Downloads/RH_CV9/RH_CV5/RH_CV/RH_CV/Views/ManageHV/MyHV.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlSFZcTXlIVi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = b-3baej2j1jb
+
+[C:/Users/psistemas/Downloads/RH_CV9/RH_CV5/RH_CV/RH_CV/Views/ManageHV/PDFHV.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlSFZcUERGSFYuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-hbml8sufd7
+
+[C:/Users/psistemas/Downloads/RH_CV9/RH_CV5/RH_CV/RH_CV/Views/ManageUsers/AllUsers.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlVXNlcnNcQWxsVXNlcnMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-8lbd52yx4l
+
+[C:/Users/psistemas/Downloads/RH_CV9/RH_CV5/RH_CV/RH_CV/Views/ManageUsers/CreateUser.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlVXNlcnNcQ3JlYXRlVXNlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = b-obxjvxdyme
+
+[C:/Users/psistemas/Downloads/RH_CV9/RH_CV5/RH_CV/RH_CV/Views/ManageUsers/DeleteUser.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlVXNlcnNcRGVsZXRlVXNlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = b-j6z4yt6u1m
+
+[C:/Users/psistemas/Downloads/RH_CV9/RH_CV5/RH_CV/RH_CV/Views/ManageUsers/DetailUser.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlVXNlcnNcRGV0YWlsVXNlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = b-fgs89fvt2t
+
+[C:/Users/psistemas/Downloads/RH_CV9/RH_CV5/RH_CV/RH_CV/Views/ManageUsers/EditUser.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlVXNlcnNcRWRpdFVzZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-h2iw38fwu2
+
+[C:/Users/psistemas/Downloads/RH_CV9/RH_CV5/RH_CV/RH_CV/Views/ManageUsers/UserEstatus.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlVXNlcnNcVXNlckVzdGF0dXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-rn85u8tpwu
+
+[C:/Users/psistemas/Downloads/RH_CV9/RH_CV5/RH_CV/RH_CV/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-u94cx1lowe

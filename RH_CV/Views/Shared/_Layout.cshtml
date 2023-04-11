@@ -1,0 +1,95 @@
+﻿@*@using Microsoft.AspNetCore.Http;
+@{
+    //string userRol = @ViewData["userRol"];
+    //string userRol = @ViewBag.UserId;
+    //using Microsoft.AspNetCore.Http
+    var httpContext = ViewContext.HttpContext;
+    string userRol = HttpContext.Session.GetString("UserRol");
+}
+*@
+@*@{
+    //ViewData["Name"]
+   var name = ViewData["Name"];
+}*@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="shortcut icon" type="image/x-icon" href="~/LogoHisa.ico" >
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] Sistema de Información Talento Humano</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/RH_CV.styles.css" asp-append-version="true" />
+
+    <link href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #E10E26;">
+            <div class="container-fluid">
+                <a class="navbar-brand text-white" asp-area="" asp-controller="Home" asp-action="Index">Sistema de Información Talento Humano</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                    <ul class="navbar-nav flex-grow-1 mr-auto">
+                        @*<li class="nav-item">
+                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>*@
+                        <li class="nav-item">
+                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        </li>
+                        @*<li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Gestionar Usuarios</a>
+                            <ul class="dropdown-menu">
+                                @if (ViewData["UserRol"] == "Admin")
+                                {
+                                    <li><a class="dropdown-item" asp-area="" asp-controller="ManageUsers" asp-action="AllUsers" id="AllUsers">Usuarios</a></li>
+                                }
+                                <li><a class="dropdown-item" asp-area="" asp-controller="ManageUsers" asp-action="CreateUser">Create User</a></li>
+                            </ul>
+                        </li>*@
+                            @*<li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Hoja de Vida</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" asp-area="" asp-controller="ManageHV" asp-action="AllHV">All HV</a></li>
+                                    <li><a class="dropdown-item" asp-area="" asp-controller="ManageHV" asp-action="AllHV">@ViewData["userRol"]</a></li>
+                                    <li><a class="dropdown-item" asp-area="" asp-controller="ManageHV" asp-action="CreateHV">Create HV</a></li>
+                                </ul>
+                            </li>*@
+                        <li class="nav-item">
+                            <a class="nav-link text-white" asp-area="" asp-controller="ManageHV" asp-action="CreateHV">HV</a>
+                        </li>
+                        @*<li class="nav-item">
+                            <a class="nav-link text-white d-flex flex-row-reverse" asp-area="" asp-controller="Home" asp-action="CerrarSesion">Log Out</a>
+                        </li>*@
+                    </ul>
+                <span class="navbar-text text-white">
+                    @*@ViewData["Name"]*@Bienvenue @ViewBag.UserName!
+                </span>
+                <a class="nav-link text-white d-flex flex-row-reverse" asp-area="" asp-controller="Home" asp-action="CerrarSesion">Log Out</a>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; Copyright Hospital Infantil Santa Ana 2023 - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+
+</body>
+</html>

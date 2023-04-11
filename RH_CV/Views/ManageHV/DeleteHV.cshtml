@@ -1,0 +1,113 @@
+﻿@model RH_CV.Models.DatosPersonales
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "HV Detail";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Datos Personales</title>
+    <link href="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/smart_wizard.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/smart_wizard_theme_arrows.min.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div class="card ">
+        <div class="card-header">
+            <ul class="nav nav-tabs card-header-tabs pull-right" id="myTab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#datosPersonales" role="tab" aria-controls="home" aria-selected="true">Hoja de vida laboral</a>
+                </li>
+                <!--<li class="nav-item">
+                   <a class="nav-link" id="acerca-tab" data-toggle="tab" href="#acerca" role="tab"
+                      aria-controls="acerca"
+                      aria-selected="false">Público</a>
+                   </li>
+
+                   <li class="nav-item">
+                   <a class="nav-link" id="conectividad-tab" data-toggle="tab" href="#conectividad" role="tab"
+                      aria-controls="conectividad"
+                      aria-selected="false">Ambiente Universitario </a>
+
+                   </li>
+                   <li class="nav-item">
+                   <a class="nav-link" id="virtual-tab" data-toggle="tab" href="#virtual" role="tab"
+                      aria-controls="virtual"
+                      aria-selected="false">Costo de Vida</a>
+
+                   </li>
+                   <li class="nav-item">
+                   <a class="nav-link" id="academica-tab" data-toggle="tab" href="#academica" role="tab"
+                      aria-controls="academica"
+                      aria-selected="false">Calidad de Educación Superior</a>
+                   </li>-->
+            </ul>
+        </div>
+        <div class="card-body">
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="Personal" role="tabpanel" aria-labelledby="home-tab">
+
+                    <form asp-action="DeleteHV">
+
+                        <!--ID del usuario como campo oculto-->
+                        <input type="hidden" asp-for="Id" />
+
+                        <div id="divNombreDimension_1" class="col-md-12 alert alert-warning" role="alert" style="text-align:center;background-color:#DE3163;color: #FFFFFF;border-color:#d3255c">
+                            <b>Hoja de Vida</b>
+                        </div>
+                        <div class="row align-items-baseline">
+                            @*<div class="col-md-3" id="diva1">
+                                <label>Tipo de Vinculo</label>
+                                <label class="list-group-item" readonly>@Model.TipoVinculo</label>
+                            </div>
+                            <div class="col-md-3" id="diva1">
+                                <label>Tipo de Contrato</label>
+                                <label class="list-group-item" readonly>@Model.TipoContrato</label>
+                            </div>
+                            <div class="col-md-3" id="div1">
+                                <label>Tipo de documento</label>
+                                <select asp-for="TipoDocumentoId" asp-items="@ViewBag.Documentos" class="form-control"></select>
+                                <label class="list-group-item" readonly>@Model.InfoDocumento.TipoDocumento</label>
+                            </div>
+                            <div class="col-md-3" id="div2">
+                                <label>Número de documento</label>
+                                <label class="list-group-item" readonly>@Model.Documento</label>
+                            </div>*@
+                        </div>
+                        <br />
+                        <div class="row align-items-baseline">
+                            <div class="row align-items-baseline">
+                                <label>Hijos</label>
+                                <label readonly>@Model.PersonasACargo.Hijo</label>
+                            </div>
+                            <div class="row align-items-baseline">
+                                <label>Conyugue</label>
+                                <label readonly>@Model.PersonasACargo.Conyugue</label>
+                            </div>
+                            <div class="row align-items-baseline">
+                                <label>Padres</label>
+                                <label readonly>@Model.PersonasACargo.Padres</label>
+                            </div>
+                            <div class="row align-items-baseline">
+                                <label>Otros</label>
+                                <label readonly>@Model.PersonasACargo.Otros</label>
+                            </div>
+                        </div>
+                        <hr>
+                        <br>
+                        <div class="form-row">
+                            <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit" onclick="return confirm('¿Estás seguro de que deseas eliminar al usuario?')">
+                                Delete
+                            </button>
+                        </div>
+                    </form>
+                    <a asp-controller="ManageUsers" asp-action="AllUsers">Back</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

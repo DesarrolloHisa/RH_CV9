@@ -1,0 +1,1006 @@
+﻿@model RH_CV.Models.DatosPersonales
+@*@model RH_CV.Models.Usuario*@
+@*
+For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "HV Detail";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    @*<meta name="viewport" content="width=device-width" />*@
+    <title>Datos Personales</title>
+    <link href="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/smart_wizard.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/smart_wizard_theme_arrows.min.css" rel="stylesheet" type="text/css" />
+    @*<script type="text/javascript" src="js/jquery-1.8.3.js"></script>
+    <script type="text/javascript" src="js/jquery-ui-1.9.2.js"></script>
+    <script type="text/javascript" src="js/modalwindow.js"></script> *@
+</head>
+<body>
+    <div class="card ">
+        <div class="card-header">
+            <ul class="nav nav-tabs card-header-tabs pull-right" id="myTab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#datosPersonales" role="tab" aria-controls="home" aria-selected="true">Hoja de vida laboral</a>
+                </li>
+                <!--<li class="nav-item">
+                   <a class="nav-link" id="acerca-tab" data-toggle="tab" href="#acerca" role="tab"
+                      aria-controls="acerca"
+                      aria-selected="false">Público</a>
+                   </li>
+
+                   <li class="nav-item">
+                   <a class="nav-link" id="conectividad-tab" data-toggle="tab" href="#conectividad" role="tab"
+                      aria-controls="conectividad"
+                      aria-selected="false">Ambiente Universitario </a>
+                   </li>-->
+            </ul>
+        </div>
+        <div class="card-body">
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="Personal" role="tabpanel" aria-labelledby="home-tab">
+
+                    <div id="divNombreDimension_1" class="col-md-12 alert alert-warning" role="alert" style="text-align:center;background-color:#DE3163;color: #FFFFFF;border-color:#d3255c">
+                        <b>Hoja de Vida</b>
+                    </div>
+                    <div class="row align-items-baseline">
+                        <div class="col-md-3" id="diva1" style="width: 25%;">
+                            <label>Tipo de Vinculo</label>
+                            <label class="form-control" @*style="background-color: #e3e4e5;"*@ readonly>@Model.Usuario.TipoVinculo.Tipo</label>
+                            @*<select asp-for="TipoVinculoId" asp-items="@ViewBag.TipoVinculo" class="form-select" id="TipoVinculo" required>
+                                <option value="">Seleccionar</option>
+                            </select>*@
+                            @*
+                            <select asp-for="TipoVinculo" class="form-control" id="f1" required="">
+                            <option value="">Seleccionar</option>
+                            <option value="Aprendiz estapa productiva">Aprendiz estapa productiva</option>
+                            <option value="Voluntario">Voluntario</option>
+                            </select>
+                            *@
+                        </div>
+                        <div class="col-md-3" id="diva1" style="width: 25%;">
+                            <label>Tipo de Contrato</label>
+                            @if (@Model.Usuario.TipoContrato == null)
+                            {
+                                <label class="form-control" @*style="background-color: #e3e4e5;"*@ readonly>&nbsp;</label>
+                            }
+                            else
+                            {
+                                <label class="form-control" @*style="background-color: #e3e4e5;"*@ readonly>@Model.Usuario.TipoContrato.Tipo</label>
+                            }
+                            @*<select asp-for="TipoContratoId" asp-items="@ViewBag.TipoContrato" class="form-select" required>
+                                <option value="">Seleccionar</option>
+                            </select>*@
+                            @*
+                            <select asp-for="TipoContrato" class="form-control" id="f2" required="">
+                            <option value="">Seleccionar</option>
+                            <option value="Fijo">Fijo</option>
+                            </select>
+                            *@
+                        </div>
+                        <div class="col-md-3" id="div1" style="width: 25%;">
+                            <label>Tipo de documento</label>
+                            <label class="form-control" @*style="background-color: #e3e4e5;"*@ readonly>@Model.Usuario.InfoDocumento.TipoDocumento.Tipo</label>
+                            @*<select asp-for="InfoDocumento.TipoDocumentoId" asp-items="@ViewBag.TipoDocumento" class="form-select" required>
+                                <option value="">Seleccionar</option>
+                            </select>*@
+                            @*
+                            <select asp-for="InfoDocumento.TipoDocumento" class="form-control" id="f3" required="">
+                            <option value="">Seleccionar</option>
+                            <option value="Cedula Extranjeria">Cedula Extranjeria</option>
+                            </select>
+                            *@
+                        </div>
+                        <div class="col-md-3" id="div2" style="width: 25%;">
+                            <label>Número de documento</label>
+                            <label class="form-control" @*style="background-color: #e3e4e5;"*@ readonly>@Model.Usuario.User</label>
+                            @*<input asp-for="Documento" type="text" minlength="6" onkeypress="return soloNumeros(event)" class="form-control" id="f4" value="" required="">*@
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row align-items-baseline">
+                        <div class="col-md-4" id="div61" style="width: 33.33%;">
+                            <label>País de expedición del documento</label>
+                            <label class="form-control" id="paisExpedicion" @*style="background-color: #e3e4e5;"*@ readonly>@Model.Usuario.InfoDocumento.PaisExpedicion</label>
+                            @*<select asp-for="TipoDocumento" asp-items="@ViewBag.Departamentos" class="form-control"></select>*@
+                            @*<select asp-for="InfoDocumento.PaisExpedicion" class="form-select" id="paisExpedicion" required="">
+                            </select>*@
+                        </div>
+                        <div class="col-md-4" id="municipioExpedicion" style="width: 33.33%;">
+                            <label>Lugar de expedición del documento</label>
+                            @if (string.IsNullOrEmpty(@Model.Usuario.InfoDocumento.MunicipioExpedicion))
+                            {
+                                <label class="form-control" @*style="background-color: #e3e4e5;"*@ readonly>&nbsp;</label>
+                            }else{
+                                <label class="form-control" @*style="background-color: #e3e4e5;"*@ readonly>@Model.Usuario.InfoDocumento.MunicipioExpedicion</label>
+                            }
+                            @*<select asp-for="TipoDocumento" asp-items="@ViewBag.Departamentos" class="form-control"></select>*@
+                            @*<select asp-for="InfoDocumento.MunicipioExpedicion" disabled class="form-select" id="f6">
+                            </select>*@
+                        </div>
+                        <div class="col-md-4" id="div2" style="width: 33.33%;">
+                            <label>Número libreta Militar</label>
+                            @if (@Model.LibretaMilitar == null)
+                            {
+                                <label class="form-control" @*style="background-color: #e3e4e5;"*@ readonly>&nbsp;</label>
+                            }
+                            else{
+                                <label class="form-control" @*style="background-color: #e3e4e5;"*@ readonly>@Model.LibretaMilitar</label>
+                            }
+                        </div>
+                    </div>
+                    <br>
+                    <br />
+                    <div id="divNombreDimension_2" class="col-md-12 alert alert-warning" role="alert" style="text-align:center;background-color:#DE3163;color: #FFFFFF;border-color:#d3255c">
+                        <b>Datos Personales</b>
+                    </div>
+                    <div class="row align-items-baseline">
+                        <div class="col-md-3" id="div2" style="width: 25%;">
+                            <label>Primer Nombre</label>
+                            <label class="form-control" readonly>@Model.Usuario.PrimerNombre</label>
+                            @*<input asp-for="PrimerNombre" type="text" class="form-control" id="f8" value="" required="">*@
+                        </div>
+                        <div class="col-md-3" id="div2" style="width: 25%;">
+                            <label>Segundo Nombre</label>
+                            @if (string.IsNullOrEmpty(@Model.Usuario.SegundoNombre))
+                            {
+                                <label class="form-control" readonly>&nbsp;</label>
+                            }else{
+                                <label class="form-control" readonly>@Model.Usuario.SegundoNombre</label>
+                            }
+                            @*<input asp-for="SegundoNombre" type="text" class="form-control" id="f9" value="">*@
+                        </div>
+                        <div class="col-md-3" id="div2" style="width: 25%;">
+                            <label>Primer Apellido</label>
+                            <label class="form-control" readonly>@Model.Usuario.PrimerApellido</label>
+                            @*<input asp-for="PrimerApellido" type="text" class="form-control" id="f10" value="" required="">*@
+                        </div>
+                        <div class="col-md-3" id="div3" style="width: 25%;">
+                            <label>Segundo apellido</label>
+                            @if (string.IsNullOrEmpty(@Model.Usuario.SegundoApellido))
+                            {
+                                <label class="form-control" readonly>&nbsp;</label>
+                            }else{
+                                <label class="form-control" readonly>@Model.Usuario.SegundoApellido</label>
+                            }
+                            @*<input asp-for="SegundoApellido" type="text" class="form-control" id="f11" value="">*@
+                            <br>
+                        </div>
+                        <div class="col-md-3" id="div4" style="width: 25%;">
+                            <label>Fecha de nacimiento</label>
+                            <label class="form-control" id="fechaNacimiento" readonly>@ViewData["FechaNacimiento"]</label>
+                            <br>
+                        </div>
+                        <div class="col-md-3" id="div65" style="width: 25%;">
+                            <label>Edad</label>
+                            <label class="form-control" id="f13" readonly>@ViewData["Edad"]</label>
+                            <br>
+                        </div>
+                        <div class="col-md-3" id="div61" style="width: 25%;">
+                            <label>País de nacimiento</label>
+                            @*<select asp-for="TipoDocumento" asp-items="@ViewBag.Departamentos" class="form-control"></select>*@
+                            <label class="form-control" id="paisNacimiento" required>@Model.PaisNacimiento</label>
+                        </div>
+                        <div class="col-md-3" id="municipioNacimiento" style="width: 25%;">
+                            <label>Municipio de nacimiento</label>
+                            @*<select asp-for="TipoDocumento" asp-items="@ViewBag.Documentos" class="form-control"></select>*@
+                            @if (string.IsNullOrEmpty(@Model.MunicipioNacimiento))
+                            {
+                                <label class="form-control" readonly>&nbsp;</label>
+                            }else{
+                                <label class="form-control" readonly>@Model.MunicipioNacimiento</label>
+                            }
+                        </div>
+                        <div class="col-md-3" id="div5" style="width: 25%;">
+                            <label>Sexo</label>
+                            <label class="form-control" readonly>@Model.Sexo</label>
+                        </div>
+                        <div class="col-md-3" id="div8" style="width: 25%;">
+                            <label>Celular</label>
+                            <label class="form-control">@Model.Celular</label>
+                        </div>
+                        <div class="col-md-4" id="d410" style="width: 33.33%;">
+                            <label>Correo</label>
+                            <label class="form-control">@Model.Email</label>
+                            <br>
+                        </div>
+                    </div>
+                    <div class="col-md-2" id="d7">
+                        <b>Dirección de Residencia</b>
+                    </div>
+                    <div class="row align-items-baseline">
+                        <div class="col-md-2" id="d7">
+                            <label>Tipo</label>
+                            <label class="form-control">@Model.Direccion.Tipo</label>
+                        </div>
+                        <div class="col-md-2" id="d8">
+                            <label id="dirLabel">Calle</label>
+                            <label class="form-control">@Model.Direccion.Num1</label>
+                        </div>
+                        <div class="col-md-2" id="d9">
+                            <label>Número</label>
+                            <label class="form-control">@Model.Direccion.Num2</label>
+                        </div>
+                        <div class="col-md-2" id="d9">
+                            <label></label>
+                            <label class="form-control">@Model.Direccion.Num3</label>
+                        </div>
+                        <div class="col-md-3" id="d9" style="width: 25%;">
+                            <label>Complemento</label>
+                            @if (string.IsNullOrEmpty(@Model.Direccion.Complemento))
+                            {
+                                <label class="form-control" disabled id="f18">&nbsp;</label>
+                            }else{
+                                <label class="form-control">@Model.Direccion.Complemento</label>
+                            }
+                        </div>
+                        <div class="col-md-5" id="d10">
+                            <label>Dirección Completa</label>
+                            <label class="form-control">@Model.Direccion.DireccionCompleta</label>
+                        </div>
+                        <div class="col-md-2" id="div11">
+                            <label>Estrato</label>
+                            <label class="form-control">@Model.Estrato</label>
+                        </div>
+                        <div class="col-md-3" id="div6" style="width: 25%;">
+                            <label>Municipio de residencia</label>
+                            @*<select asp-for="TipoDocumento" asp-items="@ViewBag.Documentos" class="form-control"></select>*@
+                            <label class="form-control">@Model.MunicipioResidencia</label>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="col-md-2" id="d7">
+                        <b>Personas A Cargo</b>
+                    </div>
+                    <div class="row align-items-baseline">
+                        <div class="col-md-3" style="width: 25%;">
+                            <label>Hijos</label>
+                            <label class="form-control" readonly>@Model.PersonasACargo.Hijo</label>
+                        </div>
+                        <div class="col-md-3" style="width: 25%;">
+                            <label>Conyugue</label>
+                            <label class="form-control" readonly>@Model.PersonasACargo.Conyugue</label>
+                        </div>
+                        <div class="col-md-3" style="width: 25%;">
+                            <label>Padres</label>
+                            <label class="form-control" readonly>@Model.PersonasACargo.Padres</label>
+                        </div>
+                        <div class="col-md-3" style="width: 25%;">
+                            <label>Otros</label>
+                            <label class="form-control" readonly>@Model.PersonasACargo.Otros</label>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row align-items-baseline">
+                        <div class="col-md-4" id="diva1" style="width: 33.33%;">
+                            <label>Estado Civil</label>
+                            <label class="form-control">@Model.EstadoCivil</label>
+                        </div>
+                        <div class="col-md-4" id="diva1" style="width: 33.33%;">
+                            <label>Vive Con</label>
+                            <label class="form-control">@Model.ViveCon</label>
+                        </div>
+                        <div class="col-md-4" id="diva1" style="width: 33.33%;">
+                            <label>Grupo Étnico</label>
+                            <label class="form-control">@Model.GrupoEtnico</label>
+                        </div>
+                        @*
+                        <div class="col-md-4" id="diva1">
+                        <label>Vive Con</label>
+                        foreach (var vivecon in viveCon)
+                        {
+                        <div>
+                        <input type="radio" name="ViveConId" value="@vivecon.Id" id="@vivecon.Id" required="" />
+                        <label style="display: inline-block; margin-right: 10px;" for="@vivecon.Id">@vivecon.Opcion</label>
+                        </div>
+                        }
+                        </div>
+                        *@
+                    </div>
+                    <br>
+                    <div class="row align-items-baseline">
+                        <div class="col-md-4" id="div11" style="width: 33.33%;">
+                            <label>EPS</label>
+                            <label class="form-control">@Model.EPS.Tipo</label>
+                        </div>
+                        <div class="col-md-4" id="div11" style="width: 33.33%;">
+                            <label>Fondo de Pensiones</label>
+                            @if (@Model.FondoPensiones == null)
+                            {
+                                <label class="form-control">&nbsp;</label>
+                            }else{
+                                <label class="form-control">@Model.FondoPensiones.Tipo</label>
+                            }
+                        </div>
+                        <div class="col-md-4 form-outline mb-5" id="div11" style="width: 33.33%;">
+                            <label>Fondo de Cesantías</label>
+                            @if (@Model.FondoCesantias == null)
+                            {
+                                <label class="form-control">&nbsp;</label>
+                            }else{
+                                <label class="form-control">@Model.FondoCesantias.Tipo</label>
+                            }
+                        </div>
+                    </div>
+                    <div id="divNombreDimension_2" class="col-md-12 alert alert-warning" role="alert" style="text-align:center;background-color:#DE3163;color: #FFFFFF;border-color:#d3255c">
+                        <b>Referencias</b>
+                    </div>
+                    <div class="col-md-2" id="d7">
+                        <b>Referencias Familiares</b>
+                    </div>
+                    <div class="table-responsive" id="div14">
+                        <table class="table" id="referenciasFamiliares">
+                            <thead>
+                                <tr>
+                                    <th colspan="2">Nombre</th>
+                                    <th>Parentesco</th>
+                                    <th>Celular</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @{
+                                    foreach (var item in Model.ReferenciasFamiliares)
+                                    {
+                                        <tr>
+                                            <td colspan="2"><label type="text" class="form-control" readonly>@item.Nombre</label></td>
+                                            <td><label type="text" class="form-control" readonly>@item.Parentesco</label></td>
+                                            <td><label type="text" class="form-control" readonly>@item.Celular</label></td>
+                                        </tr>
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <br>
+                    <div class="col-md-2" id="d7">
+                        <b>Referencias Personales</b>
+                    </div>
+                    <div class="table-responsive" id="div14">
+                        <table class="table" id="referenciasPersonales">
+                            <thead>
+                                <tr>
+                                    <th colspan="2">Nombre</th>
+                                    <th>Parentesco</th>
+                                    <th>Celular</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                 @{
+                                    foreach (var item in Model.ReferenciasPersonales)
+                                    {
+                                        <tr>
+                                            <td colspan="2"><label type="text" class="form-control" readonly>@item.Nombre</label></td>
+                                            <td><label type="text" class="form-control" readonly>@item.Parentesco</label></td>
+                                            <td><label type="text" class="form-control" readonly>@item.Celular</label></td>
+                                        </tr>
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <br>
+                    <div class="col-md-3 style=" width: 25%;"" id="d7">
+                        <b>Contacto en caso de emergencia</b>
+                    </div>
+                    <div class="table-responsive" id="div14">
+                        <table class="table" id="contactoEmergencia">
+                            <thead>
+                                <tr>
+                                    <th colspan="2">Nombre</th>
+                                    <th>Parentesco</th>
+                                    <th>Celular</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @{
+                                    foreach (var item in Model.ContactoEmergencia)
+                                    {
+                                        <tr>
+                                            <td colspan="2"><label type="text" class="form-control" readonly>@item.Nombre</label></td>
+                                            <td><label type="text" class="form-control" readonly>@item.Parentesco</label></td>
+                                            <td><label type="text" class="form-control" readonly>@item.Celular</label></td>
+                                        </tr>
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <br>
+                    <div id="divNombreDimension_2" class="col-md-12 alert alert-warning" role="alert" style="text-align:center;background-color:#DE3163;color: #FFFFFF;border-color:#d3255c">
+                        <b>Datos Familiares</b>
+                        <br />
+                        <label><small>Nombre a las personas con las que vive</small></label>
+                    </div>
+                    <div class="row align-items-baseline">
+                        <div class="table-responsive" id="div14">
+                                
+                            <table class="table" id="tablaRegistros">
+                                <thead>
+                                    <tr>
+                                        <th>Nombre</th>
+                                        <th>Fecha Nacimiento</th>
+                                        <th>Parentesco</th>
+                                        <th>Ocupacion</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @{
+                                        if (Model.DatosFamiliares.Count() > 0)
+                                        {
+                                            foreach (var item in Model.DatosFamiliares)
+                                            {
+                                                <tr>
+                                                    <td><label type="text" class="form-control" readonly>@item.Nombre</label></td>
+                                                    <td><label type="text" class="form-control" readonly>@item.FechaNacimiento</label></td>
+                                                    <td><label type="text" class="form-control" readonly>@item.Parentesco</label></td>
+                                                    <td><label type="text" class="form-control" readonly>@item.Ocupacion</label></td>
+                                                </tr>
+                                            }
+                                        }
+                                        else
+                                        {
+                                            <tr>
+                                                <td><label type="text" class="form-control" readonly>&nbsp;</label></td>
+                                                <td><label type="text" class="form-control" readonly>&nbsp;</label></td>
+                                                <td><label type="text" class="form-control" readonly>&nbsp;</label></td>
+                                                <td><label type="text" class="form-control" readonly>&nbsp;</label></td>
+                                            </tr>
+                                        }
+                                    }
+                                </tbody>
+                            </table>
+                            @*<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            Agregar registro
+                            </button>
+                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                            <div class="modal-content">
+                            <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Agregar familiar</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                            <div class="form-group">
+                            <label for="Nombre">Nombre:</label>
+                            <input type="text" class="form-control" id="nombre" required>
+                            </div>
+                            <div class="form-group">
+                            <label for="FechaNacimiento">Fecha Nacimiento:</label>
+                            <input type="date" class="form-control" id="fechaNacimiento" required>
+                            </div>
+                            <div class="form-group">
+                            <label for="Parentesco">Parentesco:</label>
+                            <select class="form-control" id="Parentesco" required>
+                            <option value="">Seleccionar</option>
+                            <option value="Padre">Padre</option>
+                            <option value="Madre">Madre</option>
+                            <option value="Hermano">Hermano</option>
+                            <option value="Hermana">Hermana</option>
+                            <option value="Abuelo">Abuelo</option>
+                            <option value="Abuela">Abuela</option>
+                            <option value="Tío">Tío</option>
+                            <option value="Tía">Tía</option>
+                            <option value="Primo">Primo</option>
+                            <option value="Prima">Prima</option>
+                            <option value="Hijo">Hijo</option>
+                            <option value="Hija">Hija</option>
+                            </select>
+                            </div>
+                            <div class="form-group">
+                            <label for="Ocupacion">Ocupacion:</label>
+                            <select class="form-control" id="Ocupacion" required>
+                            <option value="">Seleccionar</option>
+                            <option value="Empleado">Empleado</option>
+                            <option value="Desempleado">Desempleado</option>
+                            <option value="Independiente">Independiente</option>
+                            <option value="Cabeza de hogar">Cabeza de hogar</option>
+                            <option value="Estudiante">Estudiante</option>
+                            </select>
+                            </div>
+                            </div>
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                            <button type="button" class="btn btn-primary" onclick="agregarRegistro()">Guardar</button>
+                            </div>
+                            </div>
+                            </div>
+                            </div>
+                            </div>
+                            *@
+                        </div>
+                        <br>
+                        <br>
+                        <div id="divNombreDimension_2" class="col-md-12 alert alert-warning" role="alert" style="text-align:center;background-color:#DE3163;color: #FFFFFF;border-color:#d3255c">
+                            <b>Escolaridad</b>
+                        </div>
+                        <div class="row align-items-baseline">
+                            <div class="table-responsive" id="div14">
+                                <table class="table" id="tablaEscolaridad">
+                                    <thead>
+                                        <tr>
+                                            <th>Grado</th>
+                                            <th>Título</th>
+                                            <th>Institución</th>
+                                            <th>Año</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @{
+                                            foreach (var item in Model.Escolaridad)
+                                            {
+                                                <tr>
+                                                    <td><label type="text" class="form-control" readonly>@item.Grado</label></td>
+                                                    <td><label type="text" class="form-control" readonly>@item.Titulo</label></td>
+                                                    <td><label type="text" class="form-control" readonly>@item.Institucion</label></td>
+                                                    <td><label type="text" class="form-control" readonly>@item.Year</label></td>
+                                                </tr>
+                                            }
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <br />
+                        <div class="row align-items-baseline">
+                            <div class="col-md-10" id="diva21">
+                                <label><b>Si usted va a realizar su estapa productiva como aprendiz, servicio social o estudiante por rotacion, responda:</b></label>
+                                @*<input type="radio" name="Practicas" value="Si" id="PracticasSi" required="" />
+                                <label>Si</label>
+                                <input type="radio" name="Practicas" value="No" id="PracticasNo" required="" />
+                                <label>No</label>*@
+                            </div>
+                        </div>
+                        <br />
+                        <div class="contenedor" id="practica">
+                            <div class="row align-items-baseline">
+                                <div class="col-md-4" id="diva1" style="width: 33.33%;">
+                                    <label>Institución Educativa a la que pertenece</label>
+                                    @if (@Model.Practicas == null)
+                                    {
+                                        <label class="form-control" readonly>&nbsp;</label>
+                                    }else{
+                                        <label class="form-control" readonly>@Model.Practicas.Institucion</label>
+                                    }
+                                </div>
+                                <div class="col-md-4" id="diva1" style="width: 33.33%;">
+                                    <label>Nombre del programa al que pertenece</label>
+                                    @if (@Model.Practicas == null)
+                                    {
+                                        <label class="form-control" readonly>&nbsp;</label>
+                                    }
+                                    else
+                                    {
+                                        <label class="form-control" readonly>@Model.Practicas.Programa</label>
+                                    }
+                                </div>
+                                <div class="col-md-4" id="diva1" style="width: 33.33%;">
+                                    <label>Titulo a obtener</label>
+                                    @if (@Model.Practicas == null)
+                                    {
+                                        <label class="form-control" readonly>&nbsp;</label>
+                                    }
+                                    else
+                                    {
+                                        <label class="form-control" readonly>@Model.Practicas.Titulo</label>
+                                    }
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row align-items-baseline" @*style="visibility: collapse"*@>
+                                <div class="col-md-4" id="diva1" style="width: 33.33%;">
+                                    <label>Fecha de inicio</label>
+                                    @if (@Model.Practicas == null)
+                                    {
+                                        <label class="form-control" readonly>&nbsp;</label>
+                                    }
+                                    else
+                                    {
+                                        <label class="form-control" readonly>@Model.Practicas.FechaInicio</label>
+                                    }
+                                </div>
+                                <div class="col-md-4" id="dia1" style="width: 33.33%;">
+                                    <label>Fecha de finalización</label>
+                                    @if (@Model.Practicas == null)
+                                    {
+                                        <label class="form-control" readonly>&nbsp;</label>
+                                    }
+                                    else
+                                    {
+                                        <label class="form-control" readonly>@Model.Practicas.FechaFinalizacion</label>
+                                    }
+                                </div>
+                                <div class="col-md-4 form-outline mb-5" id="dia1" style="width: 33.33%;">
+                                    <label>Convenio docencia de servicios</label>
+                                    <br />
+                                    @if (@Model.Practicas == null)
+                                    {
+                                        <input type="radio" name="docencia" value="Si" id="DocenciaSi" disabled />
+                                        <label>Si</label>
+                                        <input type="radio" name="docencia" value="No" id="DocenciaNo" disabled />
+                                        <label>No</label>
+                                    }
+                                    else if (@Model.Practicas.DocenciaServicios == "No")
+                                    {
+                                        <input type="radio" name="docencia" value="Si" id="DocenciaSi" disabled />
+                                        <label>Si</label>
+                                        <input type="radio" name="docencia" value="No" id="DocenciaNo" disabled checked />
+                                        <label>No</label>
+                                    }else
+                                    {
+                                        <input type="radio" name="docencia" value="Si" id="DocenciaSi" disabled checked/>
+                                        <label>Si</label>
+                                        <input type="radio" name="docencia" value="No" id="DocenciaNo" disabled />
+                                        <label>No</label>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div id="divNombreDimension_2" class="col-md-12 alert alert-warning" role="alert" style="text-align:center;background-color:#DE3163;color: #FFFFFF;border-color:#d3255c">
+                            <b>Informacion Laboral</b>
+                        </div>
+                        <div class="table-responsive" id="div14">
+                            <table class="table dark" id="tblLaboral">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th>Concepto</th>
+                                        <th colspan="1">Ultimo Empleo</th>
+                                        <th colspan="1">Anterior</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @{
+                                        if(Model.InfoLaboral.Count() == 1)
+                                        {
+                                            <tr>
+                                                <th>Tiempo Laborado</th>
+                                                <td>
+                                                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                        <tbody>
+                                                            <tr>
+                                                                <th>Fecha Ingreso</th>
+                                                                <th>Fecha Retiro</th>
+                                                            </tr>
+                                                            <tr>
+                                                                @foreach (var item in Model.InfoLaboral)
+                                                                {
+                                                                    <td><label type="date" class="form-control" readonly>@item.FechaIngreso</label></td>
+                                                                    <td><label type="date" class="form-control" readonly>@item.FechaRetiro</label></td>
+                                                                }
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </td>
+                                                <td>
+                                                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                        <tbody>
+                                                            <tr>
+                                                                <th>Fecha Ingreso</th>
+                                                                <th>Fecha Retiro</th>
+                                                            </tr>
+                                                            <tr>
+                                                                <td><label type="date" class="form-control" readonly>&nbsp;</label></td>
+                                                                <td><label type="date" class="form-control" readonly>&nbsp;</label></td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>Nombre Empresa</th>
+                                                @foreach (var item in Model.InfoLaboral)
+                                                {
+                                                    <td><label type="text" class="form-control" readonly>@item.NombreEmpresa</label></td>
+                                                }
+                                                <td><label type="date" class="form-control" readonly>&nbsp;</label></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Motivo del Retiro</th>
+                                                @foreach (var item in Model.InfoLaboral)
+                                                {
+                                                    <td><label type="text" class="form-control" readonly>@item.MotivoRetiro</label></td>
+                                                }
+                                                <td><label type="date" class="form-control" readonly>&nbsp;</label></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Celular</th>
+                                                @foreach (var item in Model.InfoLaboral)
+                                                {
+                                                    <td><label type="text" class="form-control" readonly>@item.Celular</label></td>
+                                                }
+                                                <td><label type="date" class="form-control" readonly>&nbsp;</label></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Cargo</th>
+                                                @foreach (var item in Model.InfoLaboral)
+                                                {
+                                                    <td><label type="text" class="form-control" readonly>@item.Cargo</label></td>
+                                                }
+                                                <td><label type="date" class="form-control" readonly>&nbsp;</label></td>
+                                            </tr>
+                                        }
+                                        else if (Model.InfoLaboral.Count() == 2)
+                                        {
+                                            <tr>
+                                                <th>Tiempo Laborado</th>
+                                                <td>
+                                                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                        <tbody>
+                                                            <tr>
+                                                                <th>Fecha Ingreso</th>
+                                                                <th>Fecha Retiro</th>
+                                                            </tr>
+                                                            <tr>
+                                                                @{
+                                                                    @foreach (var item in Model.InfoLaboral)
+                                                                    {
+                                                                        <td><label type="date" class="form-control" readonly>@item.FechaIngreso</label></td>
+                                                                        <td><label type="date" class="form-control" readonly>@item.FechaRetiro</label></td>
+                                                                        break;
+                                                                    }
+                                                                }
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </td>
+                                                <td>
+                                                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                        <tbody>
+                                                            <tr>
+                                                                <th>Fecha Ingreso</th>
+                                                                <th>Fecha Retiro</th>
+                                                            </tr>
+                                                            <tr>
+                                                                @{
+                                                                    int ind = 0;
+                                                                    @foreach (var item in Model.InfoLaboral)
+                                                                    {
+                                                                        @if (ind == 0)
+                                                                        {
+                                                                            ind++;
+                                                                            continue;
+                                                                        }
+                                                                        <td><label type="date" class="form-control" readonly>@item.FechaIngreso</label></td>
+                                                                        <td><label type="date" class="form-control" readonly>@item.FechaRetiro</label></td>
+                                                                    }
+                                                                }
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>Nombre Empresa</th>
+                                                @foreach (var item in Model.InfoLaboral)
+                                                {
+                                                    <td><label type="text" class="form-control" readonly>@item.NombreEmpresa</label></td>
+                                                }
+                                            </tr>
+                                            <tr>
+                                                <th>Motivo del Retiro</th>
+                                                @foreach (var item in Model.InfoLaboral)
+                                                {
+                                                    <td><label type="text" class="form-control" readonly>@item.MotivoRetiro</label></td>
+                                                }
+                                            </tr>
+                                            <tr>
+                                                <th>Celular</th>
+                                                @foreach (var item in Model.InfoLaboral)
+                                                {
+                                                    <td><label type="text" class="form-control" readonly>@item.Celular</label></td>
+                                                }
+                                            </tr>
+                                            <tr>
+                                                <th>Cargo</th>
+                                                @foreach (var item in Model.InfoLaboral)
+                                                {
+                                                    <td><label type="text" class="form-control" readonly>@item.Cargo</label></td>
+                                                }
+                                            </tr>
+                                        }
+                                        else
+                                        {
+                                            <tr>
+                                                <th>Tiempo Laborado</th>
+                                                <td>
+                                                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                        <tbody>
+                                                            <tr>
+                                                                <th>Fecha Ingreso</th>
+                                                                <th>Fecha Retiro</th>
+                                                            </tr>
+                                                            <tr>
+                                                                <td><label type="date" class="form-control" readonly>&nbsp;</label></td>
+                                                                <td><label type="date" class="form-control" readonly>&nbsp;</label></td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </td>
+                                                <td>
+                                                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                        <tbody>
+                                                            <tr>
+                                                                <th>Fecha Ingreso</th>
+                                                                <th>Fecha Retiro</th>
+                                                            </tr>
+                                                            <tr>
+                                                                <td><label type="date" class="form-control" readonly>&nbsp;</label></td>
+                                                                <td><label type="date" class="form-control" readonly>&nbsp;</label></td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>Nombre Empresa</th>
+                                                <td><label type="text" class="form-control" readonly>&nbsp;</label></td>
+                                                <td><label type="text" class="form-control" readonly>&nbsp;</label></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Motivo del Retiro</th>
+                                                <td><label type="text" class="form-control" readonly>&nbsp;</label></td>
+                                                <td><label type="text" class="form-control" readonly>&nbsp;</label></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Celular</th>
+                                                <td><label type="text" class="form-control" readonly>&nbsp;</label></td>
+                                                <td><label type="text" class="form-control" readonly>&nbsp;</label></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Cargo</th>
+                                                <td><label type="text" class="form-control" readonly>&nbsp;</label></td>
+                                                <td><label type="text" class="form-control" readonly>&nbsp;</label></td>
+                                            </tr>
+                                        }
+                                    }
+                                </tbody>
+                            </table>
+                            <br>
+                        </div>
+                        <br>
+                        <div id="Generales">
+                            <div id="divNombreDimension_2" class="col-md-12 alert alert-warning" role="alert" style="text-align:center;background-color:#DE3163;color: #FFFFFF;border-color:#d3255c">
+                                <b>Datos Generales</b>
+                            </div>
+                            <div class="row align-items-baseline d-flex align-items-center">
+                                <div class="col-md-4" id="div2" style="width: 33.33%;">
+                                    <label>¿Cómo supo de este empleo?</label>
+                                    @if (@Model.DatosGenerales == null)
+                                    {
+                                        <label class="form-control" readonly>&nbsp;</label>
+                                    }
+                                    else
+                                    {
+                                        <label class="form-control" readonly>@Model.DatosGenerales.ComoSupo</label>
+                                    }
+                                </div>
+                                <div class="col-md-5" id="diva1">
+                                    <label>¿Tiene otros ingresos?</label>
+                                    <br />
+                                    <div class="d-flex align-items-center" style="display: flex;">
+                                        @if (@Model.DatosGenerales == null)
+                                        {
+                                            <input type="radio" name="OtrosIngresos" value="Si" id="OtrosIngresosSi" disabled />
+                                            <label class="col-md-2">Si ¿Cuál?</label>
+                                            <label type="text" class="form-control" id="Cual" @*style="border: none; border-bottom: 1px solid black; flex: 1;"*@ readonly>&nbsp;</label>
+                                        }
+                                        else if (@Model.DatosGenerales.OtrosIngresos != "No")
+                                        {
+                                            <input type="radio" name="OtrosIngresos" value="Si" id="OtrosIngresosSi" disabled checked/>
+                                            <label class="col-md-2">Si ¿Cuál?</label>
+                                            <label type="text" class="form-control" id="Cual" @*style="border: none; border-bottom: 1px solid black; flex: 1;"*@ readonly>@Model.DatosGenerales.Ingreso</label>
+                                        }else{
+                                            <input type="radio" name="OtrosIngresos" value="Si" id="OtrosIngresosSi" disabled/>
+                                            <label class="col-md-2">Si ¿Cuál?</label>
+                                            <label type="text" class="form-control" id="Cual" style="border: none; border-bottom: 1px solid black; flex: 1;" readonly></label>
+                                        }
+                                    </div>
+                                    @if (@Model.DatosGenerales == null)
+                                    {
+                                        <input type="radio" name="OtrosIngresos" value="No" id="OtrosIngresosNo" disabled/>
+                                        <label>ㅤNo</label>
+                                    }
+                                    else if (@Model.DatosGenerales.OtrosIngresos != "No")
+                                    {
+                                        <input type="radio" name="OtrosIngresos" value="No" id="OtrosIngresosNo" disabled/>
+                                        <label>ㅤNo</label>
+                                    }
+                                    else
+                                    {
+                                        <input type="radio" name="OtrosIngresos" value="No" id="OtrosIngresosNo" disabled checked/>
+                                        <label>ㅤNo</label>
+                                    }
+                                </div>
+                                <div class="col-md-3 style=" width: 25%;"" id="diva1">
+                                    <label>Ingreso aproximado al mes</label>
+                                    @if (@Model.DatosGenerales == null)
+                                    {
+                                        <label class="form-control" readonly>&nbsp;</label>
+                                    }
+                                    else
+                                    {
+                                        <label class="form-control" readonly>@Model.DatosGenerales.Ingreso</label>
+                                    }
+                                </div>
+                            </div>
+                            <label>ㅤ</label>
+                            <div class="row align-items-baseline d-flex align-items-center">
+                                <div class="col-md-5" id="div1">
+                                    <label>¿Tiene parientes trabajando en la empresa?</label>
+                                    <br />
+                                    <div class="d-flex align-items-center" style="display: flex;">
+                                        @if (@Model.DatosGenerales == null)
+                                        {
+                                            <input type="radio" name="ParientesTrabajando" value="Si" id="ParientesTrabajandoSi" disabled />
+                                            <label class="col-md-2">Si ¿Quén?</label>
+                                            <label type="text" class="form-control" id="Cual" @*style="border: none; border-bottom: 1px solid black; flex: 1;"*@ readonly>&nbsp;</label>
+                                        }
+                                        else if (@Model.DatosGenerales.ParientesTrabajando != "No")
+                                        {
+                                            <input type="radio" name="ParientesTrabajando" value="Si" id="ParientesTrabajandoSi" disabled checked/>
+                                            <label class="col-md-2">Si ¿Cuál?</label>
+                                            <label type="text" class="form-control" id="Cual" @*style="border: none; border-bottom: 1px solid black; flex: 1;"*@ readonly>@Model.DatosGenerales.ParientesTrabajando</label>
+                                        }else{
+                                            <input type="radio" name="ParientesTrabajando" value="Si" id="ParientesTrabajandoSi" disabled />
+                                            <label class="col-md-2">Si ¿Cuál?</label>
+                                            <label type="text" class="form-control" id="Quien" style="border: none; border-bottom: 1px solid black; flex: 1;" readonly></label>
+                                        }
+                                    </div>
+                                    @if (@Model.DatosGenerales == null)
+                                    {
+                                        <input type="radio" name="ParientesTrabajando" value="No" id="ParientesTrabajandoNo" disabled />
+                                        <label>ㅤNo</label>
+                                    }
+                                    else if (@Model.DatosGenerales.ParientesTrabajando != "No")
+                                    {
+                                        <input type="radio" name="ParientesTrabajando" value="No" id="ParientesTrabajandoNo" disabled />
+                                        <label>ㅤNo</label>
+                                    }
+                                    else
+                                    {
+                                        <input type="radio" name="ParientesTrabajando" value="No" id="ParientesTrabajandoNo" disabled checked />
+                                        <label>ㅤNo</label>
+                                    }
+                                </div>
+                                <div class="col-md-4" id="div2" style="width: 33.33%;">
+                                    <label>Tipo de Vivienda</label>
+                                    @if (@Model.DatosGenerales == null)
+                                    {
+                                        <label class="form-control" readonly>&nbsp;</label>
+                                    }
+                                    else
+                                    {
+                                        <label class="form-control" readonly>@Model.DatosGenerales.TipoVivienda</label>
+                                    }
+                                </div>
+                                <br>
+                            </div>
+                        </div>
+                        <br>
+                        <hr>
+                        <br>
+                        <div class="d-flex justify-content-center">
+                            @if (ViewData["UserRol"] == "Admin" || ViewData["UserRol"] == "Observador")
+                            {
+                                <button class="col-md-2 btn btn-secondary btn-block fa-lg mb-3" type="button" onclick="window.location.href='@Url.Action("AllHV", "ManageHV")'">
+                                    Atrás
+                                </button>
+                            }
+                            else{
+                                <button class="col-md-2 btn btn-secondary btn-block fa-lg mb-3" type="button" onclick="window.location.href='@Url.Action("MyHV", "ManageHV")'">
+                                    Atrás
+                                </button>
+                            }
+                            <div class="mb-3">ㅤㅤㅤ</div>
+                            <a class="col-md-2 btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" href="@Url.Action("GeneratePdf", "ManageHV", new { id = Model.Id })">Download</a>
+                            @*<button id="btn1" class="col-md-2 btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit">Download</button>*@
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

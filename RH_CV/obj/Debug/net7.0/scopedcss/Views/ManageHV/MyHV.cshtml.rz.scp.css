@@ -1,0 +1,32 @@
+.gradient-custom-2[b-3baej2j1jb] {
+    /* fallback for old browsers */
+    background: #fccb90;
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+}
+
+.dataTables_paginate .pagination li:first-child a[b-3baej2j1jb],
+.dataTables_paginate .pagination li:last-child a[b-3baej2j1jb] {
+    border-radius: 50% !important;
+}
+
+.btn[b-3baej2j1jb] {
+    color: #fff;
+    letter-spacing: 1px;
+    text-indent: 10px;
+}
+
+@media (min-width: 768px) {
+    .gradient-form[b-3baej2j1jb] {
+        height: 100vh !important;
+    }
+}
+
+@media (min-width: 769px) {
+    .gradient-custom-2[b-3baej2j1jb] {
+        border-top-right-radius: .3rem;
+        border-bottom-right-radius: .3rem;
+    }
+}
