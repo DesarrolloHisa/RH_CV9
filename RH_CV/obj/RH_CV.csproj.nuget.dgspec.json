@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\psistemas\\Downloads\\RH_CV9\\RH_CV5\\RH_CV\\RH_CV\\RH_CV.csproj": {}
+    "C:\\Users\\psistemas\\Documents\\GitHub\\RH_CV9\\RH_CV\\RH_CV.csproj": {}
   },
   "projects": {
-    "C:\\Users\\psistemas\\Downloads\\RH_CV9\\RH_CV5\\RH_CV\\RH_CV\\RH_CV.csproj": {
+    "C:\\Users\\psistemas\\Documents\\GitHub\\RH_CV9\\RH_CV\\RH_CV.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\psistemas\\Downloads\\RH_CV9\\RH_CV5\\RH_CV\\RH_CV\\RH_CV.csproj",
+        "projectUniqueName": "C:\\Users\\psistemas\\Documents\\GitHub\\RH_CV9\\RH_CV\\RH_CV.csproj",
         "projectName": "RH_CV",
-        "projectPath": "C:\\Users\\psistemas\\Downloads\\RH_CV9\\RH_CV5\\RH_CV\\RH_CV\\RH_CV.csproj",
+        "projectPath": "C:\\Users\\psistemas\\Documents\\GitHub\\RH_CV9\\RH_CV\\RH_CV.csproj",
         "packagesPath": "C:\\Users\\psistemas\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\psistemas\\Downloads\\RH_CV9\\RH_CV5\\RH_CV\\RH_CV\\obj\\",
+        "outputPath": "C:\\Users\\psistemas\\Documents\\GitHub\\RH_CV9\\RH_CV\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\psistemas\\AppData\\Roaming\\NuGet\\NuGet.Config",

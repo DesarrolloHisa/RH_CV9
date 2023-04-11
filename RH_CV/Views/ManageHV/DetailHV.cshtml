@@ -433,7 +433,7 @@ For more information on enabling MVC for empty projects, visit https://go.micros
                                             {
                                                 <tr>
                                                     <td><label type="text" class="form-control" readonly>@item.Nombre</label></td>
-                                                    <td><label type="text" class="form-control" readonly>@item.FechaNacimiento</label></td>
+                                                    <td><label type="text" class="form-control" readonly>@item.FechaNacimiento.Value.ToString("dd-MM-yyyy")</label></td>
                                                     <td><label type="text" class="form-control" readonly>@item.Parentesco</label></td>
                                                     <td><label type="text" class="form-control" readonly>@item.Ocupacion</label></td>
                                                 </tr>
@@ -597,7 +597,7 @@ For more information on enabling MVC for empty projects, visit https://go.micros
                                     }
                                     else
                                     {
-                                        <label class="form-control" readonly>@Model.Practicas.FechaInicio</label>
+                                        <label class="form-control" readonly>@Model.Practicas.FechaInicio.Value.ToString("dd-MM-yyyy")</label>
                                     }
                                 </div>
                                 <div class="col-md-4" id="dia1" style="width: 33.33%;">
@@ -608,7 +608,7 @@ For more information on enabling MVC for empty projects, visit https://go.micros
                                     }
                                     else
                                     {
-                                        <label class="form-control" readonly>@Model.Practicas.FechaFinalizacion</label>
+                                        <label class="form-control" readonly>@Model.Practicas.FechaFinalizacion.Value.ToString("dd-MM-yyyy")</label>
                                     }
                                 </div>
                                 <div class="col-md-4 form-outline mb-5" id="dia1" style="width: 33.33%;">
@@ -666,8 +666,8 @@ For more information on enabling MVC for empty projects, visit https://go.micros
                                                             <tr>
                                                                 @foreach (var item in Model.InfoLaboral)
                                                                 {
-                                                                    <td><label type="date" class="form-control" readonly>@item.FechaIngreso</label></td>
-                                                                    <td><label type="date" class="form-control" readonly>@item.FechaRetiro</label></td>
+                                                                    <td><label type="date" class="form-control" readonly>@item.FechaIngreso.Value.ToString("dd-MM-yyyy")</label></td>
+                                                                    <td><label type="date" class="form-control" readonly>@item.FechaRetiro.Value.ToString("dd-MM-yyyy")</label></td>
                                                                 }
                                                             </tr>
                                                         </tbody>
@@ -736,8 +736,8 @@ For more information on enabling MVC for empty projects, visit https://go.micros
                                                                 @{
                                                                     @foreach (var item in Model.InfoLaboral)
                                                                     {
-                                                                        <td><label type="date" class="form-control" readonly>@item.FechaIngreso</label></td>
-                                                                        <td><label type="date" class="form-control" readonly>@item.FechaRetiro</label></td>
+                                                                        <td><label type="date" class="form-control" readonly>@item.FechaIngreso.Value.ToString("dd-MM-yyyy")</label></td>
+                                                                        <td><label type="date" class="form-control" readonly>@item.FechaRetiro.Value.ToString("dd-MM-yyyy")</label></td>
                                                                         break;
                                                                     }
                                                                 }
@@ -762,8 +762,8 @@ For more information on enabling MVC for empty projects, visit https://go.micros
                                                                             ind++;
                                                                             continue;
                                                                         }
-                                                                        <td><label type="date" class="form-control" readonly>@item.FechaIngreso</label></td>
-                                                                        <td><label type="date" class="form-control" readonly>@item.FechaRetiro</label></td>
+                                                                        <td><label type="date" class="form-control" readonly>@item.FechaIngreso.Value.ToString("dd-MM-yyyy")</label></td>
+                                                                        <td><label type="date" class="form-control" readonly>@item.FechaRetiro.Value.ToString("dd-MM-yyyy")</label></td>
                                                                     }
                                                                 }
                                                             </tr>
@@ -890,7 +890,7 @@ For more information on enabling MVC for empty projects, visit https://go.micros
                                         {
                                             <input type="radio" name="OtrosIngresos" value="Si" id="OtrosIngresosSi" disabled checked/>
                                             <label class="col-md-2">Si ¿Cuál?</label>
-                                            <label type="text" class="form-control" id="Cual" @*style="border: none; border-bottom: 1px solid black; flex: 1;"*@ readonly>@Model.DatosGenerales.Ingreso</label>
+                                            <label type="text" class="form-control" id="Cual" @*style="border: none; border-bottom: 1px solid black; flex: 1;"*@ readonly>@Model.DatosGenerales.OtrosIngresos</label>
                                         }else{
                                             <input type="radio" name="OtrosIngresos" value="Si" id="OtrosIngresosSi" disabled/>
                                             <label class="col-md-2">Si ¿Cuál?</label>

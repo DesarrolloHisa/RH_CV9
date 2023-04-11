@@ -78,6 +78,10 @@
            text-align:left;
         }
 
+        .tbp{
+           text-align:center;
+        }
+
         table.tbproductos{
             border-collapse: separate;
             border-spacing: 4px;
@@ -255,7 +259,7 @@
                                 </table>
                             </td>
                         </tr>
-                    </table
+                    </table>
                     <br />
                     <br />
                     <div id="divNombreDimension_2" class="col-md-12 alert alert-warning" role="alert" style="text-align:center;background-color:#DE3163;color: #FFFFFF;border-color:#d3255c">
@@ -693,7 +697,7 @@
                                         </td>
                                     </tr>
                                 </table>
-                            </td
+                            </td>
                         </tr>
                     </table>
                     <br />
@@ -708,7 +712,8 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <label style="border: none; border-bottom: 1px solid black; flex: 1;" @*style="background-color: #e3e4e5;"*@ readonly>@Model.Direccion.Tipo</label>
+                                            @*<label style="border: none; border-bottom: 1px solid black; flex: 1;" readonly>@Model.Direccion.Tipo</label>*@
+                                            <p class="text" readonly>@Model.Direccion.Tipo</p>
                                         </td>
                                     </tr>
                                 </table>
@@ -724,9 +729,10 @@
                                         <td>
                                             @if (@Model.FondoPensiones == null)
                                             {
-                                                <p class="text">&nbsp;</p>
+                                                <p class="text">N/A</p>
                                             }else{
-                                                <label style="border: none; border-bottom: 1px solid black; flex: 1;" @*style="background-color: #e3e4e5;"*@ readonly>@Model.FondoPensiones.Tipo</label>
+                                                @*<label style="border: none; border-bottom: 1px solid black; flex: 1;" readonly>@Model.FondoPensiones.Tipo</label>*@
+                                                <p class="text" readonly>@Model.FondoPensiones.Tipo</p>
                                             }
                                         </td>
                                     </tr>
@@ -743,9 +749,10 @@
                                         <td>
                                             @if (@Model.FondoCesantias == null)
                                             {
-                                                <p class="text">&nbsp;</p>
+                                                <p class="text">N/A</p>
                                             }else{
-                                                <label style="border: none; border-bottom: 1px solid black; flex: 1;"  @*style="background-color: #e3e4e5;"*@ readonly>@Model.FondoCesantias.Tipo</label>
+                                                @*<label style="border: none; border-bottom: 1px solid black; flex: 1;" readonly>@Model.FondoCesantias.Tipo</label>*@
+                                                <p class="text" readonly>@Model.FondoCesantias.Tipo</p>
                                             }
                                         </td>
                                     </tr>
@@ -760,15 +767,15 @@
                     </div>
                     <br />
                     <br />
-                    <div class="col-md-3" id="d7" style="width: 16.67%;">
+                    <div class="col-md-4">
                         <b>Referencias Familiares</b>
                     </div>
                     <table class="table" style="width:70%">
                         <thead>
                             <tr>
-                                <th colspan="2">Nombre</th>
-                                <th>Parentesco</th>
-                                <th>Celular</th>
+                                <th class="tbth" style="width:350px">Nombre</th>
+                                <th class="tbth" style="width:170px">Parentesco</th>
+                                <th class="tbth" style="width:170px">Celular</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -776,25 +783,25 @@
                                 foreach (var item in Model.ReferenciasFamiliares)
                                 {
                                     <tr>
-                                        <td colspan="2"><label type="text" class="form-control" readonly>@item.Nombre</label></td>
-                                        <td><label type="text" class="form-control" readonly>@item.Parentesco</label></td>
-                                        <td><label type="text" class="form-control" readonly>@item.Celular</label></td>
+                                        <td><p type="text" class="form-control" readonly>@item.Nombre</p></td>
+                                        <td><p type="text" class="form-control" readonly>@item.Parentesco</p></td>
+                                        <td><p type="text" class="form-control" readonly>@item.Celular</p></td>
                                     </tr>
                                 }
                             }
                         </tbody>
                     </table>
                     <br />
-                    <div class="col-md-3" id="d7" style="width: 16.67%;">
+                    <div class="col-md-4">
                         <b>Referencias Personales</b>
                     </div>
                     <br />
-                    <table class="table" id="referenciasPersonales">
+                    <table class="table" style="width:70%">
                         <thead>
                             <tr>
-                                <th colspan="2">Nombre</th>
-                                <th>Parentesco</th>
-                                <th>Celular</th>
+                                <th class="tbth" style="width:350px">Nombre</th>
+                                <th class="tbth" style="width:170px">Parentesco</th>
+                                <th class="tbth" style="width:170px">Celular</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -802,24 +809,27 @@
                                 foreach (var item in Model.ReferenciasPersonales)
                                 {
                                     <tr>
-                                        <td colspan="2"><label type="text" class="form-control" readonly>@item.Nombre</label></td>
-                                        <td><label type="text" class="form-control" readonly>@item.Parentesco</label></td>
-                                        <td><label type="text" class="form-control" readonly>@item.Celular</label></td>
+                                        <td><p type="text" class="form-control" readonly>@item.Nombre</p></td>
+                                        <td><p type="text" class="form-control" readonly>@item.Parentesco</p></td>
+                                        <td><p type="text" class="form-control" readonly>@item.Celular</p></td>
                                     </tr>
                                 }
                             }
                         </tbody>
                     </table>
                     <br>
-                    <div class="col-md-3 style=" width: 25%;"" id="d7">
+                    <br />
+                    <br />
+                    <br />
+                    <div class="col-md-4" id="d7">
                         <b>Contacto en caso de emergencia</b>
                     </div>
                     <table class="table" style="width:70%">
                         <thead>
                             <tr>
-                                <th colspan="2">Nombre</th>
-                                <th>Parentesco</th>
-                                <th>Celular</th>
+                                <th class="tbth" style="width:350px">Nombre</th>
+                                <th class="tbth" style="width:170px">Parentesco</th>
+                                <th class="tbth" style="width:170px">Celular</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -827,9 +837,9 @@
                                 foreach (var item in Model.ContactoEmergencia)
                                 {
                                     <tr>
-                                        <td colspan="2"><label type="text" class="form-control" readonly>@item.Nombre</label></td>
-                                        <td><label type="text" class="form-control" readonly>@item.Parentesco</label></td>
-                                        <td><label type="text" class="form-control" readonly>@item.Celular</label></td>
+                                        <td><p type="text" class="form-control" readonly>@item.Nombre</p></td>
+                                        <td><p type="text" class="form-control" readonly>@item.Parentesco</p></td>
+                                        <td><p type="text" class="form-control" readonly>@item.Celular</p></td>
                                     </tr>
                                 }
                             }
@@ -843,524 +853,562 @@
                         <label><small>Nombre a las personas con las que vive</small></label>
                     </div>
                     <br />
+                    <table class="table" style="width:70%">
+                        <thead>
+                            <tr>
+                                <th class="tbth" style="width:300px">Nombre</th>
+                                <th class="tbth" style="width:150px">Fecha Nacimiento</th>
+                                <th class="tbth" style="width:150px">Parentesco</th>
+                                <th class="tbth" style="width:150px">Ocupacion</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{
+                                if (Model.DatosFamiliares.Count() > 0)
+                                {
+                                    foreach (var item in Model.DatosFamiliares)
+                                    {
+                                        <tr>
+                                            <td><p type="text" class="form-control" readonly>@item.Nombre</p></td>
+                                            <td><p type="text" class="form-control" readonly>@item.FechaNacimiento.Value.ToString("dd-MM-yyyy")</p></td>
+                                            <td><p type="text" class="form-control" readonly>@item.Parentesco</p></td>
+                                            <td><p type="text" class="form-control" readonly>@item.Ocupacion</p></td>
+                                        </tr>
+                                    }
+                                }
+                                else
+                                {
+                                    <tr>
+                                        <td><p type="text" class="form-control" readonly>&nbsp;</p></td>
+                                        <td><p type="text" class="form-control" readonly>&nbsp;</p></td>
+                                        <td><p type="text" class="form-control" readonly>&nbsp;</p></td>
+                                        <td><p type="text" class="form-control" readonly>&nbsp;</p></td>
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                    <br>
+                    <br>
+                    <div id="divNombreDimension_2" class="col-md-12 alert alert-warning" role="alert" style="text-align:center;background-color:#DE3163;color: #FFFFFF;border-color:#d3255c">
+                        <b>Escolaridad</b>
+                    </div>
+                    <br />
                     <br />
                     <div class="row align-items-baseline">
                         <div class="table-responsive" id="div14">
-
-                            <table class="table" id="tablaRegistros">
+                            <table class="table" style="width:70%">
                                 <thead>
                                     <tr>
-                                        <th>Nombre</th>
-                                        <th>Fecha Nacimiento</th>
-                                        <th>Parentesco</th>
-                                        <th>Ocupacion</th>
+                                        <th class="tbth" style="width:130px">Grado</th>
+                                        <th class="tbth" style="width:130px">Título</th>
+                                        <th class="tbth" style="width:350px">Institución</th>
+                                        <th class="tbth" style="width:130px">Año</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @{
-                                        if (Model.DatosFamiliares.Count() > 0)
+                                        foreach (var item in Model.Escolaridad)
                                         {
-                                            foreach (var item in Model.DatosFamiliares)
-                                            {
-                                                <tr>
-                                                    <td><label type="text" class="form-control" readonly>@item.Nombre</label></td>
-                                                    <td><label type="text" class="form-control" readonly>@item.FechaNacimiento</label></td>
-                                                    <td><label type="text" class="form-control" readonly>@item.Parentesco</label></td>
-                                                    <td><label type="text" class="form-control" readonly>@item.Ocupacion</label></td>
-                                                </tr>
-                                            }
-                                        }
-                                        else
-                                        {
-                                            <tr>
-                                                <td><label type="text" class="form-control" readonly>&nbsp;</label></td>
-                                                <td><label type="text" class="form-control" readonly>&nbsp;</label></td>
-                                                <td><label type="text" class="form-control" readonly>&nbsp;</label></td>
-                                                <td><label type="text" class="form-control" readonly>&nbsp;</label></td>
+                                            <tr>    
+                                                <td><p type="text" class="form-control" readonly>@item.Grado</p></td>
+                                                <td><p type="text" class="form-control" readonly>@item.Titulo</p></td>
+                                                <td><p type="text" class="form-control" readonly>@item.Institucion</p></td>
+                                                <td><p type="text" class="form-control" readonly>@item.Year</p></td>
                                             </tr>
                                         }
                                     }
                                 </tbody>
                             </table>
                         </div>
-                        <br>
-                        <br>
-                        <div id="divNombreDimension_2" class="col-md-12 alert alert-warning" role="alert" style="text-align:center;background-color:#DE3163;color: #FFFFFF;border-color:#d3255c">
-                            <b>Escolaridad</b>
-                        </div>
-                        <div class="row align-items-baseline">
-                            <div class="table-responsive" id="div14">
-                                <table class="table" id="tablaEscolaridad">
-                                    <thead>
-                                        <tr>
-                                            <th>Grado</th>
-                                            <th>Título</th>
-                                            <th>Institución</th>
-                                            <th>Año</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @{
-                                            foreach (var item in Model.Escolaridad)
-                                            {
-                                                        <tr>
-                                                            <td><label type="text" class="form-control" readonly>@item.Grado</label></td>
-                                                            <td><label type="text" class="form-control" readonly>@item.Titulo</label></td>
-                                                            <td><label type="text" class="form-control" readonly>@item.Institucion</label></td>
-                                                            <td><label type="text" class="form-control" readonly>@item.Year</label></td>
-                                                        </tr>
-                                            }
-                                        }
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        <br />
-                        <div class="row align-items-baseline">
-                            <div class="col-md-10" id="diva21">
-                                <label><b>Si usted va a realizar su estapa productiva como aprendiz, servicio social o estudiante por rotacion, responda:</b></label>
-                                @*<input type="radio" name="Practicas" value="Si" id="PracticasSi" required="" />
-                                <label>Si</label>
-                                <input type="radio" name="Practicas" value="No" id="PracticasNo" required="" />
-                                <label>No</label>*@
-                            </div>
-                        </div>
-                        <br />
-                        <div class="contenedor" id="practica">
-                            <div class="row align-items-baseline">
-                                <div class="col-md-4" id="diva1" style="width: 33.33%;">
-                                    <label>Institución Educativa a la que pertenece</label>
-                                    @if (@Model.Practicas == null)
-                                    {
-                                            <label class="form-control" readonly>&nbsp;</label>
-                                    }
-                                    else
-                                    {
-                                            <label class="form-control" readonly>@Model.Practicas.Institucion</label>
-                                    }
-                                </div>
-                                <div class="col-md-4" id="diva1" style="width: 33.33%;">
-                                    <label>Nombre del programa al que pertenece</label>
-                                    @if (@Model.Practicas == null)
-                                    {
-                                            <label class="form-control" readonly>&nbsp;</label>
-                                    }
-                                    else
-                                    {
-                                            <label class="form-control" readonly>@Model.Practicas.Programa</label>
-                                    }
-                                </div>
-                                <div class="col-md-4" id="diva1" style="width: 33.33%;">
-                                    <label>Titulo a obtener</label>
-                                    @if (@Model.Practicas == null)
-                                    {
-                                            <label class="form-control" readonly>&nbsp;</label>
-                                    }
-                                    else
-                                    {
-                                            <label class="form-control" readonly>@Model.Practicas.Titulo</label>
-                                    }
-                                </div>
-                            </div>
-                            <br>
-                            <div class="row align-items-baseline" @*style="visibility: collapse"*@>
-                                <div class="col-md-4" id="diva1" style="width: 33.33%;">
-                                    <label>Fecha de inicio</label>
-                                    @if (@Model.Practicas == null)
-                                    {
-                                            <label class="form-control" readonly>&nbsp;</label>
-                                    }
-                                    else
-                                    {
-                                            <label class="form-control" readonly>@Model.Practicas.FechaInicio</label>
-                                    }
-                                </div>
-                                <div class="col-md-4" id="dia1" style="width: 33.33%;">
-                                    <label>Fecha de finalización</label>
-                                    @if (@Model.Practicas == null)
-                                    {
-                                            <label class="form-control" readonly>&nbsp;</label>
-                                    }
-                                    else
-                                    {
-                                            <label class="form-control" readonly>@Model.Practicas.FechaFinalizacion</label>
-                                    }
-                                </div>
-                                <div class="col-md-4 form-outline mb-5" id="dia1" style="width: 33.33%;">
-                                    <label>Convenio docencia de servicios</label>
-                                    <br />
-                                    @if (@Model.Practicas == null)
-                                    {
-                                            <input type="radio" name="docencia" value="Si" id="DocenciaSi" disabled />
-                                            <label>Si</label>
-                                            <input type="radio" name="docencia" value="No" id="DocenciaNo" disabled />
-                                            <label>No</label>
-                                    }
-                                    else if (@Model.Practicas.DocenciaServicios == "No")
-                                    {
-                                            <input type="radio" name="docencia" value="Si" id="DocenciaSi" disabled />
-                                            <label>Si</label>
-                                            <input type="radio" name="docencia" value="No" id="DocenciaNo" disabled checked />
-                                            <label>No</label>
-                                    }
-                                    else
-                                    {
-                                            <input type="radio" name="docencia" value="Si" id="DocenciaSi" disabled checked/>
-                                            <label>Si</label>
-                                            <input type="radio" name="docencia" value="No" id="DocenciaNo" disabled />
-                                            <label>No</label>
-                                    }
-                                </div>
-                            </div>
-                        </div>
-                        <br>
-                        <div id="divNombreDimension_2" class="col-md-12 alert alert-warning" role="alert" style="text-align:center;background-color:#DE3163;color: #FFFFFF;border-color:#d3255c">
-                            <b>Informacion Laboral</b>
-                        </div>
-                        <div class="table-responsive" id="div14">
-                            <table class="table dark" id="tblLaboral">
-                                <thead class="thead-dark">
-                                    <tr>
-                                        <th>Concepto</th>
-                                        <th colspan="1">Ultimo Empleo</th>
-                                        <th colspan="1">Anterior</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @{
-                                        if (Model.InfoLaboral.Count() == 1)
-                                        {
-                                                    <tr>
-                                                        <th>Tiempo Laborado</th>
-                                                        <td>
-                                                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                                                                <tbody>
-                                                                    <tr>
-                                                                        <th>Fecha Ingreso</th>
-                                                                        <th>Fecha Retiro</th>
-                                                                    </tr>
-                                                                    <tr>
-                                                                @foreach (var item in Model.InfoLaboral)
-                                                                {
-                                                                                <td><label type="date" class="form-control" readonly>@item.FechaIngreso</label></td>
-                                                                                <td><label type="date" class="form-control" readonly>@item.FechaRetiro</label></td>
-                                                                }
-                                                                    </tr>
-                                                                </tbody>
-                                                            </table>
-                                                        </td>
-                                                        <td>
-                                                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                                                                <tbody>
-                                                                    <tr>
-                                                                        <th>Fecha Ingreso</th>
-                                                                        <th>Fecha Retiro</th>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td><label type="date" class="form-control" readonly>&nbsp;</label></td>
-                                                                        <td><label type="date" class="form-control" readonly>&nbsp;</label></td>
-                                                                    </tr>
-                                                                </tbody>
-                                                            </table>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th>Nombre Empresa</th>
-                                                @foreach (var item in Model.InfoLaboral)
-                                                {
-                                                                <td><label type="text" class="form-control" readonly>@item.NombreEmpresa</label></td>
-                                                }
-                                                        <td><label type="date" class="form-control" readonly>&nbsp;</label></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th>Motivo del Retiro</th>
-                                                @foreach (var item in Model.InfoLaboral)
-                                                {
-                                                                <td><label type="text" class="form-control" readonly>@item.MotivoRetiro</label></td>
-                                                }
-                                                        <td><label type="date" class="form-control" readonly>&nbsp;</label></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th>Celular</th>
-                                                @foreach (var item in Model.InfoLaboral)
-                                                {
-                                                                <td><label type="text" class="form-control" readonly>@item.Celular</label></td>
-                                                }
-                                                        <td><label type="date" class="form-control" readonly>&nbsp;</label></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th>Cargo</th>
-                                                @foreach (var item in Model.InfoLaboral)
-                                                {
-                                                                <td><label type="text" class="form-control" readonly>@item.Cargo</label></td>
-                                                }
-                                                        <td><label type="date" class="form-control" readonly>&nbsp;</label></td>
-                                                    </tr>
-                                        }
-                                        else if (Model.InfoLaboral.Count() == 2)
-                                        {
-                                                    <tr>
-                                                        <th>Tiempo Laborado</th>
-                                                        <td>
-                                                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                                                                <tbody>
-                                                                    <tr>
-                                                                        <th>Fecha Ingreso</th>
-                                                                        <th>Fecha Retiro</th>
-                                                                    </tr>
-                                                                    <tr>
-                                                                @{
-                                                                    @foreach (var item in Model.InfoLaboral)
-                                                                    {
-                                                                                        <td><label type="date" class="form-control" readonly>@item.FechaIngreso</label></td>
-                                                                                        <td><label type="date" class="form-control" readonly>@item.FechaRetiro</label></td>
-                                                                        break;
-                                                                    }
-                                                                }
-                                                                    </tr>
-                                                                </tbody>
-                                                            </table>
-                                                        </td>
-                                                        <td>
-                                                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                                                                <tbody>
-                                                                    <tr>
-                                                                        <th>Fecha Ingreso</th>
-                                                                        <th>Fecha Retiro</th>
-                                                                    </tr>
-                                                                    <tr>
-                                                                @{
-                                                                    int ind = 0;
-                                                                    @foreach (var item in Model.InfoLaboral)
-                                                                    {
-                                                                        @if (ind == 0)
-                                                                        {
-                                                                            ind++;
-                                                                            continue;
-                                                                        }
-                                                                                        <td><label type="date" class="form-control" readonly>@item.FechaIngreso</label></td>
-                                                                                        <td><label type="date" class="form-control" readonly>@item.FechaRetiro</label></td>
-                                                                    }
-                                                                }
-                                                                    </tr>
-                                                                </tbody>
-                                                            </table>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th>Nombre Empresa</th>
-                                                @foreach (var item in Model.InfoLaboral)
-                                                {
-                                                                <td><label type="text" class="form-control" readonly>@item.NombreEmpresa</label></td>
-                                                }
-                                                    </tr>
-                                                    <tr>
-                                                        <th>Motivo del Retiro</th>
-                                                @foreach (var item in Model.InfoLaboral)
-                                                {
-                                                                <td><label type="text" class="form-control" readonly>@item.MotivoRetiro</label></td>
-                                                }
-                                                    </tr>
-                                                    <tr>
-                                                        <th>Celular</th>
-                                                @foreach (var item in Model.InfoLaboral)
-                                                {
-                                                                <td><label type="text" class="form-control" readonly>@item.Celular</label></td>
-                                                }
-                                                    </tr>
-                                                    <tr>
-                                                        <th>Cargo</th>
-                                                @foreach (var item in Model.InfoLaboral)
-                                                {
-                                                                <td><label type="text" class="form-control" readonly>@item.Cargo</label></td>
-                                                }
-                                                    </tr>
-                                        }
-                                        else
-                                        {
-                                                    <tr>
-                                                        <th>Tiempo Laborado</th>
-                                                        <td>
-                                                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                                                                <tbody>
-                                                                    <tr>
-                                                                        <th>Fecha Ingreso</th>
-                                                                        <th>Fecha Retiro</th>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td><label type="date" class="form-control" readonly>&nbsp;</label></td>
-                                                                        <td><label type="date" class="form-control" readonly>&nbsp;</label></td>
-                                                                    </tr>
-                                                                </tbody>
-                                                            </table>
-                                                        </td>
-                                                        <td>
-                                                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                                                                <tbody>
-                                                                    <tr>
-                                                                        <th>Fecha Ingreso</th>
-                                                                        <th>Fecha Retiro</th>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td><label type="date" class="form-control" readonly>&nbsp;</label></td>
-                                                                        <td><label type="date" class="form-control" readonly>&nbsp;</label></td>
-                                                                    </tr>
-                                                                </tbody>
-                                                            </table>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th>Nombre Empresa</th>
-                                                        <td><label type="text" class="form-control" readonly>&nbsp;</label></td>
-                                                        <td><label type="text" class="form-control" readonly>&nbsp;</label></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th>Motivo del Retiro</th>
-                                                        <td><label type="text" class="form-control" readonly>&nbsp;</label></td>
-                                                        <td><label type="text" class="form-control" readonly>&nbsp;</label></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th>Celular</th>
-                                                        <td><label type="text" class="form-control" readonly>&nbsp;</label></td>
-                                                        <td><label type="text" class="form-control" readonly>&nbsp;</label></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th>Cargo</th>
-                                                        <td><label type="text" class="form-control" readonly>&nbsp;</label></td>
-                                                        <td><label type="text" class="form-control" readonly>&nbsp;</label></td>
-                                                    </tr>
-                                        }
-                                    }
-                                </tbody>
-                            </table>
-                            <br>
-                        </div>
-                        <br>
-                        <div id="Generales">
-                            <div id="divNombreDimension_2" class="col-md-12 alert alert-warning" role="alert" style="text-align:center;background-color:#DE3163;color: #FFFFFF;border-color:#d3255c">
-                                <b>Datos Generales</b>
-                            </div>
-                            <div class="row align-items-baseline d-flex align-items-center">
-                                <div class="col-md-4" id="div2" style="width: 33.33%;">
-                                    <label>¿Cómo supo de este empleo?</label>
-                                    @if (@Model.DatosGenerales == null)
-                                    {
-                                            <label class="form-control" readonly>&nbsp;</label>
-                                    }
-                                    else
-                                    {
-                                            <label class="form-control" readonly>@Model.DatosGenerales.ComoSupo</label>
-                                    }
-                                </div>
-                                <div class="col-md-5" id="diva1" style="width: 41.66666667%;">
-                                    <label>¿Tiene otros ingresos?</label>
-                                    <br />
-                                    <div class="d-flex align-items-center" style="display: flex;">
-                                        @if (@Model.DatosGenerales == null)
-                                        {
-                                                <input type="radio" name="OtrosIngresos" value="Si" id="OtrosIngresosSi" disabled />
-                                                <label class="col-md-2" style="width: 16.67%;">Si ¿Cuál?</label>
-                                                <label type="text" class="form-control" id="Cual" @*style="border: none; border-bottom: 1px solid black; flex: 1;"*@ readonly>&nbsp;</label>
-                                        }
-                                        else if (@Model.DatosGenerales.OtrosIngresos != "No")
-                                        {
-                                                <input type="radio" name="OtrosIngresos" value="Si" id="OtrosIngresosSi" disabled checked/>
-                                                <label class="col-md-2" style="width: 16.67%;">Si ¿Cuál?</label>
-                                                <label type="text" class="form-control" id="Cual" @*style="border: none; border-bottom: 1px solid black; flex: 1;"*@ readonly>@Model.DatosGenerales.Ingreso</label>
-                                        }
-                                        else
-                                        {
-                                                <input type="radio" name="OtrosIngresos" value="Si" id="OtrosIngresosSi" disabled/>
-                                            <label class="col-md-2" style="width: 16.67%;">Si ¿Cuál?</label>
-                                                <label type="text" class="form-control" id="Cual" style="border: none; border-bottom: 1px solid black; flex: 1;" readonly></label>
-                                        }
-                                    </div>
-                                    @if (@Model.DatosGenerales == null)
-                                    {
-                                            <input type="radio" name="OtrosIngresos" value="No" id="OtrosIngresosNo" disabled/>
-                                            <label>ㅤNo</label>
-                                    }
-                                    else if (@Model.DatosGenerales.OtrosIngresos != "No")
-                                    {
-                                            <input type="radio" name="OtrosIngresos" value="No" id="OtrosIngresosNo" disabled/>
-                                            <label>ㅤNo</label>
-                                    }
-                                    else
-                                    {
-                                            <input type="radio" name="OtrosIngresos" value="No" id="OtrosIngresosNo" disabled checked/>
-                                            <label>ㅤNo</label>
-                                    }
-                                </div>
-                                <div class="col-md-3" style="width: 25%;" id="diva1">
-                                    <label>Ingreso aproximado al mes</label>
-                                    @if (@Model.DatosGenerales == null)
-                                    {
-                                            <label class="form-control" readonly>&nbsp;</label>
-                                    }
-                                    else
-                                    {
-                                            <label class="form-control" readonly>@Model.DatosGenerales.Ingreso</label>
-                                    }
-                                </div>
-                            </div>
-                            <label>ㅤ</label>
-                            <div class="row align-items-baseline d-flex align-items-center">
-                                <div class="col-md-5" id="div1" style="width: 41.66666667%;">
-                                    <label>¿Tiene parientes trabajando en la empresa?</label>
-                                    <br />
-                                    <div class="d-flex align-items-center" style="display: flex;">
-                                        @if (@Model.DatosGenerales == null)
-                                        {
-                                                <input type="radio" name="ParientesTrabajando" value="Si" id="ParientesTrabajandoSi" disabled />
-                                                <label class="col-md-2" style="width: 16.67%;">Si ¿Quén?</label>
-                                                <label type="text" class="form-control" id="Cual" @*style="border: none; border-bottom: 1px solid black; flex: 1;"*@ readonly>&nbsp;</label>
-                                        }
-                                        else if (@Model.DatosGenerales.ParientesTrabajando != "No")
-                                        {
-                                                <input type="radio" name="ParientesTrabajando" value="Si" id="ParientesTrabajandoSi" disabled checked/>
-                                                <label class="col-md-2" style="width: 16.67%;">Si ¿Cuál?</label>
-                                                <label type="text" class="form-control" id="Cual" @*style="border: none; border-bottom: 1px solid black; flex: 1;"*@ readonly>@Model.DatosGenerales.ParientesTrabajando</label>
-                                        }
-                                        else
-                                        {
-                                                <input type="radio" name="ParientesTrabajando" value="Si" id="ParientesTrabajandoSi" disabled />
-                                            <label class="col-md-2" style="width: 16.67%;">Si ¿Cuál?</label>
-                                                <label type="text" class="form-control" id="Quien" style="border: none; border-bottom: 1px solid black; flex: 1;" readonly></label>
-                                        }
-                                    </div>
-                                    @if (@Model.DatosGenerales == null)
-                                    {
-                                            <input type="radio" name="ParientesTrabajando" value="No" id="ParientesTrabajandoNo" disabled />
-                                            <label>ㅤNo</label>
-                                    }
-                                    else if (@Model.DatosGenerales.ParientesTrabajando != "No")
-                                    {
-                                            <input type="radio" name="ParientesTrabajando" value="No" id="ParientesTrabajandoNo" disabled />
-                                            <label>ㅤNo</label>
-                                    }
-                                    else
-                                    {
-                                            <input type="radio" name="ParientesTrabajando" value="No" id="ParientesTrabajandoNo" disabled checked />
-                                            <label>ㅤNo</label>
-                                    }
-                                </div>
-                                <div class="col-md-4" id="div2" style="width: 33.33%;">
-                                    <label>Tipo de Vivienda</label>
-                                    @if (@Model.DatosGenerales == null)
-                                    {
-                                            <label class="form-control" readonly>&nbsp;</label>
-                                    }
-                                    else
-                                    {
-                                            <label class="form-control" readonly>@Model.DatosGenerales.TipoVivienda</label>
-                                    }
-                                </div>
-                                <br>
-                            </div>
-                        </div>
-                        <br>
-                        <hr>
                     </div>
+                    <br />
+                    <br />
+                    <div class="row align-items-baseline">
+                        <div class="col-md-10" id="diva21">
+                            <label><b>Si usted va a realizar su estapa productiva como aprendiz, servicio social o estudiante por rotacion, responda:</b></label>
+                            @*<input type="radio" name="Practicas" value="Si" id="PracticasSi" required="" />
+                            <label>Si</label>
+                            <input type="radio" name="Practicas" value="No" id="PracticasNo" required="" />
+                            <label>No</label>*@
+                        </div>
+                    </div>
+                    <br />
+                    <table style="width:80%">
+                        <tr>
+                            <td>
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <p>Institución Educativa a la que pertenece</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            @if (@Model.Practicas == null)
+                                            {
+                                                <p class="text">N/A</p>
+                                            }else{
+                                                <p class="text" @*style="background-color: #e3e4e5;"*@ readonly>@Model.Practicas.Institucion</p>
+                                            }
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                            <td>
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <p>Nombre del programa al que pertenece</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            @if (@Model.Practicas == null)
+                                            {
+                                                <p class="text">N/A</p>
+                                            }
+                                            else
+                                            {
+                                                <p class="text" @*style="background-color: #e3e4e5;"*@ readonly>@Model.Practicas.Programa</p>
+                                            }
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                            <td>
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <p>Titulo a obtener</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            @if (@Model.Practicas == null)
+                                            {
+                                                    <p class="text">N/A</p>
+                                            }
+                                            else
+                                            {
+                                                <p class="text" @*style="background-color: #e3e4e5;"*@ readonly>@Model.Practicas.Titulo</p>
+                                            }
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                    <br />
+                    <table style="width:80%">
+                        <tr>
+                            <td>
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <p>Fecha de inicio</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            @if (@Model.Practicas == null)
+                                            {
+                                                <p class="text">N/A</p>
+                                            }else{
+                                                <p class="text" @*style="background-color: #e3e4e5;"*@ readonly>@Model.Practicas.FechaInicio.Value.ToString("dd-MM-yyyy")</p>
+                                            }
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                            <td>
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <p>Fecha de finalización</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            @if (@Model.Practicas == null)
+                                            {
+                                                    <p class="text">N/A</p>
+                                            }
+                                            else
+                                            {
+                                                <p class="text" @*style="background-color: #e3e4e5;"*@ readonly>@Model.Practicas.FechaFinalizacion.Value.ToString("dd-MM-yyyy")</p>
+                                            }
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                            <td>
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <p>Convenio docencia de servicios</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            @if (@Model.Practicas == null)
+                                            {
+                                                <p class="text">N/A</p>
+                                            }
+                                            else
+                                            {
+                                                <p class="text" @*style="background-color: #e3e4e5;"*@ readonly>@Model.Practicas.DocenciaServicios</p>
+                                            }
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                    <br/>
+                    <br/>
+                    <div id="divNombreDimension_2" class="col-md-12 alert alert-warning" role="alert" style="text-align:center;background-color:#DE3163;color: #FFFFFF;border-color:#d3255c">
+                        <b>Informacion Laboral</b>
+                    </div>
+                    <br />
+                    <br />
+                    <table style="width:100%">
+                        <thead>
+                            <tr>
+                                <th style="width:150px">Concepto</th>
+                                <th style="width:350px">Ultimo Empleo</th>
+                                <th style="width:350px">Anterior</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{
+                                if (Model.InfoLaboral.Count() == 1)
+                                {
+                                    <tr>
+                                        <th>Tiempo Laborado</th>
+                                        <td>
+                                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                <tbody>
+                                                    <tr>
+                                                        <th>Fecha Ingreso</th>
+                                                        <th>Fecha Retiro</th>
+                                                    </tr>
+                                                    <tr>
+                                                        @foreach (var item in Model.InfoLaboral)
+                                                        {
+                                                            <td class="tbp"><p type="text" class="form-control" readonly>@item.FechaIngreso.Value.ToString("dd-MM-yyyy")</p></td>
+                                                                <td class="tbp"><p type="text" class="form-control" readonly>@item.FechaRetiro.Value.ToString("dd-MM-yyyy")</p></td>
+                                                        }
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                        <td>
+                                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                <tbody>
+                                                    <tr>
+                                                        <th>Fecha Ingreso</th>
+                                                        <th>Fecha Retiro</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><label type="date" class="form-control" readonly>&nbsp;</label></td>
+                                                        <td><label type="date" class="form-control" readonly>&nbsp;</label></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Nombre Empresa</th>
+                                        @foreach (var item in Model.InfoLaboral)
+                                        {
+                                            <td class="tbp"><p type="text" class="form-control" readonly>@item.NombreEmpresa</p></td>
+                                        }
+                                        <td><label type="date" class="form-control" readonly>&nbsp;</label></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Motivo del Retiro</th>
+                                        @foreach (var item in Model.InfoLaboral)
+                                        {
+                                            <td class="tbp"><p type="text" class="form-control" readonly>@item.MotivoRetiro</p></td>
+                                        }
+                                        <td><label type="date" class="form-control" readonly>&nbsp;</label></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Celular</th>
+                                        @foreach (var item in Model.InfoLaboral)
+                                        {
+                                            <td class="tbp"><p type="text" class="form-control" readonly>@item.Celular</p></td>
+                                        }
+                                        <td><label type="date" class="form-control" readonly>&nbsp;</label></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Cargo</th>
+                                        @foreach (var item in Model.InfoLaboral)
+                                        {
+                                            <td class="tbp"><p type="text" class="form-control" readonly>@item.Cargo</p></td>
+                                        }
+                                        <td><label type="date" class="form-control" readonly>&nbsp;</label></td>
+                                    </tr>
+                                }
+                                else if (Model.InfoLaboral.Count() == 2)
+                                {
+                                    <tr>
+                                        <th>Tiempo Laborado</th>
+                                        <td>
+                                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                <tbody>
+                                                    <tr>
+                                                        <th>Fecha Ingreso</th>
+                                                        <th>Fecha Retiro</th>
+                                                    </tr>
+                                                    <tr>
+                                                    @{
+                                                        @foreach (var item in Model.InfoLaboral)
+                                                        {
+                                                            <td class="tbp"><p type="text" class="form-control" readonly>@item.FechaIngreso.Value.ToString("dd-MM-yyyy")</p></td>
+                                                            <td class="tbp"><p type="text" class="form-control" readonly>@item.FechaRetiro.Value.ToString("dd-MM-yyyy")</p></td>
+                                                            break;
+                                                        }
+                                                    }
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                        <td>
+                                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                <tbody>
+                                                    <tr>
+                                                        <th>Fecha Ingreso</th>
+                                                        <th>Fecha Retiro</th>
+                                                    </tr>
+                                                    <tr>
+                                                    @{
+                                                        int ind = 0;
+                                                        @foreach (var item in Model.InfoLaboral)
+                                                        {
+                                                            @if (ind == 0)
+                                                            {
+                                                                ind++;
+                                                                continue;
+                                                            }
+                                                            <td class="tbp"><p type="date" class="form-control" readonly>@item.FechaIngreso.Value.ToString("dd-MM-yyyy")</p></td>
+                                                            <td class="tbp"><p type="date" class="form-control" readonly>@item.FechaRetiro.Value.ToString("dd-MM-yyyy")</p></td>
+                                                        }
+                                                    }
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Nombre Empresa</th>
+                                        @foreach (var item in Model.InfoLaboral)
+                                        {
+                                            <td class="tbp"><p type="text" class="form-control" readonly>@item.NombreEmpresa</p></td>
+                                        }
+                                        </tr>
+                                    <tr>
+                                        <th>Motivo del Retiro</th>
+                                        @foreach (var item in Model.InfoLaboral)
+                                        {
+                                            <td class="tbp"><p type="text" class="form-control" readonly>@item.MotivoRetiro</p></td>
+                                        }
+                                    </tr>
+                                    <tr>
+                                        <th>Celular</th>
+                                        @foreach (var item in Model.InfoLaboral)
+                                        {
+                                            <td class="tbp"><p type="text" class="form-control" readonly>@item.Celular</p></td>
+                                        }
+                                    </tr>
+                                    <tr>
+                                        <th>Cargo</th>
+                                        @foreach (var item in Model.InfoLaboral)
+                                        {
+                                            <td class="tbp"><p type="text" class="form-control" readonly>@item.Cargo</p></td>
+                                        }
+                                    </tr>
+                                }
+                                else
+                                {
+                                    <tr>
+                                        <th>Tiempo Laborado</th>
+                                        <td>
+                                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                <tbody>
+                                                    <tr>
+                                                        <th>Fecha Ingreso</th>
+                                                        <th>Fecha Retiro</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><label type="date" class="form-control" readonly>&nbsp;</label></td>
+                                                        <td><label type="date" class="form-control" readonly>&nbsp;</label></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                        <td>
+                                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                <tbody>
+                                                    <tr>
+                                                        <th>Fecha Ingreso</th>
+                                                        <th>Fecha Retiro</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><label type="date" class="form-control" readonly>&nbsp;</label></td>
+                                                        <td><label type="date" class="form-control" readonly>&nbsp;</label></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Nombre Empresa</th>
+                                        <td><label type="text" class="form-control" readonly>&nbsp;</label></td>
+                                        <td><label type="text" class="form-control" readonly>&nbsp;</label></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Motivo del Retiro</th>
+                                        <td><label type="text" class="form-control" readonly>&nbsp;</label></td>
+                                        <td><label type="text" class="form-control" readonly>&nbsp;</label></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Celular</th>
+                                        <td><label type="text" class="form-control" readonly>&nbsp;</label></td>
+                                        <td><label type="text" class="form-control" readonly>&nbsp;</label></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Cargo</th>
+                                        <td><label type="text" class="form-control" readonly>&nbsp;</label></td>
+                                        <td><label type="text" class="form-control" readonly>&nbsp;</label></td>
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                    <br>
+                    <br>
+                    <div id="divNombreDimension_2" class="col-md-12 alert alert-warning" role="alert" style="text-align:center;background-color:#DE3163;color: #FFFFFF;border-color:#d3255c">
+                        <b>Datos Generales</b>
+                    </div>
+                    <br/>
+                    <br/>
+                    <table style="width:100%">
+                        <tr>
+                            <td>
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <p>¿Cómo supo de este empleo?</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            @if (@Model.DatosGenerales == null)
+                                            {
+                                                <p class="text">N/A</p>
+                                            }
+                                            else
+                                            {
+                                                <p class="text" @*style="background-color: #e3e4e5;"*@ readonly>@Model.DatosGenerales.ComoSupo</p>
+                                            }
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                            <td>
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <p>¿Tiene otros ingresos?</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            @if (@Model.DatosGenerales == null)
+                                            {
+                                                <p class="text">N/A</p>
+                                            }else{
+                                                <p class="text" @*style="background-color: #e3e4e5;"*@ readonly>@Model.DatosGenerales.OtrosIngresos</p>
+                                            }
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                            <td>
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <p>Fondo de Cesantías</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            @if (@Model.DatosGenerales == null)
+                                            {
+                                                <p class="text">N/A</p>
+                                            }else if(Model.DatosGenerales.OtrosIngresos != "No"){
+                                                <p class="text" @*style="background-color: #e3e4e5;"*@ readonly>@Model.DatosGenerales.Ingreso</p>
+                                            }else
+                                            {
+                                                <p class="text">N/A</p>   
+                                            }
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                    <br />
+                    <table style="width:70%">
+                        <tr>
+                            <td>
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <p>¿Tiene parientes trabajando en la empresa?</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            @if (@Model.DatosGenerales == null)
+                                            {
+                                                <p class="text">N/A</p>
+                                            }
+                                            else
+                                            {
+                                                <p class="text" @*style="background-color: #e3e4e5;"*@ readonly>@Model.DatosGenerales.ParientesTrabajando</p>
+                                            }
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                            <td>
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <p>Tipo de Vivienda</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            @if (@Model.DatosGenerales == null)
+                                            {
+                                                <p class="text">N/A</p>
+                                            }
+                                            else
+                                            {
+                                                <p class="text" @*style="background-color: #e3e4e5;"*@ readonly>@Model.DatosGenerales.TipoVivienda</p>
+                                            }
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                    <br>
+                    <hr>
                 </div>
             </div>
         </div>
