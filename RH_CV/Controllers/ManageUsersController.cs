@@ -32,7 +32,7 @@ namespace RH_CV.Controllers
             if (userRol == "Admin")
             {
                 List<Usuario> usuarios = await _contexto.Usuario.Include(x => x.Rol).ToListAsync();
-                ViewBag.Usuario = usuarios;
+                //ViewBag.Usuario = usuarios;
                 return View(usuarios);
             }
             else

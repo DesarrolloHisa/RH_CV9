@@ -64,11 +64,11 @@ namespace RH_CV.Models
         public string EstadoCivil { get; set; }
         [Required(ErrorMessage = "La EPS es obligatoria")]
         public int EPSId { get; set; }
-        public EPS? EPS { get; set; }
+        public virtual EPS? EPS { get; set; }
         public int? FondoPensionesId { get; set; }
-        public FondoPensiones? FondoPensiones { get; set; }
+        public virtual FondoPensiones? FondoPensiones { get; set; }
         public int? FondoCesantiasId { get; set; }
-        public FondoCesantias? FondoCesantias { get; set; }
+        public virtual FondoCesantias? FondoCesantias { get; set; }
 
         //public string Eps { get; set; }
         //public string? FondoPensiones { get; set; }

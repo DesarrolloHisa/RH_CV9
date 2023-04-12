@@ -33,5 +33,10 @@ namespace RH_CV.Data
         public DbSet<DatosFamiliares> DatosFamiliares { get; set; }
         public DbSet<DatosPersonales> DatosPersonales { get; set; }
 
+        //Contratos
+        public DbSet<TipoCargo> TipoCargo { get; set; }
+        public DbSet<Empleado> Empleado { get; set; }
+        public DbSet<Contrato> Contrato { get; set; }
+
     }
 }

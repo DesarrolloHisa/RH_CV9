@@ -2661,6 +2661,19 @@ ViewData["Title"] = "Edit User";
         </div>
     </section>
     <script>
+        //SoloNumeros
+        function soloNumeros(event) {
+            // Obtiene el código de la tecla presionada
+            var charCode = event.keyCode || event.which;
+
+            // Si el código de la tecla no es un número, evita la entrada de caracteres
+            if (charCode < 48 || charCode > 57) {
+                event.preventDefault();
+                return false;
+            }
+
+            return true;
+        }
 
         const MunExpDiv = document.getElementById("municipioExpedicion");
         const paisExpedicion = document.getElementById("paisExpedicion");

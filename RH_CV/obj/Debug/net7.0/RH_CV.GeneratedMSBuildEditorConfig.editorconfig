@@ -16,16 +16,24 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\psistemas\Documents\GitHub\RH_CV9\RH_CV
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/psistemas/Documents/GitHub/RH_CV9/RH_CV/Views/Copia.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29waWEuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/psistemas/Documents/GitHub/RH_CV9/RH_CV/Views/Home/AccessDenied.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBY2Nlc3NEZW5pZWQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/psistemas/Documents/GitHub/RH_CV9/RH_CV/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/psistemas/Documents/GitHub/RH_CV9/RH_CV/Views/ManageEmployees/AllEmployees.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlRW1wbG95ZWVzXEFsbEVtcGxveWVlcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/psistemas/Documents/GitHub/RH_CV9/RH_CV/Views/ManageEmployees/DetailEmployee.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlRW1wbG95ZWVzXERldGFpbEVtcGxveWVlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/psistemas/Documents/GitHub/RH_CV9/RH_CV/Views/ManageEmployees/EditEmployee.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlRW1wbG95ZWVzXEVkaXRFbXBsb3llZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/psistemas/Documents/GitHub/RH_CV9/RH_CV/Views/Shared/Error.cshtml]
