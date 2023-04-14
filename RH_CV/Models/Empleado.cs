@@ -7,7 +7,7 @@ namespace RH_CV.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public string Documento { get; set; }
+        public int Documento { get; set; }
         [Required(ErrorMessage = "El lugar de expedicion es obligatorio")]
         public string LugarExpedicion { get; set; }
         [Required(ErrorMessage = "El primer nombre es obligatorio")]
@@ -19,6 +19,9 @@ namespace RH_CV.Models
         [Required(ErrorMessage = "La fecha de nacimiento es obligatorio")]
         [Column(TypeName = "DATE")]
         public DateTime FechaNacimiento { get; set; }
+        [Required(ErrorMessage = "El sexo es obligatorio")]
+        public string Sexo { get; set; }
+        public int Estado { get; set; }
 
         public virtual ICollection<Contrato> Contrato { get; set; } = new List<Contrato>();
     }

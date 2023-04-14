@@ -18,8 +18,6 @@ namespace RH_CV.Models
         public string AreaFuncional { get; set; }
         [Required(ErrorMessage = "El Salario es obligatorio")]
         public int Salario { get; set; }
-        [Required(ErrorMessage = "El sexo es obligatorio")]
-        public string Sexo { get; set; }
         [Required(ErrorMessage = "La EPS es obligatoria")]
         public int EPSId { get; set; }
         public virtual EPS? EPS { get; set; }
@@ -29,7 +27,7 @@ namespace RH_CV.Models
         public TipoContrato? TipoContrato { get; set; }
         [Required(ErrorMessage = "Este campo es obligatorio")]
         public string TiempoContratado { get; set; }
-        public string RegistroMedico { get; set; }
+        public string? RegistroMedico { get; set; }
 
 
         [Required(ErrorMessage = "La fecha de ingreso es obligatorio")]

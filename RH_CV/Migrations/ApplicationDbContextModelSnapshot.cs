@@ -52,6 +52,73 @@ namespace RH_CV.Migrations
                     b.ToTable("ContactoEmergencia");
                 });
 
+            modelBuilder.Entity("RH_CV.Models.Contrato", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("AreaFuncional")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("EPSId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("EmpleadoId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("FechaIngreso")
+                        .HasColumnType("DATE");
+
+                    b.Property<DateTime?>("FechaRetiro")
+                        .HasColumnType("DATE");
+
+                    b.Property<int?>("FondoPensionesId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("MotivoRetiro")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Observaciones")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("RegistroMedico")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Salario")
+                        .HasColumnType("int");
+
+                    b.Property<string>("TiempoContratado")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TiempoVinculacion")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("TipoCargoId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("TipoContratoId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EPSId");
+
+                    b.HasIndex("EmpleadoId");
+
+                    b.HasIndex("FondoPensionesId");
+
+                    b.HasIndex("TipoCargoId");
+
+                    b.HasIndex("TipoContratoId");
+
+                    b.ToTable("Contrato");
+                });
+
             modelBuilder.Entity("RH_CV.Models.DatosFamiliares", b =>
                 {
                     b.Property<int>("Id")
@@ -261,6 +328,44 @@ namespace RH_CV.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("EPS");
+                });
+
+            modelBuilder.Entity("RH_CV.Models.Empleado", b =>
+                {
+                    b.Property<int>("Documento")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Estado")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("FechaNacimiento")
+                        .HasColumnType("DATE");
+
+                    b.Property<string>("LugarExpedicion")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PrimerApellido")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PrimerNombre")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SegundoApellido")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SegundoNombre")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Sexo")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Documento");
+
+                    b.ToTable("Empleado");
                 });
 
             modelBuilder.Entity("RH_CV.Models.Escolaridad", b =>
@@ -524,6 +629,23 @@ namespace RH_CV.Migrations
                     b.ToTable("Rol");
                 });
 
+            modelBuilder.Entity("RH_CV.Models.TipoCargo", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Tipo")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TipoCargo");
+                });
+
             modelBuilder.Entity("RH_CV.Models.TipoContrato", b =>
                 {
                     b.Property<int>("Id")
@@ -635,6 +757,45 @@ namespace RH_CV.Migrations
                         .IsRequired();
 
                     b.Navigation("DatosPersonales");
+                });
+
+            modelBuilder.Entity("RH_CV.Models.Contrato", b =>
+                {
+                    b.HasOne("RH_CV.Models.EPS", "EPS")
+                        .WithMany()
+                        .HasForeignKey("EPSId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("RH_CV.Models.Empleado", "Empleado")
+                        .WithMany("Contrato")
+                        .HasForeignKey("EmpleadoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("RH_CV.Models.FondoPensiones", "FondoPensiones")
+                        .WithMany()
+                        .HasForeignKey("FondoPensionesId");
+
+                    b.HasOne("RH_CV.Models.TipoCargo", "TipoCargo")
+                        .WithMany()
+                        .HasForeignKey("TipoCargoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("RH_CV.Models.TipoContrato", "TipoContrato")
+                        .WithMany()
+                        .HasForeignKey("TipoContratoId");
+
+                    b.Navigation("EPS");
+
+                    b.Navigation("Empleado");
+
+                    b.Navigation("FondoPensiones");
+
+                    b.Navigation("TipoCargo");
+
+                    b.Navigation("TipoContrato");
                 });
 
             modelBuilder.Entity("RH_CV.Models.DatosFamiliares", b =>
@@ -808,6 +969,11 @@ namespace RH_CV.Migrations
                     b.Navigation("ReferenciasFamiliares");
 
                     b.Navigation("ReferenciasPersonales");
+                });
+
+            modelBuilder.Entity("RH_CV.Models.Empleado", b =>
+                {
+                    b.Navigation("Contrato");
                 });
 #pragma warning restore 612, 618
         }

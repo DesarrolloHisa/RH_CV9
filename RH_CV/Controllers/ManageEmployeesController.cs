@@ -57,59 +57,51 @@ namespace RH_CV.Controllers
             }
         }
 
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> CreateEmployee(Empleado empleado)
-        //{
-        //    string userRol = Utilities.GetRol(HttpContext, _contexto);
-        //    if (userRol == "Admin")
-        //    {
-        //        object[] drop = Utilities.DropDownList(_contexto);
-        //        ViewBag.TipoVinculo = drop[0];
-        //        ViewBag.TipoContrato = drop[1];
-        //        ViewBag.TipoDocumento = drop[2];
-        //        ViewBag.Rol = drop[6];
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CreateEmployee(Empleado empleado)
+        {
+            string userRol = Utilities.GetRol(HttpContext, _contexto);
+            if (userRol == "Admin")
+            {
+                //object[] drop = Utilities.DropDownList(_contexto);
+                //ViewBag.TipoVinculo = drop[0];
+                //ViewBag.TipoContrato = drop[1];
+                //ViewBag.TipoDocumento = drop[2];
+                //ViewBag.Rol = drop[6];
 
-        //        //var roles = _contexto.Rol.Select(r => new SelectListItem
-        //        //{
-        //        //    Value = r.Id.ToString(),
-        //        //    Text = r.Tipo,
-        //        //});
-        //        //ViewBag.Roles = roles;
-        //        if (modelo.TipoContratoId == null)
-        //        {
-        //            ModelState.Remove("TipoContratoId");
-        //        }
+                //if (empleado.TipoContratoId == null)
+                //{
+                //    ModelState.Remove("TipoContratoId");
+                //}
 
-        //        if (ModelState.IsValid)
-        //        {
-        //            if (await _contexto.Usuario.AnyAsync(u => u.User == modelo.User))
-        //            {
-        //                ViewData["Mensaje"] = "Ya existe un usuario con este nombre de usuario";
-        //                return View(modelo);
-        //            }
+                if (ModelState.IsValid)
+                {
+                    if (await _contexto.Empleado.AnyAsync(u => u.Documento == empleado.Documento))
+                    {
+                        ViewData["Mensaje"] = "Ya existe un usuario con ese documento";
+                        return View(empleado);
+                    }
 
-        //            modelo.Password = Utilities.EncryptPassword(modelo.Password);
+                    empleado.Estado = 1;
 
-        //            modelo.Estado = 1;
+                    Empleado empleado_creado = await _userService.SaveEmpleado(empleado);
 
-        //            Usuario usuario_creado = await _userService.SaveUsuario(modelo);
+                    if (empleado_creado != null)
+                    {
+                        return RedirectToAction("AllEmployees", "ManageEmployees");
+                    }
+                    ViewData["Mensaje"] = "No se pudo crear el usuario";
+                    return View(empleado);
+                }
 
-        //            if (usuario_creado.User != "")
-        //            {
-        //                return RedirectToAction("AllUsers", "ManageUsers");
-        //            }
-        //            ViewData["Mensaje"] = "No se pudo crear el usuario";
-        //            return View();
-        //        }
-
-        //        return View(modelo);
-        //    }
-        //    else
-        //    {
-        //        return RedirectToAction("AccessDenied", "Home");
-        //    }
-        //}
+                return View(empleado);
+            }
+            else
+            {
+                return RedirectToAction("AccessDenied", "Home");
+            }
+        }
 
         ////DetalleUsuarios
         //[HttpGet]

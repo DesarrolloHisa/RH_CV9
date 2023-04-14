@@ -37,6 +37,27 @@ namespace RH_CV.Services.implementation
             return modelo;
         }
 
+        public async Task<Usuario> GetEmpleado(string user, string password)
+        {
+            Usuario usuario_encontrado = await _dbContext.Usuario.Where(u => u.User == user && u.Password == password).FirstOrDefaultAsync();
+
+            return usuario_encontrado;
+        }
+
+        public async Task<Empleado> SaveEmpleado(Empleado empleado)
+        {
+            _dbContext.Empleado.Add(empleado);
+            await _dbContext.SaveChangesAsync();
+            return empleado;
+        }
+
+        public async Task<Contrato> SaveContract(Contrato contrato)
+        {
+            _dbContext.Contrato.Add(contrato);
+            await _dbContext.SaveChangesAsync();
+            return contrato;
+        }
+
         //public async Task<DatosPersonales> SaveHV(DatosPersonales modelo/*, string? tipoDocumento, string? paisExpedicion, string? municipioExpedicion, int hijo, int conyugue, int padres, int otros*/)
         //{
         //    //var infoDocumento = new InfoDocumento
@@ -102,7 +123,7 @@ namespace RH_CV.Services.implementation
         //    _dbContext.DatosPersonales.Add(modelo);
 
         //    // Guardar los cambios en la base de datos
-            
+
         //    //await _dbContext.SaveChangesAsync();*****
 
         //    //// Asignar el id de DatosPersonales a cada objeto DatosFamiliares

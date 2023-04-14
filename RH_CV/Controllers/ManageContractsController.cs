@@ -22,7 +22,7 @@ namespace RH_CV.Controllers
 
         //MostrarContratos
         [HttpGet]
-        public async Task<IActionResult> AllContratos()
+        public async Task<IActionResult> AllContracts()
         {
             string userRol = Utilities.GetRol(HttpContext, _contexto);
             if (userRol == "Admin" || userRol == "Observador")
@@ -37,20 +37,109 @@ namespace RH_CV.Controllers
             }
         }
 
-        //Crear Usuarios
-        public IActionResult CreateContract()
+        //MostrarDeUsuarioContratos
+        [HttpGet]
+        public async Task<IActionResult> AllEmployeeContracts(int? doc)
+        {
+            string userRol = Utilities.GetRol(HttpContext, _contexto);
+            var employee = _contexto.Empleado.Find(doc);
+            int documento = employee.Documento;
+            ViewData["Documento"] = documento;
+
+            if (userRol == "Admin" || userRol == "Observador")
+            {
+                List<Contrato> contrato = await _contexto.Contrato.Where(c => c.EmpleadoId == employee.Documento).ToListAsync();
+                //ViewBag.Usuario = usuarios;
+                if (contrato.Count > 0)
+                {
+                    foreach (var item in contrato)
+                    {
+                        var tipoContrato = _contexto.TipoContrato.Find(item.TipoContratoId);
+                        var tipoCargo = _contexto.TipoCargo.Find(item.TipoCargoId);
+
+                        item.Empleado = employee;
+                        item.TipoContrato = tipoContrato;
+                        item.TipoCargo = tipoCargo;
+
+                    }
+                }
+                return View(contrato);
+            }
+            else
+            {
+                return RedirectToAction("AccessDenied", "Home");
+            }
+        }
+
+        //Crear Contrato
+        [HttpGet]
+        public IActionResult CreateContract(int? doc)
         {
             string userRol = Utilities.GetRol(HttpContext, _contexto);
             if (userRol == "Admin")
             {
+                string primerNombre;
+                string segundoNombre;
+                string primerApellido;
+                string segundoApellido;
+                int documento;
+                string lugarExpedicion;
+                string fechaNacimiento;
+                string sexo;
+                int employeeId;
+
+
                 object[] drop = Utilities.DropDownList(_contexto);
                 //ViewBag.TipoVinculo = drop[0];
                 ViewBag.TipoContrato = drop[1];
                 ViewBag.Eps = drop[3];
-                ViewBag.FondoPensiondes = drop[4];
+                ViewBag.FondoPensiones = drop[4];
                 //ViewBag.TipoDocumento = drop[2];
                 //ViewBag.Rol = drop[6];
                 ViewBag.TipoCargo = drop[7];
+
+                var empleado = _contexto.Empleado.Find(doc);
+
+                if (empleado == null)
+                {
+                    return NotFound();
+                }
+
+                primerNombre = empleado.PrimerNombre;
+                ViewData["primerNombre"] = primerNombre;
+
+                segundoNombre = empleado.SegundoNombre;
+                if (segundoNombre == null)
+                {
+                    segundoNombre = "ㅤ";
+                }
+                ViewData["segundoNombre"] = segundoNombre;
+
+                primerApellido = empleado.PrimerApellido;
+                ViewData["primerApellido"] = primerApellido;
+
+                segundoApellido = empleado.SegundoApellido;
+                if (segundoApellido == null)
+                {
+                    segundoApellido = "ㅤ";
+                }
+                ViewData["segundoApellido"] = segundoApellido;
+
+                documento = empleado.Documento;
+                ViewData["documento"] = documento;
+
+                lugarExpedicion = empleado.LugarExpedicion;
+                ViewData["lugarExpedicion"] = lugarExpedicion;
+
+                fechaNacimiento = empleado.FechaNacimiento.ToString("dd-MM-yyyy");
+                ViewData["fechaNacimiento"] = fechaNacimiento;
+
+                sexo = empleado.Sexo;
+                ViewData["sexo"] = sexo;
+
+                employeeId = empleado.Documento;
+                ViewData["idEmpleado"] = employeeId;
+
                 return View();
             }
             else
@@ -59,59 +148,134 @@ namespace RH_CV.Controllers
             }
         }
 
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> CreateEmployee(Empleado empleado)
-        //{
-        //    string userRol = Utilities.GetRol(HttpContext, _contexto);
-        //    if (userRol == "Admin")
-        //    {
-        //        object[] drop = Utilities.DropDownList(_contexto);
-        //        ViewBag.TipoVinculo = drop[0];
-        //        ViewBag.TipoContrato = drop[1];
-        //        ViewBag.TipoDocumento = drop[2];
-        //        ViewBag.Rol = drop[6];
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CreateContract(Contrato contrato)
+        {
+            string userRol = Utilities.GetRol(HttpContext, _contexto);
+            if (userRol == "Admin")
+            {
+                object[] drop = Utilities.DropDownList(_contexto);
+                ViewBag.TipoContrato = drop[1];
+                ViewBag.Eps = drop[3];
+                ViewBag.FondoPensiones = drop[4];
+                ViewBag.TipoCargo = drop[7];
 
-        //        //var roles = _contexto.Rol.Select(r => new SelectListItem
-        //        //{
-        //        //    Value = r.Id.ToString(),
-        //        //    Text = r.Tipo,
-        //        //});
-        //        //ViewBag.Roles = roles;
-        //        if (modelo.TipoContratoId == null)
-        //        {
-        //            ModelState.Remove("TipoContratoId");
-        //        }
+                //if (contrato.TipoContratoId == null)
+                //{
+                //    ModelState.Remove("TipoContratoId");
+                //}
 
-        //        if (ModelState.IsValid)
-        //        {
-        //            if (await _contexto.Usuario.AnyAsync(u => u.User == modelo.User))
-        //            {
-        //                ViewData["Mensaje"] = "Ya existe un usuario con este nombre de usuario";
-        //                return View(modelo);
-        //            }
+                if (ModelState.IsValid)
+                {
+                    //if (await _contexto.Usuario.AnyAsync(u => u.User == modelo.User))
+                    //{
+                    //    ViewData["Mensaje"] = "Ya existe un usuario con este nombre de usuario";
+                    //    return View(modelo);
+                    //}
 
-        //            modelo.Password = Utilities.EncryptPassword(modelo.Password);
+                    Contrato contrract_created = await _userService.SaveContract(contrato);
 
-        //            modelo.Estado = 1;
+                    if (contrract_created != null)
+                    {
+                        return RedirectToAction("AllEmployeeContracts", "ManageContracts");
+                    }
+                    ViewData["Mensaje"] = "No se pudo crear el contrato";
+                    return View();
+                }
 
-        //            Usuario usuario_creado = await _userService.SaveUsuario(modelo);
+                return View(contrato);
+            }
+            else
+            {
+                return RedirectToAction("AccessDenied", "Home");
+            }
+        }
 
-        //            if (usuario_creado.User != "")
-        //            {
-        //                return RedirectToAction("AllUsers", "ManageUsers");
-        //            }
-        //            ViewData["Mensaje"] = "No se pudo crear el usuario";
-        //            return View();
-        //        }
+        //Crear Contrato
+        [HttpGet]
+        public IActionResult EditContract(int? id)
+        {
+            string userRol = Utilities.GetRol(HttpContext, _contexto);
+            if (userRol == "Admin")
+            {
+                //string primerNombre;
+                //string segundoNombre;
+                //string primerApellido;
+                //string segundoApellido;
+                //int documento;
+                //string lugarExpedicion;
+                //string fechaNacimiento;
+                //string sexo;
+                //int employeeId;
 
-        //        return View(modelo);
-        //    }
-        //    else
-        //    {
-        //        return RedirectToAction("AccessDenied", "Home");
-        //    }
-        //}
+
+                object[] drop = Utilities.DropDownList(_contexto);
+                //ViewBag.TipoVinculo = drop[0];
+                ViewBag.TipoContrato = drop[1];
+                ViewBag.Eps = drop[3];
+                ViewBag.FondoPensiones = drop[4];
+                //ViewBag.TipoDocumento = drop[2];
+                //ViewBag.Rol = drop[6];
+                ViewBag.TipoCargo = drop[7];
+
+
+                var contrato = _contexto.Contrato.Find(id);
+                var empleado = _contexto.Empleado.Find(contrato.EmpleadoId);
+                //var empleados = _contexto.Empleado.Find(_contexto.Contrato
+                //      .Where(id => id. == datosPersonales.UsuarioId)
+                //      .Select(u => u.TipoContratoId)
+                //      .FirstOrDefault());
+                //contrato = _contexto.Empleado.Include(c => c.) == contrato.EmpleadoId);
+                //var empleado = _contexto.Empleado.Where(e => e.Documento == contrato.EmpleadoId);
+
+                if (empleado == null)
+                {
+                    return NotFound();
+                }
+
+                //primerNombre = empleado.PrimerNombre;
+                //ViewData["primerNombre"] = primerNombre;
+
+                //segundoNombre = empleado.SegundoNombre;
+                //if (segundoNombre == null)
+                //{
+                //    segundoNombre = "ㅤ";
+                //}
+                //ViewData["segundoNombre"] = segundoNombre;
+
+                //primerApellido = empleado.PrimerApellido;
+                //ViewData["primerApellido"] = primerApellido;
+
+                //segundoApellido = empleado.SegundoApellido;
+                //if (segundoApellido == null)
+                //{
+                //    segundoApellido = "ㅤ";
+                //}
+                //ViewData["segundoApellido"] = segundoApellido;
+
+                //documento = empleado.Documento;
+                //ViewData["documento"] = documento;
+
+                //lugarExpedicion = empleado.LugarExpedicion;
+                //ViewData["lugarExpedicion"] = lugarExpedicion;
+
+                //fechaNacimiento = empleado.FechaNacimiento.ToString("dd-MM-yyyy");
+                //ViewData["fechaNacimiento"] = fechaNacimiento;
+
+                //sexo = empleado.Sexo;
+                //ViewData["sexo"] = sexo;
+
+                contrato.Empleado = empleado.;
+                //ViewData["idEmpleado"] = employeeId;
+
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("AccessDenied", "Home");
+            }
+        }
 
         ////DetalleUsuarios
         //[HttpGet]
@@ -253,3 +417,4 @@ namespace RH_CV.Controllers
         //    }
         //}
     }
+}

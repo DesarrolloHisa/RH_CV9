@@ -24,8 +24,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/psistemas/Documents/GitHub/RH_CV9/RH_CV/Views/ManageEmployees/AllEmployees.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlRW1wbG95ZWVzXEFsbEVtcGxveWVlcy5jc2h0bWw=
+[C:/Users/psistemas/Documents/GitHub/RH_CV9/RH_CV/Views/ManageContracts/AllContracts.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlQ29udHJhY3RzXEFsbENvbnRyYWN0cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/psistemas/Documents/GitHub/RH_CV9/RH_CV/Views/ManageContracts/EditContract.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlQ29udHJhY3RzXEVkaXRDb250cmFjdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/psistemas/Documents/GitHub/RH_CV9/RH_CV/Views/ManageEmployees/CreateEmployee.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlRW1wbG95ZWVzXENyZWF0ZUVtcGxveWVlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/psistemas/Documents/GitHub/RH_CV9/RH_CV/Views/ManageEmployees/DetailEmployee.cshtml]
@@ -59,6 +67,18 @@ build_metadata.AdditionalFiles.CssScope = b-70oz2cudkm
 [C:/Users/psistemas/Documents/GitHub/RH_CV9/RH_CV/Views/InicioSesion/IniciarSesion.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5pY2lvU2VzaW9uXEluaWNpYXJTZXNpb24uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-zh3kiqn0ff
+
+[C:/Users/psistemas/Documents/GitHub/RH_CV9/RH_CV/Views/ManageContracts/AllEmployeeContracts.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlQ29udHJhY3RzXEFsbEVtcGxveWVlQ29udHJhY3RzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = b-w3ybne2l42
+
+[C:/Users/psistemas/Documents/GitHub/RH_CV9/RH_CV/Views/ManageContracts/CreateContract.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlQ29udHJhY3RzXENyZWF0ZUNvbnRyYWN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = b-vtmh5yyl62
+
+[C:/Users/psistemas/Documents/GitHub/RH_CV9/RH_CV/Views/ManageEmployees/AllEmployees.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlRW1wbG95ZWVzXEFsbEVtcGxveWVlcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = b-inuepdmkt1
 
 [C:/Users/psistemas/Documents/GitHub/RH_CV9/RH_CV/Views/ManageHV/AllHV.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlSFZcQWxsSFYuY3NodG1s

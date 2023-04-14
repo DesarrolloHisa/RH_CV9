@@ -37,7 +37,7 @@ ViewData["Title"] = "Create User";
                                             <div class="form-outline mb-2 col-md-4">
                                                 <label>Usuario</label>
                                                 <input type="text" class="form-control"
-                                                       placeholder="User" asp-for="User" required/>
+                                                       placeholder="User" onkeypress="return soloNumeros(event)" asp-for="User" required/>
                                                 <span asp-validation-for="User" class="text-danger"></span>
                                                 <!--<label class="form-label" for="form2Example11">Username</label>-->
                                             </div>
@@ -1490,8 +1490,12 @@ ViewData["Title"] = "Create User";
                                             </div>
                                         </div>
 
-                                        <div class="text-center mb-2">
-                                            <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3 col-md-5" type="submit">
+                                        <div class="d-flex justify-content-center">
+                                            <button class="col-md-2 btn btn-secondary btn-block fa-lg mb-3" type="button" onclick="window.location.href='@Url.Action("AllEmployees", "ManageEmployees")'">
+                                                Back
+                                            </button>
+                                            <div class="mb-3">ㅤㅤㅤ</div>
+                                            <button class="col-md-2 btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit">
                                                 Create
                                             </button>
                                         </div>

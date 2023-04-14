@@ -6,6 +6,8 @@ namespace RH_CV.Services.Contract
     {
         Task<Usuario> GetUsuario(string user, string password);
         Task<Usuario> SaveUsuario(Usuario modelo);
+        Task<Empleado> SaveEmpleado(Empleado empleado);
+        Task<Contrato> SaveContract(Contrato contrato);
         //Task<DatosPersonales> SaveHV(DatosPersonales modelo/*, string? tipoDocumento, string? paisExpedicion, string? municipioExpedicion, int hijo, int conyugue, int padres, int otros*/);
     }
 }
