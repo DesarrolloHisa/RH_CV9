@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\psistemas\\Documents\\GitHub\\RH_CV9\\RH_API\\RH_API.csproj": {}
+    "C:\\Users\\jeffr\\Documents\\GitHub\\RH_CV9\\RH_API\\RH_API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\psistemas\\Documents\\GitHub\\RH_CV9\\RH_API\\RH_API.csproj": {
+    "C:\\Users\\jeffr\\Documents\\GitHub\\RH_CV9\\RH_API\\RH_API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\psistemas\\Documents\\GitHub\\RH_CV9\\RH_API\\RH_API.csproj",
+        "projectUniqueName": "C:\\Users\\jeffr\\Documents\\GitHub\\RH_CV9\\RH_API\\RH_API.csproj",
         "projectName": "RH_API",
-        "projectPath": "C:\\Users\\psistemas\\Documents\\GitHub\\RH_CV9\\RH_API\\RH_API.csproj",
-        "packagesPath": "C:\\Users\\psistemas\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\psistemas\\Documents\\GitHub\\RH_CV9\\RH_API\\obj\\",
+        "projectPath": "C:\\Users\\jeffr\\Documents\\GitHub\\RH_CV9\\RH_API\\RH_API.csproj",
+        "packagesPath": "C:\\Users\\jeffr\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\jeffr\\Documents\\GitHub\\RH_CV9\\RH_API\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "D:\\Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\psistemas\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\jeffr\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -68,7 +72,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.103\\RuntimeIdentifierGraph.json"
         }
       }
     }

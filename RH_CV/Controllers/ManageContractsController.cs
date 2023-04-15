@@ -1,10 +1,13 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using ClosedXML.Excel;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using RH_CV.Data;
 using RH_CV.Models;
 using RH_CV.Services.Contract;
 using RH_CV.Sources;
+using System.Data;
 
 namespace RH_CV.Controllers
 {
@@ -36,6 +39,182 @@ namespace RH_CV.Controllers
                 return RedirectToAction("AccessDenied", "Home");
             }
         }
+
+        [HttpGet]
+        public async Task<IActionResult> CreateExcelFile()
+        {
+            using (var workbook = new XLWorkbook())
+            {
+                var worksheet = workbook.Worksheets.Add("Contratos HISA");
+                var row = 1;
+                var column = 1;
+                var dataTable = new DataTable();
+                using (var connection = new SqlConnection("Data Source=JEFF_PC\\SQLEXPRESS;Initial Catalog=DB_CV;Integrated Security=True;Encrypt=false"))
+                {
+                    using (var command = new SqlCommand("ObtenerDatosEmpleado", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+                        using (var adapter = new SqlDataAdapter(command))
+                        {
+                            adapter.Fill(dataTable);
+                        }
+                    }
+                }
+                foreach (DataColumn dataColumn in dataTable.Columns)
+                {
+                    worksheet.Cell(row, column).Value = dataColumn.ColumnName;
+                    column++;
+                }
+                row++;
+                column = 1;
+                foreach (DataRow dataRow in dataTable.Rows)
+                {
+                    foreach (DataColumn dataColumn in dataTable.Columns)
+                    {
+                        worksheet.Cell(row, column).Value = dataRow[dataColumn.ColumnName].ToString();
+                        column++;
+                    }
+                    row++;
+                    column = 1;
+                }
+                var memory = new MemoryStream();
+                workbook.SaveAs(memory);
+                memory.Position = 0;
+                return File(memory, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "ContratosHISA.xlsx");
+                //using (var stream = new MemoryStream())
+                //{
+                //    workbook.SaveAs(stream);
+                //    var contentDisposition = new System.Net.Mime.ContentDisposition
+                //    {
+                //        FileName = "Contratos.xlsx",
+                //        Inline = false
+                //    };
+                //    Response.Headers.Add("Content-Disposition", contentDisposition.ToString());
+                //    stream.Position = 0;
+                //    return File(stream, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
+                //}
+            }
+
+            //using (var workbook = new XLWorkbook())
+            //{
+            //    var worksheet = workbook.Worksheets.Add(dataTable, "Contratos");
+
+            //    worksheet.Tables.FirstOrDefault()?.SetShowAutoFilter(false);
+
+            //    worksheet.Columns().AdjustToContents();
+
+            //    var fileName = "Contratos.xlsx";
+
+            //    Response.Clear();
+            //    Response.EnableBuffering();
+            //    Response.ContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+            //    HttpContext.Response.Headers.Add("content-disposition", $"attachment; filename={fileName}");
+
+            //    using (var stream = new MemoryStream())
+            //    {
+            //        workbook.SaveAs(stream);
+            //        stream.WriteTo(Response.Body);
+            //        Response.Body.Flush();
+            //        Response.CompleteAsync();
+            //    }
+            //}
+        }
+
+        //[HttpGet]
+        //public IActionResult DownloadExcel()
+        //{
+        //    // Llamar al método que crea el archivo de Excel
+        //    CreateExcelFile();
+
+        //    // Descargar el archivo
+        //    string fileName = "Contratos.xlsx";
+        //    string filePath = Path.Combine(Directory.GetCurrentDirectory(), fileName);
+        //    var memory = new MemoryStream();
+        //    using (var stream = new FileStream(filePath, FileMode.Open))
+        //    {
+        //        stream.CopyTo(memory);
+        //    }
+        //    memory.Position = 0;
+        //    return File(memory, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", fileName);
+        //}
+
+        //private DataTable GetContractData()
+        //{
+        //    using (var connection = new SqlConnection("tu_cadena_de_conexion"))
+        //    {
+        //        using (var command = new SqlCommand("tu_procedimiento_almacenado", connection))
+        //        {
+        //            command.CommandType = CommandType.StoredProcedure;
+
+        //            connection.Open();
+
+        //            var dataTable = new DataTable();
+        //            using (var dataAdapter = new SqlDataAdapter(command))
+        //            {
+        //                dataAdapter.Fill(dataTable);
+        //            }
+
+        //            return dataTable;
+        //        }
+        //    }
+        //}
+        //private void CreateExcelFile()
+        //{
+        //    using (var workbook = new XLWorkbook())
+        //    {
+        //        var worksheet = workbook.Worksheets.Add("Contratos HISA");
+        //        var row = 1;
+        //        var column = 1;
+        //        var dataTable = new DataTable();
+        //        using (var connection = new SqlConnection("Data Source=JEFF_PC\\SQLEXPRESS;Initial Catalog=DB_CV;Integrated Security=True;Encrypt=false"))
+        //        {
+        //            using (var command = new SqlCommand("ObtenerDatosEmpleado", connection))
+        //            {
+        //                command.CommandType = CommandType.StoredProcedure;
+        //                using (var adapter = new SqlDataAdapter(command))
+        //                {
+        //                    adapter.Fill(dataTable);
+        //                }
+        //            }
+        //        }
+        //        foreach (DataColumn dataColumn in dataTable.Columns)
+        //        {
+        //            worksheet.Cell(row, column).Value = dataColumn.ColumnName;
+        //            column++;
+        //        }
+        //        row++;
+        //        column = 1;
+        //        foreach (DataRow dataRow in dataTable.Rows)
+        //        {
+        //            foreach (DataColumn dataColumn in dataTable.Columns)
+        //            {
+        //                worksheet.Cell(row, column).Value = dataRow[dataColumn.ColumnName].ToString();
+        //                column++;
+        //            }
+        //            row++;
+        //            column = 1;
+        //        }
+        //        workbook.SaveAs("Contratos.xlsx");
+        //    }
+        //}
+
+        //[HttpGet]
+        //public IActionResult DownloadExcel()
+        //{
+        //    // Llamar al método que crea el archivo de Excel
+        //    CreateExcelFile();
+
+        //    // Descargar el archivo
+        //    string fileName = "Contratos.xlsx";
+        //    string filePath = Path.Combine(Directory.GetCurrentDirectory(), fileName);
+        //    var memory = new MemoryStream();
+        //    using (var stream = new FileStream(filePath, FileMode.Open))
+        //    {
+        //        stream.CopyTo(memory);
+        //    }
+        //    memory.Position = 0;
+        //    return File(memory, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", fileName);
+        //}
 
         //MostrarDeUsuarioContratos
         [HttpGet]
@@ -266,7 +445,7 @@ namespace RH_CV.Controllers
                 //sexo = empleado.Sexo;
                 //ViewData["sexo"] = sexo;
 
-                contrato.Empleado = empleado.;
+                contrato.Empleado = empleado;
                 //ViewData["idEmpleado"] = employeeId;
 
                 return View();
