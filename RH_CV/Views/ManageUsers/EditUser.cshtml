@@ -29,12 +29,12 @@ ViewData["Title"] = "Edit User";
                                         <!--<h4 class="mt-1 mb-5 pb-1">A</h4>-->
                                     </div>
 
-                                    <form asp-controller="ManageUsers" asp-action="EditUser" method="post">
+                                    <form class="was-validated" asp-controller="ManageUsers" asp-action="EditUser" method="post">
 
-                                    <!--ID del usuario como campo oculto-->
-                                    <input type="hidden" asp-for="User"/>
+                                        <!--ID del usuario como campo oculto-->
+                                        <input type="hidden" asp-for="User"/>
 
-                                    <p><b>Edit an Account</b></p>
+                                        <p><b>Edit an Account</b></p>
 
                                         <div class="row align-items-baseline">
 

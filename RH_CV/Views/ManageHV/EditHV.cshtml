@@ -40,7 +40,7 @@ For more information on enabling MVC for empty projects, visit https://go.micros
         <div class="card-body">
             <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active" id="Personal" role="tabpanel" aria-labelledby="home-tab">
-                    <form asp-controller="ManageHV" asp-action="EditHV" method="post">
+                    <form class="was-validated" asp-controller="ManageHV" asp-action="EditHV" method="post">
                         <input type="hidden" asp-for="Id"/>
                         <input asp-for="UsuarioId" type="hidden" name="UsuarioId" value="@Model.Usuario.User" />
                         <div id="divNombreDimension_1" class="col-md-12 alert alert-warning" role="alert" style="text-align:center;background-color:#DE3163;color: #FFFFFF;border-color:#d3255c">

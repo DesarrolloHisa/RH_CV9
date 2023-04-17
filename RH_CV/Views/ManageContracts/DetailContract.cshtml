@@ -1,0 +1,298 @@
+﻿@model RH_CV.Models.Contrato;
+
+@{
+    ViewData["Title"] = "Create Contract";
+}
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+<!--<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+</head>
+<body>-->
+<section class="h-100 gradient-form" style="background-color: #eee;">
+    <div class="container py-3 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-xl-12">
+                <div class="card rounded-3 text-black">
+                    <div class="row g-0">
+
+
+                        <div class="col-lg-5">
+
+                            <div class="card-body p-md-5 mx-md-4">
+
+                                <div class="text-center form-outline mb-5">
+                                    <img src="https://www.hospitalinfantilsantaana.org/wp-content/uploads/2021/06/logo-300x230.png"
+                                         style="width: 185px;" alt="logo">
+                                    <!--<h4 class="mt-1 mb-5 pb-1">A</h4>-->
+                                </div>
+
+                                <p><b>Employee Info</b></p>
+                                <br>
+
+                                <div class="row align-items-baseline">
+                                    <div class="form-outline mb-2 col-md-6">
+                                        <label>Primer Nombre</label>
+                                        <label class="form-control" style="background-color: #e3e4e5;" readonly>@Model.Empleado.PrimerNombre</label>
+                                    </div>
+
+                                    <div class="form-outline mb-2 col-md-6">
+                                        <label>Segundo Nombre</label>
+                                        @if (Model.Empleado.SegundoNombre == null)
+                                        {
+                                            <label class="form-control" style="background-color: #e3e4e5;" readonly>&nbsp;</label>
+                                        }
+                                        else
+                                        {
+                                            <label class="form-control" style="background-color: #e3e4e5;" readonly>@Model.Empleado.SegundoNombre</label>
+                                        }
+                                    </div>
+                                </div>
+                                <br />
+
+                                <div class="row align-items-baseline">
+                                    <div class="form-outline mb-4 col-md-6">
+                                        <label>Primer Apellido</label>
+                                        <label class="form-control" style="background-color: #e3e4e5;" readonly>@Model.Empleado.PrimerApellido</label>
+                                    </div>
+
+                                    <div class="form-outline mb-4 col-md-6">
+                                        <label>Segundo apellido</label>
+                                        @if (Model.Empleado.SegundoApellido == null)
+                                        {
+                                            <label class="form-control" style="background-color: #e3e4e5;" readonly>&nbsp;</label>
+                                        }
+                                        else
+                                        {
+                                            <label class="form-control" style="background-color: #e3e4e5;" readonly>@Model.Empleado.SegundoApellido</label>
+                                        }
+                                    </div>
+                                </div>
+                                <br />
+
+                                <div class="row align-items-baseline">
+
+                                    <div class="form-outline mb-2 col-md-6">
+                                        <label>Documento</label>
+                                        <label class="form-control" style="background-color: #e3e4e5;" readonly>@Model.Empleado.Documento</label>
+                                    </div>
+
+                                    <div class="form-outline mb-2 col-md-6" id="municipioExpedicion">
+                                        <label>Lugar de expedición</label>
+                                        <label class="form-control" style="background-color: #e3e4e5;" readonly>@Model.Empleado.LugarExpedicion</label>
+                                    </div>
+                                </div>
+                                <br />
+
+                                <div class="row align-items-baseline">
+                                    <div class="form-outline mb-2 col-md-6">
+                                        <label>Sexo</label>
+                                        <label class="form-control" style="background-color: #e3e4e5;" readonly>@Model.Empleado.Sexo</label>
+                                    </div>
+
+                                    <div class="form-outline mb-2 col-md-6">
+                                        <label>Fecha Nacimiento</label>
+                                        <label class="form-control" style="background-color: #e3e4e5;" readonly>@Model.Empleado.FechaNacimiento.ToString("dd-MM-yyyy")</label>
+                                    </div>
+                                </div>
+                                <br />
+
+                                @*<div class="d-flex justify-content-center">
+                                <button class="col-md-2 btn btn-secondary btn-block fa-lg mb-3" type="button" onclick="window.location.href='@Url.Action("AllEmployees", "ManageEmployees")'">
+                                Back
+                                </button>
+                                <div class="mb-3">ㅤㅤㅤ</div>
+                                <button class="col-md-2 btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit">Create</button>
+                                </div>*@
+
+                                @if (ViewData["Mensaje"] != null)
+                                {
+                                    <div class="form-group">
+                                        <div class="alert alert-danger" role="alert">
+                                            @ViewData["Mensaje"]
+                                        </div>
+                                    </div>
+                                }
+
+                            </div>
+                        </div>
+                        <div class="col-lg-7 d-flex align-items-center gradient-custom-2">
+                            <div class="text-white px-3 py-4 p-md-5 mx-md-4">
+                                    <h3 class="mb-4">
+                                        Contrato
+                                        <br />
+                                    </h3>
+                                    <div class="row align-items-baseline">
+
+                                        <div class="form-outline mb-2 col-md-4">
+                                            <label>Cargo</label>
+                                            <label class="form-control" style="background-color: #e3e4e5;" readonly>@Model.TipoCargo.Tipo</label>
+                                        </div>
+
+                                        <div class="form-outline mb-2 col-md-4">
+                                            <label>Area Funcional</label>
+                                            <label class="form-control" style="background-color: #e3e4e5;" readonly>@Model.AreaFuncional</label>
+                                        </div>
+
+                                        <div class="form-outline mb-2 col-md-4">
+                                            <label>Salario</label>
+                                            <label class="form-control" style="background-color: #e3e4e5;" readonly>@Model.Salario</label>
+                                        </div>
+                                    </div>
+                                    <br />
+
+                                    <div class="row align-items-baseline">
+
+                                        <div class="form-outline mb-2 col-md-4">
+                                            <label>EPS</label>
+                                            <label class="form-control" style="background-color: #e3e4e5;" readonly>@Model.EPS.Tipo</label>
+                                        </div>
+
+                                        <div class="form-outline mb-2 col-md-4">
+                                            <label>Fondo Pensiones</label>
+                                            @if (Model.FondoPensiones == null)
+                                            {
+                                                <label class="form-control" style="background-color: #e3e4e5;" readonly>&nbsp;</label>
+                                            }
+                                            else
+                                            {
+                                                <label class="form-control" style="background-color: #e3e4e5;" readonly>@Model.FondoPensiones.Tipo</label>
+                                            }
+                                        </div>
+
+                                        <div class="form-outline mb-2 col-md-4">
+                                            <label>Contrato</label>
+                                            @if (Model.TipoContrato == null)
+                                            {
+                                                <label class="form-control" style="background-color: #e3e4e5;" readonly>&nbsp;</label>
+                                            }
+                                            else
+                                            {
+                                                <label class="form-control" style="background-color: #e3e4e5;" readonly>@Model.TipoContrato.Tipo</label>
+                                            }
+                                        </div>
+                                    </div>
+                                    <br />
+
+                                    <div class="row align-items-baseline">
+
+                                        <div class="form-outline mb-2 col-md-5">
+                                            <label>Tiempo contratado en horas</label>
+                                            <label class="form-control" style="background-color: #e3e4e5;" readonly>@Model.TiempoContratado</label>
+                                        </div>
+
+                                        <div class="form-outline mb-2 col-md-5">
+                                            <label>Registro Médico</label>
+                                            @if (Model.RegistroMedico == null)
+                                            {
+                                                <label class="form-control" style="background-color: #e3e4e5;" readonly>&nbsp;</label>
+                                            }
+                                            else
+                                            {
+                                                <label class="form-control" style="background-color: #e3e4e5;" readonly>@Model.RegistroMedico</label>
+                                            }
+                                        </div>
+                                    </div>
+                                    <br />
+
+                                    <div class="row align-items-baseline">
+
+                                        <div class="form-outline mb-2 col-md-4">
+                                            <label>Fecha de Ingreso</label>
+                                            <label class="form-control" style="background-color: #e3e4e5;" readonly>@Model.FechaIngreso.ToString("dd-MM-yyyy")</label>
+                                        </div>
+
+                                        <div class="form-outline mb-2 col-md-4">
+                                            <label>Fecha de Retiro</label>
+                                            @if (Model.FechaRetiro == null)
+                                            {
+                                                <label class="form-control" style="background-color: #e3e4e5;" readonly>&nbsp;</label>
+                                            }
+                                            else
+                                            {
+                                                <label class="form-control" style="background-color: #e3e4e5;" readonly>@Model.FechaRetiro</label>
+                                            }
+                                        </div>
+
+                                        <div class="form-outline mb-2 col-md-4">
+                                            <label>Tiempo de Vinculación</label>
+                                            @if (Model.TiempoVinculacion == null)
+                                            {
+                                                <label class="form-control" style="background-color: #e3e4e5;" readonly>&nbsp;</label>
+                                            }
+                                            else
+                                            {
+                                                <label class="form-control" style="background-color: #e3e4e5;" readonly>@Model.TiempoVinculacion</label>
+                                            }
+                                        </div>
+                                    </div>
+                                    <br />
+
+                                    <div class="row align-items-baseline">
+                                        <div class="form-outline mb-2 col-md-6">
+                                            <label>Motivo de Retiro</label>
+                                            @if (Model.MotivoRetiro == null)
+                                            {
+                                                <textarea rows="3" style="background-color: #e3e4e5;" class="form-control" readonly>&nbsp;</textarea>
+                                            }
+                                            else
+                                            {
+                                                <textarea rows="3" style="background-color: #e3e4e5;" class="form-control" readonly>@Model.MotivoRetiro</textarea>
+                                            }
+                                        </div>
+                                        <div class="form-outline mb-2 col-md-6">
+                                            <label>Observaciones</label>
+                                            @if (Model.Observaciones == null)
+                                            {
+                                                <textarea rows="3" style="background-color: #e3e4e5;" class="form-control" readonly>&nbsp;</textarea>
+                                            }
+                                            else
+                                            {
+                                                <textarea rows="3" style="background-color: #e3e4e5;" class="form-control" readonly>@Model.Observaciones</textarea>
+                                            }
+                                        </div>
+                                    </div>
+
+                                    <br />
+                                    <br />
+                                    <div class="d-flex justify-content-center">
+                                        <button class="col-md-2 btn btn-secondary btn-block fa-lg mb-3" type="button" onclick="window.location.href='@Url.Action("AllEmployeeContracts", "ManageContracts", new { doc = Model.EmpleadoId })'">
+                                            Atrás
+                                        </button>
+                                        <div class="mb-3">ㅤㅤㅤ</div>
+                                        <a class="col-md-2 btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" href="@Url.Action("GeneratePdf", "ManageHV", new { id = Model.Id })">Download</a>
+                                        @*<button id="btn1" class="col-md-2 btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit">Download</button>*@
+                                    </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+
+    //SoloNumeros
+    function soloNumeros(event) {
+        // Obtiene el código de la tecla presionada
+        var charCode = event.keyCode || event.which;
+
+        // Si el código de la tecla no es un número, evita la entrada de caracteres
+        if (charCode < 48 || charCode > 57) {
+            event.preventDefault();
+            return false;
+        }
+
+        return true;
+    }
+
+    var fechaActual = new Date().toISOString().split('T')[0];
+    document.getElementById("fechaIngreso").setAttribute("max", fechaActual);
+</script>

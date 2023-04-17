@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using RH_CV.Data;
 using RH_CV.Models;
@@ -95,6 +96,104 @@ namespace RH_CV.Controllers
                     return View(empleado);
                 }
 
+                return View(empleado);
+            }
+            else
+            {
+                return RedirectToAction("AccessDenied", "Home");
+            }
+        }
+
+        //DetalleUsuarios
+        [HttpGet]
+        public IActionResult DetailEmployee(int? doc)
+        {
+            string userRol = Utilities.GetRol(HttpContext, _contexto);
+            if (userRol == "Admin")
+            {
+                if (doc == null)
+                {
+                    return NotFound();
+                }
+
+                var employee = _contexto.Empleado.Find(doc);
+                if (employee == null)
+                {
+                    return NotFound();
+                }
+
+                //if (rol == null)
+                //{
+                //    return NotFound();
+                //}
+                //ViewData["RolTipo"] = rol.Tipo;
+
+                return View(employee);
+            }
+            else
+            {
+                return RedirectToAction("AccessDenied", "Home");
+            }
+        }
+
+        //DetailEmployee
+        [HttpGet]
+        public IActionResult EditEmployee(int? doc)
+        {
+            string userRol = Utilities.GetRol(HttpContext, _contexto);
+            if (userRol == "Admin")
+            {
+                if (doc == null)
+                {
+                    return NotFound();
+                }
+
+                var employee = _contexto.Empleado.Find(doc);
+                if (employee == null)
+                {
+                    return NotFound();
+                }
+
+                return View(employee);
+            }
+            else
+            {
+                return RedirectToAction("AccessDenied", "Home");
+            }
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditEmployee(Empleado empleado)
+        {
+            string userRol = Utilities.GetRol(HttpContext, _contexto);
+            if (userRol == "Admin")
+            {
+                if (ModelState.IsValid)
+                {
+                    empleado.Estado = 1;
+                    _contexto.Update(empleado);
+                    await _contexto.SaveChangesAsync();
+                    return RedirectToAction("AllEmployees", "ManageEmployees");
+
+                    //// Obtener el usuario original de la base de datos
+                    //var usuarioOriginal = _contexto.Usuario.Find(modelo.User);
+
+                    //if (string.IsNullOrEmpty(modelo.Password))
+                    //{
+                    //    // Si la contraseña está vacía, se mantiene la misma
+                    //    modelo.Password = usuarioOriginal.Password;
+                    //}
+                    //else
+                    //{
+                    //    // Si la contraseña no está vacía, se encripta la nueva contraseña
+                    //    modelo.Password = Utilities.EncryptPassword(modelo.Password);
+                    //}
+
+                    //_contexto.Update(modelo);
+                    //await _contexto.SaveChangesAsync();
+                    //return RedirectToAction("AllUsers", "ManageUsers");
+                }
                 return View(empleado);
             }
             else

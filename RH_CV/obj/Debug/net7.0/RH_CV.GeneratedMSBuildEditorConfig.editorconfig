@@ -28,8 +28,8 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlQ29udHJhY3RzXEFsbENvbnRyYWN0cy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/jeffr/Documents/GitHub/RH_CV9/RH_CV/Views/ManageContracts/EditContract.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlQ29udHJhY3RzXEVkaXRDb250cmFjdC5jc2h0bWw=
+[C:/Users/jeffr/Documents/GitHub/RH_CV9/RH_CV/Views/ManageContracts/PDFContract.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlQ29udHJhY3RzXFBERkNvbnRyYWN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/jeffr/Documents/GitHub/RH_CV9/RH_CV/Views/ManageEmployees/CreateEmployee.cshtml]
@@ -75,6 +75,14 @@ build_metadata.AdditionalFiles.CssScope = b-w3ybne2l42
 [C:/Users/jeffr/Documents/GitHub/RH_CV9/RH_CV/Views/ManageContracts/CreateContract.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlQ29udHJhY3RzXENyZWF0ZUNvbnRyYWN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = b-vtmh5yyl62
+
+[C:/Users/jeffr/Documents/GitHub/RH_CV9/RH_CV/Views/ManageContracts/DetailContract.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlQ29udHJhY3RzXERldGFpbENvbnRyYWN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = b-a0uq2ne9b5
+
+[C:/Users/jeffr/Documents/GitHub/RH_CV9/RH_CV/Views/ManageContracts/EditContract.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlQ29udHJhY3RzXEVkaXRDb250cmFjdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = b-fo83yn2n46
 
 [C:/Users/jeffr/Documents/GitHub/RH_CV9/RH_CV/Views/ManageEmployees/AllEmployees.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlRW1wbG95ZWVzXEFsbEVtcGxveWVlcy5jc2h0bWw=

@@ -109,7 +109,7 @@
                                 </div>
                                 <div class="col-lg-7 d-flex align-items-center gradient-custom-2">
                                     <div class="text-white px-3 py-4 p-md-5 mx-md-4">
-                                        <form asp-controller="ManageContracts" asp-action="CreateContract" method="post">
+                                        <form class="was-validated" asp-controller="ManageContracts" asp-action="CreateContract" method="post">
 
                                             <input type="hidden" asp-for="EmpleadoId" value="@ViewData["idEmpleado"]"/>
                                             <h3 class="mb-4">Contrato
@@ -119,15 +119,15 @@
 
                                                 <div class="form-outline mb-2 col-md-4">
                                                     <label>Cargo</label>
-                                                    <select asp-for="TipoCargoId" asp-items="@ViewBag.TipoCargo" class="form-select" required>
-                                                        <option value=""></option>
+                                                    <select asp-for="TipoCargoId" asp-items="@ViewBag.TipoCargo" class="form-select is-invalid" required>
+                                                        <option value="">Seleccionar</option>
                                                     </select>
                                                 </div>
 
                                                 <div class="form-outline mb-2 col-md-4">
                                                     <label>Area Funcional</label>
-                                                    <select class="form-select text-black" asp-for="AreaFuncional">
-                                                        <option value=""></option>
+                                                    <select class="form-select text-black" asp-for="AreaFuncional" required>
+                                                        <option value="">Seleccionar</option>
                                                         <option value="Administrativo">Administrativo</option>
                                                         <option value="Asistencial">Asistencial</option>
                                                     </select>
@@ -144,22 +144,22 @@
 
                                                 <div class="form-outline mb-2 col-md-4">
                                                     <label>EPS</label>
-                                                    <select asp-for="EPSId" asp-items="@ViewBag.Eps" class="form-select" required>
-                                                        <option value=""></option>
+                                                <select asp-for="EPSId" asp-items="@ViewBag.Eps" class="form-select" required>
+                                                        <option value="">Seleccionar</option>
                                                     </select>
                                                 </div>
 
                                                 <div class="form-outline mb-2 col-md-4">
                                                     <label>Fondo Pensiones</label>
-                                                    <select asp-for="FondoPensionesId" asp-items="@ViewBag.FondoPensiones" class="form-select">
-                                                        <option value=""></option>
+                                                <select asp-for="FondoPensionesId" asp-items="@ViewBag.FondoPensiones" class="form-select">
+                                                        <option value="">Seleccionar</option>
                                                     </select>
                                                 </div>
 
                                                 <div class="form-outline mb-2 col-md-4">
                                                     <label>Contrato</label>
-                                                    <select asp-for="TipoContratoId" asp-items="@ViewBag.TipoContrato" class="form-select" required>
-                                                        <option value=""></option>
+                                                    <select asp-for="TipoContratoId" asp-items="@ViewBag.TipoContrato" class="form-select">
+                                                        <option value="">Seleccionar</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -169,7 +169,7 @@
 
                                                 <div class="form-outline mb-2 col-md-5">
                                                     <label>Tiempo contratado en horas</label>
-                                                    <input type="text" onkeypress="return soloNumeros(event)" class="form-control" asp-for="TiempoContratado" required />
+                                            <input type="text" onkeypress="return soloNumeros(event)" class="form-control" asp-for="TiempoContratado" required />
                                                 </div>
 
                                                 <div class="form-outline mb-2 col-md-5">
@@ -183,17 +183,17 @@
 
                                                 <div class="form-outline mb-2 col-md-4">
                                                     <label>Fecha de Ingreso</label>
-                                                    <input type="date" asp-for="FechaIngreso" class="form-control" id="fechaIngreso" required />
+                                                    <input type="date" asp-for="FechaIngreso" class="form-control is-invalid" id="fechaIngreso" required />
                                                 </div>
 
                                                 <div class="form-outline mb-2 col-md-4">
                                                     <label>Fecha de Retiro</label>
-                                                    <input type="date" asp-for="FechaRetiro" class="form-control" id="fechaRetiro" />
+                                                    <input type="date" asp-for="FechaRetiro" class="form-control is-invalid" id="fechaRetiro" />
                                                 </div>
 
                                                 <div class="form-outline mb-2 col-md-4">
                                                     <label>Tiempo de Vinculación</label>
-                                                    <input type="text" asp-for="TiempoVinculacion" class="form-control" id="fechaRetiro" />
+                                                    <input type="text" asp-for="TiempoVinculacion" class="form-control is-valid" id="fechaRetiro" />
                                                 </div>
                                             </div>
                                             <br />

@@ -38,12 +38,19 @@
                                 <div class="row align-items-baseline">
                                     <div class="form-outline mb-2 col-md-6">
                                         <label>Primer Nombre</label>
-                                        <label class="form-control" style="background-color: #e3e4e5;" readonly>@ViewData["primerNombre"]</label>
+                                        <label class="form-control" style="background-color: #e3e4e5;" readonly>@Model.Empleado.PrimerNombre</label>
                                     </div>
 
                                     <div class="form-outline mb-2 col-md-6">
                                         <label>Segundo Nombre</label>
-                                        <label class="form-control" style="background-color: #e3e4e5;" readonly>@ViewData["segundoNombre"]</label>
+                                        @if (Model.Empleado.SegundoNombre == null)
+                                        {
+                                            <label class="form-control" style="background-color: #e3e4e5;" readonly>&nbsp;</label>
+                                        }
+                                        else
+                                        {
+                                            <label class="form-control" style="background-color: #e3e4e5;" readonly>@Model.Empleado.SegundoNombre</label>
+                                        }
                                     </div>
                                 </div>
                                 <br />
@@ -51,12 +58,19 @@
                                 <div class="row align-items-baseline">
                                     <div class="form-outline mb-4 col-md-6">
                                         <label>Primer Apellido</label>
-                                        <label class="form-control" style="background-color: #e3e4e5;" readonly>@ViewData["primerApellido"]</label>
+                                        <label class="form-control" style="background-color: #e3e4e5;" readonly>@Model.Empleado.PrimerApellido</label>
                                     </div>
 
                                     <div class="form-outline mb-4 col-md-6">
                                         <label>Segundo apellido</label>
-                                        <label class="form-control" style="background-color: #e3e4e5;" readonly>@ViewData["segundoApellido"]</label>
+                                        @if (Model.Empleado.SegundoApellido == null)
+                                        {
+                                            <label class="form-control" style="background-color: #e3e4e5;" readonly>&nbsp;</label>
+                                        }
+                                        else
+                                        {
+                                            <label class="form-control" style="background-color: #e3e4e5;" readonly>@Model.Empleado.SegundoApellido</label>
+                                        }
                                     </div>
                                 </div>
                                 <br />
@@ -65,12 +79,12 @@
 
                                     <div class="form-outline mb-2 col-md-6">
                                         <label>Documento</label>
-                                        <label class="form-control" style="background-color: #e3e4e5;" readonly>@ViewData["Documento"]</label>
+                                        <label class="form-control" style="background-color: #e3e4e5;" readonly>@Model.Empleado.Documento</label>
                                     </div>
 
                                     <div class="form-outline mb-2 col-md-6" id="municipioExpedicion">
                                         <label>Lugar de expedición</label>
-                                        <label class="form-control" style="background-color: #e3e4e5;" readonly>@ViewData["lugarExpedicion"]</label>
+                                        <label class="form-control" style="background-color: #e3e4e5;" readonly>@Model.Empleado.LugarExpedicion</label>
                                     </div>
                                 </div>
                                 <br />
@@ -78,12 +92,12 @@
                                 <div class="row align-items-baseline">
                                     <div class="form-outline mb-2 col-md-6">
                                         <label>Sexo</label>
-                                        <label class="form-control" style="background-color: #e3e4e5;" readonly>@ViewData["Sexo"]</label>
+                                        <label class="form-control" style="background-color: #e3e4e5;" readonly>@Model.Empleado.Sexo</label>
                                     </div>
 
                                     <div class="form-outline mb-2 col-md-6">
                                         <label>Fecha Nacimiento</label>
-                                        <label class="form-control" style="background-color: #e3e4e5;" readonly>@ViewData["fechaNacimiento"]</label>
+                                        <label class="form-control" style="background-color: #e3e4e5;" readonly>@Model.Empleado.FechaNacimiento.ToString("dd-MM-yyyy")</label>
                                     </div>
                                 </div>
                                 <br />
@@ -109,9 +123,9 @@
                         </div>
                         <div class="col-lg-7 d-flex align-items-center gradient-custom-2">
                             <div class="text-white px-3 py-4 p-md-5 mx-md-4">
-                                <form asp-controller="ManageContracts" asp-action="CreateContract" method="post">
+                                <form class="was-validated" asp-controller="ManageContracts" asp-action="EditContract" method="post">
 
-                                    <input type="hidden" asp-for="EmpleadoId" value="@ViewData["idEmpleado"]" />
+                                    <input type="hidden" asp-for="EmpleadoId" value="@Model.Empleado.Documento" />
                                     <h3 class="mb-4">
                                         Contrato
                                         <br />
@@ -121,14 +135,14 @@
                                         <div class="form-outline mb-2 col-md-4">
                                             <label>Cargo</label>
                                             <select asp-for="TipoCargoId" asp-items="@ViewBag.TipoCargo" class="form-select" required>
-                                                <option value=""></option>
+                                                <option value="">Seleccionar</option>
                                             </select>
                                         </div>
 
                                         <div class="form-outline mb-2 col-md-4">
                                             <label>Area Funcional</label>
-                                            <select class="form-select text-black" asp-for="AreaFuncional">
-                                                <option value=""></option>
+                                            <select class="form-select text-black" asp-for="AreaFuncional" required>
+                                                <option value="">Seleccionar</option>
                                                 <option value="Administrativo">Administrativo</option>
                                                 <option value="Asistencial">Asistencial</option>
                                             </select>
@@ -146,21 +160,21 @@
                                         <div class="form-outline mb-2 col-md-4">
                                             <label>EPS</label>
                                             <select asp-for="EPSId" asp-items="@ViewBag.Eps" class="form-select" required>
-                                                <option value=""></option>
+                                                <option value="">Seleccionar</option>
                                             </select>
                                         </div>
 
                                         <div class="form-outline mb-2 col-md-4">
                                             <label>Fondo Pensiones</label>
                                             <select asp-for="FondoPensionesId" asp-items="@ViewBag.FondoPensiones" class="form-select">
-                                                <option value=""></option>
+                                                <option value="">Seleccionar</option>
                                             </select>
                                         </div>
 
                                         <div class="form-outline mb-2 col-md-4">
                                             <label>Contrato</label>
-                                            <select asp-for="TipoContratoId" asp-items="@ViewBag.TipoContrato" class="form-select" required>
-                                                <option value=""></option>
+                                            <select asp-for="TipoContratoId" asp-items="@ViewBag.TipoContrato" class="form-select">
+                                                <option value="">Seleccionar</option>
                                             </select>
                                         </div>
                                     </div>
@@ -213,7 +227,7 @@
                                     <br />
                                     <br />
                                     <div class="d-flex justify-content-center">
-                                        <button class="col-md-2 btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit">Create</button>
+                                        <button class="col-md-2 btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit">Edit</button>
                                     </div>
                                 </form>
                             </div>

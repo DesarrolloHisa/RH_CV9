@@ -40,6 +40,294 @@ namespace RH_CV.Controllers
             }
         }
 
+        //MostrarDeUsuarioContratos
+        [HttpGet]
+        public async Task<IActionResult> AllEmployeeContracts(int? doc)
+        {
+            string userRol = Utilities.GetRol(HttpContext, _contexto);
+            var employee = _contexto.Empleado.Find(doc);
+            int documento = employee.Documento;
+            ViewData["Documento"] = documento;
+
+            if (userRol == "Admin" || userRol == "Observador")
+            {
+                List<Contrato> contrato = await _contexto.Contrato.Where(c => c.EmpleadoId == employee.Documento).ToListAsync();
+                //ViewBag.Usuario = usuarios;
+                if (contrato.Count > 0)
+                {
+                    foreach (var item in contrato)
+                    {
+                        var tipoContrato = _contexto.TipoContrato.Find(item.TipoContratoId);
+                        var tipoCargo = _contexto.TipoCargo.Find(item.TipoCargoId);
+
+                        item.Empleado = employee;
+                        item.TipoContrato = tipoContrato;
+                        item.TipoCargo = tipoCargo;
+
+                    }
+                }
+                return View(contrato);
+            }
+            else
+            {
+                return RedirectToAction("AccessDenied", "Home");
+            }
+        }
+
+        //Crear Contrato
+        [HttpGet]
+        public IActionResult CreateContract(int? doc)
+        {
+            string userRol = Utilities.GetRol(HttpContext, _contexto);
+            if (userRol == "Admin")
+            {
+                string primerNombre;
+                string segundoNombre;
+                string primerApellido;
+                string segundoApellido;
+                int documento;
+                string lugarExpedicion;
+                string fechaNacimiento;
+                string sexo;
+                int employeeId;
+
+
+                object[] drop = Utilities.DropDownList(_contexto);
+                //ViewBag.TipoVinculo = drop[0];
+                ViewBag.TipoContrato = drop[1];
+                ViewBag.Eps = drop[3];
+                ViewBag.FondoPensiones = drop[4];
+                //ViewBag.TipoDocumento = drop[2];
+                //ViewBag.Rol = drop[6];
+                ViewBag.TipoCargo = drop[7];
+
+                var empleado = _contexto.Empleado.Find(doc);
+
+                if (empleado == null)
+                {
+                    return NotFound();
+                }
+
+                primerNombre = empleado.PrimerNombre;
+                ViewData["primerNombre"] = primerNombre;
+
+                segundoNombre = empleado.SegundoNombre;
+                if (segundoNombre == null)
+                {
+                    segundoNombre = "ㅤ";
+                }
+                ViewData["segundoNombre"] = segundoNombre;
+
+                primerApellido = empleado.PrimerApellido;
+                ViewData["primerApellido"] = primerApellido;
+
+                segundoApellido = empleado.SegundoApellido;
+                if (segundoApellido == null)
+                {
+                    segundoApellido = "ㅤ";
+                }
+                ViewData["segundoApellido"] = segundoApellido;
+
+                documento = empleado.Documento;
+                ViewData["documento"] = documento;
+
+                lugarExpedicion = empleado.LugarExpedicion;
+                ViewData["lugarExpedicion"] = lugarExpedicion;
+
+                fechaNacimiento = empleado.FechaNacimiento.ToString("dd-MM-yyyy");
+                ViewData["fechaNacimiento"] = fechaNacimiento;
+
+                sexo = empleado.Sexo;
+                ViewData["sexo"] = sexo;
+
+                employeeId = empleado.Documento;
+                ViewData["idEmpleado"] = employeeId;
+
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("AccessDenied", "Home");
+            }
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CreateContract(Contrato contrato)
+        {
+            string userRol = Utilities.GetRol(HttpContext, _contexto);
+            if (userRol == "Admin")
+            {
+                object[] drop = Utilities.DropDownList(_contexto);
+                ViewBag.TipoContrato = drop[1];
+                ViewBag.Eps = drop[3];
+                ViewBag.FondoPensiones = drop[4];
+                ViewBag.TipoCargo = drop[7];
+
+                //if (contrato.TipoContratoId == null)
+                //{
+                //    ModelState.Remove("TipoContratoId");
+                //}
+
+                if (ModelState.IsValid)
+                {
+                    //if (await _contexto.Usuario.AnyAsync(u => u.User == modelo.User))
+                    //{
+                    //    ViewData["Mensaje"] = "Ya existe un usuario con este nombre de usuario";
+                    //    return View(modelo);
+                    //}
+
+                    Contrato contrract_created = await _userService.SaveContract(contrato);
+
+                    if (contrract_created != null)
+                    {
+                        return RedirectToAction("AllEmployeeContracts", "ManageContracts", new { doc = contrato.EmpleadoId });
+                    }
+                    ViewData["Mensaje"] = "No se pudo crear el contrato";
+                    return View();
+                }
+
+                return View(contrato);
+            }
+            else
+            {
+                return RedirectToAction("AccessDenied", "Home");
+            }
+        }
+
+        //DatailContract
+        [HttpGet]
+        public IActionResult DetailContract(int? id)
+        {
+            string userRol = Utilities.GetRol(HttpContext, _contexto);
+            if (userRol == "Admin")
+            {
+
+                object[] drop = Utilities.DropDownList(_contexto);
+                //ViewBag.TipoVinculo = drop[0];
+                ViewBag.TipoContrato = drop[1];
+                ViewBag.Eps = drop[3];
+                ViewBag.FondoPensiones = drop[4];
+                //ViewBag.TipoDocumento = drop[2];
+                //ViewBag.Rol = drop[6];
+                ViewBag.TipoCargo = drop[7];
+
+
+                var contrato = _contexto.Contrato.Find(id);
+                if (contrato == null)
+                {
+                    return NotFound();
+                }
+                var empleado = _contexto.Empleado.Find(contrato.EmpleadoId);
+                if (empleado == null)
+                {
+                    return NotFound();
+                }
+                _contexto.TipoCargo.Find(contrato.TipoCargoId);
+                _contexto.EPS.Find(contrato.EPSId);
+                _contexto.FondoPensiones.Find(contrato.FondoPensionesId);
+                _contexto.TipoContrato.Find(contrato.TipoContratoId);
+                //var empleados = _contexto.Empleado.Find(_contexto.Contrato
+                //      .Where(id => id. == datosPersonales.UsuarioId)
+                //      .Select(u => u.TipoContratoId)
+                //      .FirstOrDefault());
+                //contrato = _contexto.Empleado.Include(c => c.) == contrato.EmpleadoId);
+                //var empleado = _contexto.Empleado.Where(e => e.Documento == contrato.EmpleadoId);
+
+                return View(contrato);
+            }
+            else
+            {
+                return RedirectToAction("AccessDenied", "Home");
+            }
+        }
+
+        //Editar Contrato
+        [HttpGet]
+        public IActionResult EditContract(int? id)
+        {
+            string userRol = Utilities.GetRol(HttpContext, _contexto);
+            if (userRol == "Admin")
+            {
+
+                object[] drop = Utilities.DropDownList(_contexto);
+                //ViewBag.TipoVinculo = drop[0];
+                ViewBag.TipoContrato = drop[1];
+                ViewBag.Eps = drop[3];
+                ViewBag.FondoPensiones = drop[4];
+                //ViewBag.TipoDocumento = drop[2];
+                //ViewBag.Rol = drop[6];
+                ViewBag.TipoCargo = drop[7];
+
+
+                var contrato = _contexto.Contrato.Find(id);
+                if (contrato == null)
+                {
+                    return NotFound();
+                }
+                var empleado = _contexto.Empleado.Find(contrato.EmpleadoId);
+                if (empleado == null)
+                {
+                    return NotFound();
+                }
+                _contexto.TipoCargo.Find(contrato.TipoCargoId);
+                _contexto.EPS.Find(contrato.EPSId);
+                _contexto.FondoPensiones.Find(contrato.FondoPensionesId);
+                _contexto.TipoContrato.Find(contrato.TipoContratoId);
+                //var empleados = _contexto.Empleado.Find(_contexto.Contrato
+                //      .Where(id => id. == datosPersonales.UsuarioId)
+                //      .Select(u => u.TipoContratoId)
+                //      .FirstOrDefault());
+                //contrato = _contexto.Empleado.Include(c => c.) == contrato.EmpleadoId);
+                //var empleado = _contexto.Empleado.Where(e => e.Documento == contrato.EmpleadoId);
+
+                return View(contrato);
+            }
+            else
+            {
+                return RedirectToAction("AccessDenied", "Home");
+            }
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditContract(Contrato contrato)
+        {
+            string userRol = Utilities.GetRol(HttpContext, _contexto);
+            if (userRol == "Admin")
+            {
+                object[] drop = Utilities.DropDownList(_contexto);
+                ViewBag.TipoContrato = drop[1];
+                ViewBag.Eps = drop[3];
+                ViewBag.FondoPensiones = drop[4];
+                ViewBag.TipoCargo = drop[7];
+
+                //if (contrato.TipoContratoId == null)
+                //{
+                //    ModelState.Remove("TipoContratoId");
+                //}
+
+                if (ModelState.IsValid)
+                {
+                    //if (await _contexto.Usuario.AnyAsync(u => u.User == modelo.User))
+                    //{
+                    //    ViewData["Mensaje"] = "Ya existe un usuario con este nombre de usuario";
+                    //    return View(modelo);
+                    //}
+
+                    _contexto.Update(contrato);
+                    await _contexto.SaveChangesAsync();
+                    return RedirectToAction("AllEmployeeContracts", "ManageContracts", new { doc = contrato.EmpleadoId });
+                }
+                ViewData["Mensaje"] = "No se pudo actualizar el contrato";
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("AccessDenied", "Home");
+            }
+        }
+
         [HttpGet]
         public async Task<IActionResult> CreateExcelFile()
         {
@@ -216,245 +504,7 @@ namespace RH_CV.Controllers
         //    return File(memory, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", fileName);
         //}
 
-        //MostrarDeUsuarioContratos
-        [HttpGet]
-        public async Task<IActionResult> AllEmployeeContracts(int? doc)
-        {
-            string userRol = Utilities.GetRol(HttpContext, _contexto);
-            var employee = _contexto.Empleado.Find(doc);
-            int documento = employee.Documento;
-            ViewData["Documento"] = documento;
-
-            if (userRol == "Admin" || userRol == "Observador")
-            {
-                List<Contrato> contrato = await _contexto.Contrato.Where(c => c.EmpleadoId == employee.Documento).ToListAsync();
-                //ViewBag.Usuario = usuarios;
-                if (contrato.Count > 0)
-                {
-                    foreach (var item in contrato)
-                    {
-                        var tipoContrato = _contexto.TipoContrato.Find(item.TipoContratoId);
-                        var tipoCargo = _contexto.TipoCargo.Find(item.TipoCargoId);
-
-                        item.Empleado = employee;
-                        item.TipoContrato = tipoContrato;
-                        item.TipoCargo = tipoCargo;
-
-                    }
-                }
-                return View(contrato);
-            }
-            else
-            {
-                return RedirectToAction("AccessDenied", "Home");
-            }
-        }
-
-        //Crear Contrato
-        [HttpGet]
-        public IActionResult CreateContract(int? doc)
-        {
-            string userRol = Utilities.GetRol(HttpContext, _contexto);
-            if (userRol == "Admin")
-            {
-                string primerNombre;
-                string segundoNombre;
-                string primerApellido;
-                string segundoApellido;
-                int documento;
-                string lugarExpedicion;
-                string fechaNacimiento;
-                string sexo;
-                int employeeId;
-
-
-                object[] drop = Utilities.DropDownList(_contexto);
-                //ViewBag.TipoVinculo = drop[0];
-                ViewBag.TipoContrato = drop[1];
-                ViewBag.Eps = drop[3];
-                ViewBag.FondoPensiones = drop[4];
-                //ViewBag.TipoDocumento = drop[2];
-                //ViewBag.Rol = drop[6];
-                ViewBag.TipoCargo = drop[7];
-
-                var empleado = _contexto.Empleado.Find(doc);
-
-                if (empleado == null)
-                {
-                    return NotFound();
-                }
-
-                primerNombre = empleado.PrimerNombre;
-                ViewData["primerNombre"] = primerNombre;
-
-                segundoNombre = empleado.SegundoNombre;
-                if (segundoNombre == null)
-                {
-                    segundoNombre = "ㅤ";
-                }
-                ViewData["segundoNombre"] = segundoNombre;
-
-                primerApellido = empleado.PrimerApellido;
-                ViewData["primerApellido"] = primerApellido;
-
-                segundoApellido = empleado.SegundoApellido;
-                if (segundoApellido == null)
-                {
-                    segundoApellido = "ㅤ";
-                }
-                ViewData["segundoApellido"] = segundoApellido;
-
-                documento = empleado.Documento;
-                ViewData["documento"] = documento;
-
-                lugarExpedicion = empleado.LugarExpedicion;
-                ViewData["lugarExpedicion"] = lugarExpedicion;
-
-                fechaNacimiento = empleado.FechaNacimiento.ToString("dd-MM-yyyy");
-                ViewData["fechaNacimiento"] = fechaNacimiento;
-
-                sexo = empleado.Sexo;
-                ViewData["sexo"] = sexo;
-
-                employeeId = empleado.Documento;
-                ViewData["idEmpleado"] = employeeId;
-
-                return View();
-            }
-            else
-            {
-                return RedirectToAction("AccessDenied", "Home");
-            }
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> CreateContract(Contrato contrato)
-        {
-            string userRol = Utilities.GetRol(HttpContext, _contexto);
-            if (userRol == "Admin")
-            {
-                object[] drop = Utilities.DropDownList(_contexto);
-                ViewBag.TipoContrato = drop[1];
-                ViewBag.Eps = drop[3];
-                ViewBag.FondoPensiones = drop[4];
-                ViewBag.TipoCargo = drop[7];
-
-                //if (contrato.TipoContratoId == null)
-                //{
-                //    ModelState.Remove("TipoContratoId");
-                //}
-
-                if (ModelState.IsValid)
-                {
-                    //if (await _contexto.Usuario.AnyAsync(u => u.User == modelo.User))
-                    //{
-                    //    ViewData["Mensaje"] = "Ya existe un usuario con este nombre de usuario";
-                    //    return View(modelo);
-                    //}
-
-                    Contrato contrract_created = await _userService.SaveContract(contrato);
-
-                    if (contrract_created != null)
-                    {
-                        return RedirectToAction("AllEmployeeContracts", "ManageContracts");
-                    }
-                    ViewData["Mensaje"] = "No se pudo crear el contrato";
-                    return View();
-                }
-
-                return View(contrato);
-            }
-            else
-            {
-                return RedirectToAction("AccessDenied", "Home");
-            }
-        }
-
-        //Crear Contrato
-        [HttpGet]
-        public IActionResult EditContract(int? id)
-        {
-            string userRol = Utilities.GetRol(HttpContext, _contexto);
-            if (userRol == "Admin")
-            {
-                //string primerNombre;
-                //string segundoNombre;
-                //string primerApellido;
-                //string segundoApellido;
-                //int documento;
-                //string lugarExpedicion;
-                //string fechaNacimiento;
-                //string sexo;
-                //int employeeId;
-
-
-                object[] drop = Utilities.DropDownList(_contexto);
-                //ViewBag.TipoVinculo = drop[0];
-                ViewBag.TipoContrato = drop[1];
-                ViewBag.Eps = drop[3];
-                ViewBag.FondoPensiones = drop[4];
-                //ViewBag.TipoDocumento = drop[2];
-                //ViewBag.Rol = drop[6];
-                ViewBag.TipoCargo = drop[7];
-
-
-                var contrato = _contexto.Contrato.Find(id);
-                var empleado = _contexto.Empleado.Find(contrato.EmpleadoId);
-                //var empleados = _contexto.Empleado.Find(_contexto.Contrato
-                //      .Where(id => id. == datosPersonales.UsuarioId)
-                //      .Select(u => u.TipoContratoId)
-                //      .FirstOrDefault());
-                //contrato = _contexto.Empleado.Include(c => c.) == contrato.EmpleadoId);
-                //var empleado = _contexto.Empleado.Where(e => e.Documento == contrato.EmpleadoId);
-
-                if (empleado == null)
-                {
-                    return NotFound();
-                }
-
-                //primerNombre = empleado.PrimerNombre;
-                //ViewData["primerNombre"] = primerNombre;
-
-                //segundoNombre = empleado.SegundoNombre;
-                //if (segundoNombre == null)
-                //{
-                //    segundoNombre = "ㅤ";
-                //}
-                //ViewData["segundoNombre"] = segundoNombre;
-
-                //primerApellido = empleado.PrimerApellido;
-                //ViewData["primerApellido"] = primerApellido;
-
-                //segundoApellido = empleado.SegundoApellido;
-                //if (segundoApellido == null)
-                //{
-                //    segundoApellido = "ㅤ";
-                //}
-                //ViewData["segundoApellido"] = segundoApellido;
-
-                //documento = empleado.Documento;
-                //ViewData["documento"] = documento;
-
-                //lugarExpedicion = empleado.LugarExpedicion;
-                //ViewData["lugarExpedicion"] = lugarExpedicion;
-
-                //fechaNacimiento = empleado.FechaNacimiento.ToString("dd-MM-yyyy");
-                //ViewData["fechaNacimiento"] = fechaNacimiento;
-
-                //sexo = empleado.Sexo;
-                //ViewData["sexo"] = sexo;
-
-                contrato.Empleado = empleado;
-                //ViewData["idEmpleado"] = employeeId;
-
-                return View();
-            }
-            else
-            {
-                return RedirectToAction("AccessDenied", "Home");
-            }
-        }
+        //////////////////////////////////////
 
         ////DetalleUsuarios
         //[HttpGet]

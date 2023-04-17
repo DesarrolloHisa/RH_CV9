@@ -29,7 +29,7 @@
                                     <!--<h4 class="mt-1 mb-5 pb-1">A</h4>-->
                                 </div>
 
-                                <form asp-controller="ManageEmployees" asp-action="CreateEmployee" method="post">
+                                <form class="was-validated" asp-controller="ManageEmployees" asp-action="CreateEmployee" method="post">
 
                                     <p><b>Create an Employee</b></p>
 
@@ -1182,6 +1182,7 @@
                                         <div class="form-outline mb-2 col-md-6">
                                             <label>Sexo</label>
                                             <select asp-for="Sexo" class="form-select" id="sexo" required>
+                                                <option value="">Seleccionar</option>
                                                 <option value="Masculino">Masculino</option>
                                                 <option value="Femenino">Femenino</option>
                                                 <option value="Intersexual">Intersexual</option>

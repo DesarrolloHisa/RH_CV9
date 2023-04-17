@@ -46,7 +46,7 @@ namespace RH_CV.Controllers
 
             //var hojasDeVida = await _contexto.DatosPersonales.Where(hv => hv.Id == id).ToListAsync();
             //return View(hojasDeVida);
-            return View(await _contexto.DatosPersonales.Where(hv => hv.UsuarioId == idUser).ToListAsync());
+            return View(await _contexto.DatosPersonales.Include(hv => hv.Usuario).Where(hv => hv.UsuarioId == idUser).ToListAsync());
         }
 
         //MostrarHV

@@ -208,6 +208,7 @@ namespace RH_CV.Controllers
                     Text = r.Tipo,
                 });
                 ViewBag.Roles = roles;
+
                 bool change = true;
                 if (modelo.Password== null)
                 {
@@ -229,6 +230,7 @@ namespace RH_CV.Controllers
                     {
                         modelo.Password = Utilities.EncryptPassword(modelo.Password);
                     }
+                    modelo.Estado = 1;
                     _contexto.Update(modelo);
                     await _contexto.SaveChangesAsync();
                     return RedirectToAction("AllUsers", "ManageUsers");

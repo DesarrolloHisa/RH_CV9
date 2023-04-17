@@ -198,6 +198,58 @@ h3[b-vtmh5yyl62] {
         border-bottom-right-radius: .3rem;
     }
 }
+/* _content/RH_CV/Views/ManageContracts/DetailContract.cshtml.rz.scp.css */
+h3[b-a0uq2ne9b5] {
+    text-align: center;
+}
+
+.gradient-custom-2[b-a0uq2ne9b5] {
+    /* fallback for old browsers */
+    background: #fccb90;
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+}
+
+@media (min-width: 768px) {
+    .gradient-form[b-a0uq2ne9b5] {
+        height: 100vh !important;
+    }
+}
+
+@media (min-width: 769px) {
+    .gradient-custom-2[b-a0uq2ne9b5] {
+        border-top-right-radius: .3rem;
+        border-bottom-right-radius: .3rem;
+    }
+}
+/* _content/RH_CV/Views/ManageContracts/EditContract.cshtml.rz.scp.css */
+h3[b-fo83yn2n46] {
+    text-align: center;
+}
+
+.gradient-custom-2[b-fo83yn2n46] {
+    /* fallback for old browsers */
+    background: #fccb90;
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+}
+
+@media (min-width: 768px) {
+    .gradient-form[b-fo83yn2n46] {
+        height: 100vh !important;
+    }
+}
+
+@media (min-width: 769px) {
+    .gradient-custom-2[b-fo83yn2n46] {
+        border-top-right-radius: .3rem;
+        border-bottom-right-radius: .3rem;
+    }
+}
 /* _content/RH_CV/Views/ManageEmployees/AllEmployees.cshtml.rz.scp.css */
 .gradient-custom-2[b-inuepdmkt1] {
     /* fallback for old browsers */
