@@ -35,19 +35,19 @@
 
                                         <div class="form-outline mb-2 col-md-4">
                                             <label>Usuario</label>
-                                            <label class="form-control" readonly>@Html.DisplayFor(m => m.User)</label>
+                                            <label class="form-control">@Html.DisplayFor(m => m.User)</label>
                                             <!--<label class="form-label" for="form2Example11">Username</label>-->
                                         </div>
 
                                         <div class="form-outline mb-2 col-md-4">
                                             <label>Contraseña</label>
-                                            <label class="form-control" readonly>********</label>
+                                            <label class="form-control">********</label>
                                             <!--<label class="form-label" for="form2Example22">Password</label>-->
                                         </div>
 
                                         <div class="form-outline mb-2 col-md-4">
                                             <label>Rol</label>
-                                            <label class="form-control" readonly>@Model.Rol.Tipo</label>
+                                            <label class="form-control">@Model.Rol.Tipo</label>
                                             @*Html.DropDownList("Id", ViewBag.Categorias as SelectList, "Select a Rol", new { @class = "form-control" })
                                             @Html.ValidationMessageFor(model => model.RolId, "", new { @class = "text-danger" })
                                             <!--<label class="form-label" for="form2Example22">Password</label>-->*@

@@ -118,6 +118,57 @@ element.style[b-70oz2cudkm] {
     box-shadow: none;
     text-decoration: none;
 }
+/* _content/RH_CV/Views/Home/ManageEmployeesMenu.cshtml.rz.scp.css */
+a[b-rn4wpn8p7j] {
+    position: relative;
+    display: block;
+    padding: 4px 0;
+    font-family: Lato, sans-serif;
+    color: #414141b1;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: 0.5s;
+}
+
+    a[b-rn4wpn8p7j]::after {
+        position: absolute;
+        content: "";
+        top: 100%;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: #ff0000;
+        transform: scaleX(0);
+        transform-origin: right;
+        transition: transform 0.5s;
+    }
+
+    a:hover[b-rn4wpn8p7j] {
+        color: #000000;
+    }
+
+        a:hover[b-rn4wpn8p7j]::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+.contenedor[b-rn4wpn8p7j] {
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: translateY(-50%);
+}
+
+.contenedor-img[b-rn4wpn8p7j] {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
 /* _content/RH_CV/Views/InicioSesion/IniciarSesion.cshtml.rz.scp.css */
 h3[b-zh3kiqn0ff] {
     text-align: center;
@@ -274,6 +325,58 @@ h3[b-fo83yn2n46] {
 
 @media (min-width: 769px) {
     .gradient-custom-2[b-inuepdmkt1] {
+        border-top-right-radius: .3rem;
+        border-bottom-right-radius: .3rem;
+    }
+}
+/* _content/RH_CV/Views/ManageEmployees/CreateEmployee.cshtml.rz.scp.css */
+h3[b-m3vc58y20i] {
+    text-align: center;
+}
+
+.gradient-custom-2[b-m3vc58y20i] {
+    /* fallback for old browsers */
+    background: #fccb90;
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+}
+
+@media (min-width: 768px) {
+    .gradient-form[b-m3vc58y20i] {
+        height: 100vh !important;
+    }
+}
+
+@media (min-width: 769px) {
+    .gradient-custom-2[b-m3vc58y20i] {
+        border-top-right-radius: .3rem;
+        border-bottom-right-radius: .3rem;
+    }
+}
+/* _content/RH_CV/Views/ManageEmployees/EditEmployee.cshtml.rz.scp.css */
+h3[b-1va8qf813p] {
+    text-align: center;
+}
+
+.gradient-custom-2[b-1va8qf813p] {
+    /* fallback for old browsers */
+    background: #fccb90;
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+}
+
+@media (min-width: 768px) {
+    .gradient-form[b-1va8qf813p] {
+        height: 100vh !important;
+    }
+}
+
+@media (min-width: 769px) {
+    .gradient-custom-2[b-1va8qf813p] {
         border-top-right-radius: .3rem;
         border-bottom-right-radius: .3rem;
     }
@@ -789,6 +892,86 @@ body {
     text-align: left;
     background-color: #fff;
 }*/
+/* _content/RH_CV/Views/ManageStudents/AllStudents.cshtml.rz.scp.css */
+.gradient-custom-2[b-39jrwyy1qp] {
+    /* fallback for old browsers */
+    background: #fccb90;
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+}
+
+.btn[b-39jrwyy1qp] {
+    color: #fff;
+    letter-spacing: 1px;
+    text-indent: 10px;
+}
+
+@media (min-width: 768px) {
+    .gradient-form[b-39jrwyy1qp] {
+        height: 100vh !important;
+    }
+}
+
+@media (min-width: 769px) {
+    .gradient-custom-2[b-39jrwyy1qp] {
+        border-top-right-radius: .3rem;
+        border-bottom-right-radius: .3rem;
+    }
+}
+/* _content/RH_CV/Views/ManageStudents/CreateStudent.cshtml.rz.scp.css */
+h3[b-1kfugmxamm] {
+    text-align: center;
+}
+
+.gradient-custom-2[b-1kfugmxamm] {
+    /* fallback for old browsers */
+    background: #fccb90;
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+}
+
+@media (min-width: 768px) {
+    .gradient-form[b-1kfugmxamm] {
+        height: 100vh !important;
+    }
+}
+
+@media (min-width: 769px) {
+    .gradient-custom-2[b-1kfugmxamm] {
+        border-top-right-radius: .3rem;
+        border-bottom-right-radius: .3rem;
+    }
+}
+/* _content/RH_CV/Views/ManageStudents/EditStudent.cshtml.rz.scp.css */
+h3[b-0h4efzmm72] {
+    text-align: center;
+}
+
+.gradient-custom-2[b-0h4efzmm72] {
+    /* fallback for old browsers */
+    background: #fccb90;
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+}
+
+@media (min-width: 768px) {
+    .gradient-form[b-0h4efzmm72] {
+        height: 100vh !important;
+    }
+}
+
+@media (min-width: 769px) {
+    .gradient-custom-2[b-0h4efzmm72] {
+        border-top-right-radius: .3rem;
+        border-bottom-right-radius: .3rem;
+    }
+}
 /* _content/RH_CV/Views/ManageUsers/AllUsers.cshtml.rz.scp.css */
 .gradient-custom-2[b-8lbd52yx4l] {
     /* fallback for old browsers */

@@ -1,0 +1,284 @@
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using RH_CV.Data;
+using RH_CV.Models;
+using RH_CV.Services.Contract;
+using RH_CV.Sources;
+
+namespace RH_CV.Controllers
+{
+    [Authorize]
+    public class ManageStudents : Controller
+    {
+        private readonly IUserService _userService;
+        private readonly ApplicationDbContext _contexto;
+
+        public ManageStudents(IUserService userService, ApplicationDbContext contexto)
+        {
+            _userService = userService;
+            _contexto = contexto;
+        }
+
+        //MostrarUsuarios
+        [HttpGet]
+        public async Task<IActionResult> AllStudents()
+        {
+            string userRol = Utilities.GetRol(HttpContext, _contexto);
+            if (userRol == "Admin" || userRol == "Observador")
+            {
+                List<Estudiante> estudiantes = await _contexto.Estudiante.ToListAsync();
+                //ViewBag.Usuario = usuarios;
+                return View(estudiantes);
+            }
+            else
+            {
+                return RedirectToAction("AccessDenied", "Home");
+            }
+        }
+
+        //Crear Usuarios
+        public IActionResult CreateStudent()
+        {
+            string userRol = Utilities.GetRol(HttpContext, _contexto);
+            if (userRol == "Admin")
+            {
+                object[] drop = Utilities.DropDownList(_contexto);
+                //ViewBag.TipoVinculo = drop[0];
+                //ViewBag.TipoContrato = drop[1];
+                //ViewBag.TipoDocumento = drop[2];
+                //ViewBag.Rol = drop[6];
+                ViewBag.TipoCargo = drop[7];
+                ViewBag.TipoVinculacion = drop[8];
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("AccessDenied", "Home");
+            }
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CreateStudent(Estudiante estudiante)
+        {
+            string userRol = Utilities.GetRol(HttpContext, _contexto);
+            if (userRol == "Admin")
+            {
+                object[] drop = Utilities.DropDownList(_contexto);
+                //ViewBag.TipoVinculo = drop[0];
+                //ViewBag.TipoContrato = drop[1];
+                //ViewBag.TipoDocumento = drop[2];
+                //ViewBag.Rol = drop[6];
+                ViewBag.TipoCargo = drop[7];
+                ViewBag.TipoVinculacion = drop[8];
+
+                //if (empleado.TipoContratoId == null)
+                //{
+                //    ModelState.Remove("TipoContratoId");
+                //}
+
+                if (ModelState.IsValid)
+                {
+                    if (await _contexto.Estudiante.AnyAsync(u => u.Documento == estudiante.Documento))
+                    {
+                        ViewData["Mensaje"] = "Ya existe un estudiante con ese documento";
+                        return View(estudiante);
+                    }
+
+                    estudiante.Estado = 1;
+
+                    Estudiante estudiante_creado = await _userService.SaveStudent(estudiante);
+
+                    if (estudiante_creado != null)
+                    {
+                        return RedirectToAction("AllStudents", "ManageStudents");
+                    }
+                    ViewData["Mensaje"] = "No se pudo crear el estudiante";
+                    return View(estudiante);
+                }
+
+                return View(estudiante);
+            }
+            else
+            {
+                return RedirectToAction("AccessDenied", "Home");
+            }
+        }
+
+        //DetalleStudent
+        [HttpGet]
+        public IActionResult DetailStudent(int? doc)
+        {
+            string userRol = Utilities.GetRol(HttpContext, _contexto);
+            if (userRol == "Admin")
+            {
+                if (doc == null)
+                {
+                    return NotFound();
+                }
+
+                var student = _contexto.Estudiante.Find(doc);
+                if (student == null)
+                {
+                    return NotFound();
+                }
+
+                object[] drop = Utilities.DropDownList(_contexto);
+                //ViewBag.TipoVinculo = drop[0];
+                //ViewBag.TipoContrato = drop[1];
+                //ViewBag.TipoDocumento = drop[2];
+                //ViewBag.Rol = drop[6];
+                ViewBag.TipoCargo = drop[7];
+                ViewBag.TipoVinculacion = drop[8];
+
+                _contexto.TipoCargo.Find(student.TipoCargoId);
+                _contexto.TipoVinculacion.Find(student.TipoVinculacionId);
+
+                //if (rol == null)
+                //{
+                //    return NotFound();
+                //}
+                //ViewData["RolTipo"] = rol.Tipo;
+
+                return View(student);
+            }
+            else
+            {
+                return RedirectToAction("AccessDenied", "Home");
+            }
+        }
+
+        //DetailStudent
+        [HttpGet]
+        public IActionResult EditStudent(int? doc)
+        {
+            string userRol = Utilities.GetRol(HttpContext, _contexto);
+            if (userRol == "Admin")
+            {
+                if (doc == null)
+                {
+                    return NotFound();
+                }
+
+                var student = _contexto.Estudiante.Find(doc);
+                if (student == null)
+                {
+                    return NotFound();
+                }
+
+                object[] drop = Utilities.DropDownList(_contexto);
+                ViewBag.TipoCargo = drop[7];
+                ViewBag.TipoVinculacion = drop[8];
+
+                _contexto.TipoCargo.Find(student.TipoCargoId);
+                _contexto.TipoVinculacion.Find(student.TipoVinculacionId);
+
+                return View(student);
+            }
+            else
+            {
+                return RedirectToAction("AccessDenied", "Home");
+            }
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditStudent(Estudiante estudiante)
+        {
+            string userRol = Utilities.GetRol(HttpContext, _contexto);
+            if (userRol == "Admin")
+            {
+                if (ModelState.IsValid)
+                {
+                    estudiante.Estado = 1;
+                    _contexto.Update(estudiante);
+                    await _contexto.SaveChangesAsync();
+                    return RedirectToAction("AllStudents", "ManageStudents");
+
+                    //// Obtener el usuario original de la base de datos
+                    //var usuarioOriginal = _contexto.Usuario.Find(modelo.User);
+
+                    //if (string.IsNullOrEmpty(modelo.Password))
+                    //{
+                    //    // Si la contraseña está vacía, se mantiene la misma
+                    //    modelo.Password = usuarioOriginal.Password;
+                    //}
+                    //else
+                    //{
+                    //    // Si la contraseña no está vacía, se encripta la nueva contraseña
+                    //    modelo.Password = Utilities.EncryptPassword(modelo.Password);
+                    //}
+
+                    //_contexto.Update(modelo);
+                    //await _contexto.SaveChangesAsync();
+                    //return RedirectToAction("AllUsers", "ManageUsers");
+                }
+                return View(estudiante);
+            }
+            else
+            {
+                return RedirectToAction("AccessDenied", "Home");
+            }
+        }
+
+        //StudentEstatus
+        [HttpGet]
+        public IActionResult StudentEstatus(int? doc)
+        {
+            string userRol = Utilities.GetRol(HttpContext, _contexto);
+            if (userRol == "Admin")
+            {
+                if (doc == null)
+                {
+                    return NotFound();
+                }
+
+                var student = _contexto.Estudiante.Find(doc);
+                if (student == null)
+                {
+                    return NotFound();
+                }
+
+                object[] drop = Utilities.DropDownList(_contexto);
+                ViewBag.TipoCargo = drop[7];
+                ViewBag.TipoVinculacion = drop[8];
+
+                _contexto.TipoCargo.Find(student.TipoCargoId);
+                _contexto.TipoVinculacion.Find(student.TipoVinculacionId);
+
+                return View(student);
+            }
+            else
+            {
+                return RedirectToAction("AccessDenied", "Home");
+            }
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> StudentEstatus(int doc, int estado)
+        {
+            string userRol = Utilities.GetRol(HttpContext, _contexto);
+            if (userRol == "Admin")
+            {
+                var student = _contexto.Estudiante.Find(doc);
+                if (student == null)
+                {
+                    return NotFound();
+                }
+
+                student.Estado = estado;
+
+                _contexto.Update(student);
+                await _contexto.SaveChangesAsync();
+
+                return RedirectToAction("AllStudents", "ManageStudents");
+            }
+            else
+            {
+                return RedirectToAction("AccessDenied", "Home");
+            }
+        }
+    }
+}

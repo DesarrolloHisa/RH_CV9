@@ -60,6 +60,11 @@ namespace RH_CV.Controllers
             return View(/*"Index", userRol*/);
         }
 
+        public IActionResult ManageEmployeesMenu()
+        {
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();

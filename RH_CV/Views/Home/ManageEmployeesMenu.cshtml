@@ -1,0 +1,78 @@
+﻿@*<Section>
+    <ul>
+        <li><a href="#">home</a></li>
+        <li><a href="#">archives</a></li>
+        <li><a href="#">tags</a></li>
+        <li><a href="#">categories</a></li>
+        <li><a href="#">about</a></li>
+    </ul>
+</Section>*@
+
+<section class="elementor-section elementor-top-section elementor-element elementor-element-976911c elementor-section-height-min-height elementor-section-items-stretch elementor-section-boxed elementor-section-height-default" data-id="976911c" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+    <div class="elementor-container elementor-column-gap-default">
+        <div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-ce9daa8" data-id="ce9daa8" data-element_type="column">
+            <div class="elementor-widget-wrap elementor-element-populated">
+                <div class="contenedor">
+                    <a href="@Url.Action("AllEmployees","ManageEmployees")">Todos los Empleados</a>
+                    <a href="@Url.Action("AllActiveEmployees","ManageEmployees")">Empleados Activos</a>
+                    <a href="@Url.Action("AllTeachingService","ManageTeachingService")">Docencia de Servicio</a>
+                    <a href="@Url.Action("AllStudents","ManageStudents")">Estudiantes</a>
+                    <a href="@Url.Action("AllVolunteers","ManageVolunteers")">Voluntarios</a>
+                    <a href="@Url.Action("AllInterdependence","ManageInterdependence")">Interdependecia</a>
+                    @*@if (ViewData["UserRol"] == "Admin" || ViewData["UserRol"] == "Observador")
+                    {
+                            <a href="@Url.Action("AllHV","ManageHV")" class="btn btn-1">
+                                <span class="elementor-button-content-wrapper">
+                                    <span class="elementor-button-text"><b>Administrar HV</b></span>
+                                </span>
+                            </a>
+                    }
+                    else
+                    {
+                            <a href="@Url.Action("MyHV","ManageHV")" class="btn btn-1">
+                                <span class="elementor-button-content-wrapper">
+                                    <span class="elementor-button-text"><b>Manage HV</b></span>
+                                </span>
+                            </a>
+                    }
+                    @if (ViewData["UserRol"] == "Admin" || ViewData["UserRol"] == "Observador")
+                    {
+                            <a href="@Url.Action("AllEmployees","ManageEmployees")" class="btn btn-1">
+                                <span class="elementor-button-content-wrapper">
+                                    <span class="elementor-button-text"><b>Manage Contracts</b></span>
+                                </span>
+                            </a>
+                    }
+                    @if (ViewData["UserRol"] == "Admin")
+                    {
+                            <a href="@Url.Action("AllUsers","ManageUsers")" class="btn btn-1">
+                                <span class="elementor-button-content-wrapper">
+                                    <span class="elementor-button-text"><b>Manage Users</b></span>
+                                </span>
+                            </a>
+                    }*@
+                </div>
+                @*<div class="elementor-element elementor-element-ed3c4cb elementor-mobile-align-center elementor-widget elementor-widget-button" data-id="ed3c4cb" data-element_type="widget" data-widget_type="button.default">
+					<div class="elementor-widget-container">
+						<div class="elementor-button-wrapper">
+							<a href="#elementor-action%3Aaction%3Dpopup%3Aopen%26settings%3DeyJpZCI6IjE0NzQiLCJ0b2dnbGUiOmZhbHNlfQ%3D%3D" class="elementor-button-link elementor-button elementor-size-sm elementor-animation-grow" role="button">
+								<span class="elementor-button-content-wrapper">
+									<span class="elementor-button-text">Laboratorio Clínico</span>
+								</span>
+							</a>
+						</div>
+					</div>
+				</div>*@
+            </div>
+        </div>
+        <div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-IMG" data-id="IMG" data-element_type="column">
+            <div class="elementor-widget-wrap elementor-element-populated">
+                <div class="contenedor-img">
+                    <img width="1138" height="894" src="https://www.hospitalinfantilsantaana.org/wp-content/uploads/RETOCADA7.png" class="attachment-full size-full" alt="" loading="lazy" srcset="https://www.hospitalinfantilsantaana.org/wp-content/uploads/RETOCADA7.png 1138w, https://www.hospitalinfantilsantaana.org/wp-content/uploads/RETOCADA7-300x236.png 300w, https://www.hospitalinfantilsantaana.org/wp-content/uploads/RETOCADA7-1024x804.png 1024w, https://www.hospitalinfantilsantaana.org/wp-content/uploads/RETOCADA7-768x603.png 768w" sizes="(max-width: 1138px) 100vw, 1138px">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+

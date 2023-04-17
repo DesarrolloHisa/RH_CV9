@@ -74,7 +74,7 @@ namespace RH_CV.Sources
         public static object[] DropDownList(ApplicationDbContext _contexto)
         {
 
-            object[] drop = new object[8];
+            object[] drop = new object[9];
 
             drop[0] = _contexto.TipoVinculo.Select(d => new SelectListItem
             {
@@ -116,6 +116,12 @@ namespace RH_CV.Sources
                 Value = d.Id.ToString(),
                 Text = d.Tipo,
             });
+            drop[8] = _contexto.TipoVinculacion.Select(d => new SelectListItem
+            {
+                Value = d.Id.ToString(),
+                Text = d.Tipo,
+            });
+
 
             return drop;
         }

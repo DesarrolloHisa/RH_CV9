@@ -42,7 +42,7 @@ namespace RH_CV.Controllers
         public IActionResult CreateEmployee()
         {
             string userRol = Utilities.GetRol(HttpContext, _contexto);
-            if (userRol == "Admin" || userRol == "Observador")
+            if (userRol == "Admin")
             {
                 //object[] drop = Utilities.DropDownList(_contexto);
                 //ViewBag.TipoVinculo = drop[0];

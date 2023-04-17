@@ -329,7 +329,7 @@ namespace RH_CV.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> CreateExcelFile()
+        public async Task<IActionResult> GetAllContractsExcelFile()
         {
             using (var workbook = new XLWorkbook())
             {
@@ -337,9 +337,10 @@ namespace RH_CV.Controllers
                 var row = 1;
                 var column = 1;
                 var dataTable = new DataTable();
-                using (var connection = new SqlConnection("Data Source=JEFF_PC\\SQLEXPRESS;Initial Catalog=DB_CV;Integrated Security=True;Encrypt=false"))
+                //using (var connection = new SqlConnection("Data Source=JEFF_PC\\SQLEXPRESS;Initial Catalog=DB_CV;Integrated Security=True;Encrypt=false"))
+                using (var connection = new SqlConnection("Data Source=DESARROLLOHISA;Initial Catalog=DB_CV;Integrated Security=True;Encrypt=false"))
                 {
-                    using (var command = new SqlCommand("ObtenerDatosEmpleado", connection))
+                    using (var command = new SqlCommand("GetAllContracts", connection))
                     {
                         command.CommandType = CommandType.StoredProcedure;
                         using (var adapter = new SqlDataAdapter(command))
@@ -368,7 +369,7 @@ namespace RH_CV.Controllers
                 var memory = new MemoryStream();
                 workbook.SaveAs(memory);
                 memory.Position = 0;
-                return File(memory, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "ContratosHISA.xlsx");
+                return File(memory, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "HISAContracts.xlsx");
                 //using (var stream = new MemoryStream())
                 //{
                 //    workbook.SaveAs(stream);
@@ -406,6 +407,51 @@ namespace RH_CV.Controllers
             //        Response.CompleteAsync();
             //    }
             //}
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetActiveEmployeeContractsExcelFile()
+        {
+            using (var workbook = new XLWorkbook())
+            {
+                var worksheet = workbook.Worksheets.Add("Contrato Emplead Activ HISA");
+                var row = 1;
+                var column = 1;
+                var dataTable = new DataTable();
+                //using (var connection = new SqlConnection("Data Source=JEFF_PC\\SQLEXPRESS;Initial Catalog=DB_CV;Integrated Security=True;Encrypt=false"))
+                using (var connection = new SqlConnection("Data Source=DESARROLLOHISA;Initial Catalog=DB_CV;Integrated Security=True;Encrypt=false"))
+                {
+                    using (var command = new SqlCommand("GetActiveEmployeeContracts", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+                        using (var adapter = new SqlDataAdapter(command))
+                        {
+                            adapter.Fill(dataTable);
+                        }
+                    }
+                }
+                foreach (DataColumn dataColumn in dataTable.Columns)
+                {
+                    worksheet.Cell(row, column).Value = dataColumn.ColumnName;
+                    column++;
+                }
+                row++;
+                column = 1;
+                foreach (DataRow dataRow in dataTable.Rows)
+                {
+                    foreach (DataColumn dataColumn in dataTable.Columns)
+                    {
+                        worksheet.Cell(row, column).Value = dataRow[dataColumn.ColumnName].ToString();
+                        column++;
+                    }
+                    row++;
+                    column = 1;
+                }
+                var memory = new MemoryStream();
+                workbook.SaveAs(memory);
+                memory.Position = 0;
+                return File(memory, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "ActiveEmployeesContratcs.xlsx");
+            }
         }
 
         //[HttpGet]

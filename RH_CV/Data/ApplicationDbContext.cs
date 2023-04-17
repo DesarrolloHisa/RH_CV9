@@ -36,7 +36,13 @@ namespace RH_CV.Data
         //Contratos
         public DbSet<TipoCargo> TipoCargo { get; set; }
         public DbSet<Empleado> Empleado { get; set; }
+        public DbSet<Estudiante> Estudiante { get; set; }
+        public DbSet<DocenciaServicio> DocenciaServicio { get; set; }
+        public DbSet<Voluntario> Voluntario { get; set; }
+        public DbSet<Interdependencia> Interdependencia { get; set; }
         public DbSet<Contrato> Contrato { get; set; }
+        public DbSet<TipoVinculacion> TipoVinculacion { get; set; }
+
 
     }
 }

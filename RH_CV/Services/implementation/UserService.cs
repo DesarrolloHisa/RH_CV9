@@ -51,6 +51,34 @@ namespace RH_CV.Services.implementation
             return empleado;
         }
 
+        public async Task<Estudiante> SaveStudent(Estudiante estudiante)
+        {
+            _dbContext.Estudiante.Add(estudiante);
+            await _dbContext.SaveChangesAsync();
+            return estudiante;
+        }
+
+        public async Task<DocenciaServicio> SaveTeachingService(DocenciaServicio docenciaServicio)
+        {
+            _dbContext.DocenciaServicio.Add(docenciaServicio);
+            await _dbContext.SaveChangesAsync();
+            return docenciaServicio;
+        }
+
+        public async Task<Interdependencia> SaveInterdependence(Interdependencia interdependencia)
+        {
+            _dbContext.Interdependencia.Add(interdependencia);
+            await _dbContext.SaveChangesAsync();
+            return interdependencia;
+        }
+
+        public async Task<Voluntario> SaveVolunteer(Voluntario voluntario)
+        {
+            _dbContext.Voluntario.Add(voluntario);
+            await _dbContext.SaveChangesAsync();
+            return voluntario;
+        }
+
         public async Task<Contrato> SaveContract(Contrato contrato)
         {
             _dbContext.Contrato.Add(contrato);

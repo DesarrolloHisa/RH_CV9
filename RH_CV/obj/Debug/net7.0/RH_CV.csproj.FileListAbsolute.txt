@@ -5157,3 +5157,14 @@ C:\Users\jeffr\Documents\GitHub\RH_CV9\RH_CV\obj\Debug\net7.0\RH_CV.genruntimeco
 C:\Users\jeffr\Documents\GitHub\RH_CV9\RH_CV\obj\Debug\net7.0\ref\RH_CV.dll
 C:\Users\jeffr\Documents\GitHub\RH_CV9\RH_CV\obj\Debug\net7.0\scopedcss\Views\ManageContracts\DetailContract.cshtml.rz.scp.css
 C:\Users\jeffr\Documents\GitHub\RH_CV9\RH_CV\obj\Debug\net7.0\scopedcss\Views\ManageContracts\EditContract.cshtml.rz.scp.css
+C:\Users\psistemas\Documents\GitHub\RH_CV9\RH_CV\bin\Debug\net7.0\ClosedXML.dll
+C:\Users\psistemas\Documents\GitHub\RH_CV9\RH_CV\bin\Debug\net7.0\DocumentFormat.OpenXml.dll
+C:\Users\psistemas\Documents\GitHub\RH_CV9\RH_CV\bin\Debug\net7.0\ExcelNumberFormat.dll
+C:\Users\psistemas\Documents\GitHub\RH_CV9\RH_CV\bin\Debug\net7.0\Irony.dll
+C:\Users\psistemas\Documents\GitHub\RH_CV9\RH_CV\bin\Debug\net7.0\SixLabors.Fonts.dll
+C:\Users\psistemas\Documents\GitHub\RH_CV9\RH_CV\bin\Debug\net7.0\System.IO.Packaging.dll
+C:\Users\psistemas\Documents\GitHub\RH_CV9\RH_CV\bin\Debug\net7.0\XLParser.dll
+C:\Users\psistemas\Documents\GitHub\RH_CV9\RH_CV\obj\Debug\net7.0\scopedcss\Views\ManageContracts\DetailContract.cshtml.rz.scp.css
+C:\Users\psistemas\Documents\GitHub\RH_CV9\RH_CV\obj\Debug\net7.0\scopedcss\Views\ManageContracts\EditContract.cshtml.rz.scp.css
+C:\Users\psistemas\Documents\GitHub\RH_CV9\RH_CV\obj\Debug\net7.0\scopedcss\Views\ManageEmployees\CreateEmployee.cshtml.rz.scp.css
+C:\Users\psistemas\Documents\GitHub\RH_CV9\RH_CV\obj\Debug\net7.0\scopedcss\Views\Home\ManageEmployeesMenu.cshtml.rz.scp.css
