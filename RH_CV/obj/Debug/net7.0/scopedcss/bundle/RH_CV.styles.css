@@ -381,6 +381,32 @@ h3[b-1va8qf813p] {
         border-bottom-right-radius: .3rem;
     }
 }
+/* _content/RH_CV/Views/ManageEmployees/EmployeeEstatus.cshtml.rz.scp.css */
+h3[b-0ol1oka1wf] {
+    text-align: center;
+}
+
+.gradient-custom-2[b-0ol1oka1wf] {
+    /* fallback for old browsers */
+    background: #fccb90;
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+}
+
+@media (min-width: 768px) {
+    .gradient-form[b-0ol1oka1wf] {
+        height: 100vh !important;
+    }
+}
+
+@media (min-width: 769px) {
+    .gradient-custom-2[b-0ol1oka1wf] {
+        border-top-right-radius: .3rem;
+        border-bottom-right-radius: .3rem;
+    }
+}
 /* _content/RH_CV/Views/ManageHV/AllHV.cshtml.rz.scp.css */
 .gradient-custom-2[b-lnt42mtwlx] {
     /* fallback for old browsers */
@@ -892,6 +918,218 @@ body {
     text-align: left;
     background-color: #fff;
 }*/
+/* _content/RH_CV/Views/ManageInterdependences/AllInterdependences.cshtml.rz.scp.css */
+.gradient-custom-2[b-1zujeoo2t8] {
+    /* fallback for old browsers */
+    background: #fccb90;
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+}
+
+.btn[b-1zujeoo2t8] {
+    color: #fff;
+    letter-spacing: 1px;
+    text-indent: 10px;
+}
+
+@media (min-width: 768px) {
+    .gradient-form[b-1zujeoo2t8] {
+        height: 100vh !important;
+    }
+}
+
+@media (min-width: 769px) {
+    .gradient-custom-2[b-1zujeoo2t8] {
+        border-top-right-radius: .3rem;
+        border-bottom-right-radius: .3rem;
+    }
+}
+/* _content/RH_CV/Views/ManageInterdependences/CreateInterdependence.cshtml.rz.scp.css */
+h3[b-edcq2m6158] {
+    text-align: center;
+}
+
+.gradient-custom-2[b-edcq2m6158] {
+    /* fallback for old browsers */
+    background: #fccb90;
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+}
+
+@media (min-width: 768px) {
+    .gradient-form[b-edcq2m6158] {
+        height: 100vh !important;
+    }
+}
+
+@media (min-width: 769px) {
+    .gradient-custom-2[b-edcq2m6158] {
+        border-top-right-radius: .3rem;
+        border-bottom-right-radius: .3rem;
+    }
+}
+/* _content/RH_CV/Views/ManageInterdependences/EditInterdependence.cshtml.rz.scp.css */
+h3[b-4il6demaaa] {
+    text-align: center;
+}
+
+.gradient-custom-2[b-4il6demaaa] {
+    /* fallback for old browsers */
+    background: #fccb90;
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+}
+
+@media (min-width: 768px) {
+    .gradient-form[b-4il6demaaa] {
+        height: 100vh !important;
+    }
+}
+
+@media (min-width: 769px) {
+    .gradient-custom-2[b-4il6demaaa] {
+        border-top-right-radius: .3rem;
+        border-bottom-right-radius: .3rem;
+    }
+}
+/* _content/RH_CV/Views/ManageInterdependences/InterdependenceEstatus.cshtml.rz.scp.css */
+h3[b-og9nnwbh7j] {
+    text-align: center;
+}
+
+.gradient-custom-2[b-og9nnwbh7j] {
+    /* fallback for old browsers */
+    background: #fccb90;
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+}
+
+@media (min-width: 768px) {
+    .gradient-form[b-og9nnwbh7j] {
+        height: 100vh !important;
+    }
+}
+
+@media (min-width: 769px) {
+    .gradient-custom-2[b-og9nnwbh7j] {
+        border-top-right-radius: .3rem;
+        border-bottom-right-radius: .3rem;
+    }
+}
+/* _content/RH_CV/Views/ManageStudents - Copia (3)/AllStudents.cshtml.rz.scp.css */
+.gradient-custom-2[b-zzjao113ci] {
+    /* fallback for old browsers */
+    background: #fccb90;
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+}
+
+.btn[b-zzjao113ci] {
+    color: #fff;
+    letter-spacing: 1px;
+    text-indent: 10px;
+}
+
+@media (min-width: 768px) {
+    .gradient-form[b-zzjao113ci] {
+        height: 100vh !important;
+    }
+}
+
+@media (min-width: 769px) {
+    .gradient-custom-2[b-zzjao113ci] {
+        border-top-right-radius: .3rem;
+        border-bottom-right-radius: .3rem;
+    }
+}
+/* _content/RH_CV/Views/ManageStudents - Copia (3)/CreateStudent.cshtml.rz.scp.css */
+h3[b-5mvn68y4qr] {
+    text-align: center;
+}
+
+.gradient-custom-2[b-5mvn68y4qr] {
+    /* fallback for old browsers */
+    background: #fccb90;
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+}
+
+@media (min-width: 768px) {
+    .gradient-form[b-5mvn68y4qr] {
+        height: 100vh !important;
+    }
+}
+
+@media (min-width: 769px) {
+    .gradient-custom-2[b-5mvn68y4qr] {
+        border-top-right-radius: .3rem;
+        border-bottom-right-radius: .3rem;
+    }
+}
+/* _content/RH_CV/Views/ManageStudents - Copia (3)/EditStudent.cshtml.rz.scp.css */
+h3[b-5l2gp8k2gl] {
+    text-align: center;
+}
+
+.gradient-custom-2[b-5l2gp8k2gl] {
+    /* fallback for old browsers */
+    background: #fccb90;
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+}
+
+@media (min-width: 768px) {
+    .gradient-form[b-5l2gp8k2gl] {
+        height: 100vh !important;
+    }
+}
+
+@media (min-width: 769px) {
+    .gradient-custom-2[b-5l2gp8k2gl] {
+        border-top-right-radius: .3rem;
+        border-bottom-right-radius: .3rem;
+    }
+}
+/* _content/RH_CV/Views/ManageStudents - Copia (3)/StudentEstatus.cshtml.rz.scp.css */
+h3[b-e797bt8i0r] {
+    text-align: center;
+}
+
+.gradient-custom-2[b-e797bt8i0r] {
+    /* fallback for old browsers */
+    background: #fccb90;
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+}
+
+@media (min-width: 768px) {
+    .gradient-form[b-e797bt8i0r] {
+        height: 100vh !important;
+    }
+}
+
+@media (min-width: 769px) {
+    .gradient-custom-2[b-e797bt8i0r] {
+        border-top-right-radius: .3rem;
+        border-bottom-right-radius: .3rem;
+    }
+}
 /* _content/RH_CV/Views/ManageStudents/AllStudents.cshtml.rz.scp.css */
 .gradient-custom-2[b-39jrwyy1qp] {
     /* fallback for old browsers */
@@ -968,6 +1206,138 @@ h3[b-0h4efzmm72] {
 
 @media (min-width: 769px) {
     .gradient-custom-2[b-0h4efzmm72] {
+        border-top-right-radius: .3rem;
+        border-bottom-right-radius: .3rem;
+    }
+}
+/* _content/RH_CV/Views/ManageStudents/StudentEstatus.cshtml.rz.scp.css */
+h3[b-tiemqk0e2p] {
+    text-align: center;
+}
+
+.gradient-custom-2[b-tiemqk0e2p] {
+    /* fallback for old browsers */
+    background: #fccb90;
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+}
+
+@media (min-width: 768px) {
+    .gradient-form[b-tiemqk0e2p] {
+        height: 100vh !important;
+    }
+}
+
+@media (min-width: 769px) {
+    .gradient-custom-2[b-tiemqk0e2p] {
+        border-top-right-radius: .3rem;
+        border-bottom-right-radius: .3rem;
+    }
+}
+/* _content/RH_CV/Views/ManageTeachingServices/AllTeachingServices.cshtml.rz.scp.css */
+.gradient-custom-2[b-uohf3ecz47] {
+    /* fallback for old browsers */
+    background: #fccb90;
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+}
+
+.btn[b-uohf3ecz47] {
+    color: #fff;
+    letter-spacing: 1px;
+    text-indent: 10px;
+}
+
+@media (min-width: 768px) {
+    .gradient-form[b-uohf3ecz47] {
+        height: 100vh !important;
+    }
+}
+
+@media (min-width: 769px) {
+    .gradient-custom-2[b-uohf3ecz47] {
+        border-top-right-radius: .3rem;
+        border-bottom-right-radius: .3rem;
+    }
+}
+/* _content/RH_CV/Views/ManageTeachingServices/CreateTeachingService.cshtml.rz.scp.css */
+h3[b-rze4s34t0x] {
+    text-align: center;
+}
+
+.gradient-custom-2[b-rze4s34t0x] {
+    /* fallback for old browsers */
+    background: #fccb90;
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+}
+
+@media (min-width: 768px) {
+    .gradient-form[b-rze4s34t0x] {
+        height: 100vh !important;
+    }
+}
+
+@media (min-width: 769px) {
+    .gradient-custom-2[b-rze4s34t0x] {
+        border-top-right-radius: .3rem;
+        border-bottom-right-radius: .3rem;
+    }
+}
+/* _content/RH_CV/Views/ManageTeachingServices/EditTeachingService.cshtml.rz.scp.css */
+h3[b-qavr9du7pd] {
+    text-align: center;
+}
+
+.gradient-custom-2[b-qavr9du7pd] {
+    /* fallback for old browsers */
+    background: #fccb90;
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+}
+
+@media (min-width: 768px) {
+    .gradient-form[b-qavr9du7pd] {
+        height: 100vh !important;
+    }
+}
+
+@media (min-width: 769px) {
+    .gradient-custom-2[b-qavr9du7pd] {
+        border-top-right-radius: .3rem;
+        border-bottom-right-radius: .3rem;
+    }
+}
+/* _content/RH_CV/Views/ManageTeachingServices/TeachingServiceEstatus.cshtml.rz.scp.css */
+h3[b-c2e4fet2i9] {
+    text-align: center;
+}
+
+.gradient-custom-2[b-c2e4fet2i9] {
+    /* fallback for old browsers */
+    background: #fccb90;
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+}
+
+@media (min-width: 768px) {
+    .gradient-form[b-c2e4fet2i9] {
+        height: 100vh !important;
+    }
+}
+
+@media (min-width: 769px) {
+    .gradient-custom-2[b-c2e4fet2i9] {
         border-top-right-radius: .3rem;
         border-bottom-right-radius: .3rem;
     }

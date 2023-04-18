@@ -12,8 +12,8 @@ using RH_CV.Data;
 namespace RH_CV.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230415215557_initial")]
-    partial class initial
+    [Migration("20230418160407_New")]
+    partial class New
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -316,6 +316,63 @@ namespace RH_CV.Migrations
                     b.ToTable("Direccion");
                 });
 
+            modelBuilder.Entity("RH_CV.Models.DocenciaServicio", b =>
+                {
+                    b.Property<int>("Documento")
+                        .HasColumnType("int");
+
+                    b.Property<string>("AreaFuncional")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Estado")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("FechaIngreso")
+                        .HasColumnType("DATE");
+
+                    b.Property<DateTime?>("FechaRetiro")
+                        .HasColumnType("DATE");
+
+                    b.Property<string>("Institucion")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MotivoRetiro")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Observaciones")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PrimerApellido")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PrimerNombre")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SegundoApellido")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SegundoNombre")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("TipoCargoId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TipoVinculacionId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Documento");
+
+                    b.HasIndex("TipoCargoId");
+
+                    b.HasIndex("TipoVinculacionId");
+
+                    b.ToTable("DocenciaServicio");
+                });
+
             modelBuilder.Entity("RH_CV.Models.EPS", b =>
                 {
                     b.Property<int>("Id")
@@ -402,6 +459,63 @@ namespace RH_CV.Migrations
                     b.HasIndex("DatosPersonalesId");
 
                     b.ToTable("Escolaridad");
+                });
+
+            modelBuilder.Entity("RH_CV.Models.Estudiante", b =>
+                {
+                    b.Property<int>("Documento")
+                        .HasColumnType("int");
+
+                    b.Property<string>("AreaFuncional")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Estado")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("FechaIngreso")
+                        .HasColumnType("DATE");
+
+                    b.Property<DateTime?>("FechaRetiro")
+                        .HasColumnType("DATE");
+
+                    b.Property<string>("Institucion")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MotivoRetiro")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Observaciones")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PrimerApellido")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PrimerNombre")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SegundoApellido")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SegundoNombre")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("TipoCargoId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TipoVinculacionId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Documento");
+
+                    b.HasIndex("TipoCargoId");
+
+                    b.HasIndex("TipoVinculacionId");
+
+                    b.ToTable("Estudiante");
                 });
 
             modelBuilder.Entity("RH_CV.Models.FondoCesantias", b =>
@@ -497,6 +611,63 @@ namespace RH_CV.Migrations
                     b.HasIndex("DatosPersonalesId");
 
                     b.ToTable("InfoLaboral");
+                });
+
+            modelBuilder.Entity("RH_CV.Models.Interdependencia", b =>
+                {
+                    b.Property<int>("Documento")
+                        .HasColumnType("int");
+
+                    b.Property<string>("AreaFuncional")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Estado")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("FechaIngreso")
+                        .HasColumnType("DATE");
+
+                    b.Property<DateTime?>("FechaRetiro")
+                        .HasColumnType("DATE");
+
+                    b.Property<string>("Institucion")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MotivoRetiro")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Observaciones")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PrimerApellido")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PrimerNombre")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SegundoApellido")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SegundoNombre")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("TipoCargoId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TipoVinculacionId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Documento");
+
+                    b.HasIndex("TipoCargoId");
+
+                    b.HasIndex("TipoVinculacionId");
+
+                    b.ToTable("Interdependencia");
                 });
 
             modelBuilder.Entity("RH_CV.Models.PersonasACargo", b =>
@@ -683,6 +854,23 @@ namespace RH_CV.Migrations
                     b.ToTable("TipoDocumento");
                 });
 
+            modelBuilder.Entity("RH_CV.Models.TipoVinculacion", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Tipo")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TipoVinculacion");
+                });
+
             modelBuilder.Entity("RH_CV.Models.TipoVinculo", b =>
                 {
                     b.Property<int>("Id")
@@ -749,6 +937,59 @@ namespace RH_CV.Migrations
                     b.HasIndex("TipoVinculoId");
 
                     b.ToTable("Usuario");
+                });
+
+            modelBuilder.Entity("RH_CV.Models.Voluntario", b =>
+                {
+                    b.Property<int>("Documento")
+                        .HasColumnType("int");
+
+                    b.Property<string>("AreaFuncional")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Estado")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("FechaIngreso")
+                        .HasColumnType("DATE");
+
+                    b.Property<DateTime?>("FechaRetiro")
+                        .HasColumnType("DATE");
+
+                    b.Property<string>("MotivoRetiro")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Observaciones")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PrimerApellido")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PrimerNombre")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SegundoApellido")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SegundoNombre")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("TipoCargoId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TipoVinculacionId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Documento");
+
+                    b.HasIndex("TipoCargoId");
+
+                    b.HasIndex("TipoVinculacionId");
+
+                    b.ToTable("Voluntario");
                 });
 
             modelBuilder.Entity("RH_CV.Models.ContactoEmergencia", b =>
@@ -871,6 +1112,25 @@ namespace RH_CV.Migrations
                     b.Navigation("Usuario");
                 });
 
+            modelBuilder.Entity("RH_CV.Models.DocenciaServicio", b =>
+                {
+                    b.HasOne("RH_CV.Models.TipoCargo", "TipoCargo")
+                        .WithMany()
+                        .HasForeignKey("TipoCargoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("RH_CV.Models.TipoVinculacion", "TipoVinculacion")
+                        .WithMany()
+                        .HasForeignKey("TipoVinculacionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("TipoCargo");
+
+                    b.Navigation("TipoVinculacion");
+                });
+
             modelBuilder.Entity("RH_CV.Models.Escolaridad", b =>
                 {
                     b.HasOne("RH_CV.Models.DatosPersonales", "DatosPersonales")
@@ -880,6 +1140,25 @@ namespace RH_CV.Migrations
                         .IsRequired();
 
                     b.Navigation("DatosPersonales");
+                });
+
+            modelBuilder.Entity("RH_CV.Models.Estudiante", b =>
+                {
+                    b.HasOne("RH_CV.Models.TipoCargo", "TipoCargo")
+                        .WithMany()
+                        .HasForeignKey("TipoCargoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("RH_CV.Models.TipoVinculacion", "TipoVinculacion")
+                        .WithMany()
+                        .HasForeignKey("TipoVinculacionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("TipoCargo");
+
+                    b.Navigation("TipoVinculacion");
                 });
 
             modelBuilder.Entity("RH_CV.Models.InfoDocumento", b =>
@@ -902,6 +1181,25 @@ namespace RH_CV.Migrations
                         .IsRequired();
 
                     b.Navigation("DatosPersonales");
+                });
+
+            modelBuilder.Entity("RH_CV.Models.Interdependencia", b =>
+                {
+                    b.HasOne("RH_CV.Models.TipoCargo", "TipoCargo")
+                        .WithMany()
+                        .HasForeignKey("TipoCargoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("RH_CV.Models.TipoVinculacion", "TipoVinculacion")
+                        .WithMany()
+                        .HasForeignKey("TipoVinculacionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("TipoCargo");
+
+                    b.Navigation("TipoVinculacion");
                 });
 
             modelBuilder.Entity("RH_CV.Models.ReferenciasFamiliares", b =>
@@ -957,6 +1255,25 @@ namespace RH_CV.Migrations
                     b.Navigation("TipoContrato");
 
                     b.Navigation("TipoVinculo");
+                });
+
+            modelBuilder.Entity("RH_CV.Models.Voluntario", b =>
+                {
+                    b.HasOne("RH_CV.Models.TipoCargo", "TipoCargo")
+                        .WithMany()
+                        .HasForeignKey("TipoCargoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("RH_CV.Models.TipoVinculacion", "TipoVinculacion")
+                        .WithMany()
+                        .HasForeignKey("TipoVinculacionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("TipoCargo");
+
+                    b.Navigation("TipoVinculacion");
                 });
 
             modelBuilder.Entity("RH_CV.Models.DatosPersonales", b =>

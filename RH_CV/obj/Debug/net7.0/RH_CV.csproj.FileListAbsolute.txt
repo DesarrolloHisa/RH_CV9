@@ -5168,3 +5168,9 @@ C:\Users\psistemas\Documents\GitHub\RH_CV9\RH_CV\obj\Debug\net7.0\scopedcss\View
 C:\Users\psistemas\Documents\GitHub\RH_CV9\RH_CV\obj\Debug\net7.0\scopedcss\Views\ManageContracts\EditContract.cshtml.rz.scp.css
 C:\Users\psistemas\Documents\GitHub\RH_CV9\RH_CV\obj\Debug\net7.0\scopedcss\Views\ManageEmployees\CreateEmployee.cshtml.rz.scp.css
 C:\Users\psistemas\Documents\GitHub\RH_CV9\RH_CV\obj\Debug\net7.0\scopedcss\Views\Home\ManageEmployeesMenu.cshtml.rz.scp.css
+C:\Users\psistemas\Documents\GitHub\RH_CV9\RH_CV\obj\Debug\net7.0\scopedcss\Views\ManageEmployees\EditEmployee.cshtml.rz.scp.css
+C:\Users\psistemas\Documents\GitHub\RH_CV9\RH_CV\obj\Debug\net7.0\scopedcss\Views\ManageEmployees\EmployeeEstatus.cshtml.rz.scp.css
+C:\Users\psistemas\Documents\GitHub\RH_CV9\RH_CV\obj\Debug\net7.0\scopedcss\Views\ManageStudents\AllStudents.cshtml.rz.scp.css
+C:\Users\psistemas\Documents\GitHub\RH_CV9\RH_CV\obj\Debug\net7.0\scopedcss\Views\ManageStudents\CreateStudent.cshtml.rz.scp.css
+C:\Users\psistemas\Documents\GitHub\RH_CV9\RH_CV\obj\Debug\net7.0\scopedcss\Views\ManageStudents\EditStudent.cshtml.rz.scp.css
+C:\Users\psistemas\Documents\GitHub\RH_CV9\RH_CV\obj\Debug\net7.0\scopedcss\Views\ManageStudents\StudentEstatus.cshtml.rz.scp.css

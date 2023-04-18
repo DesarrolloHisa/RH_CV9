@@ -14,16 +14,16 @@ namespace RH_CV.Models
         [Required(ErrorMessage = "El primer apellido es obligatorio")]
         public string PrimerApellido { get; set; }
         public string? SegundoApellido { get; set; }
-        [Required(ErrorMessage = "La fecha de nacimiento es obligatorio")]
+        [Required(ErrorMessage = "La fecha de ingreso es obligatorio")]
         [Column(TypeName = "DATE")]
-        public DateTime FechaNacimiento { get; set; }
+        public DateTime FechaIngreso { get; set; }
         [Required(ErrorMessage = "El id es obligatorio")]
         public int TipoVinculacionId { get; set; }
         public virtual TipoVinculacion? TipoVinculacion { get; set; }
         [Required(ErrorMessage = "El id es obligatorio")]
         public int TipoCargoId { get; set; }
         public virtual TipoCargo? TipoCargo { get; set; }
-        public string Institucion { get; set; }
+        //public string Institucion { get; set; }
         public string AreaFuncional { get; set; }
         [Column(TypeName = "DATE")]
         public DateTime? FechaRetiro { get; set; }

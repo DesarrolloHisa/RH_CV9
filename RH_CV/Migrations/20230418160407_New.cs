@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace RH_CV.Migrations
 {
     /// <inheritdoc />
-    public partial class initial : Migration
+    public partial class New : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -191,6 +191,19 @@ namespace RH_CV.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "TipoVinculacion",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Tipo = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TipoVinculacion", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "TipoVinculo",
                 columns: table => new
                 {
@@ -274,6 +287,149 @@ namespace RH_CV.Migrations
                         name: "FK_InfoDocumento_TipoDocumento_TipoDocumentoId",
                         column: x => x.TipoDocumentoId,
                         principalTable: "TipoDocumento",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "DocenciaServicio",
+                columns: table => new
+                {
+                    Documento = table.Column<int>(type: "int", nullable: false),
+                    PrimerNombre = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    SegundoNombre = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PrimerApellido = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    SegundoApellido = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    FechaIngreso = table.Column<DateTime>(type: "DATE", nullable: false),
+                    TipoVinculacionId = table.Column<int>(type: "int", nullable: false),
+                    TipoCargoId = table.Column<int>(type: "int", nullable: false),
+                    Institucion = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    AreaFuncional = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    FechaRetiro = table.Column<DateTime>(type: "DATE", nullable: true),
+                    MotivoRetiro = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Observaciones = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Estado = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_DocenciaServicio", x => x.Documento);
+                    table.ForeignKey(
+                        name: "FK_DocenciaServicio_TipoCargo_TipoCargoId",
+                        column: x => x.TipoCargoId,
+                        principalTable: "TipoCargo",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_DocenciaServicio_TipoVinculacion_TipoVinculacionId",
+                        column: x => x.TipoVinculacionId,
+                        principalTable: "TipoVinculacion",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Estudiante",
+                columns: table => new
+                {
+                    Documento = table.Column<int>(type: "int", nullable: false),
+                    PrimerNombre = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    SegundoNombre = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PrimerApellido = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    SegundoApellido = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    FechaIngreso = table.Column<DateTime>(type: "DATE", nullable: false),
+                    TipoVinculacionId = table.Column<int>(type: "int", nullable: false),
+                    TipoCargoId = table.Column<int>(type: "int", nullable: false),
+                    Institucion = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    AreaFuncional = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    FechaRetiro = table.Column<DateTime>(type: "DATE", nullable: true),
+                    MotivoRetiro = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Observaciones = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Estado = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Estudiante", x => x.Documento);
+                    table.ForeignKey(
+                        name: "FK_Estudiante_TipoCargo_TipoCargoId",
+                        column: x => x.TipoCargoId,
+                        principalTable: "TipoCargo",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Estudiante_TipoVinculacion_TipoVinculacionId",
+                        column: x => x.TipoVinculacionId,
+                        principalTable: "TipoVinculacion",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Interdependencia",
+                columns: table => new
+                {
+                    Documento = table.Column<int>(type: "int", nullable: false),
+                    PrimerNombre = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    SegundoNombre = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PrimerApellido = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    SegundoApellido = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    FechaIngreso = table.Column<DateTime>(type: "DATE", nullable: false),
+                    TipoVinculacionId = table.Column<int>(type: "int", nullable: false),
+                    TipoCargoId = table.Column<int>(type: "int", nullable: false),
+                    Institucion = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    AreaFuncional = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    FechaRetiro = table.Column<DateTime>(type: "DATE", nullable: true),
+                    MotivoRetiro = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Observaciones = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Estado = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Interdependencia", x => x.Documento);
+                    table.ForeignKey(
+                        name: "FK_Interdependencia_TipoCargo_TipoCargoId",
+                        column: x => x.TipoCargoId,
+                        principalTable: "TipoCargo",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Interdependencia_TipoVinculacion_TipoVinculacionId",
+                        column: x => x.TipoVinculacionId,
+                        principalTable: "TipoVinculacion",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Voluntario",
+                columns: table => new
+                {
+                    Documento = table.Column<int>(type: "int", nullable: false),
+                    PrimerNombre = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    SegundoNombre = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PrimerApellido = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    SegundoApellido = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    FechaIngreso = table.Column<DateTime>(type: "DATE", nullable: false),
+                    TipoVinculacionId = table.Column<int>(type: "int", nullable: false),
+                    TipoCargoId = table.Column<int>(type: "int", nullable: false),
+                    AreaFuncional = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    FechaRetiro = table.Column<DateTime>(type: "DATE", nullable: true),
+                    MotivoRetiro = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Observaciones = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Estado = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Voluntario", x => x.Documento);
+                    table.ForeignKey(
+                        name: "FK_Voluntario_TipoCargo_TipoCargoId",
+                        column: x => x.TipoCargoId,
+                        principalTable: "TipoCargo",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Voluntario_TipoVinculacion_TipoVinculacionId",
+                        column: x => x.TipoVinculacionId,
+                        principalTable: "TipoVinculacion",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -612,9 +768,29 @@ namespace RH_CV.Migrations
                 column: "UsuarioId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_DocenciaServicio_TipoCargoId",
+                table: "DocenciaServicio",
+                column: "TipoCargoId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_DocenciaServicio_TipoVinculacionId",
+                table: "DocenciaServicio",
+                column: "TipoVinculacionId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Escolaridad_DatosPersonalesId",
                 table: "Escolaridad",
                 column: "DatosPersonalesId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Estudiante_TipoCargoId",
+                table: "Estudiante",
+                column: "TipoCargoId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Estudiante_TipoVinculacionId",
+                table: "Estudiante",
+                column: "TipoVinculacionId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_InfoDocumento_TipoDocumentoId",
@@ -625,6 +801,16 @@ namespace RH_CV.Migrations
                 name: "IX_InfoLaboral_DatosPersonalesId",
                 table: "InfoLaboral",
                 column: "DatosPersonalesId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Interdependencia_TipoCargoId",
+                table: "Interdependencia",
+                column: "TipoCargoId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Interdependencia_TipoVinculacionId",
+                table: "Interdependencia",
+                column: "TipoVinculacionId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_ReferenciasFamiliares_DatosPersonalesId",
@@ -655,6 +841,16 @@ namespace RH_CV.Migrations
                 name: "IX_Usuario_TipoVinculoId",
                 table: "Usuario",
                 column: "TipoVinculoId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Voluntario_TipoCargoId",
+                table: "Voluntario",
+                column: "TipoCargoId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Voluntario_TipoVinculacionId",
+                table: "Voluntario",
+                column: "TipoVinculacionId");
         }
 
         /// <inheritdoc />
@@ -670,10 +866,19 @@ namespace RH_CV.Migrations
                 name: "DatosFamiliares");
 
             migrationBuilder.DropTable(
+                name: "DocenciaServicio");
+
+            migrationBuilder.DropTable(
                 name: "Escolaridad");
 
             migrationBuilder.DropTable(
+                name: "Estudiante");
+
+            migrationBuilder.DropTable(
                 name: "InfoLaboral");
+
+            migrationBuilder.DropTable(
+                name: "Interdependencia");
 
             migrationBuilder.DropTable(
                 name: "ReferenciasFamiliares");
@@ -682,13 +887,19 @@ namespace RH_CV.Migrations
                 name: "ReferenciasPersonales");
 
             migrationBuilder.DropTable(
+                name: "Voluntario");
+
+            migrationBuilder.DropTable(
                 name: "Empleado");
+
+            migrationBuilder.DropTable(
+                name: "DatosPersonales");
 
             migrationBuilder.DropTable(
                 name: "TipoCargo");
 
             migrationBuilder.DropTable(
-                name: "DatosPersonales");
+                name: "TipoVinculacion");
 
             migrationBuilder.DropTable(
                 name: "DatosGenerales");

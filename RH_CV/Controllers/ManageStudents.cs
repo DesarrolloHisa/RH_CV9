@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using RH_CV.Data;
 using RH_CV.Models;
@@ -43,13 +44,26 @@ namespace RH_CV.Controllers
             string userRol = Utilities.GetRol(HttpContext, _contexto);
             if (userRol == "Admin")
             {
+
+                ViewBag.TipoVinculacion = _contexto.TipoVinculacion
+                                        .Where(tv => tv.Tipo == "Convenio Especifico de Practicas Academicas"
+                                                        || tv.Tipo == "Convenio de Practica Pedagogica"
+                                                        || tv.Tipo == "Convenio Interinstitucional de Practicas Academica"
+                                                        || tv.Tipo == "Convenio Docencia Servicio")
+                                        .Select(tv => new SelectListItem
+                                        {
+                                            Value = tv.Id.ToString(),
+                                            Text = tv.Tipo
+                                        });
+
+
                 object[] drop = Utilities.DropDownList(_contexto);
                 //ViewBag.TipoVinculo = drop[0];
                 //ViewBag.TipoContrato = drop[1];
                 //ViewBag.TipoDocumento = drop[2];
                 //ViewBag.Rol = drop[6];
                 ViewBag.TipoCargo = drop[7];
-                ViewBag.TipoVinculacion = drop[8];
+                //ViewBag.TipoVinculacion = drop[8];
                 return View();
             }
             else
@@ -65,13 +79,23 @@ namespace RH_CV.Controllers
             string userRol = Utilities.GetRol(HttpContext, _contexto);
             if (userRol == "Admin")
             {
+                ViewBag.TipoVinculacion = _contexto.TipoVinculacion
+                                        .Where(tv => tv.Tipo == "Convenio Especifico de Practicas Academicas"
+                                                        || tv.Tipo == "Convenio de Practica Pedagogica"
+                                                        || tv.Tipo == "Convenio Interinstitucional de Practicas Academicasa"
+                                                        || tv.Tipo == "Convenio Docencia Servicio")
+                                        .Select(tv => new SelectListItem
+                                        {
+                                            Value = tv.Id.ToString(),
+                                            Text = tv.Tipo
+                                        });
                 object[] drop = Utilities.DropDownList(_contexto);
                 //ViewBag.TipoVinculo = drop[0];
                 //ViewBag.TipoContrato = drop[1];
                 //ViewBag.TipoDocumento = drop[2];
                 //ViewBag.Rol = drop[6];
                 ViewBag.TipoCargo = drop[7];
-                ViewBag.TipoVinculacion = drop[8];
+                //ViewBag.TipoVinculacion = drop[8];
 
                 //if (empleado.TipoContratoId == null)
                 //{
@@ -123,6 +147,16 @@ namespace RH_CV.Controllers
                 {
                     return NotFound();
                 }
+                ViewBag.TipoVinculacion = _contexto.TipoVinculacion
+                                        .Where(tv => tv.Tipo == "Convenio Especifico de Practicas Academicas"
+                                                        || tv.Tipo == "Convenio de Practica Pedagogica"
+                                                        || tv.Tipo == "Convenio Interinstitucional de Practicas Academicasa"
+                                                        || tv.Tipo == "Convenio Docencia Servicio")
+                                        .Select(tv => new SelectListItem
+                                        {
+                                            Value = tv.Id.ToString(),
+                                            Text = tv.Tipo
+                                        });
 
                 object[] drop = Utilities.DropDownList(_contexto);
                 //ViewBag.TipoVinculo = drop[0];
@@ -130,7 +164,7 @@ namespace RH_CV.Controllers
                 //ViewBag.TipoDocumento = drop[2];
                 //ViewBag.Rol = drop[6];
                 ViewBag.TipoCargo = drop[7];
-                ViewBag.TipoVinculacion = drop[8];
+                //ViewBag.TipoVinculacion = drop[8];
 
                 _contexto.TipoCargo.Find(student.TipoCargoId);
                 _contexto.TipoVinculacion.Find(student.TipoVinculacionId);
@@ -149,7 +183,7 @@ namespace RH_CV.Controllers
             }
         }
 
-        //DetailStudent
+        //EditStudent
         [HttpGet]
         public IActionResult EditStudent(int? doc)
         {
@@ -166,10 +200,19 @@ namespace RH_CV.Controllers
                 {
                     return NotFound();
                 }
-
+                ViewBag.TipoVinculacion = _contexto.TipoVinculacion
+                                        .Where(tv => tv.Tipo == "Convenio Especifico de Practicas Academicas"
+                                                        || tv.Tipo == "Convenio de Practica Pedagogica"
+                                                        || tv.Tipo == "Convenio Interinstitucional de Practicas Academicasa"
+                                                        || tv.Tipo == "Convenio Docencia Servicio")
+                                        .Select(tv => new SelectListItem
+                                        {
+                                            Value = tv.Id.ToString(),
+                                            Text = tv.Tipo
+                                        });
                 object[] drop = Utilities.DropDownList(_contexto);
                 ViewBag.TipoCargo = drop[7];
-                ViewBag.TipoVinculacion = drop[8];
+                //ViewBag.TipoVinculacion = drop[8];
 
                 _contexto.TipoCargo.Find(student.TipoCargoId);
                 _contexto.TipoVinculacion.Find(student.TipoVinculacionId);
@@ -240,9 +283,20 @@ namespace RH_CV.Controllers
                     return NotFound();
                 }
 
+                ViewBag.TipoVinculacion = _contexto.TipoVinculacion
+                                        .Where(tv => tv.Tipo == "Convenio Especifico de Practicas Academicas"
+                                                        || tv.Tipo == "Convenio de Practica Pedagogica"
+                                                        || tv.Tipo == "Convenio Interinstitucional de Practicas Academicasa"
+                                                        || tv.Tipo == "Convenio Docencia Servicio")
+                                        .Select(tv => new SelectListItem
+                                        {
+                                            Value = tv.Id.ToString(),
+                                            Text = tv.Tipo
+                                        });
+
                 object[] drop = Utilities.DropDownList(_contexto);
                 ViewBag.TipoCargo = drop[7];
-                ViewBag.TipoVinculacion = drop[8];
+                //ViewBag.TipoVinculacion = drop[8];
 
                 _contexto.TipoCargo.Find(student.TipoCargoId);
                 _contexto.TipoVinculacion.Find(student.TipoVinculacionId);

@@ -36,8 +36,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlRW1wbG95ZWVzXERldGFpbEVtcGxveWVlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/psistemas/Documents/GitHub/RH_CV9/RH_CV/Views/ManageInterdependences/DetailInterdependence.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlSW50ZXJkZXBlbmRlbmNlc1xEZXRhaWxJbnRlcmRlcGVuZGVuY2UuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/psistemas/Documents/GitHub/RH_CV9/RH_CV/Views/ManageStudents - Copia (3)/DetailStudent.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlU3R1ZGVudHMgLSBDb3BpYSAoMylcRGV0YWlsU3R1ZGVudC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/psistemas/Documents/GitHub/RH_CV9/RH_CV/Views/ManageStudents/DetailStudent.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlU3R1ZGVudHNcRGV0YWlsU3R1ZGVudC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/psistemas/Documents/GitHub/RH_CV9/RH_CV/Views/ManageTeachingServices/DetailTeachingService.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlVGVhY2hpbmdTZXJ2aWNlc1xEZXRhaWxUZWFjaGluZ1NlcnZpY2UuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/psistemas/Documents/GitHub/RH_CV9/RH_CV/Views/Shared/Error.cshtml]
@@ -96,6 +108,10 @@ build_metadata.AdditionalFiles.CssScope = b-m3vc58y20i
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlRW1wbG95ZWVzXEVkaXRFbXBsb3llZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = b-1va8qf813p
 
+[C:/Users/psistemas/Documents/GitHub/RH_CV9/RH_CV/Views/ManageEmployees/EmployeeEstatus.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlRW1wbG95ZWVzXEVtcGxveWVlRXN0YXR1cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = b-0ol1oka1wf
+
 [C:/Users/psistemas/Documents/GitHub/RH_CV9/RH_CV/Views/ManageHV/AllHV.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlSFZcQWxsSFYuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-lnt42mtwlx
@@ -124,6 +140,38 @@ build_metadata.AdditionalFiles.CssScope = b-3baej2j1jb
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlSFZcUERGSFYuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-hbml8sufd7
 
+[C:/Users/psistemas/Documents/GitHub/RH_CV9/RH_CV/Views/ManageInterdependences/AllInterdependences.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlSW50ZXJkZXBlbmRlbmNlc1xBbGxJbnRlcmRlcGVuZGVuY2VzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = b-1zujeoo2t8
+
+[C:/Users/psistemas/Documents/GitHub/RH_CV9/RH_CV/Views/ManageInterdependences/CreateInterdependence.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlSW50ZXJkZXBlbmRlbmNlc1xDcmVhdGVJbnRlcmRlcGVuZGVuY2UuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-edcq2m6158
+
+[C:/Users/psistemas/Documents/GitHub/RH_CV9/RH_CV/Views/ManageInterdependences/EditInterdependence.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlSW50ZXJkZXBlbmRlbmNlc1xFZGl0SW50ZXJkZXBlbmRlbmNlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = b-4il6demaaa
+
+[C:/Users/psistemas/Documents/GitHub/RH_CV9/RH_CV/Views/ManageInterdependences/InterdependenceEstatus.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlSW50ZXJkZXBlbmRlbmNlc1xJbnRlcmRlcGVuZGVuY2VFc3RhdHVzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = b-og9nnwbh7j
+
+[C:/Users/psistemas/Documents/GitHub/RH_CV9/RH_CV/Views/ManageStudents - Copia (3)/AllStudents.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlU3R1ZGVudHMgLSBDb3BpYSAoMylcQWxsU3R1ZGVudHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-zzjao113ci
+
+[C:/Users/psistemas/Documents/GitHub/RH_CV9/RH_CV/Views/ManageStudents - Copia (3)/CreateStudent.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlU3R1ZGVudHMgLSBDb3BpYSAoMylcQ3JlYXRlU3R1ZGVudC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = b-5mvn68y4qr
+
+[C:/Users/psistemas/Documents/GitHub/RH_CV9/RH_CV/Views/ManageStudents - Copia (3)/EditStudent.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlU3R1ZGVudHMgLSBDb3BpYSAoMylcRWRpdFN0dWRlbnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-5l2gp8k2gl
+
+[C:/Users/psistemas/Documents/GitHub/RH_CV9/RH_CV/Views/ManageStudents - Copia (3)/StudentEstatus.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlU3R1ZGVudHMgLSBDb3BpYSAoMylcU3R1ZGVudEVzdGF0dXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-e797bt8i0r
+
 [C:/Users/psistemas/Documents/GitHub/RH_CV9/RH_CV/Views/ManageStudents/AllStudents.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlU3R1ZGVudHNcQWxsU3R1ZGVudHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-39jrwyy1qp
@@ -135,6 +183,26 @@ build_metadata.AdditionalFiles.CssScope = b-1kfugmxamm
 [C:/Users/psistemas/Documents/GitHub/RH_CV9/RH_CV/Views/ManageStudents/EditStudent.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlU3R1ZGVudHNcRWRpdFN0dWRlbnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-0h4efzmm72
+
+[C:/Users/psistemas/Documents/GitHub/RH_CV9/RH_CV/Views/ManageStudents/StudentEstatus.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlU3R1ZGVudHNcU3R1ZGVudEVzdGF0dXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-tiemqk0e2p
+
+[C:/Users/psistemas/Documents/GitHub/RH_CV9/RH_CV/Views/ManageTeachingServices/AllTeachingServices.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlVGVhY2hpbmdTZXJ2aWNlc1xBbGxUZWFjaGluZ1NlcnZpY2VzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = b-uohf3ecz47
+
+[C:/Users/psistemas/Documents/GitHub/RH_CV9/RH_CV/Views/ManageTeachingServices/CreateTeachingService.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlVGVhY2hpbmdTZXJ2aWNlc1xDcmVhdGVUZWFjaGluZ1NlcnZpY2UuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-rze4s34t0x
+
+[C:/Users/psistemas/Documents/GitHub/RH_CV9/RH_CV/Views/ManageTeachingServices/EditTeachingService.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlVGVhY2hpbmdTZXJ2aWNlc1xFZGl0VGVhY2hpbmdTZXJ2aWNlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = b-qavr9du7pd
+
+[C:/Users/psistemas/Documents/GitHub/RH_CV9/RH_CV/Views/ManageTeachingServices/TeachingServiceEstatus.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlVGVhY2hpbmdTZXJ2aWNlc1xUZWFjaGluZ1NlcnZpY2VFc3RhdHVzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = b-c2e4fet2i9
 
 [C:/Users/psistemas/Documents/GitHub/RH_CV9/RH_CV/Views/ManageUsers/AllUsers.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlVXNlcnNcQWxsVXNlcnMuY3NodG1s

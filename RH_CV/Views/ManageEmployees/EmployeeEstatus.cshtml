@@ -1,0 +1,157 @@
+﻿@model RH_CV.Models.Empleado;
+
+@{
+    ViewData["Title"] = "Employee Estatus";
+}
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+<!--<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+</head>
+<body>-->
+<section class="h-100 gradient-form" style="background-color: #eee;">
+    <div class="container py-3 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-xl-12">
+                <div class="card rounded-3 text-black">
+                    <div class="row g-0">
+                        @*<div class="col-lg-7">*@
+                        <div class="card-body p-md-5 mx-md-4">
+
+                            <div class="text-center form-outline mb-5">
+                                <img src="https://www.hospitalinfantilsantaana.org/wp-content/uploads/2021/06/logo-300x230.png"
+                                     style="width: 185px;" alt="logo">
+                            </div>
+
+                            <p><b>Employee Details</b></p>
+
+                            <div class="row align-items-baseline">
+
+                                <div class="form-outline mb-2 col-md-6">
+                                    <label>Documento</label>
+                                    <label class="form-control">@Model.Documento</label>
+                                </div>
+
+                                <div class="form-outline mb-2 col-md-6" id="municipioExpedicion">
+                                    <label>Lugar de expedición del documento</label>
+                                    <label class="form-control">@Model.LugarExpedicion</label>
+                                </div>
+
+                            </div>
+                            <br />
+
+                            <div class="row align-items-baseline">
+                                <div class="form-outline mb-2 col-md-6">
+                                    <label>Fecha Nacimiento</label>
+                                    <label class="form-control">@Model.FechaNacimiento.ToString("dd-MM-yyyy")</label>
+                                </div>
+
+                                <div class="form-outline mb-2 col-md-6">
+                                    <label>Sexo</label>
+                                    <label class="form-control">@Model.Sexo</label>
+                                </div>
+                            </div>
+                            <br />
+
+                            <div class="row align-items-baseline">
+                                <div class="form-outline mb-2 col-md-6">
+                                    <label>Primer Nombre</label>
+                                    <label class="form-control">@Model.PrimerNombre</label>
+                                </div>
+
+                                <div class="form-outline mb-2 col-md-6">
+                                    <label>Segundo Nombre</label>
+                                    @if (Model.SegundoNombre == null)
+                                    {
+                                        <label class="form-control">&nbsp;</label>
+                                    }
+                                    else
+                                    {
+                                        <label class="form-control">@Model.SegundoNombre</label>
+                                    }
+                                </div>
+                            </div>
+                            <br />
+
+                            <div class="row align-items-baseline">
+                                <div class="form-outline mb-4 col-md-6">
+                                    <label>Primer Apellido</label>
+                                    <label class="form-control">@Model.PrimerApellido</label>
+                                </div>
+
+                                <div class="form-outline mb-4 col-md-6">
+                                    <label>Segundo apellido</label>
+                                    @if (Model.SegundoApellido == null)
+                                    {
+                                        <label class="form-control">&nbsp;</label>
+                                    }
+                                    else
+                                    {
+                                        <label class="form-control">@Model.SegundoApellido</label>
+                                    }
+                                    <br>
+                                </div>
+                            </div>
+
+                            <form class="was-validated" asp-controller="ManageEmployees" asp-action="EmployeeEstatus" method="post">
+                                @Html.AntiForgeryToken()
+
+                                <div class="row align-items-baseline justify-content-center">
+                                    <div class="form-outline mb-5 col-md-6">
+                                        <label>Estado</label>
+                                        <select class="form-select" id="estadoSelect" name="estado" required>
+                                            <option value="">Seleccionar</option>
+                                            <option value="1">Activo</option>
+                                            <option value="0">Inactivo</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <input type="hidden" name="doc" value="@Model.Documento" />
+
+                                <div class="d-flex justify-content-center">
+                                    <button class="col-md-2 btn btn-secondary btn-block fa-lg mb-3" type="button" onclick="window.location.href='@Url.Action("AllEmployees", "ManageEmployees")'">
+                                        Atrás
+                                    </button>
+                                    <div class="mb-3">ㅤㅤㅤ</div>
+                                    <button class="col-md-2 btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit">Editar</button>
+                                </div>
+
+                            </form>
+
+                            @if (ViewData["Mensaje"] != null)
+                            {
+                                <div class="form-group">
+                                    <div class="alert alert-danger" role="alert">
+                                        @ViewData["Mensaje"]
+                                    </div>
+                                </div>
+                            }
+
+                        </div>
+                        @*</div>
+                        <div class="col-lg-5 d-flex align-items-center gradient-custom-2">
+                        <div class="text-white px-3 py-4 p-md-5 mx-md-4">
+                        <h3 class="mb-4">Un Hospital Con Historia</h3>
+                        <p class="small mb-0">
+                        Somos una entidad privada, sin ánimo de lucro, fundada en 1943 por legado testamentario de Ana Josefa Misas de Echavarría, con el fin
+                        inicial de proporcionar atención médica y odontológica a los niños de escasos recursos del sector de El Poblado y atención prenatal a sus madres.<br>
+
+                        Posteriormente extendimos los servicios a la población de escasos recursos del Departamento y otras regiones del país. En 1982 se inició
+                        la consulta de asma y enfermedades respiratorias.<br>
+
+                        Con el establecimiento de la ley 100, se comenzó a brindar los servicios a pacientes particulares y afiliados del régimen Subsidiado y Contributivo.
+                        </p>
+                        </div>
+                        </div>*@
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

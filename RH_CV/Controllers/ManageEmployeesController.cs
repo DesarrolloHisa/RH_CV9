@@ -202,6 +202,58 @@ namespace RH_CV.Controllers
             }
         }
 
+        //StudentEstatus
+        [HttpGet]
+        public IActionResult EmployeeEstatus(int? doc)
+        {
+            string userRol = Utilities.GetRol(HttpContext, _contexto);
+            if (userRol == "Admin")
+            {
+                if (doc == null)
+                {
+                    return NotFound();
+                }
+
+                var employee = _contexto.Empleado.Find(doc);
+                if (employee == null)
+                {
+                    return NotFound();
+                }
+
+                return View(employee);
+            }
+            else
+            {
+                return RedirectToAction("AccessDenied", "Home");
+            }
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EmployeeEstatus(int doc, int estado)
+        {
+            string userRol = Utilities.GetRol(HttpContext, _contexto);
+            if (userRol == "Admin")
+            {
+                var employee = _contexto.Empleado.Find(doc);
+                if (employee == null)
+                {
+                    return NotFound();
+                }
+
+                employee.Estado = estado;
+
+                _contexto.Update(employee);
+                await _contexto.SaveChangesAsync();
+
+                return RedirectToAction("AllEmployees", "ManageEmployees");
+            }
+            else
+            {
+                return RedirectToAction("AccessDenied", "Home");
+            }
+        }
+
         ////DetalleUsuarios
         //[HttpGet]
         //public IActionResult DetailUser(string? user)

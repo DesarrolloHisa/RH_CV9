@@ -238,22 +238,22 @@
                                             <label>Motivo de Retiro</label>
                                             @if (Model.MotivoRetiro == null)
                                             {
-                                                <textarea rows="3" class="form-control" >&nbsp;</textarea>
+                                                <textarea rows="3" class="form-control" readonly style="background-color: #FFFFFF;">&nbsp;</textarea>
                                             }
                                             else
                                             {
-                                                <textarea rows="3" class="form-control" >@Model.MotivoRetiro</textarea>
+                                                <textarea rows="3" class="form-control" readonly style="background-color: #FFFFFF;">@Model.MotivoRetiro</textarea>
                                             }
                                         </div>
                                         <div class="form-outline mb-2 col-md-6">
                                             <label>Observaciones</label>
                                             @if (Model.Observaciones == null)
                                             {
-                                                <textarea rows="3" class="form-control" >&nbsp;</textarea>
+                                                <textarea rows="3" class="form-control" reareadonly style="background-color: #FFFFFF;" donly>&nbsp;</textarea>
                                             }
                                             else
                                             {
-                                                <textarea rows="3" class="form-control" >@Model.Observaciones</textarea>
+                                                <textarea rows="3" class="form-control" readonly style="background-color: #FFFFFF;">@Model.Observaciones</textarea>
                                             }
                                         </div>
                                     </div>
