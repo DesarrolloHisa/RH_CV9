@@ -2688,8 +2688,8 @@ For more information on enabling MVC for empty projects, visit https://go.micros
                                 <label>Sexo</label>
                                 <select asp-for="Sexo" class="form-select" id="f16" required="">
                                     <option value="">Seleccionar</option>
-                                    <option value="Mujer">Mujer</option>
-                                    <option value="Hombre">Hombre</option>
+                                    <option value="Masculino">Masculino</option>
+                                    <option value="Femenino">Femenino</option>
                                     <option value="Intersexual">Intersexual</option>
                                 </select>
                             </div>
@@ -3448,9 +3448,9 @@ For more information on enabling MVC for empty projects, visit https://go.micros
                                     <div class="col-md-4" id="dia1">
                                         <label>Convenio docencia de servicios</label>
                                         <br />
-                                        <input type="radio" name="docencia" asp-for="Practicas.DocenciaServicios" value="Si" id="DocenciaSi" disabled/>
+                                        <input type="radio" name="Practicas.DocenciaServicios" asp-for="Practicas.DocenciaServicios" value="Si" id="DocenciaSi" disabled/>
                                         <label>Si</label>
-                                        <input type="radio" name="docencia" asp-for="Practicas.DocenciaServicios" value="No" id="DocenciaNo" disabled />
+                                        <input type="radio" name="Practicas.DocenciaServicios" asp-for="Practicas.DocenciaServicios" value="No" id="DocenciaNo" disabled />
                                         <label>No</label>
                                     </div>
                                 </div>
@@ -3732,29 +3732,29 @@ For more information on enabling MVC for empty projects, visit https://go.micros
                                         <label>¿Tiene otros ingresos?</label>
                                         <br />
                                         <div class="d-flex align-items-center" style="display: flex;">
-                                            @if (@Model.DatosGenerales == null @*&& @Model.Usuario.TipoVinculo.Tipo == "a"*@)
+                                            @if (@Model.DatosGenerales == null)
                                             {
-                                                <input type="radio" name="OtrosIngresos" value="Si" id="OtrosIngresosSi" disabled />
+                                                <input type="radio" name="OtrosIngresos" id="OtrosIngresosSi" disabled />
                                                 <label class="col-md-2">Si ¿Cuál?</label>
-                                                <input asp-for="DatosGenerales.OtrosIngresos" type="text" class="form-control" id="Cual" style="border: none; border-bottom: 1px solid black; flex: 1;" disabled/>
+                                                <input asp-for="DatosGenerales.OtrosIngresos" type="text" name="DatosGenerales.OtrosIngresos" class="form-control" id="Cual" style="border: none; border-bottom: 1px solid black; flex: 1;" disabled/>
                                             }
-                                            else if (@Model.DatosGenerales.OtrosIngresos != "No" @*&& Vinculo.innerText == "Aprendiz etapa electiva" || Vinculo.innerText == "Aprendiz etapa productiva" || Vinculo.innerText == "Aprendiz por pasantias" || Vinculo.innerText == "Practicante" || Vinculo.innerText == "Medico rural (Servicio social obligatorio)" || Vinculo.innerText == "Empleado" || Vinculo.innerText == "Prestacion de servicios"*@)
+                                            else if (@Model.DatosGenerales.OtrosIngresos != "No" && @Model.DatosGenerales.OtrosIngresos != null)
                                             {
                                                 <input type="radio" name="OtrosIngresos" value="Si" id="OtrosIngresosSi" checked required/>
                                                 <label class="col-md-2">Si ¿Cuál?</label>
-                                                <input asp-for="DatosGenerales.OtrosIngresos" type="text" class="form-control" id="Cual" required/>
+                                                <input asp-for="DatosGenerales.OtrosIngresos" type="text" name="DatosGenerales.OtrosIngresos" class="form-control" id="Cual" required/>
                                             }else{
-                                                <input type="radio" name="OtrosIngresos" value="Si" id="OtrosIngresosSi" required/>
+                                                <input type="radio" name="OtrosIngresos" value="si" id="OtrosIngresosSi" required/>
                                                 <label class="col-md-2">Si ¿Cuál?</label>
-                                                <input asp-for="DatosGenerales.OtrosIngresos" type="text" value="" class="form-control" id="Cual" style="border: none; border-bottom: 1px solid black; flex: 1;" disabled/>
+                                                <input asp-for="DatosGenerales.OtrosIngresos" type="text" name="DatosGenerales.OtrosIngresos" class="form-control" id="Cual" style="border: none; border-bottom: 1px solid black; flex: 1;" disabled/>
                                             }
                                         </div>
                                         @if (@Model.DatosGenerales == null)
                                         {
-                                            <input type="radio" name="OtrosIngresos" value="No" id="OtrosIngresosNo" disabled/>
+                                            <input type="radio" name="OtrosIngresos" id="OtrosIngresosNo" disabled/>
                                             <label>ㅤNo</label>
                                         }
-                                        else if (@Model.DatosGenerales.OtrosIngresos != "No")
+                                        else if (@Model.DatosGenerales.OtrosIngresos != "No" && @Model.DatosGenerales.OtrosIngresos != null)
                                         {
                                             <input asp-for="DatosGenerales.OtrosIngresos" type="radio" name="OtrosIngresos" value="No" id="OtrosIngresosNo" required/>
                                             <label>ㅤNo</label>
@@ -3770,7 +3770,7 @@ For more information on enabling MVC for empty projects, visit https://go.micros
                                         @if (@Model.DatosGenerales == null){
                                             <input asp-for="DatosGenerales.Ingreso" placeholder="$0" onkeypress="return soloNumeros(event)" id="Ingresos" type="text" value="0" class="form-control" disabled />
                                         }
-                                        else if (@Model.DatosGenerales.OtrosIngresos != "No" @*&& Vinculo.innerText == "Aprendiz etapa electiva" || Vinculo.innerText == "Aprendiz etapa productiva" || Vinculo.innerText == "Aprendiz por pasantias" || Vinculo.innerText == "Practicante" || Vinculo.innerText == "Medico rural (Servicio social obligatorio)" || Vinculo.innerText == "Empleado" || Vinculo.innerText == "Prestacion de servicios"*@)
+                                        else if (@Model.DatosGenerales.OtrosIngresos != "No" && @Model.DatosGenerales.OtrosIngresos != null @*&& Vinculo.innerText == "Aprendiz etapa electiva" || Vinculo.innerText == "Aprendiz etapa productiva" || Vinculo.innerText == "Aprendiz por pasantias" || Vinculo.innerText == "Practicante" || Vinculo.innerText == "Medico rural (Servicio social obligatorio)" || Vinculo.innerText == "Empleado" || Vinculo.innerText == "Prestacion de servicios"*@)
                                         {
                                             <input asp-for="DatosGenerales.Ingreso" placeholder="$0" onkeypress="return soloNumeros(event)" id="Ingresos" type="text" class="form-control" required/>
                                         }else{
@@ -3793,15 +3793,15 @@ For more information on enabling MVC for empty projects, visit https://go.micros
                                                 <label class="col-md-2">Si ¿Quien?</label>
                                                 <input asp-for="DatosGenerales.ParientesTrabajando" type="text" class="form-control" id="Quien" style="border: none; border-bottom: 1px solid black; flex: 1;" disabled/>
                                             }
-                                            else if (@Model.DatosGenerales.ParientesTrabajando != "No" @*&& Vinculo.innerText == "Aprendiz etapa electiva" || Vinculo.innerText == "Aprendiz etapa productiva" || Vinculo.innerText == "Aprendiz por pasantias" || Vinculo.innerText == "Practicante" || Vinculo.innerText == "Medico rural (Servicio social obligatorio)" || Vinculo.innerText == "Empleado" || Vinculo.innerText == "Prestacion de servicios"*@)
+                                            else if (@Model.DatosGenerales.ParientesTrabajando != "No" && @Model.DatosGenerales.OtrosIngresos != null@*&& Vinculo.innerText == "Aprendiz etapa electiva" || Vinculo.innerText == "Aprendiz etapa productiva" || Vinculo.innerText == "Aprendiz por pasantias" || Vinculo.innerText == "Practicante" || Vinculo.innerText == "Medico rural (Servicio social obligatorio)" || Vinculo.innerText == "Empleado" || Vinculo.innerText == "Prestacion de servicios"*@)
                                             {
                                                 <input type="radio" name="ParientesTrabajando" value="Si" id="ParientesTrabajandoSi" checked required/>
                                                 <label class="col-md-2">Si ¿Quien?</label>
-                                                <input asp-for="DatosGenerales.ParientesTrabajando" type="text" class="form-control" id="Quien" required"/>
+                                                <input asp-for="DatosGenerales.ParientesTrabajando" type="text" class="form-control" id="Quien" required/>
                                             }else{
                                                 <input type="radio" name="ParientesTrabajando" value="Si" id="ParientesTrabajandoSi" required/>
                                                 <label class="col-md-2">Si ¿Quien?</label>
-                                                <input asp-for="DatosGenerales.ParientesTrabajando" type="text" value="" class="form-control" id="Quien" style="border: none; border-bottom: 1px solid black; flex: 1;" disabled/>
+                                                <input asp-for="DatosGenerales.ParientesTrabajando" type="text" class="form-control" id="Quien" style="border: none; border-bottom: 1px solid black; flex: 1;" disabled/>
                                             }
                                         </div>
                                         @if (@Model.DatosGenerales == null)
@@ -3809,7 +3809,7 @@ For more information on enabling MVC for empty projects, visit https://go.micros
                                             <input type="radio" name="ParientesTrabajando" value="No" id="ParientesTrabajandoNo" disabled/>
                                             <label>ㅤNo</label>
                                         }
-                                        else if (@Model.DatosGenerales.ParientesTrabajando != "No")
+                                        else if (@Model.DatosGenerales.ParientesTrabajando != "No" && @Model.DatosGenerales.OtrosIngresos != null)
                                         {
                                             <input asp-for="DatosGenerales.ParientesTrabajando" type="radio" name="ParientesTrabajando" value="No" id="ParientesTrabajandoNo" required/>
                                             <label>ㅤNo</label>
@@ -3951,6 +3951,8 @@ For more information on enabling MVC for empty projects, visit https://go.micros
         //const pracNo = document.getElementById("PracticasNo");
         const Vinculo = document.getElementById("TipoVinculo");
         Vinculo.innerText = "@ViewData["VinculoTipo"]";
+        const docenciaNo = document.getElementById("DocenciaNo");
+        const docenciaSi = document.getElementById("DocenciaSi");
 
         //pracSi.addEventListener("change", function () {
         //    if (pracSi.checked) {
@@ -3961,6 +3963,10 @@ For more information on enabling MVC for empty projects, visit https://go.micros
                 input.setAttribute("required", "");
                 input.removeAttribute("disabled");
             });
+
+            docenciaSi.setAttribute("value", "Si");
+            docenciaNo.setAttribute("value", "No");
+
         } else{
             document.querySelectorAll("#practica input").forEach((input) => {
                 input.value = null;
@@ -4002,15 +4008,15 @@ For more information on enabling MVC for empty projects, visit https://go.micros
         const IngresosInput = document.getElementById("Ingresos");
         const QuienInput = document.getElementById("Quien");
 
-        const OtrosIngresosNo = document.getElementById("OtrosIngresosNo");
-        const ParientesTrabajandoNo = document.getElementById("ParientesTrabajandoNo");
-
         //const eps = document.getElementById("eps");
         const pensiones = document.getElementById("pensiones");
         const cesantias = document.getElementById("cesantias");
 
+        const IngresosNo = document.getElementById("OtrosIngresosNo");
+        const ParientesNo = document.getElementById("ParientesTrabajandoNo");
+
         //Vinculo.addEventListener("change", function () {
-        if (Vinculo.innerText == "Aprendiz etapa electiva" || Vinculo.innerText == "Aprendiz etapa productiva" || Vinculo.innerText == "Aprendiz por pasantias" || Vinculo.innerText == "Practicante" || Vinculo.innerText == "Medico rural (Servicio social obligatorio)" || Vinculo.innerText == "Empleado" || Vinculo.innerText == "Prestacion de servicios") {
+        if (Vinculo.innerText  == "Aprendiz etapa electiva" || Vinculo.innerText  == "Aprendiz etapa productiva" || Vinculo.innerText  == "Aprendiz por pasantias" || Vinculo.innerText  == "Practicante" || Vinculo.innerText  == "Medico rural (Servicio social obligatorio)" || Vinculo.innerText  == "Empleado" || Vinculo.innerText  == "Prestacion de servicios") {
             //GenDiv.style.visibility = 'visible';
             //document.querySelectorAll('#Generales input').forEach(input => input.setAttribute('required', ''));
             document.querySelectorAll("#Generales input, #Generales select").forEach((element) => {
@@ -4021,35 +4027,31 @@ For more information on enabling MVC for empty projects, visit https://go.micros
             //eps.setAttribute("disabled", true);
             //eps.removeAttribute("required");
 
-            if(Vinculo.innerText != "Empleado"){
-                pensiones.setAttribute("disabled", true);
-                pensiones.removeAttribute("required");
+            IngresosNo.setAttribute("value", "No");
+            ParientesNo.setAttribute("value", "No");
 
-                cesantias.setAttribute("disabled", true);
-                cesantias.removeAttribute("required");
-            }
+            pensiones.setAttribute("disabled", true);
+            pensiones.removeAttribute("required");
 
-            if (OtrosIngresosNo.checked){
+            cesantias.setAttribute("disabled", true);
+            cesantias.removeAttribute("required");
+
+            if(CualInput.value != '' && IngresosNo.checked){
                 CualInput.setAttribute("disabled", true);
                 CualInput.removeAttribute("required");
-                
+            }
+            
+            if(IngresosInput.value != null && IngresosNo.checked){
                 IngresosInput.setAttribute("disabled", true);
                 IngresosInput.removeAttribute("required");
+            }else{
+
             }
 
-            if (ParientesTrabajandoNo.checked){
+            if(QuienInput.value != '' && ParientesNo.checked){
                 QuienInput.setAttribute("disabled", true);
                 QuienInput.removeAttribute("required");
             }
-
-            //CualInput.setAttribute("disabled", true);
-            //CualInput.removeAttribute("required");
-
-            //IngresosInput.setAttribute("disabled", true);
-            //IngresosInput.removeAttribute("required");
-
-            //QuienInput.setAttribute("disabled", true);
-            //QuienInput.removeAttribute("required");
 
             //document.querySelectorAll("#Generales select").forEach((select) => {
             //    select.setAttribute("required", "");
@@ -4127,7 +4129,7 @@ For more information on enabling MVC for empty projects, visit https://go.micros
         //const CualInput = document.getElementById("Cual");
         //const IngresosInput = document.getElementById("Ingresos");
         const OtrosIngresosSi = document.getElementById("OtrosIngresosSi");
-        //const OtrosIngresosNo = document.getElementById("OtrosIngresosNo");
+        const OtrosIngresosNo = document.getElementById("OtrosIngresosNo");
 
         OtrosIngresosSi.addEventListener("change", function () {
             if (OtrosIngresosSi.checked) {
@@ -4154,7 +4156,7 @@ For more information on enabling MVC for empty projects, visit https://go.micros
         //Radio ParientesTrabajando
         //const QuienInput = document.getElementById("Quien");
         const ParientesTrabajandoSi = document.getElementById("ParientesTrabajandoSi");
-        //const ParientesTrabajandoNo = document.getElementById("ParientesTrabajandoNo");
+        const ParientesTrabajandoNo = document.getElementById("ParientesTrabajandoNo");
 
         ParientesTrabajandoSi.addEventListener("change", function () {
             if (ParientesTrabajandoSi.checked) {

@@ -15,10 +15,10 @@
                 <div class="contenedor">
                     <a href="@Url.Action("AllEmployees","ManageEmployees")">Todos los Empleados</a>
                     <a href="@Url.Action("AllActiveEmployees","ManageEmployees")">Empleados Activos</a>
-                    <a href="@Url.Action("AllTeachingService","ManageTeachingService")">Docencia de Servicio</a>
+                    <a href="@Url.Action("AllTeachingServices","ManageTeachingServices")">Docencia de Servicio</a>
                     <a href="@Url.Action("AllStudents","ManageStudents")">Estudiantes</a>
                     <a href="@Url.Action("AllVolunteers","ManageVolunteers")">Voluntarios</a>
-                    <a href="@Url.Action("AllInterdependence","ManageInterdependence")">Interdependecia</a>
+                    <a href="@Url.Action("AllInterdependences","ManageInterdependences")">Interdependecia</a>
                     @*@if (ViewData["UserRol"] == "Admin" || ViewData["UserRol"] == "Observador")
                     {
                             <a href="@Url.Action("AllHV","ManageHV")" class="btn btn-1">

@@ -24,7 +24,7 @@ namespace RH_CV.Controllers
             //_userManager = userManager;
         }
 
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
             ////ControlUsuarios
             //ClaimsPrincipal claimsRol = HttpContext.User;

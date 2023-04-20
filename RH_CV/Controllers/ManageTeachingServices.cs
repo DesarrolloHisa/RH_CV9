@@ -6,6 +6,9 @@ using RH_CV.Models;
 using RH_CV.Services.Contract;
 using RH_CV.Sources;
 using Microsoft.EntityFrameworkCore;
+using ClosedXML.Excel;
+using Microsoft.Data.SqlClient;
+using System.Data;
 
 namespace RH_CV.Controllers
 {
@@ -315,6 +318,98 @@ namespace RH_CV.Controllers
             else
             {
                 return RedirectToAction("AccessDenied", "Home");
+            }
+        }
+
+        //ExcelTeachingServices
+        [HttpGet]
+        public async Task<IActionResult> GetTeachingServicesExcelFile()
+        {
+            using (var workbook = new XLWorkbook())
+            {
+                var worksheet = workbook.Worksheets.Add("Teaching Services HISA");
+                var row = 1;
+                var column = 1;
+                var dataTable = new DataTable();
+                //using (var connection = new SqlConnection("Data Source=JEFF_PC\\SQLEXPRESS;Initial Catalog=DB_CV;Integrated Security=True;Encrypt=false"))
+                using (var connection = new SqlConnection("Data Source=DESARROLLOHISA;Initial Catalog=DB_CV;Integrated Security=True;Encrypt=false"))
+                {
+                    using (var command = new SqlCommand("GetTeachingServices", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+                        using (var adapter = new SqlDataAdapter(command))
+                        {
+                            adapter.Fill(dataTable);
+                        }
+                    }
+                }
+                foreach (DataColumn dataColumn in dataTable.Columns)
+                {
+                    worksheet.Cell(row, column).Value = dataColumn.ColumnName;
+                    column++;
+                }
+                row++;
+                column = 1;
+                foreach (DataRow dataRow in dataTable.Rows)
+                {
+                    foreach (DataColumn dataColumn in dataTable.Columns)
+                    {
+                        worksheet.Cell(row, column).Value = dataRow[dataColumn.ColumnName].ToString();
+                        column++;
+                    }
+                    row++;
+                    column = 1;
+                }
+                var memory = new MemoryStream();
+                workbook.SaveAs(memory);
+                memory.Position = 0;
+                return File(memory, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "TeachingServicesHISA.xlsx");
+            }
+        }
+
+        //ExcelActiveStuedents
+        [HttpGet]
+        public async Task<IActionResult> GetActiveTeachingServicesExcelFile()
+        {
+            using (var workbook = new XLWorkbook())
+            {
+                var worksheet = workbook.Worksheets.Add("Teaching Services HISA");
+                var row = 1;
+                var column = 1;
+                var dataTable = new DataTable();
+                //using (var connection = new SqlConnection("Data Source=JEFF_PC\\SQLEXPRESS;Initial Catalog=DB_CV;Integrated Security=True;Encrypt=false"))
+                using (var connection = new SqlConnection("Data Source=DESARROLLOHISA;Initial Catalog=DB_CV;Integrated Security=True;Encrypt=false"))
+                {
+                    using (var command = new SqlCommand("GetActiveTeachingServices", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+                        using (var adapter = new SqlDataAdapter(command))
+                        {
+                            adapter.Fill(dataTable);
+                        }
+                    }
+                }
+                foreach (DataColumn dataColumn in dataTable.Columns)
+                {
+                    worksheet.Cell(row, column).Value = dataColumn.ColumnName;
+                    column++;
+                }
+                row++;
+                column = 1;
+                foreach (DataRow dataRow in dataTable.Rows)
+                {
+                    foreach (DataColumn dataColumn in dataTable.Columns)
+                    {
+                        worksheet.Cell(row, column).Value = dataRow[dataColumn.ColumnName].ToString();
+                        column++;
+                    }
+                    row++;
+                    column = 1;
+                }
+                var memory = new MemoryStream();
+                workbook.SaveAs(memory);
+                memory.Position = 0;
+                return File(memory, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "ActiveTeachingServicesHISA.xlsx");
             }
         }
     }

@@ -974,8 +974,39 @@ namespace RH_CV.Controllers
                 modelo.ReferenciasFamiliares = null;
                 modelo.ReferenciasPersonales = null;
 
+                var datosPersonales = await _contexto.DatosPersonales
+                .Include(d => d.PersonasACargo)
+                .FirstOrDefaultAsync(d => d.Id == modelo.Id);
+                _contexto.Entry(datosPersonales).State = EntityState.Detached;
+
+                //if (datosPersonales.PersonasACargoId != null)
+                //{
+                //    var personasACargo = await _contexto.PersonasACargo.FindAsync(datosPersonales.PersonasACargoId);
+                //    _contexto.PersonasACargo.Remove(personasACargo);
+                //}
+                //await _contexto.SaveChangesAsync();
+
+                //if (datosPersonales.PersonasACargoId != null)
+                //{
+                //    var personasACargo = await _contexto.PersonasACargo.FindAsync(datosPersonales.PersonasACargoId);
+                //    _contexto.PersonasACargo.RemoveRange(_contexto.PersonasACargo.Where(p => p.Id == datosPersonales.PersonasACargoId));
+                //}
+
+                //_contexto.PersonasACargo.Update(modelo.PersonasACargo);
+
                 _contexto.Update(modelo);
+
                 //await _contexto.SaveChangesAsync();**
+
+                //var datosPersonales = await _contexto.DatosPersonales
+                //.Include(d => d.PersonasACargo)
+                //.FirstOrDefaultAsync(d => d.Id == modelo.Id);
+
+                var personasACargo = await _contexto.PersonasACargo.FindAsync(datosPersonales.PersonasACargoId);
+                var direccion = await _contexto.Direccion.FindAsync(datosPersonales.DireccionId);
+                var datosGenerales = await _contexto.DatosGenerales.FindAsync(datosPersonales.DatosGeneralesId);
+                var practicas = await _contexto.Practicas.FindAsync(datosPersonales.PracticasId);
+                //_contexto.PersonasACargo.RemoveRange(personasACargo.Id);
 
                 _contexto.ContactoEmergencia.RemoveRange(_contexto.ContactoEmergencia.Where(e => e.DatosPersonalesId == modelo.Id));
                 foreach (var contactoEmergenciaItem in contactoEmergencia)
@@ -1031,6 +1062,19 @@ namespace RH_CV.Controllers
                     referenciasPersonalesItem.DatosPersonalesId = modelo.Id;
 
                     _contexto.ReferenciasPersonales.Add(referenciasPersonalesItem);
+                }
+
+                await _contexto.SaveChangesAsync();
+
+                _contexto.PersonasACargo.Remove(personasACargo);
+                _contexto.Direccion.Remove(direccion);
+                if (datosGenerales != null)
+                {
+                    _contexto.DatosGenerales.Remove(datosGenerales);
+                }
+                if (practicas != null)
+                {
+                    _contexto.Practicas.Remove(practicas);
                 }
 
                 await _contexto.SaveChangesAsync();

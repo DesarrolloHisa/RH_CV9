@@ -38,6 +38,22 @@ namespace RH_CV.Controllers
             }
         }
 
+        [HttpGet]
+        public async Task<IActionResult> AllActiveEmployees()
+        {
+            string userRol = Utilities.GetRol(HttpContext, _contexto);
+            if (userRol == "Admin" || userRol == "Observador")
+            {
+                List<Empleado> empleados = await _contexto.Empleado.Where(e => e.Estado == 1).ToListAsync();
+                //ViewBag.Usuario = usuarios;
+                return View(empleados);
+            }
+            else
+            {
+                return RedirectToAction("AccessDenied", "Home");
+            }
+        }
+
         //Crear Usuarios
         public IActionResult CreateEmployee()
         {

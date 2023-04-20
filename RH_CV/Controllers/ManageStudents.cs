@@ -1,11 +1,14 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using ClosedXML.Excel;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using RH_CV.Data;
 using RH_CV.Models;
 using RH_CV.Services.Contract;
 using RH_CV.Sources;
+using System.Data;
 
 namespace RH_CV.Controllers
 {
@@ -332,6 +335,98 @@ namespace RH_CV.Controllers
             else
             {
                 return RedirectToAction("AccessDenied", "Home");
+            }
+        }
+
+        //ExcelStudents
+        [HttpGet]
+        public async Task<IActionResult> GetStudentsExcelFile()
+        {
+            using (var workbook = new XLWorkbook())
+            {
+                var worksheet = workbook.Worksheets.Add("Students HISA");
+                var row = 1;
+                var column = 1;
+                var dataTable = new DataTable();
+                //using (var connection = new SqlConnection("Data Source=JEFF_PC\\SQLEXPRESS;Initial Catalog=DB_CV;Integrated Security=True;Encrypt=false"))
+                using (var connection = new SqlConnection("Data Source=DESARROLLOHISA;Initial Catalog=DB_CV;Integrated Security=True;Encrypt=false"))
+                {
+                    using (var command = new SqlCommand("GetStudents", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+                        using (var adapter = new SqlDataAdapter(command))
+                        {
+                            adapter.Fill(dataTable);
+                        }
+                    }
+                }
+                foreach (DataColumn dataColumn in dataTable.Columns)
+                {
+                    worksheet.Cell(row, column).Value = dataColumn.ColumnName;
+                    column++;
+                }
+                row++;
+                column = 1;
+                foreach (DataRow dataRow in dataTable.Rows)
+                {
+                    foreach (DataColumn dataColumn in dataTable.Columns)
+                    {
+                        worksheet.Cell(row, column).Value = dataRow[dataColumn.ColumnName].ToString();
+                        column++;
+                    }
+                    row++;
+                    column = 1;
+                }
+                var memory = new MemoryStream();
+                workbook.SaveAs(memory);
+                memory.Position = 0;
+                return File(memory, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "StudentsHISA.xlsx");
+            }
+        }
+
+        //ExcelActiveStuedents
+        [HttpGet]
+        public async Task<IActionResult> GetActiveStudentsExcelFile()
+        {
+            using (var workbook = new XLWorkbook())
+            {
+                var worksheet = workbook.Worksheets.Add("Active Students HISA");
+                var row = 1;
+                var column = 1;
+                var dataTable = new DataTable();
+                //using (var connection = new SqlConnection("Data Source=JEFF_PC\\SQLEXPRESS;Initial Catalog=DB_CV;Integrated Security=True;Encrypt=false"))
+                using (var connection = new SqlConnection("Data Source=DESARROLLOHISA;Initial Catalog=DB_CV;Integrated Security=True;Encrypt=false"))
+                {
+                    using (var command = new SqlCommand("GetActiveStudents", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+                        using (var adapter = new SqlDataAdapter(command))
+                        {
+                            adapter.Fill(dataTable);
+                        }
+                    }
+                }
+                foreach (DataColumn dataColumn in dataTable.Columns)
+                {
+                    worksheet.Cell(row, column).Value = dataColumn.ColumnName;
+                    column++;
+                }
+                row++;
+                column = 1;
+                foreach (DataRow dataRow in dataTable.Rows)
+                {
+                    foreach (DataColumn dataColumn in dataTable.Columns)
+                    {
+                        worksheet.Cell(row, column).Value = dataRow[dataColumn.ColumnName].ToString();
+                        column++;
+                    }
+                    row++;
+                    column = 1;
+                }
+                var memory = new MemoryStream();
+                workbook.SaveAs(memory);
+                memory.Position = 0;
+                return File(memory, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "ActiveStudentsHISA.xlsx");
             }
         }
     }

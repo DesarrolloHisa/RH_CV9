@@ -5174,3 +5174,16 @@ C:\Users\psistemas\Documents\GitHub\RH_CV9\RH_CV\obj\Debug\net7.0\scopedcss\View
 C:\Users\psistemas\Documents\GitHub\RH_CV9\RH_CV\obj\Debug\net7.0\scopedcss\Views\ManageStudents\CreateStudent.cshtml.rz.scp.css
 C:\Users\psistemas\Documents\GitHub\RH_CV9\RH_CV\obj\Debug\net7.0\scopedcss\Views\ManageStudents\EditStudent.cshtml.rz.scp.css
 C:\Users\psistemas\Documents\GitHub\RH_CV9\RH_CV\obj\Debug\net7.0\scopedcss\Views\ManageStudents\StudentEstatus.cshtml.rz.scp.css
+C:\Users\psistemas\Documents\GitHub\RH_CV9\RH_CV\obj\Debug\net7.0\scopedcss\Views\ManageInterdependences\AllInterdependences.cshtml.rz.scp.css
+C:\Users\psistemas\Documents\GitHub\RH_CV9\RH_CV\obj\Debug\net7.0\scopedcss\Views\ManageInterdependences\CreateInterdependence.cshtml.rz.scp.css
+C:\Users\psistemas\Documents\GitHub\RH_CV9\RH_CV\obj\Debug\net7.0\scopedcss\Views\ManageInterdependences\EditInterdependence.cshtml.rz.scp.css
+C:\Users\psistemas\Documents\GitHub\RH_CV9\RH_CV\obj\Debug\net7.0\scopedcss\Views\ManageInterdependences\InterdependenceEstatus.cshtml.rz.scp.css
+C:\Users\psistemas\Documents\GitHub\RH_CV9\RH_CV\obj\Debug\net7.0\scopedcss\Views\ManageTeachingServices\AllTeachingServices.cshtml.rz.scp.css
+C:\Users\psistemas\Documents\GitHub\RH_CV9\RH_CV\obj\Debug\net7.0\scopedcss\Views\ManageTeachingServices\CreateTeachingService.cshtml.rz.scp.css
+C:\Users\psistemas\Documents\GitHub\RH_CV9\RH_CV\obj\Debug\net7.0\scopedcss\Views\ManageTeachingServices\EditTeachingService.cshtml.rz.scp.css
+C:\Users\psistemas\Documents\GitHub\RH_CV9\RH_CV\obj\Debug\net7.0\scopedcss\Views\ManageTeachingServices\TeachingServiceEstatus.cshtml.rz.scp.css
+C:\Users\psistemas\Documents\GitHub\RH_CV9\RH_CV\obj\Debug\net7.0\scopedcss\Views\ManageEmployees\AllActiveEmployees.cshtml.rz.scp.css
+C:\Users\psistemas\Documents\GitHub\RH_CV9\RH_CV\obj\Debug\net7.0\scopedcss\Views\ManageVolunteers\AllVolunteers.cshtml.rz.scp.css
+C:\Users\psistemas\Documents\GitHub\RH_CV9\RH_CV\obj\Debug\net7.0\scopedcss\Views\ManageVolunteers\CreateVolunteer.cshtml.rz.scp.css
+C:\Users\psistemas\Documents\GitHub\RH_CV9\RH_CV\obj\Debug\net7.0\scopedcss\Views\ManageVolunteers\EditVolunteer.cshtml.rz.scp.css
+C:\Users\psistemas\Documents\GitHub\RH_CV9\RH_CV\obj\Debug\net7.0\scopedcss\Views\ManageVolunteers\VolunteerEstatus.cshtml.rz.scp.css
