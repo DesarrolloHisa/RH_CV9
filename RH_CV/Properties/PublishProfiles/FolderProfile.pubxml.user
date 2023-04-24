@@ -5,7 +5,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project>
   <PropertyGroup>
     <_PublishTargetUrl>C:\Users\psistemas\Documents\GitHub\RH_CV9\RH_CV\bin\Release\net7.0\publish\</_PublishTargetUrl>
-    <History>True|2023-04-24T12:04:55.1637933Z;</History>
+    <History>True|2023-04-24T15:11:44.6060240Z;True|2023-04-24T10:07:14.7874651-05:00;True|2023-04-24T10:06:26.1275008-05:00;True|2023-04-24T09:42:54.5101118-05:00;</History>
     <LastFailureDetails />
   </PropertyGroup>
 </Project>
