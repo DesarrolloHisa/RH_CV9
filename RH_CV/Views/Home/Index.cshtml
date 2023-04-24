@@ -5,7 +5,7 @@
 				<div class="contenedor">
                     @if (ViewData["UserRol"] == "Admin" || ViewData["UserRol"] == "Observador")
                     {
-                        <a href="@Url.Action("AllHV","ManageHV")">Manage HV</a>
+                        <a href="@Url.Action("AllHV","ManageHV")">Administrar HV</a>
                         @*<a href="@Url.Action("AllHV","ManageHV")" class="btn btn-1">
                             <span class="elementor-button-content-wrapper">
                                 <span class="elementor-button-text"><b>Administrar HV</b></span>
@@ -20,7 +20,7 @@
                     }
                     @if (ViewData["UserRol"] == "Admin" || ViewData["UserRol"] == "Observador")
                     {
-                        <a href="@Url.Action("ManageEmployeesMenu","Home")">Manage Employees</a>
+                        <a href="@Url.Action("ManageEmployeesMenu","Home")">Administrar Empleados</a>
                         @*<a href="@Url.Action("AllEmployees","ManageEmployees")" class="btn btn-1">
                             <span class="elementor-button-content-wrapper">
                                 <span class="elementor-button-text"><b>Manage Contracts</b></span>
@@ -29,7 +29,7 @@
                     }
                     @if (ViewData["UserRol"] == "Admin")
                     {
-                        <a href="@Url.Action("AllUsers","ManageUsers")">Manage Users</a>
+                        <a href="@Url.Action("AllUsers","ManageUsers")">Administrar Usuarios</a>
                         @*<a href="@Url.Action("AllUsers","ManageUsers")" class="btn btn-1">
                             <span class="elementor-button-content-wrapper">
                                 <span class="elementor-button-text"><b>Manage Users</b></span>
