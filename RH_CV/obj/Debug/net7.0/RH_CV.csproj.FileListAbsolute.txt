@@ -5187,3 +5187,8 @@ C:\Users\psistemas\Documents\GitHub\RH_CV9\RH_CV\obj\Debug\net7.0\scopedcss\View
 C:\Users\psistemas\Documents\GitHub\RH_CV9\RH_CV\obj\Debug\net7.0\scopedcss\Views\ManageVolunteers\CreateVolunteer.cshtml.rz.scp.css
 C:\Users\psistemas\Documents\GitHub\RH_CV9\RH_CV\obj\Debug\net7.0\scopedcss\Views\ManageVolunteers\EditVolunteer.cshtml.rz.scp.css
 C:\Users\psistemas\Documents\GitHub\RH_CV9\RH_CV\obj\Debug\net7.0\scopedcss\Views\ManageVolunteers\VolunteerEstatus.cshtml.rz.scp.css
+C:\Users\psistemas\Documents\GitHub\RH_CV9\RH_CV\bin\Debug\net7.0\release\web.config
+C:\Users\psistemas\Documents\GitHub\RH_CV9\RH_CV\bin\Debug\net7.0\release\appsettings.Development.json
+C:\Users\psistemas\Documents\GitHub\RH_CV9\RH_CV\bin\Debug\net7.0\release\appsettings.json
+C:\Users\psistemas\Documents\GitHub\RH_CV9\RH_CV\bin\Debug\net7.0\release\RH_CV.deps.json
+C:\Users\psistemas\Documents\GitHub\RH_CV9\RH_CV\bin\Debug\net7.0\release\RH_CV.runtimeconfig.json
