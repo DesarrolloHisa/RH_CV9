@@ -32,7 +32,7 @@ ViewData["Title"] = "Edit User";
                                     <form class="was-validated" asp-controller="ManageUsers" asp-action="EditUser" method="post">
 
                                         <!--ID del usuario como campo oculto-->
-                                        <input type="hidden" asp-for="User"/>
+                                        @*<input type="hidden" asp-for="User"/>*@
 
                                         <p><b>Edit an Account</b></p>
 
@@ -42,7 +42,7 @@ ViewData["Title"] = "Edit User";
                                                 <label>Usuario</label>
                                                 <input type="text" class="form-control"
                                                        placeholder="User" asp-for="User" required" />
-                                                <span asp-validation-for="User" class="text-danger"></span>
+                                                <span asp-validation-for="User" onkeypress="return soloNumeros(event)" class="text-danger"></span>
                                                 <!--<label class="form-label" for="form2Example11">Username</label>-->
                                             </div>
 

@@ -718,6 +718,46 @@ h3[b-0ol1oka1wf] {
         border-bottom-right-radius: .3rem;
     }
 }
+
+.elementor a[b-lnt42mtwlx] {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    text-decoration: none;
+}
+
+a[b-lnt42mtwlx] {
+    position: relative;
+    display: block;
+    padding: 4px 0;
+    font-family: Lato, sans-serif;
+    color: #414141b1;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: 0.5s;
+}
+
+    a[b-lnt42mtwlx]::after {
+        position: absolute;
+        content: "";
+        top: 100%;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: #ff0000;
+        transform: scaleX(0);
+        transform-origin: right;
+        transition: transform 0.5s;
+    }
+
+    a:hover[b-lnt42mtwlx] {
+        color: #000000;
+    }
+
+        a:hover[b-lnt42mtwlx]::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
 /* _content/RH_CV/Views/ManageHV/CreateHV.cshtml.rz.scp.css */
 body[b-m8n3rtwnmn] {
     background-color: #eee

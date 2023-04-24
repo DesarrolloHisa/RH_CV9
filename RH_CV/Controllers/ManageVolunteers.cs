@@ -72,7 +72,7 @@ namespace RH_CV.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> CreateVolunteers(Voluntario volunteer)
+        public async Task<IActionResult> CreateVolunteer(Voluntario volunteer)
         {
             string userRol = Utilities.GetRol(HttpContext, _contexto);
             if (userRol == "Admin")
@@ -332,7 +332,8 @@ namespace RH_CV.Controllers
                 var column = 1;
                 var dataTable = new DataTable();
                 //using (var connection = new SqlConnection("Data Source=JEFF_PC\\SQLEXPRESS;Initial Catalog=DB_CV;Integrated Security=True;Encrypt=false"))
-                using (var connection = new SqlConnection("Data Source=DESARROLLOHISA;Initial Catalog=DB_CV;Integrated Security=True;Encrypt=false"))
+                //using (var connection = new SqlConnection("Data Source=DESARROLLOHISA;Initial Catalog=DB_CV;Integrated Security=True;Encrypt=false"))
+                using (var connection = new SqlConnection("Data Source=SERVER01;Initial Catalog=DB_CV;Integrated Security=True;Encrypt=false"))
                 {
                     using (var command = new SqlCommand("GetVolunteers", connection))
                     {
@@ -378,7 +379,8 @@ namespace RH_CV.Controllers
                 var column = 1;
                 var dataTable = new DataTable();
                 //using (var connection = new SqlConnection("Data Source=JEFF_PC\\SQLEXPRESS;Initial Catalog=DB_CV;Integrated Security=True;Encrypt=false"))
-                using (var connection = new SqlConnection("Data Source=DESARROLLOHISA;Initial Catalog=DB_CV;Integrated Security=True;Encrypt=false"))
+                //using (var connection = new SqlConnection("Data Source=DESARROLLOHISA;Initial Catalog=DB_CV;Integrated Security=True;Encrypt=false"))
+                using (var connection = new SqlConnection("Data Source=SERVER01;Initial Catalog=DB_CV;Integrated Security=True;Encrypt=false"))
                 {
                     using (var command = new SqlCommand("GetActiveVolunteers", connection))
                     {

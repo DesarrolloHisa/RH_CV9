@@ -1,0 +1,101 @@
+.btn[b-1zujeoo2t8] {
+    position: relative;
+    padding: 10px 10px;
+    text-decoration: none;
+    color: #fff;
+    letter-spacing: 1px;
+    text-indent: 10px;
+    z-index: 2;
+}
+
+.btn-1[b-1zujeoo2t8]::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-image: linear-gradient(90deg, rgb(255,168,31), rgb(255, 15, 15), rgb(255, 30, 143), rgb(176,10,43));
+    background-size: 300%;
+    border-radius: 5px;
+    z-index: -1;
+    transition: all 0.4s ease;
+}
+
+.btn-1:hover[b-1zujeoo2t8]::after {
+    background-position: 100%;
+    filter: blur(5px);
+}
+
+.btn-1[b-1zujeoo2t8]::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-image: linear-gradient(90deg, rgb(255,168,31), rgb(255, 15, 15), rgb(255, 30, 143), rgb(176,10,43));
+    background-size: 300%;
+    border-radius: 5px;
+    z-index: -1;
+}
+
+.btn-1:hover[b-1zujeoo2t8]::before {
+    background-position: 100%;
+}
+
+element.style[b-1zujeoo2t8] {
+}
+
+.elementor-484 .elementor-element.elementor-element-4fa7c97 .elementor-button[b-1zujeoo2t8] {
+    font-family: "Roboto", Sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 21px;
+    fill: #FFFFFF;
+    color: #FFFFFF;
+    background-color: var(--e-global-color-cedca49 );
+    border-style: solid;
+    border-width: 0px 0px 0px 0px;
+    border-radius: 20px 20px 20px 20px;
+    padding: 14px 39px 14px 39px;
+}
+
+.elementor a[b-1zujeoo2t8] {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    text-decoration: none;
+}
+
+a[b-1zujeoo2t8] {
+    position: relative;
+    display: block;
+    padding: 4px 0;
+    font-family: Lato, sans-serif;
+    color: #414141b1;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: 0.5s;
+}
+
+    a[b-1zujeoo2t8]::after {
+        position: absolute;
+        content: "";
+        top: 100%;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: #ff0000;
+        transform: scaleX(0);
+        transform-origin: right;
+        transition: transform 0.5s;
+    }
+
+    a:hover[b-1zujeoo2t8] {
+        color: #000000;
+    }
+
+        a:hover[b-1zujeoo2t8]::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
