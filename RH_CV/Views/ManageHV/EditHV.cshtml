@@ -3836,6 +3836,7 @@ For more information on enabling MVC for empty projects, visit https://go.micros
                             <br>
                             <hr>
                             <br>
+                            <input type="hidden" asp-for="FechaCreacion" value="" id="fechCreacion"/>
                             <div class="d-flex justify-content-center">
                                 @if (ViewData["UserRol"] == "Admin" || ViewData["UserRol"] == "Observador")
                                 {
@@ -3868,6 +3869,8 @@ For more information on enabling MVC for empty projects, visit https://go.micros
         document.getElementById("fechaIngresoLaboral1").setAttribute("max", fechaActual);
         document.getElementById("fechaRetiroLaboral1").setAttribute("max", fechaActual);
        
+        document.getElementById("fechCreacion").value = fechaActual;
+
         // Obtenemos los elementos HTML correspondientes a cada input
         var dir1 = document.getElementById('dir1');
         var dirLabel = document.getElementById('dirLabel');
@@ -4036,7 +4039,7 @@ For more information on enabling MVC for empty projects, visit https://go.micros
             cesantias.setAttribute("disabled", true);
             cesantias.removeAttribute("required");
 
-            if(CualInput.value != '' && IngresosNo.checked){
+            if(CualInput.value != null && IngresosNo.checked){
                 CualInput.setAttribute("disabled", true);
                 CualInput.removeAttribute("required");
             }
@@ -4048,7 +4051,7 @@ For more information on enabling MVC for empty projects, visit https://go.micros
 
             }
 
-            if(QuienInput.value != '' && ParientesNo.checked){
+            if(QuienInput.value != null && ParientesNo.checked){
                 QuienInput.setAttribute("disabled", true);
                 QuienInput.removeAttribute("required");
             }
