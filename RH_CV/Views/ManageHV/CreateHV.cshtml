@@ -2718,12 +2718,19 @@ For more information on enabling MVC for empty projects, visit https://go.micros
             IngresosNo.setAttribute("value", "No");
             ParientesNo.setAttribute("value", "No");
 
-            pensiones.setAttribute("disabled", true);
-            pensiones.removeAttribute("required");
+            if(Vinculo.innerText != "Empleado"){
+                pensiones.setAttribute("disabled", true);
+                pensiones.removeAttribute("required");
 
-            cesantias.setAttribute("disabled", true);
-            cesantias.removeAttribute("required");
+                cesantias.setAttribute("disabled", true);
+                cesantias.removeAttribute("required");
+            }else{
+                pensiones.setAttribute("required", "");
+                pensiones.removeAttribute("disabled");
 
+                cesantias.setAttribute("required", "");
+                cesantias.removeAttribute("disabled");
+            }
 
             CualInput.setAttribute("disabled", true);
             CualInput.removeAttribute("required");
@@ -2748,10 +2755,10 @@ For more information on enabling MVC for empty projects, visit https://go.micros
             //eps.setAttribute("disabled", true);
             //eps.removeAttribute("disabled");
 
-            pensiones.setAttribute("disabled", true);
+            pensiones.setAttribute("required", "");
             pensiones.removeAttribute("disabled");
 
-            cesantias.setAttribute("disabled", true);
+            cesantias.setAttribute("required", "");
             cesantias.removeAttribute("disabled");
         }
         //});

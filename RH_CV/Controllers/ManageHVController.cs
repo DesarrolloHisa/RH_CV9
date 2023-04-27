@@ -1,6 +1,8 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using ClosedXML.Excel;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using RH_CV.Data;
@@ -9,6 +11,7 @@ using RH_CV.Services.Contract;
 using RH_CV.Sources;
 using Rotativa.AspNetCore;
 using System.Collections.Generic;
+using System.Data;
 using System.Globalization;
 using System.Security.Claims;
 using System.Web;
@@ -565,11 +568,83 @@ namespace RH_CV.Controllers
                 {
                     return RedirectToAction("MyHV", "ManageHV");
                 }
+
+
+
                 ViewData["Mensaje"] = "No se pudo crear la HV";
-                return View();
-            }
-                //}
+
                 return View(modelo);
+            }
+
+            string primerNombre = "";
+            string segundoNombre = "";
+            string primerApellido = "";
+            string segundoApellido = "";
+
+            var usuario = _contexto.Usuario.Find(idUser);
+            if (usuario == null)
+            {
+                return NotFound();
+            }
+
+            primerNombre = usuario.PrimerNombre;
+            ViewData["primerNombre"] = primerNombre;
+
+            segundoNombre = usuario.SegundoNombre;
+            if (segundoNombre == null)
+            {
+                segundoNombre = "ㅤ";
+            }
+            ViewData["segundoNombre"] = segundoNombre;
+
+            primerApellido = usuario.PrimerApellido;
+            ViewData["primerApellido"] = primerApellido;
+
+            segundoApellido = usuario.SegundoApellido;
+            if (segundoApellido == null)
+            {
+                segundoApellido = "ㅤ";
+            }
+            ViewData["segundoApellido"] = segundoApellido;
+
+            var vinculo = _contexto.TipoVinculo.Find(usuario.TipoVinculoId);
+            if (vinculo == null)
+            {
+                vinculo.Tipo = "ㅤ";
+            }
+            ViewData["VinculoTipo"] = vinculo.Tipo;
+
+            var contrato = _contexto.TipoContrato.Find(usuario.TipoContratoId);
+            if (contrato == null)
+            {
+                contrato = new TipoContrato { Tipo = "ㅤ" };
+                //contrato.Tipo = "ㅤ";
+            }
+            ViewData["ContratoTipo"] = contrato.Tipo;
+
+            var infoDocumento = _contexto.InfoDocumento.Find(usuario.InfoDocumentoId);
+            if (infoDocumento.PaisExpedicion == null)
+            {
+                infoDocumento.PaisExpedicion = "ㅤ";
+            }
+            ViewData["PaisExpedicion"] = infoDocumento.PaisExpedicion;
+
+            if (infoDocumento.MunicipioExpedicion == null)
+            {
+                infoDocumento.MunicipioExpedicion = "ㅤ";
+            }
+            ViewData["MunicipioExpedicion"] = infoDocumento.MunicipioExpedicion;
+            var tipoDocumento = _contexto.TipoDocumento.Find(infoDocumento.TipoDocumentoId);
+            if (tipoDocumento == null)
+            {
+                tipoDocumento.Tipo = "ㅤ";
+            }
+            ViewData["DocumentoTipo"] = tipoDocumento.Tipo;
+            var years = Enumerable.Range(DateTime.Now.Year, 1950);
+            ViewBag.Years = new SelectList(years, "Año", "Año");
+
+            ViewData["Mensaje"] = "No se pudo crear la HV, Ingrese correctamente lo datos";
+            return View(modelo);
         }
 
         //DetalleHV
@@ -966,6 +1041,19 @@ namespace RH_CV.Controllers
             
             if (ModelState.IsValid)
             {
+                if (modelo.DatosGenerales != null)
+                {
+                    if (modelo.DatosGenerales.OtrosIngresos == null)
+                    {
+                        modelo.DatosGenerales.OtrosIngresos = "No";
+                    }
+
+                    if (modelo.DatosGenerales.ParientesTrabajando == null)
+                    {
+                        modelo.DatosGenerales.ParientesTrabajando = "No";
+                    }
+                }
+
                 string userRol = Utilities.GetRol(HttpContext, _contexto);
                 modelo.ContactoEmergencia = null;
                 modelo.DatosFamiliares = null;
@@ -1088,10 +1176,104 @@ namespace RH_CV.Controllers
                     return RedirectToAction("MyHV", "ManageHV");
                 }
                 ViewData["Mensaje"] = "No se pudo editar la HV";
-                return View();
+                return View(modelo);
             }
 
             return View();
+        }
+
+        //ExcelHV
+        [HttpGet]
+        public async Task<IActionResult> GetHVExcelFile()
+        {
+            using (var workbook = new XLWorkbook())
+            {
+                var worksheet = workbook.Worksheets.Add("HV HISA");
+                var row = 1;
+                var column = 1;
+                var dataTable = new DataTable();
+                //using (var connection = new SqlConnection("Data Source=JEFF_PC\\SQLEXPRESS;Initial Catalog=DB_CV;Integrated Security=True;Encrypt=false"))
+                //using (var connection = new SqlConnection("Data Source=DESARROLLOHISA;Initial Catalog=DB_CV;Integrated Security=True;Encrypt=false"))
+                using (var connection = new SqlConnection("Data Source=SERVER01;Initial Catalog=DB_CV;Integrated Security=True;Encrypt=false"))
+                {
+                    using (var command = new SqlCommand("GetAllHV", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+                        using (var adapter = new SqlDataAdapter(command))
+                        {
+                            adapter.Fill(dataTable);
+                        }
+                    }
+                }
+                foreach (DataColumn dataColumn in dataTable.Columns)
+                {
+                    worksheet.Cell(row, column).Value = dataColumn.ColumnName;
+                    column++;
+                }
+                row++;
+                column = 1;
+                foreach (DataRow dataRow in dataTable.Rows)
+                {
+                    foreach (DataColumn dataColumn in dataTable.Columns)
+                    {
+                        worksheet.Cell(row, column).Value = dataRow[dataColumn.ColumnName].ToString();
+                        column++;
+                    }
+                    row++;
+                    column = 1;
+                }
+                var memory = new MemoryStream();
+                workbook.SaveAs(memory);
+                memory.Position = 0;
+                return File(memory, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "HVHISA.xlsx");
+            }
+        }
+
+        //ExcelActiveHV
+        [HttpGet]
+        public async Task<IActionResult> GetActiveHVExcelFile()
+        {
+            using (var workbook = new XLWorkbook())
+            {
+                var worksheet = workbook.Worksheets.Add("Active HV HISA");
+                var row = 1;
+                var column = 1;
+                var dataTable = new DataTable();
+                //using (var connection = new SqlConnection("Data Source=JEFF_PC\\SQLEXPRESS;Initial Catalog=DB_CV;Integrated Security=True;Encrypt=false"))
+                //using (var connection = new SqlConnection("Data Source=DESARROLLOHISA;Initial Catalog=DB_CV;Integrated Security=True;Encrypt=false"))
+                using (var connection = new SqlConnection("Data Source=SERVER01;Initial Catalog=DB_CV;Integrated Security=True;Encrypt=false"))
+                {
+                    using (var command = new SqlCommand("GetActiveHV", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+                        using (var adapter = new SqlDataAdapter(command))
+                        {
+                            adapter.Fill(dataTable);
+                        }
+                    }
+                }
+                foreach (DataColumn dataColumn in dataTable.Columns)
+                {
+                    worksheet.Cell(row, column).Value = dataColumn.ColumnName;
+                    column++;
+                }
+                row++;
+                column = 1;
+                foreach (DataRow dataRow in dataTable.Rows)
+                {
+                    foreach (DataColumn dataColumn in dataTable.Columns)
+                    {
+                        worksheet.Cell(row, column).Value = dataRow[dataColumn.ColumnName].ToString();
+                        column++;
+                    }
+                    row++;
+                    column = 1;
+                }
+                var memory = new MemoryStream();
+                workbook.SaveAs(memory);
+                memory.Position = 0;
+                return File(memory, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "ActiveHVHISA.xlsx");
+            }
         }
 
         //EliminaHV

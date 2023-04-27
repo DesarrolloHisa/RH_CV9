@@ -42,7 +42,7 @@ namespace RH_CV.Controllers
         }
 
         //Crear Usuarios
-        public IActionResult CreateTeachingService()
+        public IActionResult CreateVolunteer()
         {
             string userRol = Utilities.GetRol(HttpContext, _contexto);
             if (userRol == "Admin")
