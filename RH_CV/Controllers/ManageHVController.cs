@@ -718,6 +718,9 @@ namespace RH_CV.Controllers
             var fondoCesantias = _contexto.FondoCesantias.Find(datosPersonales.FondoCesantiasId);
             var direccion = _contexto.Direccion.Find(datosPersonales.DireccionId);
 
+            _contexto.DatosGenerales.Find(datosPersonales.DatosGeneralesId);
+            _contexto.Practicas.Find(datosPersonales.PracticasId);
+
             //foreach (var item in _contexto.InfoLaboral){
             //    DateTime fecha = item.FechaIngreso.;
             //    string newFecha = item.FechaIngreso.ToString("d/M/yyyy", CultureInfo.InvariantCulture);
@@ -738,6 +741,8 @@ namespace RH_CV.Controllers
 
             ViewData["FechaNacimiento"] = fechaNac.ToString("dd/MM/yyyy");
             ViewData["Edad"] = edad;
+
+            var referenciasFamiliares = _contexto.ReferenciasFamiliares.Where(id => id.DatosPersonalesId == datosPersonales.Id);
 
             datosPersonales.Usuario = usuario;
 
@@ -795,6 +800,9 @@ namespace RH_CV.Controllers
             var fondoCesantias = _contexto.FondoCesantias.Find(datosPersonales.FondoCesantiasId);
             var direccion = _contexto.Direccion.Find(datosPersonales.DireccionId);
 
+            _contexto.DatosGenerales.Find(datosPersonales.DatosGeneralesId);
+            _contexto.Practicas.Find(datosPersonales.PracticasId);
+
             usuario.TipoVinculo = tipoVinculo;
             usuario.TipoContrato = tipoContrato;
             usuario.InfoDocumento.TipoDocumento = tipoDocumento;
@@ -809,6 +817,8 @@ namespace RH_CV.Controllers
 
             ViewData["FechaNacimiento"] = fechaNac.ToString("dd/MM/yyyy");
             ViewData["Edad"] = edad;
+
+            var referenciasFamiliares = _contexto.ReferenciasFamiliares.Where(id => id.DatosPersonalesId == datosPersonales.Id);
 
             datosPersonales.Usuario = usuario;
 
@@ -1023,7 +1033,7 @@ namespace RH_CV.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> EditHV(DatosPersonales modelo, List<DatosFamiliares>? datosFamiliares, List<InfoLaboral>? infoLaboral, List<Escolaridad> escolaridad, List<ContactoEmergencia> contactoEmergencia, List<ReferenciasFamiliares> referenciasFamiliares, List<ReferenciasPersonales> referenciasPersonales)
-        {
+            {
             //var personasACargo = _contexto.PersonasACargo.Find(modelo.PersonasACargoId);
 
             //var datosPersonales = _contexto.DatosPersonales.Find(id);
@@ -1104,7 +1114,7 @@ namespace RH_CV.Controllers
                 }
 
                 _contexto.DatosFamiliares.RemoveRange(_contexto.DatosFamiliares.Where(e => e.DatosPersonalesId == modelo.Id));
-                if (datosFamiliares[0].Nombre != null || datosFamiliares[0].FechaNacimiento != null || datosFamiliares[0].Parentesco != null || datosFamiliares[0].Ocupacion != null)
+                if (datosFamiliares[0].Nombre != null && datosFamiliares[0].FechaNacimiento != null && datosFamiliares[0].Parentesco != null && datosFamiliares[0].Ocupacion != null)
                 {
                     foreach (var datosFamiliaresItem in datosFamiliares)
                     {
@@ -1124,7 +1134,7 @@ namespace RH_CV.Controllers
                 int i = 0;
                 foreach (var infoLaboralItem in infoLaboral)
                 {
-                    if (infoLaboral[i].FechaIngreso != null || infoLaboral[i].FechaRetiro != null || infoLaboral[i].NombreEmpresa != null || infoLaboral[i].MotivoRetiro != null || infoLaboral[i].Celular != null || infoLaboral[i].Cargo != null)
+                    if (infoLaboral[i].FechaIngreso != null && infoLaboral[i].FechaRetiro != null && infoLaboral[i].NombreEmpresa != null && infoLaboral[i].MotivoRetiro != null && infoLaboral[i].Celular != null && infoLaboral[i].Cargo != null)
                     {
                         // Asignar el ID de la instancia de DatosPersonales a la propiedad DatosPersonalesId de la instancia de DatosFamiliares
                         infoLaboralItem.DatosPersonalesId = modelo.Id;

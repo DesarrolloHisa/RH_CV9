@@ -38,7 +38,7 @@ namespace RH_CV.Models
         public string PaisNacimiento { get; set; }
         public string? MunicipioNacimiento { get; set; }
         [Required(ErrorMessage = "El celular es obligatorio")]
-        public int Celular { get; set; }
+        public string Celular { get; set; }
         [Required(ErrorMessage = "El email es obligatorio")]
         public string Email { get; set; }
         [Required(ErrorMessage = "El sexo es obligatorio")]

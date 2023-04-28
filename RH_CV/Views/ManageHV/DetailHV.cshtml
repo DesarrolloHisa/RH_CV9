@@ -884,17 +884,17 @@ For more information on enabling MVC for empty projects, visit https://go.micros
                                         {
                                             <input type="radio" name="OtrosIngresos" value="Si" id="OtrosIngresosSi" disabled />
                                             <label class="col-md-2">Si ¿Cuál?</label>
-                                            <label type="text" class="form-control" id="Cual" @*style="border: none; border-bottom: 1px solid black; flex: 1;"*@ readonly>&nbsp;</label>
+                                            <label type="text" class="form-control" id="Cual" readonly>&nbsp;</label>
                                         }
                                         else if (@Model.DatosGenerales.OtrosIngresos != "No")
                                         {
                                             <input type="radio" name="OtrosIngresos" value="Si" id="OtrosIngresosSi" disabled checked/>
                                             <label class="col-md-2">Si ¿Cuál?</label>
-                                            <label type="text" class="form-control" id="Cual" @*style="border: none; border-bottom: 1px solid black; flex: 1;"*@ readonly>@Model.DatosGenerales.OtrosIngresos</label>
+                                            <label type="text" class="form-control" id="Cual" readonly>@Model.DatosGenerales.OtrosIngresos</label>
                                         }else{
                                             <input type="radio" name="OtrosIngresos" value="Si" id="OtrosIngresosSi" disabled/>
                                             <label class="col-md-2">Si ¿Cuál?</label>
-                                            <label type="text" class="form-control" id="Cual" style="border: none; border-bottom: 1px solid black; flex: 1;" readonly></label>
+                                            <label type="text" class="form-control" id="Cual" style="border: none; border-bottom: 1px solid black; flex: 1;" readonly>&nbsp;</label>
                                         }
                                     </div>
                                     @if (@Model.DatosGenerales == null)
@@ -935,7 +935,7 @@ For more information on enabling MVC for empty projects, visit https://go.micros
                                         {
                                             <input type="radio" name="ParientesTrabajando" value="Si" id="ParientesTrabajandoSi" disabled />
                                             <label class="col-md-2">Si ¿Quén?</label>
-                                            <label type="text" class="form-control" id="Cual" @*style="border: none; border-bottom: 1px solid black; flex: 1;"*@ readonly>&nbsp;</label>
+                                            <label type="text" class="form-control" id="Cual" readonly>&nbsp;</label>
                                         }
                                         else if (@Model.DatosGenerales.ParientesTrabajando != "No")
                                         {
@@ -945,7 +945,7 @@ For more information on enabling MVC for empty projects, visit https://go.micros
                                         }else{
                                             <input type="radio" name="ParientesTrabajando" value="Si" id="ParientesTrabajandoSi" disabled />
                                             <label class="col-md-2">Si ¿Cuál?</label>
-                                            <label type="text" class="form-control" id="Quien" style="border: none; border-bottom: 1px solid black; flex: 1;" readonly></label>
+                                            <label type="text" class="form-control" id="Quien" style="border: none; border-bottom: 1px solid black; flex: 1;" readonly>&nbsp;</label>
                                         }
                                     </div>
                                     @if (@Model.DatosGenerales == null)
