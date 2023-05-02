@@ -3064,6 +3064,7 @@ For more information on enabling MVC for empty projects, visit https://go.micros
                                                         <option value="Prima" selected="@(item.Parentesco == "Prima")">Prima</option>
                                                         <option value="Hijo" selected="@(item.Parentesco == "Hijo")">Hijo</option>
                                                         <option value="Hija" selected="@(item.Parentesco == "Hija")">Hija</option>
+                                                        <option value="Conyugue" selected="@(item.Parentesco == "Conyugue")">Conyugue</option>
                                                         <option value="Otro" selected="@(item.Parentesco == "Otro")">Otro</option>
                                                     </select>
                                                 </td>
@@ -3147,6 +3148,7 @@ For more information on enabling MVC for empty projects, visit https://go.micros
                                                         <option value="Prima" selected="@(item.Parentesco == "Prima")">Prima</option>
                                                         <option value="Hijo" selected="@(item.Parentesco == "Hijo")">Hijo</option>
                                                         <option value="Hija" selected="@(item.Parentesco == "Hija")">Hija</option>
+                                                        <option value="Conyugue" selected="@(item.Parentesco == "Conyugue")">Conyugue</option>
                                                         <option value="Otro" selected="@(item.Parentesco == "Otro")">Otro</option>
                                                     </select>
                                                 </td>
@@ -3200,6 +3202,7 @@ For more information on enabling MVC for empty projects, visit https://go.micros
                                                                 <option value="Prima" selected="@(item.Parentesco == "Prima")">Prima</option>
                                                                 <option value="Hijo" selected="@(item.Parentesco == "Hijo")">Hijo</option>
                                                                 <option value="Hija" selected="@(item.Parentesco == "Hija")">Hija</option>
+                                                                <option value="Conyugue" selected="@(item.Parentesco == "Conyugue")">Conyugue</option>
                                                                 <option value="Otro" selected="@(item.Parentesco == "Otro")">Otro</option>
                                                             </select>
                                                         </td>
@@ -3241,6 +3244,7 @@ For more information on enabling MVC for empty projects, visit https://go.micros
                                                             <option value="Prima">Prima</option>
                                                             <option value="Hijo">Hijo</option>
                                                             <option value="Hija">Hija</option>
+                                                            <option value="Conyugue">Conyugue</option>
                                                             <option value="Otro">Otro</option>
                                                         </select>
                                                     </td>
@@ -4427,7 +4431,7 @@ For more information on enabling MVC for empty projects, visit https://go.micros
 
                 celda1.innerHTML = '<input name="datosFamiliares[' + (numFilas - 1) + '].Nombre" type="text" class="form-control" required/>';
                 celda2.innerHTML = '<input name="datosFamiliares[' + (numFilas - 1) + '].FechaNacimiento" type="date" id="FechaNacimientoFamiliar' + (numFilas - 1) + '" class="form-control" required/>';
-                celda3.innerHTML = '<select name="datosFamiliares[' + (numFilas - 1) + '].Parentesco" class="form-select" required><option value="">Seleccionar</option><option value="Padre">Padre</option><option value="Madre">Madre</option><option value="Hermano">Hermano</option><option value="Hermana">Hermana</option><option value="Abuelo">Abuelo</option><option value="Abuela">Abuela</option><option value="Tío">Tío</option><option value="Tía">Tía</option><option value="Primo">Primo</option><option value="Prima">Prima</option><option value="Hijo">Hijo</option><option value="Hija">Hija</option><option value="Otro">Otro</option></select>';
+                celda3.innerHTML = '<select name="datosFamiliares[' + (numFilas - 1) + '].Parentesco" class="form-select" required><option value="">Seleccionar</option><option value="Padre">Padre</option><option value="Madre">Madre</option><option value="Hermano">Hermano</option><option value="Hermana">Hermana</option><option value="Abuelo">Abuelo</option><option value="Abuela">Abuela</option><option value="Tío">Tío</option><option value="Tía">Tía</option><option value="Primo">Primo</option><option value="Prima">Prima</option><option value="Hijo">Hijo</option><option value="Hija">Hija</option><option value="Conyugue">Conyugue</option><option value="Otro">Otro</option></select>';
                 celda4.innerHTML = '<select name="datosFamiliares[' + (numFilas - 1) + '].Ocupacion" class="form-select" required><option value="">Seleccionar</option><option value="Empleado">Empleado</option><option value="Desempleado">Desempleado</option><option value="Independiente">Independiente</option><option value="Cabeza de hogar">Cabeza de hogar</option><option value="Estudiante">Estudiante</option></select>';
                 celda5.innerHTML = '<button type="button" class="btn btn-danger" onclick="eliminarFila(this)">Eliminar</button>';
                 document.getElementById("FechaNacimientoFamiliar" + (numFilas - 1)).setAttribute("max", fechaActual);

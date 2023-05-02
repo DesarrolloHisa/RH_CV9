@@ -1,7 +1,13 @@
-﻿@{
+﻿@model RH_CV.Models.DatosPersonales
+@{
     Layout = null;
+    DateTime fechaNacimiento = DateTime.ParseExact(@Model.FechaNacimiento.ToString("dd-MM-yyyy"), "dd-MM-yyyy", null);
+    int edad = DateTime.Today.Year - fechaNacimiento.Year;
+    if (fechaNacimiento > DateTime.Today.AddYears(-edad))
+    {
+        edad--;
+    }
 }
-@model RH_CV.Models.DatosPersonales
 <!DOCTYPE html>
 <html>
 <head>
@@ -125,6 +131,36 @@
         <div class="card-body">
             <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active" id="Personal" role="tabpanel" aria-labelledby="home-tab">
+
+
+                    <table style="width:100%">
+                        <tr>
+                            <td>
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <p class="title">Hospital Infantil Santa Ana</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><p class="text">NIT: 890901684-3</p></td>
+                                    </tr>
+                                    <tr>
+                                        <td><p class="text">Direccion: Cl. 14 #43B-146, El Poblado, Medellín</p></td>
+                                    </tr>
+                                    <tr>
+                                        <td><p class="text">Telefono: 4441101</p></td>
+                                    </tr>
+                                </table>
+                            </td>
+                            <td style="text-align:right">
+                                <img src="https://www.hospitalinfantilsantaana.org/wp-content/uploads/logo-2-300x196.png" style="height:100px" />
+                            </td>
+                        </tr>
+                    </table>
+                    <br />
+                    <br />
+
 
                     <div id="divNombreDimension_1" class="col-md-12 alert alert-warning" role="alert" style="text-align:center;background-color:#DE3163;color: #FFFFFF;border-color:#d3255c">
                         <b>Hoja de Vida</b>
@@ -367,7 +403,7 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <p class="text" @*style="background-color: #e3e4e5;"*@ readonly>a</p>
+                                            <p class="text" @*style="background-color: #e3e4e5;"*@ readonly>@edad</p>
                                         </td>
                                     </tr>
                                 </table>
@@ -792,6 +828,7 @@
                         </tbody>
                     </table>
                     <br />
+                    <br />
                     <div class="col-md-4">
                         <b>Referencias Personales</b>
                     </div>
@@ -817,9 +854,6 @@
                             }
                         </tbody>
                     </table>
-                    <br>
-                    <br />
-                    <br />
                     <br />
                     <div class="col-md-4" id="d7">
                         <b>Contacto en caso de emergencia</b>

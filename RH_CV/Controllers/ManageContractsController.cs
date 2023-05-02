@@ -452,7 +452,54 @@ namespace RH_CV.Controllers
                 var memory = new MemoryStream();
                 workbook.SaveAs(memory);
                 memory.Position = 0;
-                return File(memory, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "ActiveEmployeesContratcs.xlsx");
+                return File(memory, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "ActiveEmployeesContracts.xlsx");
+            }
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetEmployeeContractsExcelFile(int? doc)
+        {
+            using (var workbook = new XLWorkbook())
+            {
+                var worksheet = workbook.Worksheets.Add("Contrato Empleado HISA");
+                var row = 1;
+                var column = 1;
+                var dataTable = new DataTable();
+                //using (var connection = new SqlConnection("Data Source=JEFF_PC\\SQLEXPRESS;Initial Catalog=DB_CV;Integrated Security=True;Encrypt=false"))
+                //using (var connection = new SqlConnection("Data Source=DESARROLLOHISA;Initial Catalog=DB_CV;Integrated Security=True;Encrypt=false"))
+                using (var connection = new SqlConnection("Data Source=SERVER01;Initial Catalog=DB_CV;Integrated Security=True;Encrypt=false"))
+                {
+                    using (var command = new SqlCommand("GetEmployeeContracts", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.AddWithValue("@doc", doc); // Agregar parámetro @doc
+                        using (var adapter = new SqlDataAdapter(command))
+                        {
+                            adapter.Fill(dataTable);
+                        }
+                    }
+                }
+                foreach (DataColumn dataColumn in dataTable.Columns)
+                {
+                    worksheet.Cell(row, column).Value = dataColumn.ColumnName;
+                    column++;
+                }
+                row++;
+                column = 1;
+                foreach (DataRow dataRow in dataTable.Rows)
+                {
+                    foreach (DataColumn dataColumn in dataTable.Columns)
+                    {
+                        worksheet.Cell(row, column).Value = dataRow[dataColumn.ColumnName].ToString();
+                        column++;
+                    }
+                    row++;
+                    column = 1;
+                }
+                var memory = new MemoryStream();
+                workbook.SaveAs(memory);
+                memory.Position = 0;
+                return File(memory, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "EmployeesContracts.xlsx");
             }
         }
 

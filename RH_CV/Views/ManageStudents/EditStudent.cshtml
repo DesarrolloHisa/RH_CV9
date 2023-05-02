@@ -51,9 +51,10 @@
 
                                     <div class="form-outline mb-2 col-md-4" id="municipioExpedicion">
                                         <label>Tipo de Cargo</label>
-                                        <select asp-for="TipoCargoId" asp-items="@ViewBag.TipoCargo" class="form-select" required>
+                                        <input asp-for="TipoCargo" type="text" class="form-control" id="f10" required="">
+                                        @*<select asp-for="TipoCargoId" asp-items="@ViewBag.TipoCargo" class="form-select" required>
                                             <option value="">Seleccionar</option>
-                                        </select>
+                                        </select>*@
                                     </div>
 
                                 </div>

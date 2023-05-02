@@ -815,8 +815,8 @@ namespace RH_CV.Controllers
                 edad--;
             }
 
-            ViewData["FechaNacimiento"] = fechaNac.ToString("dd/MM/yyyy");
-            ViewData["Edad"] = edad;
+            //ViewData["FechaNacimiento"] = fechaNac.ToString("dd/MM/yyyy");
+            //ViewBag.Edad = edad;
 
             var referenciasFamiliares = _contexto.ReferenciasFamiliares.Where(id => id.DatosPersonalesId == datosPersonales.Id);
 

@@ -501,15 +501,14 @@ namespace RH_CV.Migrations
                     b.Property<string>("SegundoNombre")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("TipoCargoId")
-                        .HasColumnType("int");
+                    b.Property<string>("TipoCargo")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("TipoVinculacionId")
                         .HasColumnType("int");
 
                     b.HasKey("Documento");
-
-                    b.HasIndex("TipoCargoId");
 
                     b.HasIndex("TipoVinculacionId");
 
@@ -1142,19 +1141,11 @@ namespace RH_CV.Migrations
 
             modelBuilder.Entity("RH_CV.Models.Estudiante", b =>
                 {
-                    b.HasOne("RH_CV.Models.TipoCargo", "TipoCargo")
-                        .WithMany()
-                        .HasForeignKey("TipoCargoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("RH_CV.Models.TipoVinculacion", "TipoVinculacion")
                         .WithMany()
                         .HasForeignKey("TipoVinculacionId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("TipoCargo");
 
                     b.Navigation("TipoVinculacion");
                 });

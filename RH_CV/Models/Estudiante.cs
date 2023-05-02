@@ -21,8 +21,8 @@ namespace RH_CV.Models
         public int TipoVinculacionId { get; set; }
         public virtual TipoVinculacion? TipoVinculacion { get; set; }
         [Required(ErrorMessage = "El id es obligatorio")]
-        public int TipoCargoId { get; set; }
-        public virtual TipoCargo? TipoCargo { get; set; }
+        public string TipoCargo { get; set; }
+        //public virtual TipoCargo? TipoCargo { get; set; }
         public string Institucion { get; set; }
         public string AreaFuncional { get; set; }
         [Column(TypeName = "DATE")]

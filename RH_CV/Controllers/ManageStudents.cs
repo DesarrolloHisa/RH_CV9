@@ -169,7 +169,7 @@ namespace RH_CV.Controllers
                 ViewBag.TipoCargo = drop[7];
                 //ViewBag.TipoVinculacion = drop[8];
 
-                _contexto.TipoCargo.Find(student.TipoCargoId);
+                //_contexto.TipoCargo.Find(student.TipoCargoId);
                 _contexto.TipoVinculacion.Find(student.TipoVinculacionId);
 
                 //if (rol == null)
@@ -217,7 +217,7 @@ namespace RH_CV.Controllers
                 ViewBag.TipoCargo = drop[7];
                 //ViewBag.TipoVinculacion = drop[8];
 
-                _contexto.TipoCargo.Find(student.TipoCargoId);
+                //_contexto.TipoCargo.Find(student.TipoCargoId);
                 _contexto.TipoVinculacion.Find(student.TipoVinculacionId);
 
                 return View(student);
@@ -301,7 +301,7 @@ namespace RH_CV.Controllers
                 ViewBag.TipoCargo = drop[7];
                 //ViewBag.TipoVinculacion = drop[8];
 
-                _contexto.TipoCargo.Find(student.TipoCargoId);
+                //_contexto.TipoCargo.Find(student.TipoCargoId);
                 _contexto.TipoVinculacion.Find(student.TipoVinculacionId);
 
                 return View(student);
