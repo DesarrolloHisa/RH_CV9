@@ -17,6 +17,11 @@
                                 <span class="elementor-button-text"><b>Administrar HV</b></span>
                             </span>
                         </a>
+                        <a href="@Url.Action("ChangePassword","ManageUsers")" class="btn btn-1">
+                            <span class="elementor-button-content-wrapper">
+                                <span class="elementor-button-text"><b>Cambiar Contraseña</b></span>
+                            </span>
+                        </a>
                     }
                     @if (ViewData["UserRol"] == "Admin" || ViewData["UserRol"] == "Observador")
                     {

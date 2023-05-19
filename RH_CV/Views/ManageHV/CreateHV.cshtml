@@ -1773,25 +1773,25 @@ For more information on enabling MVC for empty projects, visit https://go.micros
                             </div>
                         </div>
                         <br>
-                        <div class="col-md-2" id="d7">
-                            <b>Personas A Cargo</b>
+                        <div class="col-md-3" id="d7">
+                            <b>Número Personas A Cargo</b>
                         </div>
                         <div class="row align-items-baseline">
                             <div class="col-md-3">
                                 <label>Hijos</label>
-                                <input asp-for="PersonasACargo.Hijo" type="text" onkeypress="return soloNumeros(event)" class="form-control" id="p2" value="" required="">
+                                <input asp-for="PersonasACargo.Hijo" type="text" onkeypress="return soloNumeros(event)" class="form-control" id="p2" value="" maxlength="3" required="">
                             </div>
                             <div class="col-md-3">
                                 <label>Conyugue</label>
-                                <input asp-for="PersonasACargo.Conyugue" type="text" onkeypress="return soloNumeros(event)" class="form-control" id="p2" value="" required="">
+                                <input asp-for="PersonasACargo.Conyugue" type="text" onkeypress="return soloNumeros(event)" class="form-control" id="p2" value="" maxlength="3" required="">
                             </div>
                             <div class="col-md-3">
                                 <label>Padres</label>
-                                <input asp-for="PersonasACargo.Padres" type="text" onkeypress="return soloNumeros(event)" class="form-control" id="p2" value="" required="">
+                                <input asp-for="PersonasACargo.Padres" type="text" onkeypress="return soloNumeros(event)" class="form-control" id="p2" value="" maxlength="3" required="">
                             </div>
                             <div class="col-md-3">
                                 <label>Otros</label>
-                                <input asp-for="PersonasACargo.Otros" type="text" onkeypress="return soloNumeros(event)" class="form-control" id="p2" value="" required="">
+                                <input asp-for="PersonasACargo.Otros" type="text" onkeypress="return soloNumeros(event)" class="form-control" id="p2" value="" maxlength="3" required="">
                             </div>
                         </div>
                         <br>
@@ -2528,6 +2528,9 @@ For more information on enabling MVC for empty projects, visit https://go.micros
                                             <option value="">Seleccionar</option>
                                             <option value="Propia">Propia</option>
                                             <option value="Arrendada">Arrendada</option>
+                                            <option value="Familiar">Familiar</option>
+                                            <option value="Cuarto">Cuarto</option>
+                                            <option value="Otro Tipo">Otro Tipo</option>
                                         </select>
                                     </div>
                                     <br>

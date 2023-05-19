@@ -141,17 +141,29 @@
 
                                             <div class="form-outline mb-2 col-md-4">
                                                 <label>EPS</label>
-                                            <select asp-for="EPSId" asp-items="@ViewBag.Eps" class="form-select" required>
+                                                <select asp-for="EPSId" asp-items="@ViewBag.Eps" class="form-select" required>
                                                     <option value="">Seleccionar</option>
                                                 </select>
                                             </div>
 
                                             <div class="form-outline mb-2 col-md-4">
                                                 <label>Fondo Pensiones</label>
-                                            <select asp-for="FondoPensionesId" asp-items="@ViewBag.FondoPensiones" class="form-select">
+                                                <select asp-for="FondoPensionesId" asp-items="@ViewBag.FondoPensiones" class="form-select">
                                                     <option value="">Seleccionar</option>
                                                 </select>
                                             </div>
+
+                                            <div class="form-outline mb-2 col-md-4">
+                                                <label>Fondo Cesantias</label>
+                                                <select asp-for="FondoCesantiasId" asp-items="@ViewBag.FondoCesantias" class="form-select">
+                                                    <option value="">Seleccionar</option>
+                                                </select>
+                                            </div>
+
+                                        </div>
+                                        <br />
+
+                                        <div class="row align-items-baseline">
 
                                             <div class="form-outline mb-2 col-md-4">
                                                 <label>Contrato</label>
@@ -159,17 +171,13 @@
                                                     <option value="">Seleccionar</option>
                                                 </select>
                                             </div>
-                                        </div>
-                                        <br />
 
-                                        <div class="row align-items-baseline">
-
-                                            <div class="form-outline mb-2 col-md-5">
+                                            <div class="form-outline mb-2 col-md-4">
                                                 <label>Tiempo contratado en horas</label>
-                                        <input type="text" onkeypress="return soloNumeros(event)" class="form-control" asp-for="TiempoContratado" required />
+                                                <input type="text" onkeypress="return soloNumeros(event)" class="form-control" asp-for="TiempoContratado" required />
                                             </div>
 
-                                            <div class="form-outline mb-2 col-md-5">
+                                            <div class="form-outline mb-2 col-md-4">
                                                 <label>Registro Médico</label>
                                                 <input type="text" class="form-control" asp-for="RegistroMedico"/>
                                             </div>

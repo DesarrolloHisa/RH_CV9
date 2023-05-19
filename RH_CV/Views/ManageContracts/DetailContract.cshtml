@@ -166,6 +166,23 @@
                                         </div>
 
                                         <div class="form-outline mb-2 col-md-4">
+                                            <label>Fondo Pensiones</label>
+                                            @if (Model.FondoCesantias == null)
+                                            {
+                                                <label class="form-control">&nbsp;</label>
+                                            }
+                                            else
+                                            {
+                                                <label class="form-control">@Model.FondoCesantias.Tipo</label>
+                                            }
+                                        </div>
+
+                                    </div>
+                                    <br />
+
+                                    <div class="row align-items-baseline">
+
+                                        <div class="form-outline mb-2 col-md-4">
                                             <label>Contrato</label>
                                             @if (Model.TipoContrato == null)
                                             {
@@ -176,17 +193,13 @@
                                                 <label class="form-control">@Model.TipoContrato.Tipo</label>
                                             }
                                         </div>
-                                    </div>
-                                    <br />
 
-                                    <div class="row align-items-baseline">
-
-                                        <div class="form-outline mb-2 col-md-5">
+                                        <div class="form-outline mb-2 col-md-4">
                                             <label>Tiempo contratado en horas</label>
                                             <label class="form-control">@Model.TiempoContratado</label>
                                         </div>
 
-                                        <div class="form-outline mb-2 col-md-5">
+                                        <div class="form-outline mb-2 col-md-4">
                                             <label>Registro Médico</label>
                                             @if (Model.RegistroMedico == null)
                                             {
@@ -249,7 +262,7 @@
                                             <label>Observaciones</label>
                                             @if (Model.Observaciones == null)
                                             {
-                                                <textarea rows="3" class="form-control" reareadonly style="background-color: #FFFFFF;" donly>&nbsp;</textarea>
+                                                <textarea rows="3" class="form-control" readonly style="background-color: #FFFFFF;">&nbsp;</textarea>
                                             }
                                             else
                                             {
@@ -264,8 +277,8 @@
                                         <button class="col-md-3 btn btn-secondary btn-block fa-lg mb-3" type="button" onclick="window.location.href='@Url.Action("AllEmployeeContracts", "ManageContracts", new { doc = Model.EmpleadoId })'">
                                             Atrás
                                         </button>
-                                        <div class="mb-3">ㅤㅤㅤ</div>
-                                        <a class="col-md-3 btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" href="@Url.Action("GeneratePdf", "ManageHV", new { id = Model.Id })">Download</a>
+                                        @*<div class="mb-3">ㅤㅤㅤ</div>
+                                        <a class="col-md-3 btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" href="@Url.Action("GeneratePdf", "ManageHV", new { id = Model.Id })">Download</a>*@
                                         @*<button id="btn1" class="col-md-2 btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit">Download</button>*@
                                     </div>
                             </div>

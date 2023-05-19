@@ -13,7 +13,7 @@ namespace RH_CV.Models
         public DateTime? FechaRetiro { get; set; }
         public string? NombreEmpresa { get; set; }
         public string? MotivoRetiro { get; set; }
-        public int? Celular { get; set; }
+        public string? Celular { get; set; }
         public string? Cargo { get; set; }
     }
 }

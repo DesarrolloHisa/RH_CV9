@@ -23,6 +23,8 @@ namespace RH_CV.Models
         public virtual EPS? EPS { get; set; }
         public int? FondoPensionesId { get; set; }
         public virtual FondoPensiones? FondoPensiones { get; set; }
+        public int? FondoCesantiasId { get; set; }
+        public virtual FondoCesantias? FondoCesantias { get; set; }
         public int? TipoContratoId { get; set; }
         public TipoContrato? TipoContrato { get; set; }
         [Required(ErrorMessage = "Este campo es obligatorio")]

@@ -34,6 +34,10 @@
     justify-content: flex-end;
     align-items: center;
 }
+    .contenedor-img img[b-70oz2cudkm] {
+        max-width: 80%;
+        height: auto;
+    }
 /*.elementor-section {
     width: 100%;
     height: 100vh;*/  /*Establecer altura en viewport height */

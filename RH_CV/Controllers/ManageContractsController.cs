@@ -97,6 +97,7 @@ namespace RH_CV.Controllers
                 ViewBag.TipoContrato = drop[1];
                 ViewBag.Eps = drop[3];
                 ViewBag.FondoPensiones = drop[4];
+                ViewBag.FondoCesantias = drop[5];
                 //ViewBag.TipoDocumento = drop[2];
                 //ViewBag.Rol = drop[6];
                 ViewBag.TipoCargo = drop[7];
@@ -162,6 +163,7 @@ namespace RH_CV.Controllers
                 ViewBag.TipoContrato = drop[1];
                 ViewBag.Eps = drop[3];
                 ViewBag.FondoPensiones = drop[4];
+                ViewBag.FondoCesantias = drop[5];
                 ViewBag.TipoCargo = drop[7];
 
                 //if (contrato.TipoContratoId == null)
@@ -208,6 +210,7 @@ namespace RH_CV.Controllers
                 ViewBag.TipoContrato = drop[1];
                 ViewBag.Eps = drop[3];
                 ViewBag.FondoPensiones = drop[4];
+                ViewBag.FondoCesantias = drop[5];
                 //ViewBag.TipoDocumento = drop[2];
                 //ViewBag.Rol = drop[6];
                 ViewBag.TipoCargo = drop[7];
@@ -255,6 +258,7 @@ namespace RH_CV.Controllers
                 ViewBag.TipoContrato = drop[1];
                 ViewBag.Eps = drop[3];
                 ViewBag.FondoPensiones = drop[4];
+                ViewBag.FondoCesantias = drop[5];
                 //ViewBag.TipoDocumento = drop[2];
                 //ViewBag.Rol = drop[6];
                 ViewBag.TipoCargo = drop[7];
@@ -300,6 +304,7 @@ namespace RH_CV.Controllers
                 ViewBag.TipoContrato = drop[1];
                 ViewBag.Eps = drop[3];
                 ViewBag.FondoPensiones = drop[4];
+                ViewBag.FondoCesantias = drop[5];
                 ViewBag.TipoCargo = drop[7];
 
                 //if (contrato.TipoContratoId == null)

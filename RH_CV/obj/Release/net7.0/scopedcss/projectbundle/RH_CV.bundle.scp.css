@@ -35,6 +35,10 @@
     justify-content: flex-end;
     align-items: center;
 }
+    .contenedor-img img[b-70oz2cudkm] {
+        max-width: 80%;
+        height: auto;
+    }
 /*.elementor-section {
     width: 100%;
     height: 100vh;*/  /*Establecer altura en viewport height */
@@ -202,6 +206,11 @@ a[b-rn4wpn8p7j] {
     justify-content: flex-end;
     align-items: center;
 }
+
+    .contenedor-img img[b-rn4wpn8p7j] {
+        max-width: 80%;
+        height: auto;
+    }
 /* _content/RH_CV/Views/InicioSesion/IniciarSesion.cshtml.rz.scp.css */
 h3[b-zh3kiqn0ff] {
     text-align: center;
@@ -1883,6 +1892,32 @@ a[b-8lbd52yx4l] {
             transform: scaleX(1);
             transform-origin: left;
         }
+/* _content/RH_CV/Views/ManageUsers/ChangePassword.cshtml.rz.scp.css */
+h3[b-lts3uumiuv] {
+    text-align: center;
+}
+
+.gradient-custom-2[b-lts3uumiuv] {
+    /* fallback for old browsers */
+    background: #fccb90;
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+}
+
+@media (min-width: 768px) {
+    .gradient-form[b-lts3uumiuv] {
+        height: 100vh !important;
+    }
+}
+
+@media (min-width: 769px) {
+    .gradient-custom-2[b-lts3uumiuv] {
+        border-top-right-radius: .3rem;
+        border-bottom-right-radius: .3rem;
+    }
+}
 /* _content/RH_CV/Views/ManageUsers/CreateUser.cshtml.rz.scp.css */
 h3[b-obxjvxdyme] {
     text-align: center;

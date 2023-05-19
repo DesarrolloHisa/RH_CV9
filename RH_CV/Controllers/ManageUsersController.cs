@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -8,6 +9,7 @@ using RH_CV.Services.Contract;
 using RH_CV.Services.implementation;
 using RH_CV.Sources;
 using System.Diagnostics.Contracts;
+using System.Security.Claims;
 
 namespace RH_CV.Controllers
 {
@@ -324,6 +326,73 @@ namespace RH_CV.Controllers
             {
                 return RedirectToAction("AccessDenied", "Home");
             }
+        }
+
+        //EditarUsuarios
+        [HttpGet]
+        public IActionResult ChangePassword()
+        {
+            string userId = Utilities.GetUser(HttpContext, _contexto);
+            if (userId == null)
+            {
+                return NotFound();
+            }
+
+            var usuario = _contexto.Usuario.Find(userId);
+            if (usuario == null)
+            {
+                return NotFound();
+            }
+
+            return View(usuario);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ChangePassword(string userId, string pwd)
+        {
+            //string userRol = Utilities.GetRol(HttpContext, _contexto);
+            //if (userRol == "Admin")
+            //{
+            //    var roles = _contexto.Rol.Select(r => new SelectListItem
+            //    {
+            //        Value = r.Id.ToString(),
+            //        Text = r.Tipo,
+            //    });
+            //    ViewBag.Roles = roles;
+
+            //    bool change = true;
+            //    if (modelo.Password == null)
+            //    {
+            //        var usuario = _contexto.Usuario.Find(modelo.User);
+            //        modelo.Password = usuario.Password;
+            //        change = false;
+            //        _contexto.Entry(usuario).State = EntityState.Detached;
+            //        ModelState.Remove("Password");
+            //    }
+
+            //    if (modelo.TipoContratoId == null)
+            //    {
+            //        ModelState.Remove("TipoContratoId");
+            //    }
+
+            var usuario = _contexto.Usuario.Find(userId);
+            if (usuario == null)
+            {
+                return NotFound();
+            }
+
+            usuario.Password = Utilities.EncryptPassword(pwd);
+
+            _contexto.Update(usuario);
+            await _contexto.SaveChangesAsync();
+
+            return RedirectToAction("Index", "Home");
+            //}
+            //else
+            //{
+            //    return RedirectToAction("AccessDenied", "Home");
+            //}
         }
 
         //[HttpPost]

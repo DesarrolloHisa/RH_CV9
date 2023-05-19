@@ -9,6 +9,18 @@ namespace RH_CV.Sources
 {
     public static class Utilities
     {
+
+        //Obtener USer
+        public static string GetUser(HttpContext httpContext, ApplicationDbContext _contexto)
+        {
+            ClaimsPrincipal claimsRol = httpContext.User;
+            string userId = "";
+            userId = claimsRol.Claims.Where(c => c.Type == ClaimTypes.Name)
+                    .Select(c => c.Value).SingleOrDefault();
+
+            return userId;
+        }
+
         //Obtener Rol
         public static string GetRol(HttpContext httpContext, ApplicationDbContext _contexto)
         {

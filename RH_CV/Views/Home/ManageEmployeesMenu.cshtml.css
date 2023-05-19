@@ -48,3 +48,8 @@
     justify-content: flex-end;
     align-items: center;
 }
+
+    .contenedor-img img {
+        max-width: 80%;
+        height: auto;
+    }

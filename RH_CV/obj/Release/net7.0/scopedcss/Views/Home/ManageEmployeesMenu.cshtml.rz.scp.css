@@ -48,3 +48,8 @@ a[b-rn4wpn8p7j] {
     justify-content: flex-end;
     align-items: center;
 }
+
+    .contenedor-img img[b-rn4wpn8p7j] {
+        max-width: 80%;
+        height: auto;
+    }

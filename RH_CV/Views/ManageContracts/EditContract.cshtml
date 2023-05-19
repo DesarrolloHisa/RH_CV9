@@ -169,22 +169,30 @@
                                         </div>
 
                                         <div class="form-outline mb-2 col-md-4">
-                                            <label>Contrato</label>
-                                            <select asp-for="TipoContratoId" asp-items="@ViewBag.TipoContrato" class="form-select">
+                                            <label>Fondo Cesantias</label>
+                                            <select asp-for="FondoCesantiasId" asp-items="@ViewBag.FondoCesantias" class="form-select">
                                                 <option value="">Seleccionar</option>
                                             </select>
                                         </div>
+
                                     </div>
                                     <br />
 
                                     <div class="row align-items-baseline">
 
-                                        <div class="form-outline mb-2 col-md-5">
+                                        <div class="form-outline mb-2 col-md-4">
+                                            <label>Contrato</label>
+                                            <select asp-for="TipoContratoId" asp-items="@ViewBag.TipoContrato" class="form-select">
+                                                <option value="">Seleccionar</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-outline mb-2 col-md-4">
                                             <label>Tiempo contratado en horas</label>
                                             <input type="text" onkeypress="return soloNumeros(event)" class="form-control" asp-for="TiempoContratado" required />
                                         </div>
 
-                                        <div class="form-outline mb-2 col-md-5">
+                                        <div class="form-outline mb-2 col-md-4">
                                             <label>Registro Médico</label>
                                             <input type="text" class="form-control" asp-for="RegistroMedico" />
                                         </div>
@@ -224,11 +232,11 @@
                                     <br />
                                     <br />
                                     <div class="d-flex justify-content-center">
-                                        <button class="col-md-2 btn btn-secondary btn-block fa-lg mb-3" type="button" onclick="window.location.href='@Url.Action("AllEmployeeContracts", "ManageContracts")?doc=@Model.Empleado.Documento''">
+                                        <button class="col-md-2 btn btn-secondary btn-block fa-lg mb-3" type="button" onclick="window.location.href='@Url.Action("AllEmployeeContracts", "ManageContracts")?doc=@Model.Empleado.Documento'">
                                             Atrás
                                         </button>
                                         <div class="mb-3">ㅤㅤㅤ</div>
-                                        <button class="col-md-2 btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit">Edit</button>
+                                        <button class="col-md-2 btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit">Guardar</button>
                                     </div>
                                 </form>
                             </div>

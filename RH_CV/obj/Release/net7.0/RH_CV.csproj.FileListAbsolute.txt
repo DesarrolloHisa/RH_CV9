@@ -328,3 +328,4 @@ C:\Users\psistemas\Documents\GitHub\RH_CV9\RH_CV\obj\Release\net7.0\refint\RH_CV
 C:\Users\psistemas\Documents\GitHub\RH_CV9\RH_CV\obj\Release\net7.0\RH_CV.pdb
 C:\Users\psistemas\Documents\GitHub\RH_CV9\RH_CV\obj\Release\net7.0\RH_CV.genruntimeconfig.cache
 C:\Users\psistemas\Documents\GitHub\RH_CV9\RH_CV\obj\Release\net7.0\ref\RH_CV.dll
+C:\Users\psistemas\Documents\GitHub\RH_CV9\RH_CV\obj\Release\net7.0\scopedcss\Views\ManageUsers\ChangePassword.cshtml.rz.scp.css
