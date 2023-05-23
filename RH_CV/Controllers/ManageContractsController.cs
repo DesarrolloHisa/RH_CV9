@@ -229,6 +229,7 @@ namespace RH_CV.Controllers
                 _contexto.TipoCargo.Find(contrato.TipoCargoId);
                 _contexto.EPS.Find(contrato.EPSId);
                 _contexto.FondoPensiones.Find(contrato.FondoPensionesId);
+                _contexto.FondoCesantias.Find(contrato.FondoCesantiasId);
                 _contexto.TipoContrato.Find(contrato.TipoContratoId);
                 //var empleados = _contexto.Empleado.Find(_contexto.Contrato
                 //      .Where(id => id. == datosPersonales.UsuarioId)
