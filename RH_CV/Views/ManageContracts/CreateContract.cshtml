@@ -188,7 +188,7 @@
 
                                             <div class="form-outline mb-2 col-md-4">
                                                 <label>Fecha de Ingreso</label>
-                                                <input type="date" asp-for="FechaIngreso" class="form-control is-invalid" id="fechaIngreso" required />
+                                                <input type="date" asp-for="FechaIngreso" class="form-control is-invalid" onblur="calcularTiempoVinculacion()" id="fechaIngreso" required />
                                             </div>
 
                                             <div class="form-outline mb-2 col-md-4">
@@ -249,17 +249,46 @@
         return true;
     }
 
+    //function calcularTiempoVinculacion() {
+    //    const fechaIngreso = moment(document.getElementById("fechaIngreso").value);
+    //    const fechaRetiro = moment(document.getElementById("fechaRetiro").value);
+
+    //    // Verificar que la fecha de retiro no sea nula
+    //    if (!fechaIngreso.isValid()) {
+    //        document.getElementById("fechaRetiro").value = "";
+    //        return;
+    //    }
+
+    //    const duracion = moment.duration(fechaRetiro.diff(fechaIngreso));
+
+    //    const anios = duracion.years();
+    //    const meses = duracion.months();
+    //    const dias = duracion.days();
+
+    //    const tiempoVinculacion = `${anios} años, ${meses} meses y ${dias} días`;
+    //    document.getElementById("TiempoVinculacion").value = tiempoVinculacion;
+    //}
+
+    //var fechaActual = new Date().toISOString().split('T')[0];
+    //document.getElementById("fechaIngreso").setAttribute("max", fechaActual);
+
     function calcularTiempoVinculacion() {
         const fechaIngreso = moment(document.getElementById("fechaIngreso").value);
         const fechaRetiro = moment(document.getElementById("fechaRetiro").value);
 
-        // Verificar que la fecha de retiro no sea nula
+        // Verificar que la fecha de ingreso no sea nula
         if (!fechaIngreso.isValid()) {
             document.getElementById("fechaRetiro").value = "";
             return;
         }
 
-        const duracion = moment.duration(fechaRetiro.diff(fechaIngreso));
+        let duracion;
+        if (fechaRetiro.isValid()) {
+            duracion = moment.duration(fechaRetiro.diff(fechaIngreso));
+        } else {
+            const fechaActual = moment();
+            duracion = moment.duration(fechaActual.diff(fechaIngreso));
+        }
 
         const anios = duracion.years();
         const meses = duracion.months();
@@ -269,6 +298,6 @@
         document.getElementById("TiempoVinculacion").value = tiempoVinculacion;
     }
 
-    var fechaActual = new Date().toISOString().split('T')[0];
+    const fechaActual = new Date().toISOString().split("T")[0];
     document.getElementById("fechaIngreso").setAttribute("max", fechaActual);
 </script>

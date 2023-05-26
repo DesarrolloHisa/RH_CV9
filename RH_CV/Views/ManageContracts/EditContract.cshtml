@@ -268,13 +268,19 @@
         const fechaIngreso = moment(document.getElementById("fechaIngreso").value);
         const fechaRetiro = moment(document.getElementById("fechaRetiro").value);
 
-        // Verificar que la fecha de retiro no sea nula
+        // Verificar que la fecha de ingreso no sea nula
         if (!fechaIngreso.isValid()) {
             document.getElementById("fechaRetiro").value = "";
             return;
         }
 
-        const duracion = moment.duration(fechaRetiro.diff(fechaIngreso));
+        let duracion;
+        if (fechaRetiro.isValid()) {
+            duracion = moment.duration(fechaRetiro.diff(fechaIngreso));
+        } else {
+            const fechaActual = moment();
+            duracion = moment.duration(fechaActual.diff(fechaIngreso));
+        }
 
         const anios = duracion.years();
         const meses = duracion.months();
@@ -284,6 +290,6 @@
         document.getElementById("TiempoVinculacion").value = tiempoVinculacion;
     }
 
-    var fechaActual = new Date().toISOString().split('T')[0];
+    const fechaActual = new Date().toISOString().split("T")[0];
     document.getElementById("fechaIngreso").setAttribute("max", fechaActual);
 </script>
