@@ -5,7 +5,7 @@
 				<div class="contenedor">
                     @if (ViewData["UserRol"] == "Admin" || ViewData["UserRol"] == "Observador")
                     {
-                        <a href="@Url.Action("AllHV","ManageHV")">Administrar HV</a>
+                        <a href="@Url.Action("AllHV","ManageHV")">Hojas de Vida</a>
                         @*<a href="@Url.Action("AllHV","ManageHV")" class="btn btn-1">
                             <span class="elementor-button-content-wrapper">
                                 <span class="elementor-button-text"><b>Administrar HV</b></span>
@@ -14,7 +14,7 @@
                     }else{
                         <a href="@Url.Action("MyHV","ManageHV")" class="btn btn-1">
                             <span class="elementor-button-content-wrapper">
-                                <span class="elementor-button-text"><b>Administrar HV</b></span>
+                                <span class="elementor-button-text"><b>Hoja de Vida</b></span>
                             </span>
                         </a>
                         <a href="@Url.Action("ChangePassword","ManageUsers")" class="btn btn-1">

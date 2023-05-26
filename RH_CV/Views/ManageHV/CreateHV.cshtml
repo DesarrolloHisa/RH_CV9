@@ -407,6 +407,46 @@ For more information on enabling MVC for empty projects, visit https://go.micros
                                 </select>
                             </div>
                             <div class="col-md-3" id="municipioNacimiento">
+                                <label>Departamento de nacimiento</label>
+                                @*<select asp-for="TipoDocumento" asp-items="@ViewBag.Documentos" class="form-control"></select>*@
+                                <select asp-for="DepartamentoNacimiento" class="form-select" disabled id="f18">
+                                    <option value="">Seleccionar</option>
+                                    <option value="Amazonas">Amazonas</option>
+                                    <option value="Antioquia">Antioquia</option>
+                                    <option value="Arauca">Arauca</option>
+                                    <option value="Atlántico">Atlántico</option>
+                                    <option value="Bolívar">Bolívar</option>
+                                    <option value="Boyacá">Boyacá</option>
+                                    <option value="Caldas">Caldas</option>
+                                    <option value="Caquetá">Caquetá</option>
+                                    <option value="Casanare">Casanare</option>
+                                    <option value="Cauca">Cauca</option>
+                                    <option value="Cesar">Cesar</option>
+                                    <option value="Chocó">Chocó</option>
+                                    <option value="Córdoba">Córdoba</option>
+                                    <option value="Cundinamarca">Cundinamarca</option>
+                                    <option value="Guainía">Guainía</option>
+                                    <option value="Guaviare">Guaviare</option>
+                                    <option value="Huila">Huila</option>
+                                    <option value="La Guajira">La Guajira</option>
+                                    <option value="Magdalena">Magdalena</option>
+                                    <option value="Meta">Meta</option>
+                                    <option value="Nariño">Nariño</option>
+                                    <option value="Norte de Santander">Norte de Santander</option>
+                                    <option value="Putumayo">Putumayo</option>
+                                    <option value="Quindío">Quindío</option>
+                                    <option value="Risaralda">Risaralda</option>
+                                    <option value="San Andrés y Providencia">San Andrés y Providencia</option>
+                                    <option value="Santander">Santander</option>
+                                    <option value="Sucre">Sucre</option>
+                                    <option value="Tolima">Tolima</option>
+                                    <option value="Valle del Cauca">Valle del Cauca</option>
+                                    <option value="Vaupés">Vaupés</option>
+                                    <option value="Vichada">Vichada</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3" id="div5">
+                                <div class="col-md-3" id="municipioNacimiento">
                                 <label>Municipio de nacimiento</label>
                                 @*<select asp-for="TipoDocumento" asp-items="@ViewBag.Documentos" class="form-control"></select>*@
                                 <select asp-for="MunicipioNacimiento" class="form-select" disabled id="f18">
@@ -428,9 +468,6 @@ For more information on enabling MVC for empty projects, visit https://go.micros
                                     <option value="Agustín Codazzi">Agustín Codazzi</option>
                                     <option value="Aipe">Aipe</option>
                                     <option value="Albán">Albán</option>
-                                    <option value="Albán">Albán</option>
-                                    <option value="Albania">Albania</option>
-                                    <option value="Albania">Albania</option>
                                     <option value="Albania">Albania</option>
                                     <option value="Alcalá">Alcalá</option>
                                     <option value="Aldana">Aldana</option>
@@ -475,11 +512,8 @@ For more information on enabling MVC for empty projects, visit https://go.micros
                                     <option value="Arcabuco">Arcabuco</option>
                                     <option value="Arenal">Arenal</option>
                                     <option value="Argelia">Argelia</option>
-                                    <option value="Argelia">Argelia</option>
-                                    <option value="Argelia">Argelia</option>
                                     <option value="Ariguaní">Ariguaní</option>
                                     <option value="Arjona">Arjona</option>
-                                    <option value="Armenia">Armenia</option>
                                     <option value="Armenia">Armenia</option>
                                     <option value="Armero">Armero</option>
                                     <option value="Arroyohondo">Arroyohondo</option>
@@ -491,11 +525,9 @@ For more information on enabling MVC for empty projects, visit https://go.micros
                                     <option value="Bahía Solano">Bahía Solano</option>
                                     <option value="Bajo Baudó">Bajo Baudó</option>
                                     <option value="Balboa">Balboa</option>
-                                    <option value="Balboa">Balboa</option>
                                     <option value="Baranoa">Baranoa</option>
                                     <option value="Baraya">Baraya</option>
                                     <option value="Barbacoas">Barbacoas</option>
-                                    <option value="Barbosa">Barbosa</option>
                                     <option value="Barbosa">Barbosa</option>
                                     <option value="Barichara">Barichara</option>
                                     <option value="Barranca de Upía">Barranca de Upía</option>
@@ -507,7 +539,6 @@ For more information on enabling MVC for empty projects, visit https://go.micros
                                     <option value="Becerril">Becerril</option>
                                     <option value="Belalcázar">Belalcázar</option>
                                     <option value="Belén">Belén</option>
-                                    <option value="Belén">Belén</option>
                                     <option value="Belén de Bajirá">Belén de Bajirá</option>
                                     <option value="Belén de Los Andaquies">Belén de Los Andaquies</option>
                                     <option value="Belén de Umbría">Belén de Umbría</option>
@@ -518,7 +549,6 @@ For more information on enabling MVC for empty projects, visit https://go.micros
                                     <option value="Betania">Betania</option>
                                     <option value="Betéitiva">Betéitiva</option>
                                     <option value="Betulia">Betulia</option>
-                                    <option value="Betulia">Betulia</option>
                                     <option value="Bituima">Bituima</option>
                                     <option value="Boavita">Boavita</option>
                                     <option value="Bochalema">Bochalema</option>
@@ -526,18 +556,12 @@ For more information on enabling MVC for empty projects, visit https://go.micros
                                     <option value="Bojacá">Bojacá</option>
                                     <option value="Bojaya">Bojaya</option>
                                     <option value="Bolívar">Bolívar</option>
-                                    <option value="Bolívar">Bolívar</option>
-                                    <option value="Bolívar">Bolívar</option>
                                     <option value="Bosconia">Bosconia</option>
                                     <option value="Boyacá">Boyacá</option>
-                                    <option value="Briceño">Briceño</option>
                                     <option value="Briceño">Briceño</option>
                                     <option value="Bucaramanga">Bucaramanga</option>
                                     <option value="Bucarasica">Bucarasica</option>
                                     <option value="Buenaventura">Buenaventura</option>
-                                    <option value="Buenavista">Buenavista</option>
-                                    <option value="Buenavista">Buenavista</option>
-                                    <option value="Buenavista">Buenavista</option>
                                     <option value="Buenavista">Buenavista</option>
                                     <option value="Buenos Aires">Buenos Aires</option>
                                     <option value="Buesaco">Buesaco</option>
@@ -545,7 +569,6 @@ For more information on enabling MVC for empty projects, visit https://go.micros
                                     <option value="Bugalagrande">Bugalagrande</option>
                                     <option value="Buriticá">Buriticá</option>
                                     <option value="Busbanzá">Busbanzá</option>
-                                    <option value="Cabrera">Cabrera</option>
                                     <option value="Cabrera">Cabrera</option>
                                     <option value="Cabuyaro">Cabuyaro</option>
                                     <option value="Cacahual">Cacahual</option>
@@ -560,9 +583,7 @@ For more information on enabling MVC for empty projects, visit https://go.micros
                                     <option value="Cajibío">Cajibío</option>
                                     <option value="Cajicá">Cajicá</option>
                                     <option value="Calamar">Calamar</option>
-                                    <option value="Calamar">Calamar</option>
                                     <option value="Calarca">Calarca</option>
-                                    <option value="Caldas">Caldas</option>
                                     <option value="Caldas">Caldas</option>
                                     <option value="Caldono">Caldono</option>
                                     <option value="Cali">Cali</option>
@@ -575,7 +596,6 @@ For more information on enabling MVC for empty projects, visit https://go.micros
                                     <option value="Campohermoso">Campohermoso</option>
                                     <option value="Canalete">Canalete</option>
                                     <option value="Cañasgordas">Cañasgordas</option>
-                                    <option value="Candelaria">Candelaria</option>
                                     <option value="Candelaria">Candelaria</option>
                                     <option value="Cantagallo">Cantagallo</option>
                                     <option value="Caparrapí">Caparrapí</option>
@@ -647,12 +667,9 @@ For more information on enabling MVC for empty projects, visit https://go.micros
                                     <option value="Cogua">Cogua</option>
                                     <option value="Colombia">Colombia</option>
                                     <option value="Colón">Colón</option>
-                                    <option value="Colón">Colón</option>
                                     <option value="Coloso">Coloso</option>
                                     <option value="Cómbita">Cómbita</option>
                                     <option value="Concepción">Concepción</option>
-                                    <option value="Concepción">Concepción</option>
-                                    <option value="Concordia">Concordia</option>
                                     <option value="Concordia">Concordia</option>
                                     <option value="Condoto">Condoto</option>
                                     <option value="Confines">Confines</option>
@@ -662,8 +679,6 @@ For more information on enabling MVC for empty projects, visit https://go.micros
                                     <option value="Convención">Convención</option>
                                     <option value="Copacabana">Copacabana</option>
                                     <option value="Coper">Coper</option>
-                                    <option value="Córdoba">Córdoba</option>
-                                    <option value="Córdoba">Córdoba</option>
                                     <option value="Córdoba">Córdoba</option>
                                     <option value="Corinto">Corinto</option>
                                     <option value="Coromoro">Coromoro</option>
@@ -731,8 +746,6 @@ For more information on enabling MVC for empty projects, visit https://go.micros
                                     <option value="El Paujil">El Paujil</option>
                                     <option value="El Peñol">El Peñol</option>
                                     <option value="El Peñón">El Peñón</option>
-                                    <option value="El Peñón">El Peñón</option>
-                                    <option value="El Peñón">El Peñón</option>
                                     <option value="El Piñon">El Piñon</option>
                                     <option value="El Playón">El Playón</option>
                                     <option value="El Retén">El Retén</option>
@@ -742,7 +755,6 @@ For more information on enabling MVC for empty projects, visit https://go.micros
                                     <option value="El Rosario">El Rosario</option>
                                     <option value="El Santuario">El Santuario</option>
                                     <option value="El Tablón de Gómez">El Tablón de Gómez</option>
-                                    <option value="El Tambo">El Tambo</option>
                                     <option value="El Tambo">El Tambo</option>
                                     <option value="El Tarra">El Tarra</option>
                                     <option value="El Zulia">El Zulia</option>
@@ -758,7 +770,6 @@ For more information on enabling MVC for empty projects, visit https://go.micros
                                     <option value="Filandia">Filandia</option>
                                     <option value="Firavitoba">Firavitoba</option>
                                     <option value="Flandes">Flandes</option>
-                                    <option value="Florencia">Florencia</option>
                                     <option value="Florencia">Florencia</option>
                                     <option value="Floresta">Floresta</option>
                                     <option value="Florián">Florián</option>
@@ -802,20 +813,15 @@ For more information on enabling MVC for empty projects, visit https://go.micros
                                     <option value="González">González</option>
                                     <option value="Gramalote">Gramalote</option>
                                     <option value="Granada">Granada</option>
-                                    <option value="Granada">Granada</option>
-                                    <option value="Granada">Granada</option>
                                     <option value="Guaca">Guaca</option>
                                     <option value="Guacamayas">Guacamayas</option>
                                     <option value="Guacarí">Guacarí</option>
                                     <option value="Guachetá">Guachetá</option>
                                     <option value="Guachucal">Guachucal</option>
                                     <option value="Guadalupe">Guadalupe</option>
-                                    <option value="Guadalupe">Guadalupe</option>
-                                    <option value="Guadalupe">Guadalupe</option>
                                     <option value="Guaduas">Guaduas</option>
                                     <option value="Guaitarilla">Guaitarilla</option>
                                     <option value="Gualmatán">Gualmatán</option>
-                                    <option value="Guamal">Guamal</option>
                                     <option value="Guamal">Guamal</option>
                                     <option value="Guamo">Guamo</option>
                                     <option value="Guapi">Guapi</option>
@@ -864,7 +870,6 @@ For more information on enabling MVC for empty projects, visit https://go.micros
                                     <option value="Jardín">Jardín</option>
                                     <option value="Jenesano">Jenesano</option>
                                     <option value="Jericó">Jericó</option>
-                                    <option value="Jericó">Jericó</option>
                                     <option value="Jerusalén">Jerusalén</option>
                                     <option value="Jesús María">Jesús María</option>
                                     <option value="Jordán">Jordán</option>
@@ -896,7 +901,6 @@ For more information on enabling MVC for empty projects, visit https://go.micros
                                     <option value="La Montañita">La Montañita</option>
                                     <option value="La Palma">La Palma</option>
                                     <option value="La Paz">La Paz</option>
-                                    <option value="La Paz">La Paz</option>
                                     <option value="La pedrera">La pedrera</option>
                                     <option value="La Peña">La Peña</option>
                                     <option value="La Pintada">La Pintada</option>
@@ -908,15 +912,9 @@ For more information on enabling MVC for empty projects, visit https://go.micros
                                     <option value="La Tebaida">La Tebaida</option>
                                     <option value="La Tola">La Tola</option>
                                     <option value="La Unión">La Unión</option>
-                                    <option value="La Unión">La Unión</option>
-                                    <option value="La Unión">La Unión</option>
-                                    <option value="La Unión">La Unión</option>
                                     <option value="La Uvita">La Uvita</option>
                                     <option value="La Vega">La Vega</option>
-                                    <option value="La Vega">La Vega</option>
                                     <option value="La Victoria">La Victoria</option>
-                                    <option value="La Victoria">La Victoria</option>
-                                    <option value="La victoria">La victoria</option>
                                     <option value="La Virginia">La Virginia</option>
                                     <option value="Labateca">Labateca</option>
                                     <option value="Labranzagrande">Labranzagrande</option>
@@ -956,7 +954,6 @@ For more information on enabling MVC for empty projects, visit https://go.micros
                                     <option value="Mallama">Mallama</option>
                                     <option value="Manatí">Manatí</option>
                                     <option value="Manaure">Manaure</option>
-                                    <option value="Manaure">Manaure</option>
                                     <option value="Maní">Maní</option>
                                     <option value="Manizales">Manizales</option>
                                     <option value="Manta">Manta</option>
@@ -982,7 +979,6 @@ For more information on enabling MVC for empty projects, visit https://go.micros
                                     <option value="Mesetas">Mesetas</option>
                                     <option value="Milán">Milán</option>
                                     <option value="Miraflores">Miraflores</option>
-                                    <option value="Miraflores">Miraflores</option>
                                     <option value="Miranda">Miranda</option>
                                     <option value="Miriti Paraná">Miriti Paraná</option>
                                     <option value="Mistrató">Mistrató</option>
@@ -1003,11 +999,9 @@ For more information on enabling MVC for empty projects, visit https://go.micros
                                     <option value="Montería">Montería</option>
                                     <option value="Monterrey">Monterrey</option>
                                     <option value="Morales">Morales</option>
-                                    <option value="Morales">Morales</option>
                                     <option value="Morelia">Morelia</option>
                                     <option value="Morichal">Morichal</option>
                                     <option value="Morroa">Morroa</option>
-                                    <option value="Mosquera">Mosquera</option>
                                     <option value="Mosquera">Mosquera</option>
                                     <option value="Motavita">Motavita</option>
                                     <option value="Murillo">Murillo</option>
@@ -1015,8 +1009,6 @@ For more information on enabling MVC for empty projects, visit https://go.micros
                                     <option value="Mutatá">Mutatá</option>
                                     <option value="Mutiscua">Mutiscua</option>
                                     <option value="Muzo">Muzo</option>
-                                    <option value="Nariño">Nariño</option>
-                                    <option value="Nariño">Nariño</option>
                                     <option value="Nariño">Nariño</option>
                                     <option value="Nátaga">Nátaga</option>
                                     <option value="Natagaima">Natagaima</option>
@@ -1063,7 +1055,6 @@ For more information on enabling MVC for empty projects, visit https://go.micros
                                     <option value="Paipa">Paipa</option>
                                     <option value="Pajarito">Pajarito</option>
                                     <option value="Palermo">Palermo</option>
-                                    <option value="Palestina">Palestina</option>
                                     <option value="Palestina">Palestina</option>
                                     <option value="Palmar">Palmar</option>
                                     <option value="Palmar de Varela">Palmar de Varela</option>
@@ -1118,7 +1109,6 @@ For more information on enabling MVC for empty projects, visit https://go.micros
                                     <option value="Pradera">Pradera</option>
                                     <option value="Prado">Prado</option>
                                     <option value="Providencia">Providencia</option>
-                                    <option value="Providencia">Providencia</option>
                                     <option value="Pueblo Bello">Pueblo Bello</option>
                                     <option value="Pueblo Nuevo">Pueblo Nuevo</option>
                                     <option value="Pueblo Rico">Pueblo Rico</option>
@@ -1134,7 +1124,6 @@ For more information on enabling MVC for empty projects, visit https://go.micros
                                     <option value="Puerto Caicedo">Puerto Caicedo</option>
                                     <option value="Puerto Carreño">Puerto Carreño</option>
                                     <option value="Puerto Colombia">Puerto Colombia</option>
-                                    <option value="Puerto Colombia">Puerto Colombia</option>
                                     <option value="Puerto Concordia">Puerto Concordia</option>
                                     <option value="Puerto Escondido">Puerto Escondido</option>
                                     <option value="Puerto Gaitán">Puerto Gaitán</option>
@@ -1146,10 +1135,8 @@ For more information on enabling MVC for empty projects, visit https://go.micros
                                     <option value="Puerto Nariño">Puerto Nariño</option>
                                     <option value="Puerto Parra">Puerto Parra</option>
                                     <option value="Puerto Rico">Puerto Rico</option>
-                                    <option value="Puerto Rico">Puerto Rico</option>
                                     <option value="Puerto Rondón">Puerto Rondón</option>
                                     <option value="Puerto Salgar">Puerto Salgar</option>
-                                    <option value="Puerto Santander">Puerto Santander</option>
                                     <option value="Puerto Santander">Puerto Santander</option>
                                     <option value="Puerto Tejada">Puerto Tejada</option>
                                     <option value="Puerto Triunfo">Puerto Triunfo</option>
@@ -1175,9 +1162,7 @@ For more information on enabling MVC for empty projects, visit https://go.micros
                                     <option value="Remolino">Remolino</option>
                                     <option value="Repelón">Repelón</option>
                                     <option value="Restrepo">Restrepo</option>
-                                    <option value="Restrepo">Restrepo</option>
                                     <option value="Retiro">Retiro</option>
-                                    <option value="Ricaurte">Ricaurte</option>
                                     <option value="Ricaurte">Ricaurte</option>
                                     <option value="Río de Oro">Río de Oro</option>
                                     <option value="Río Iro">Río Iro</option>
@@ -1187,8 +1172,6 @@ For more information on enabling MVC for empty projects, visit https://go.micros
                                     <option value="Riofrío">Riofrío</option>
                                     <option value="Riohacha">Riohacha</option>
                                     <option value="Rionegro">Rionegro</option>
-                                    <option value="Rionegro">Rionegro</option>
-                                    <option value="Riosucio">Riosucio</option>
                                     <option value="Riosucio">Riosucio</option>
                                     <option value="Risaralda">Risaralda</option>
                                     <option value="Rivera">Rivera</option>
@@ -1201,8 +1184,6 @@ For more information on enabling MVC for empty projects, visit https://go.micros
                                     <option value="Sabana de Torres">Sabana de Torres</option>
                                     <option value="Sabanagrande">Sabanagrande</option>
                                     <option value="Sabanalarga">Sabanalarga</option>
-                                    <option value="Sabanalarga">Sabanalarga</option>
-                                    <option value="Sabanalarga">Sabanalarga</option>
                                     <option value="Sabanas de San Angel">Sabanas de San Angel</option>
                                     <option value="Sabaneta">Sabaneta</option>
                                     <option value="Saboyá">Saboyá</option>
@@ -1210,7 +1191,6 @@ For more information on enabling MVC for empty projects, visit https://go.micros
                                     <option value="Sáchica">Sáchica</option>
                                     <option value="Sahagún">Sahagún</option>
                                     <option value="Saladoblanco">Saladoblanco</option>
-                                    <option value="Salamina">Salamina</option>
                                     <option value="Salamina">Salamina</option>
                                     <option value="Salazar">Salazar</option>
                                     <option value="Saldaña">Saldaña</option>
@@ -1223,8 +1203,6 @@ For more information on enabling MVC for empty projects, visit https://go.micros
                                     <option value="San Agustín">San Agustín</option>
                                     <option value="San Alberto">San Alberto</option>
                                     <option value="San Andrés">San Andrés</option>
-                                    <option value="San Andrés">San Andrés</option>
-                                    <option value="San Andrés">San Andrés</option>
                                     <option value="San Andrés Sotavento">San Andrés Sotavento</option>
                                     <option value="San Antero">San Antero</option>
                                     <option value="San Antonio">San Antonio</option>
@@ -1232,13 +1210,10 @@ For more information on enabling MVC for empty projects, visit https://go.micros
                                     <option value="San Benito">San Benito</option>
                                     <option value="San Benito Abad">San Benito Abad</option>
                                     <option value="San Bernardo">San Bernardo</option>
-                                    <option value="San Bernardo">San Bernardo</option>
                                     <option value="San Bernardo del Viento">San Bernardo del Viento</option>
                                     <option value="San Calixto">San Calixto</option>
                                     <option value="San Carlos">San Carlos</option>
-                                    <option value="San Carlos">San Carlos</option>
                                     <option value="San Carlos de Guaroa">San Carlos de Guaroa</option>
-                                    <option value="San Cayetano">San Cayetano</option>
                                     <option value="San Cayetano">San Cayetano</option>
                                     <option value="San Cristóbal">San Cristóbal</option>
                                     <option value="San Diego">San Diego</option>
@@ -1246,8 +1221,6 @@ For more information on enabling MVC for empty projects, visit https://go.micros
                                     <option value="San Estanislao">San Estanislao</option>
                                     <option value="San Felipe">San Felipe</option>
                                     <option value="San Fernando">San Fernando</option>
-                                    <option value="San Francisco">San Francisco</option>
-                                    <option value="San Francisco">San Francisco</option>
                                     <option value="San Francisco">San Francisco</option>
                                     <option value="San Gil">San Gil</option>
                                     <option value="San Jacinto">San Jacinto</option>
@@ -1270,23 +1243,17 @@ For more information on enabling MVC for empty projects, visit https://go.micros
                                     <option value="San Juanito">San Juanito</option>
                                     <option value="San Lorenzo">San Lorenzo</option>
                                     <option value="San Luis">San Luis</option>
-                                    <option value="San Luis">San Luis</option>
                                     <option value="San Luis de Gaceno">San Luis de Gaceno</option>
                                     <option value="San Luis de Palenque">San Luis de Palenque</option>
                                     <option value="San Marcos">San Marcos</option>
                                     <option value="San Martín">San Martín</option>
-                                    <option value="San Martín">San Martín</option>
                                     <option value="San Martín de Loba">San Martín de Loba</option>
                                     <option value="San Mateo">San Mateo</option>
-                                    <option value="San Miguel">San Miguel</option>
                                     <option value="San Miguel">San Miguel</option>
                                     <option value="San Miguel de Sema">San Miguel de Sema</option>
                                     <option value="San Onofre">San Onofre</option>
                                     <option value="San Pablo">San Pablo</option>
-                                    <option value="San Pablo">San Pablo</option>
                                     <option value="San Pablo de Borbur">San Pablo de Borbur</option>
-                                    <option value="San Pedro">San Pedro</option>
-                                    <option value="San Pedro">San Pedro</option>
                                     <option value="San Pedro">San Pedro</option>
                                     <option value="San Pedro de Cartago">San Pedro de Cartago</option>
                                     <option value="San Pedro de Uraba">San Pedro de Uraba</option>
@@ -1302,17 +1269,13 @@ For more information on enabling MVC for empty projects, visit https://go.micros
                                     <option value="Sandoná">Sandoná</option>
                                     <option value="Santa Ana">Santa Ana</option>
                                     <option value="Santa Bárbara">Santa Bárbara</option>
-                                    <option value="Santa Bárbara">Santa Bárbara</option>
-                                    <option value="Santa Bárbara">Santa Bárbara</option>
                                     <option value="Santa Bárbara de Pinto">Santa Bárbara de Pinto</option>
                                     <option value="Santa Catalina">Santa Catalina</option>
                                     <option value="Santa Helena del Opón">Santa Helena del Opón</option>
                                     <option value="Santa Isabel">Santa Isabel</option>
                                     <option value="Santa Lucía">Santa Lucía</option>
                                     <option value="Santa María">Santa María</option>
-                                    <option value="Santa María">Santa María</option>
                                     <option value="Santa Marta">Santa Marta</option>
-                                    <option value="Santa Rosa">Santa Rosa</option>
                                     <option value="Santa Rosa">Santa Rosa</option>
                                     <option value="Santa Rosa de Cabal">Santa Rosa de Cabal</option>
                                     <option value="Santa Rosa de Osos">Santa Rosa de Osos</option>
@@ -1324,7 +1287,6 @@ For more information on enabling MVC for empty projects, visit https://go.micros
                                     <option value="Santafé de Antioquia">Santafé de Antioquia</option>
                                     <option value="Santana">Santana</option>
                                     <option value="Santander de Quilichao">Santander de Quilichao</option>
-                                    <option value="Santiago">Santiago</option>
                                     <option value="Santiago">Santiago</option>
                                     <option value="Santiago de Tolú">Santiago de Tolú</option>
                                     <option value="Santo Domingo">Santo Domingo</option>
@@ -1373,11 +1335,8 @@ For more information on enabling MVC for empty projects, visit https://go.micros
                                     <option value="Suaita">Suaita</option>
                                     <option value="Suan">Suan</option>
                                     <option value="Suárez">Suárez</option>
-                                    <option value="Suárez">Suárez</option>
                                     <option value="Suaza">Suaza</option>
                                     <option value="Subachoque">Subachoque</option>
-                                    <option value="Sucre">Sucre</option>
-                                    <option value="Sucre">Sucre</option>
                                     <option value="Sucre">Sucre</option>
                                     <option value="Suesca">Suesca</option>
                                     <option value="Supatá">Supatá</option>
@@ -1431,7 +1390,6 @@ For more information on enabling MVC for empty projects, visit https://go.micros
                                     <option value="Tocancipá">Tocancipá</option>
                                     <option value="Togüí">Togüí</option>
                                     <option value="Toledo">Toledo</option>
-                                    <option value="Toledo">Toledo</option>
                                     <option value="Tolú Viejo">Tolú Viejo</option>
                                     <option value="Tona">Tona</option>
                                     <option value="Tópaga">Tópaga</option>
@@ -1475,11 +1433,9 @@ For more information on enabling MVC for empty projects, visit https://go.micros
                                     <option value="Valle del Guamuez">Valle del Guamuez</option>
                                     <option value="Valledupar">Valledupar</option>
                                     <option value="Valparaíso">Valparaíso</option>
-                                    <option value="Valparaíso">Valparaíso</option>
                                     <option value="Vegachí">Vegachí</option>
                                     <option value="Vélez">Vélez</option>
                                     <option value="Venadillo">Venadillo</option>
-                                    <option value="Venecia">Venecia</option>
                                     <option value="Venecia">Venecia</option>
                                     <option value="Ventaquemada">Ventaquemada</option>
                                     <option value="Vergara">Vergara</option>
@@ -1498,9 +1454,6 @@ For more information on enabling MVC for empty projects, visit https://go.micros
                                     <option value="Villagómez">Villagómez</option>
                                     <option value="Villahermosa">Villahermosa</option>
                                     <option value="Villamaría">Villamaría</option>
-                                    <option value="Villanueva">Villanueva</option>
-                                    <option value="Villanueva">Villanueva</option>
-                                    <option value="Villanueva">Villanueva</option>
                                     <option value="Villanueva">Villanueva</option>
                                     <option value="Villapinzón">Villapinzón</option>
                                     <option value="Villarrica">Villarrica</option>
@@ -1532,9 +1485,9 @@ For more information on enabling MVC for empty projects, visit https://go.micros
                                     <option value="Zipaquirá">Zipaquirá</option>
                                     <option value="Zona Bananera">Zona Bananera</option>
                                     <option value="Otro">Otro</option>
+
                                 </select>
                             </div>
-                            <div class="col-md-3" id="div5">
                                 <label>Sexo</label>
                                 <select asp-for="Sexo" class="form-select" id="f16" required="">
                                     <option value="">Seleccionar</option>
@@ -1604,7 +1557,7 @@ For more information on enabling MVC for empty projects, visit https://go.micros
                             *@
                             <div class="col-md-2" id="d9">
                                 <label>Número</label>
-                                <input asp-for="Direccion.Num2" type="text" placeholder="#" onblur="actualizarDireccion()" class="form-control" id="dir5" value="" required="">
+                                <input asp-for="Direccion.Num2" type="text" placeholder="# 38 c" onblur="actualizarDireccion()" class="form-control" id="dir5" value="" required="">
                             </div>
                             @*
                             <div class="col-md-2" id="d7">
@@ -1623,13 +1576,13 @@ For more information on enabling MVC for empty projects, visit https://go.micros
                             *@
                             <div class="col-md-2" id="d9">
                                 <label></label>
-                                <input asp-for="Direccion.Num3" type="text" placeholder="-" maxlength="10" onblur="actualizarDireccion()" onkeypress="return soloNumeros(event)" class="form-control" id="dir7" value="" required="">
+                                <input asp-for="Direccion.Num3" type="text" placeholder="- 40" maxlength="10" onblur="actualizarDireccion()" onkeypress="return soloNumeros(event)" class="form-control" id="dir7" value="" required="">
                             </div>
                             <div class="col-md-3" id="d9">
                                 <label>Complemento</label>
-                                <input asp-for="Direccion.Complemento" type="text" class="form-control" onblur="actualizarDireccion()" id="dir8" value="">
+                                <input asp-for="Direccion.Complemento" type="text" placeholder="Apto 302" class="form-control" onblur="actualizarDireccion()" id="dir8" value="">
                             </div>
-                            <div class="col-md-5" id="d10">
+                            <div class="col-md-4" id="d10">
                                 <label>Dirección Completa</label>
                                 <input asp-for="Direccion.DireccionCompleta" type="text" class="form-control" id="dir9" required="" readonly>
                             </div>
@@ -1771,6 +1724,10 @@ For more information on enabling MVC for empty projects, visit https://go.micros
                                     <option value="Otro">Otro</option>
                                 </select>
                             </div>
+                            <div class="col-md-3" id="d10">
+                                <label>Barrio de resicencia</label>
+                                <input asp-for="BarrioResidencia" type="text" class="form-control" id="dir9" required="" readonly>
+                            </div>
                         </div>
                         <br>
                         <div class="col-md-3" id="d7">
@@ -1779,19 +1736,19 @@ For more information on enabling MVC for empty projects, visit https://go.micros
                         <div class="row align-items-baseline">
                             <div class="col-md-3">
                                 <label>Hijos</label>
-                                <input asp-for="PersonasACargo.Hijo" type="text" onkeypress="return soloNumeros(event)" class="form-control" id="p2" value="" maxlength="3" required="">
+                                <input asp-for="PersonasACargo.Hijo" type="text" onkeypress="return soloNumeros(event)" placeholder="0" class="form-control" id="p2" value="" maxlength="3" required="">
                             </div>
                             <div class="col-md-3">
                                 <label>Conyugue</label>
-                                <input asp-for="PersonasACargo.Conyugue" type="text" onkeypress="return soloNumeros(event)" class="form-control" id="p2" value="" maxlength="3" required="">
+                                <input asp-for="PersonasACargo.Conyugue" type="text" onkeypress="return soloNumeros(event)" placeholder="0" class="form-control" id="p2" value="" maxlength="3" required="">
                             </div>
                             <div class="col-md-3">
                                 <label>Padres</label>
-                                <input asp-for="PersonasACargo.Padres" type="text" onkeypress="return soloNumeros(event)" class="form-control" id="p2" value="" maxlength="3" required="">
+                                <input asp-for="PersonasACargo.Padres" type="text" onkeypress="return soloNumeros(event)" placeholder="0" class="form-control" id="p2" value="" maxlength="3" required="">
                             </div>
                             <div class="col-md-3">
                                 <label>Otros</label>
-                                <input asp-for="PersonasACargo.Otros" type="text" onkeypress="return soloNumeros(event)" class="form-control" id="p2" value="" maxlength="3" required="">
+                                <input asp-for="PersonasACargo.Otros" type="text" onkeypress="return soloNumeros(event)" placeholder="0" class="form-control" id="p2" value="" maxlength="3" required="">
                             </div>
                         </div>
                         <br>

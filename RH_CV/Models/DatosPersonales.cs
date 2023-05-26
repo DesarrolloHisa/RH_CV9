@@ -36,8 +36,10 @@ namespace RH_CV.Models
         public DateTime FechaNacimiento { get; set; }
         [Required(ErrorMessage = "El país de nacimiento es obligatorio")]
         public string PaisNacimiento { get; set; }
+        public string? DepartamentoNacimiento { get; set; }
+        [Required(ErrorMessage = "El departamento es obligatorio")]
         public string? MunicipioNacimiento { get; set; }
-        [Required(ErrorMessage = "El celular es obligatorio")]
+        [Required(ErrorMessage = "El municipio es obligatorio")]
         public string Celular { get; set; }
         [Required(ErrorMessage = "El email es obligatorio")]
         public string Email { get; set; }
@@ -50,6 +52,8 @@ namespace RH_CV.Models
         public virtual Direccion? Direccion { get; set; }
         [Required(ErrorMessage = "El municipio de residencia es obligatorio")]
         public string MunicipioResidencia { get; set; }
+        [Required(ErrorMessage = "El barrio de residencia es obligatorio")]
+        public string BarrioResidencia { get; set; }
         [Required(ErrorMessage = "El estrato es obligatorio")]
         public int Estrato { get; set; }
 
