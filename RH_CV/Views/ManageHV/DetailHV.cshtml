@@ -183,6 +183,18 @@ For more information on enabling MVC for empty projects, visit https://go.micros
                             @*<select asp-for="TipoDocumento" asp-items="@ViewBag.Departamentos" class="form-control"></select>*@
                             <label class="form-control" id="paisNacimiento" required>@Model.PaisNacimiento</label>
                         </div>
+                        <div class="col-md-3" id="departamentoNacimiento" style="width: 25%;">
+                            <label>Departamento de nacimiento</label>
+                            @*<select asp-for="TipoDocumento" asp-items="@ViewBag.Documentos" class="form-control"></select>*@
+                            @if (string.IsNullOrEmpty(@Model.DepartamentoNacimiento))
+                            {
+                                <label class="form-control" readonly>&nbsp;</label>
+                            }
+                            else
+                            {
+                                <label class="form-control" readonly>@Model.DepartamentoNacimiento</label>
+                            }
+                        </div>
                         <div class="col-md-3" id="municipioNacimiento" style="width: 25%;">
                             <label>Municipio de nacimiento</label>
                             @*<select asp-for="TipoDocumento" asp-items="@ViewBag.Documentos" class="form-control"></select>*@
@@ -236,7 +248,7 @@ For more information on enabling MVC for empty projects, visit https://go.micros
                                 <label class="form-control">@Model.Direccion.Complemento</label>
                             }
                         </div>
-                        <div class="col-md-5" id="d10">
+                        <div class="col-md-4" id="d10">
                             <label>Dirección Completa</label>
                             <label class="form-control">@Model.Direccion.DireccionCompleta</label>
                         </div>
@@ -248,6 +260,11 @@ For more information on enabling MVC for empty projects, visit https://go.micros
                             <label>Municipio de residencia</label>
                             @*<select asp-for="TipoDocumento" asp-items="@ViewBag.Documentos" class="form-control"></select>*@
                             <label class="form-control">@Model.MunicipioResidencia</label>
+                        </div>
+                        <div class="col-md-3" id="div6" style="width: 25%;">
+                            <label>Barrio de residencia</label>
+                            @*<select asp-for="TipoDocumento" asp-items="@ViewBag.Documentos" class="form-control"></select>*@
+                            <label class="form-control">@Model.BarrioResidencia</label>
                         </div>
                     </div>
                     <br>

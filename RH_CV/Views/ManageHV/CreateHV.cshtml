@@ -406,10 +406,10 @@ For more information on enabling MVC for empty projects, visit https://go.micros
                                     <option value="Zimbabue">Zimbabue</option>
                                 </select>
                             </div>
-                            <div class="col-md-3" id="municipioNacimiento">
+                            <div class="col-md-3" id="departamentoNacimiento">
                                 <label>Departamento de nacimiento</label>
                                 @*<select asp-for="TipoDocumento" asp-items="@ViewBag.Documentos" class="form-control"></select>*@
-                                <select asp-for="DepartamentoNacimiento" class="form-select" disabled id="f18">
+                                <select asp-for="DepartamentoNacimiento" class="form-select" disabled id="f118">
                                     <option value="">Seleccionar</option>
                                     <option value="Amazonas">Amazonas</option>
                                     <option value="Antioquia">Antioquia</option>
@@ -1724,9 +1724,9 @@ For more information on enabling MVC for empty projects, visit https://go.micros
                                     <option value="Otro">Otro</option>
                                 </select>
                             </div>
-                            <div class="col-md-3" id="d10">
+                            <div class="col-md-3" id="d110">
                                 <label>Barrio de resicencia</label>
-                                <input asp-for="BarrioResidencia" type="text" class="form-control" id="dir9" required="" readonly>
+                                <input asp-for="BarrioResidencia" type="text" class="form-control" id="f221" required>
                             </div>
                         </div>
                         <br>
@@ -2755,6 +2755,7 @@ For more information on enabling MVC for empty projects, visit https://go.micros
 
         //Ocultar MunicipioNacimiento
         const MunNacDiv = document.getElementById("municipioNacimiento");
+        const DepNacDiv = document.getElementById("departamentoNacimiento");
         const paisNacimiento = document.getElementById("paisNacimiento");
 
         paisNacimiento.addEventListener("change", function () {
@@ -2765,12 +2766,21 @@ For more information on enabling MVC for empty projects, visit https://go.micros
                     select.setAttribute("required", "");
                     select.removeAttribute("disabled");
                 });
+                document.querySelectorAll("#departamentoNacimiento select").forEach((select) => {
+                    select.setAttribute("required", "");
+                    select.removeAttribute("disabled");
+                });
                 //document.querySelectorAll("#Generales select").forEach((select) => {
                 //    select.setAttribute("required", "");
                 //    select.removeAttribute("disabled");
                 //});
             } else{
                 document.querySelectorAll("#municipioNacimiento select").forEach((select) => {
+                        select.value = null;
+                        select.setAttribute("disabled", true);
+                        select.removeAttribute("required");
+                });
+                document.querySelectorAll("#departamentoNacimiento select").forEach((select) => {
                         select.value = null;
                         select.setAttribute("disabled", true);
                         select.removeAttribute("required");

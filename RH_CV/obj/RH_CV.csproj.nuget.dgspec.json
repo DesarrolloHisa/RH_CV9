@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\psistemas\\Documents\\GitHub\\RH_CV9\\RH_CV\\RH_CV.csproj": {}
+    "C:\\Users\\jeffr\\Documents\\GitHub\\RH_CV9\\RH_CV\\RH_CV.csproj": {}
   },
   "projects": {
-    "C:\\Users\\psistemas\\Documents\\GitHub\\RH_CV9\\RH_CV\\RH_CV.csproj": {
+    "C:\\Users\\jeffr\\Documents\\GitHub\\RH_CV9\\RH_CV\\RH_CV.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\psistemas\\Documents\\GitHub\\RH_CV9\\RH_CV\\RH_CV.csproj",
+        "projectUniqueName": "C:\\Users\\jeffr\\Documents\\GitHub\\RH_CV9\\RH_CV\\RH_CV.csproj",
         "projectName": "RH_CV",
-        "projectPath": "C:\\Users\\psistemas\\Documents\\GitHub\\RH_CV9\\RH_CV\\RH_CV.csproj",
-        "packagesPath": "C:\\Users\\psistemas\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\psistemas\\Documents\\GitHub\\RH_CV9\\RH_CV\\obj\\",
+        "projectPath": "C:\\Users\\jeffr\\Documents\\GitHub\\RH_CV9\\RH_CV\\RH_CV.csproj",
+        "packagesPath": "C:\\Users\\jeffr\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\jeffr\\Documents\\GitHub\\RH_CV9\\RH_CV\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "D:\\Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\psistemas\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\jeffr\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -82,7 +86,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     }

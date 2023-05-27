@@ -426,6 +426,32 @@
                                 <table>
                                     <tr>
                                         <td>
+                                            <p>Departamento de nacimiento</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            @if (string.IsNullOrEmpty(@Model.DepartamentoNacimiento))
+                                            {
+                                                <p class="text" @*style="background-color: #e3e4e5;"*@ readonly>&nbsp;</p>
+                                            }
+                                            else
+                                            {
+                                                <p class="text" @*style="background-color: #e3e4e5;"*@ readonly>@Model.DepartamentoNacimiento</p>
+                                            }
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                    <br />
+                    <table style="width:100%">
+                        <tr>
+                            <td>
+                                <table>
+                                    <tr>
+                                        <td>
                                             <p>Municipio de nacimiento</p>
                                         </td>
                                     </tr>
@@ -443,11 +469,6 @@
                                     </tr>
                                 </table>
                             </td>
-                        </tr>
-                    </table>
-                    <br />
-                    <table style="width:70%">
-                        <tr>
                             <td>
                                 <table>
                                     <tr>
