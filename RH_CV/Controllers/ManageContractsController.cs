@@ -202,7 +202,7 @@ namespace RH_CV.Controllers
         public IActionResult DetailContract(int? id)
         {
             string userRol = Utilities.GetRol(HttpContext, _contexto);
-            if (userRol == "Admin")
+            if (userRol == "Admin" || userRol == "Observador")
             {
 
                 object[] drop = Utilities.DropDownList(_contexto);

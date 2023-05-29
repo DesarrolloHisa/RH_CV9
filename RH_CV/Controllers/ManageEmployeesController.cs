@@ -125,7 +125,7 @@ namespace RH_CV.Controllers
         public IActionResult DetailEmployee(int? doc)
         {
             string userRol = Utilities.GetRol(HttpContext, _contexto);
-            if (userRol == "Admin")
+            if (userRol == "Admin" || userRol == "Observador")
             {
                 if (doc == null)
                 {

@@ -2604,7 +2604,7 @@ For more information on enabling MVC for empty projects, visit https://go.micros
                                 <label>Celular</label>
                                 <input asp-for="Celular" type="text" maxlength="10" onkeypress="return soloNumeros(event)" class="form-control" id="f14" required="">
                             </div>
-                            <div class="col-md-4" id="d410">
+                            <div class="col-md-3" id="d410">
                                 <label>Correo</label>
                                 <input asp-for="Email" type="email" class="form-control" id="f15" required="">
                                 <br>
@@ -2682,7 +2682,7 @@ For more information on enabling MVC for empty projects, visit https://go.micros
                                 <label></label>
                                 <input asp-for="Direccion.Num3" type="text" placeholder="-" maxlength="10" onblur="actualizarDireccion()" onkeypress="return soloNumeros(event)" class="form-control" id="dir7" required="">
                             </div>
-                            <div class="col-md-3" id="d9">
+                            <div class="col-md-4" id="d9">
                                 <label>Complemento</label>
                                 <input asp-for="Direccion.Complemento" type="text" class="form-control" onblur="actualizarDireccion()" value="@Model.Direccion.Complemento" id="dir8">
                             </div>
