@@ -42,7 +42,7 @@ For more information on enabling MVC for empty projects, visit https://go.micros
                 <div class="tab-pane fade show active" id="Personal" role="tabpanel" aria-labelledby="home-tab">
                     <form class="was-validated" asp-controller="ManageHV" asp-action="CreateHV" method="post">
                         <input asp-for="UsuarioId" type="hidden" name="UsuarioId" value="@ViewData["idUser"]" />
-                        <div id="divNombreDimension_1" class="col-md-12 alert alert-warning" role="alert" style="text-align:center;background-color:#DE3163;color: #FFFFFF;border-color:#d3255c">
+                        <div id="divNombreDimension_1" class="col-md-12 alert alert-warning" role="alert" style="text-align:center;background-color:#008D88;color: #FFFFFF;border-color:#00800F">
                             <b>Hoja de Vida</b>
                         </div>
                         <div class="row align-items-baseline">
@@ -130,7 +130,7 @@ For more information on enabling MVC for empty projects, visit https://go.micros
                         </div>
                         <br>
                         <br />
-                        <div id="divNombreDimension_2" class="col-md-12 alert alert-warning" role="alert" style="text-align:center;background-color:#DE3163;color: #FFFFFF;border-color:#d3255c">
+                        <div id="divNombreDimension_2" class="col-md-12 alert alert-warning" role="alert" style="text-align:center;background-color:#008D88;color: #FFFFFF;border-color:#00800F">
                             <b>Datos Personales</b>
                         </div>
                         <div class="row align-items-baseline">
@@ -445,8 +445,8 @@ For more information on enabling MVC for empty projects, visit https://go.micros
                                     <option value="Vichada">Vichada</option>
                                 </select>
                             </div>
-                            <div class="col-md-3" id="div5">
-                                <div class="col-md-3" id="municipioNacimiento">
+
+                            <div class="col-md-3" id="municipioNacimiento">
                                 <label>Municipio de nacimiento</label>
                                 @*<select asp-for="TipoDocumento" asp-items="@ViewBag.Documentos" class="form-control"></select>*@
                                 <select asp-for="MunicipioNacimiento" class="form-select" disabled id="f18">
@@ -1488,6 +1488,8 @@ For more information on enabling MVC for empty projects, visit https://go.micros
 
                                 </select>
                             </div>
+
+                            <div class="col-md-3" id="div5">
                                 <label>Sexo</label>
                                 <select asp-for="Sexo" class="form-select" id="f16" required="">
                                     <option value="">Seleccionar</option>
@@ -1496,6 +1498,7 @@ For more information on enabling MVC for empty projects, visit https://go.micros
                                     <option value="Intersexual">Intersexual</option>
                                 </select>
                             </div>
+
                             <div class="col-md-3" id="div8">
                                 <label>Celular</label>
                                 <input asp-for="Celular" type="text" maxlength="10" onkeypress="return soloNumeros(event)" class="form-control" id="f14" value="" required="">
@@ -1868,7 +1871,7 @@ For more information on enabling MVC for empty projects, visit https://go.micros
                         </div>
                         <br>
                         <br>
-                        <div id="divNombreDimension_2" class="col-md-12 alert alert-warning" role="alert" style="text-align:center;background-color:#DE3163;color: #FFFFFF;border-color:#d3255c">
+                        <div id="divNombreDimension_2" class="col-md-12 alert alert-warning" role="alert" style="text-align:center;background-color:#008D88;color: #FFFFFF;border-color:#00800F">
                             <b>Referencias</b>
                         </div>
                         <div class="col-md-2" id="d7">
@@ -2040,7 +2043,7 @@ For more information on enabling MVC for empty projects, visit https://go.micros
                             </table>
                         </div>
                         <br>
-                        <div id="divNombreDimension_2" class="col-md-12 alert alert-warning" role="alert" style="text-align:center;background-color:#DE3163;color: #FFFFFF;border-color:#d3255c">
+                        <div id="divNombreDimension_2" class="col-md-12 alert alert-warning" role="alert" style="text-align:center;background-color:#008D88;color: #FFFFFF;border-color:#00800F">
                             <b>Datos Familiares</b>
                             <br />
                             <label><small>Nombre a las personas con las que vive</small></label>
@@ -2232,7 +2235,7 @@ For more information on enabling MVC for empty projects, visit https://go.micros
                             </div>
                             <br>
                             <br>
-                            <div id="divNombreDimension_2" class="col-md-12 alert alert-warning" role="alert" style="text-align:center;background-color:#DE3163;color: #FFFFFF;border-color:#d3255c">
+                            <div id="divNombreDimension_2" class="col-md-12 alert alert-warning" role="alert" style="text-align:center;background-color:#008D88;color: #FFFFFF;border-color:#00800F">
                                 <b>Escolaridad</b>
                             </div>
                             <div class="row align-items-baseline">
@@ -2329,7 +2332,7 @@ For more information on enabling MVC for empty projects, visit https://go.micros
                                 </div>
                             </div>
                             <br>
-                            <div id="divNombreDimension_2" class="col-md-12 alert alert-warning" role="alert" style="text-align:center;background-color:#DE3163;color: #FFFFFF;border-color:#d3255c">
+                            <div id="divNombreDimension_2" class="col-md-12 alert alert-warning" role="alert" style="text-align:center;background-color:#008D88;color: #FFFFFF;border-color:#00800F">
                                 <b>Informacion Laboral</b>
                             </div>
                             <div class="table-responsive" id="div14">
@@ -2436,7 +2439,7 @@ For more information on enabling MVC for empty projects, visit https://go.micros
 
                             <br>
                             <div id="Generales">
-                                <div id="divNombreDimension_2" class="col-md-12 alert alert-warning" role="alert" style="text-align:center;background-color:#DE3163;color: #FFFFFF;border-color:#d3255c">
+                                <div id="divNombreDimension_2" class="col-md-12 alert alert-warning" role="alert" style="text-align:center;background-color:#008D88;color: #FFFFFF;border-color:#00800F">
                                     <b>Datos Generales</b>
                                 </div>
                                 <div class="row align-items-baseline d-flex align-items-center">
