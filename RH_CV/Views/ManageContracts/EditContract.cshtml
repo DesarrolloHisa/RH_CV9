@@ -282,11 +282,11 @@
             duracion = moment.duration(fechaActual.diff(fechaIngreso));
         }
 
-        const anios = duracion.years();
-        const meses = duracion.months();
-        const dias = duracion.days();
+        const aniosCompletos = Math.floor(duracion.asMonths() / 12);
+        const mesesRestantes = Math.floor(duracion.asMonths() % 12);
+        const diasTotales = Math.ceil(duracion.asDays() % 30.43684992284);
 
-        const tiempoVinculacion = `${anios} años, ${meses} meses y ${dias} días`;
+        const tiempoVinculacion = `${aniosCompletos} años, ${mesesRestantes} meses y ${Math.floor(diasTotales)} días`;
         document.getElementById("TiempoVinculacion").value = tiempoVinculacion;
     }
 
